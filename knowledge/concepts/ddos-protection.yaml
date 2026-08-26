@@ -110,6 +110,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/ddos-protection.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "There is some protection against being flooded off the internet."   # syn.053a
-  - "What happens if someone floods your internet connection?"   # syn.053b
-  - "To what extent is it true that there is some protection against being flooded off the internet?"   # syn.053c
+  - "There is some protection against being flooded off the internet."   # syn.057a
+  - "What happens if someone floods your internet connection?"   # syn.057b
+  - "To what extent is it true that there is some protection against being flooded off the internet?"   # syn.057c

@@ -40,5 +40,5 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/cyber-insurance.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The organisation holds a cyber insurance policy."   # syn.005a
-  - "Do you carry cyber insurance?"   # syn.005b
+  - "The organisation holds a cyber insurance policy."   # syn.009a
+  - "Do you carry cyber insurance?"   # syn.009b

@@ -117,6 +117,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/perimeter-defence.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Traffic in and out of the network passes through a firewall that is configured on purpose."   # syn.055a
-  - "Who decides what your firewall lets through?"   # syn.055b
-  - "To what extent is it true that traffic in and out of the network passes through a firewall that is configured on purpose?"   # syn.055c
+  - "Traffic in and out of the network passes through a firewall that is configured on purpose."   # syn.059a
+  - "Who decides what your firewall lets through?"   # syn.059b
+  - "To what extent is it true that traffic in and out of the network passes through a firewall that is configured on purpose?"   # syn.059c

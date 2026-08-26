@@ -115,6 +115,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/security-policy.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "A written security policy exists and is kept current."   # syn.008a
-  - "Do you have a security policy, and when was it last touched?"   # syn.008b
-  - "To what extent is it true that a written security policy exists and is kept current?"   # syn.008c
+  - "A written security policy exists and is kept current."   # syn.012a
+  - "Do you have a security policy, and when was it last touched?"   # syn.012b
+  - "To what extent is it true that a written security policy exists and is kept current?"   # syn.012c

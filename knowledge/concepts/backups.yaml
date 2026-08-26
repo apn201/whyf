@@ -123,6 +123,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Backups are taken, encrypted, and cover the systems that matter."   # syn.040a
-  - "What do your backups actually cover?"   # syn.040b
-  - "To what extent is it true that backups are taken, encrypted, and cover the systems that matter?"   # syn.040c
+  - "Backups are taken, encrypted, and cover the systems that matter."   # syn.044a
+  - "What do your backups actually cover?"   # syn.044b
+  - "To what extent is it true that backups are taken, encrypted, and cover the systems that matter?"   # syn.044c

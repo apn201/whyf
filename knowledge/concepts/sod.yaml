@@ -93,5 +93,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/sod.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "No single person can complete a sensitive transaction alone."   # syn.028a
-  - "Can one person approve and make a payment on their own?"   # syn.028b
+  - "No single person can complete a sensitive transaction alone."   # syn.032a
+  - "Can one person approve and make a payment on their own?"   # syn.032b

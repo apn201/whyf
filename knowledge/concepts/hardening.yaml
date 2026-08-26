@@ -113,6 +113,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Systems are built from a standard configuration rather than one at a time."   # syn.047a
-  - "Are machines set up the same way every time?"   # syn.047b
-  - "To what extent is it true that systems are built from a standard configuration rather than one at a time?"   # syn.047c
+  - "Systems are built from a standard configuration rather than one at a time."   # syn.051a
+  - "Are machines set up the same way every time?"   # syn.051b
+  - "To what extent is it true that systems are built from a standard configuration rather than one at a time?"   # syn.051c

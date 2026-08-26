@@ -114,6 +114,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/crisis-management.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "There is a named group who take charge when something serious happens."   # syn.071a
-  - "Who takes charge when something serious happens?"   # syn.071b
-  - "To what extent is it true that there is a named group who take charge when something serious happens?"   # syn.071c
+  - "There is a named group who take charge when something serious happens."   # syn.075a
+  - "Who takes charge when something serious happens?"   # syn.075b
+  - "To what extent is it true that there is a named group who take charge when something serious happens?"   # syn.075c

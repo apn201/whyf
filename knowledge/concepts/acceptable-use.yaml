@@ -95,5 +95,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/acceptable-use.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Staff are told in writing what they may and may not do with company equipment."   # syn.002a
-  - "Is there an acceptable use policy staff have seen?"   # syn.002b
+  - "Staff are told in writing what they may and may not do with company equipment."   # syn.006a
+  - "Is there an acceptable use policy staff have seen?"   # syn.006b

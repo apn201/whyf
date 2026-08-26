@@ -108,6 +108,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/improvement.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "What went wrong last time is written down and acted on."   # syn.011a
-  - "Do you write down what you learned after something went wrong?"   # syn.011b
-  - "To what extent is it true that what went wrong last time is written down and acted on?"   # syn.011c
+  - "What went wrong last time is written down and acted on."   # syn.015a
+  - "Do you write down what you learned after something went wrong?"   # syn.015b
+  - "To what extent is it true that what went wrong last time is written down and acted on?"   # syn.015c

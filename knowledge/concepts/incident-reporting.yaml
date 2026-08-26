@@ -111,6 +111,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/incident-reporting.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "There is a decision made in advance about who has to be told, and how fast."   # syn.067a
-  - "Who has to be told if you are breached, and within how long?"   # syn.067b
-  - "To what extent is it true that there is a decision made in advance about who has to be told, and how fast?"   # syn.067c
+  - "There is a decision made in advance about who has to be told, and how fast."   # syn.071a
+  - "Who has to be told if you are breached, and within how long?"   # syn.071b
+  - "To what extent is it true that there is a decision made in advance about who has to be told, and how fast?"   # syn.071c

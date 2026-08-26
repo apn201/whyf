@@ -4,12 +4,12 @@ year: 2017
 sector: logistics
 ot: false                    # did it hit operational technology / a physical process
 
-status: draft               # -> done only when every figure below has a source
+status: done                # every figure below is sourced
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # url not captured yet; the citation is in source_note
+source_url: "https://investor.maersk.com/system/files-encrypted/nasdaq_kms/assets/2018/04/25/13-00-21/A.P._Moller_-_Maersk_Annual_Report_2017.pdf"   # primary source. Company filing or regulator beats press.
 source_note: "A.P. Moller-Maersk 2017 Annual Report, operational risks and cyber-attack section."
 
 one_line: >

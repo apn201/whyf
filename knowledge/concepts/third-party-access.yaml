@@ -117,6 +117,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/third-party-access.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Supplier access to systems is logged and reviewed."   # syn.074a
-  - "Do you know which suppliers logged in last month?"   # syn.074b
-  - "To what extent is it true that supplier access to systems is logged and reviewed?"   # syn.074c
+  - "Supplier access to systems is logged and reviewed."   # syn.078a
+  - "Do you know which suppliers logged in last month?"   # syn.078b
+  - "To what extent is it true that supplier access to systems is logged and reviewed?"   # syn.078c

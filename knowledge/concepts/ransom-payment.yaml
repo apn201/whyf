@@ -1,0 +1,124 @@
+id: ransom-payment
+title: Paying a ransom
+status: done
+class: control
+csf: RS
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Have you decided in advance whether you would pay a ransom, and who gets
+  to make that call.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  People think this is a moral question to be settled on the day. It is a
+  decision to be made on a quiet afternoon, because on the day you will be
+  making it at 3am with the plant down, your lawyer unreachable and somebody
+  quoting a countdown timer at you. The question is not really would you
+  pay. It is: who is allowed to authorise it, what would you need to know
+  first, and have you checked whether paying is even legal for you.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is nothing to buy and it costs an hour. The argument is only against
+  the elaborate version, where this becomes a twelve-page playbook with
+  decision trees. One page: who decides, who they must consult, what has to
+  be true before payment is considered, and the sanctions check. The
+  sanctions check is the part people miss and it is the part that turns a
+  bad day into a criminal matter, because paying an entity under sanctions
+  is an offence regardless of the circumstances.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Authority to consider or authorise any extortion payment is
+  defined and reserved to named individuals, and is subject to legal and
+  sanctions review. Our position is stated below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If ransomware hit tonight, who would be allowed to say yes to paying?"
+  options:
+    - id: named
+      label: "A specific person, and they know it"
+      verdict: already-solved
+      why: >
+        Then write it down with the constraints, including the sanctions check,
+        and you have the whole control. Most companies cannot answer this at all.
+    - id: board
+      label: "It would go to the owners"
+      verdict: write-it-down
+      why: >
+        Fine, but say so in advance and work out how you would reach them at 3am
+        on a Sunday. That contact detail is the control.
+    - id: nobody
+      label: "No idea"
+      verdict: do-it-properly
+      why: >
+        This is an hour of work that will not feel urgent until the worst possible
+        moment. Decide the authority now, and check the sanctions position,
+        because paying a sanctioned entity is an offence whatever the pressure.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 is a full extortion playbook with negotiation support and a
+    pre-agreed cryptocurrency route. That is a service, and buying it in
+    advance mostly signals that you expect to pay. The decision authority, the
+    legal check and a phone number are what change the outcome.
+  rungs:
+    - level: 1
+      gist: "Nobody has thought about it."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Authority named, sanctions position checked, written down."
+      verdict: already-solved
+    - level: 3
+      gist: "Part of a rehearsed incident plan with legal on call."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full playbook with negotiation and payment routes ready."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one page, decided in advance": "€"
+  "legal and sanctions review of the position": "€€"
+  "extortion response retainer": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would not pay. Probably."
+  better: "A written position naming who may authorise and on what basis."
+  strong: "The position, evidence of legal and sanctions review, and the contact route to reach the decision maker out of hours."
+
+answer_risk: warranty
+
+frameworks: [nist-csf-rs.ma-03, nist-csf-gv.po-01, iso27002-5.24]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Somebody has decided in advance who may authorise paying an extortion demand."   # syn.002a
+  - "If ransomware hit tonight, who could say yes to paying?"   # syn.002b
+  - "To what extent is it true that somebody has decided in advance who may authorise paying an extortion demand?"   # syn.002c

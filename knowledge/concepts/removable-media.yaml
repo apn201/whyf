@@ -113,6 +113,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/removable-media.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Use of USB storage is limited to what the work actually needs."   # syn.038a
-  - "Can staff plug a USB stick into a work machine?"   # syn.038b
-  - "To what extent is it true that use of USB storage is limited to what the work actually needs?"   # syn.038c
+  - "Use of USB storage is limited to what the work actually needs."   # syn.042a
+  - "Can staff plug a USB stick into a work machine?"   # syn.042b
+  - "To what extent is it true that use of USB storage is limited to what the work actually needs?"   # syn.042c

@@ -124,6 +124,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/rpo.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The amount of recent work the organisation can afford to lose is decided per system."   # syn.013a
-  - "If everything broke this afternoon, how much work could you afford to lose?"   # syn.013b
-  - "To what extent is it true that the amount of recent work the organisation can afford to lose is decided per system?"   # syn.013c
+  - "The amount of recent work the organisation can afford to lose is decided per system."   # syn.017a
+  - "If everything broke this afternoon, how much work could you afford to lose?"   # syn.017b
+  - "To what extent is it true that the amount of recent work the organisation can afford to lose is decided per system?"   # syn.017c

@@ -1,0 +1,106 @@
+id: dpo
+title: Data Protection Officer
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Have you appointed a Data Protection Officer. A specific role under GDPR,
+  not the same as whoever looks after security.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Two things get muddled here. First, most companies do not need one. GDPR
+  requires a DPO only if you are a public body, or your core activity is
+  large-scale systematic monitoring, or large-scale processing of special
+  category data. A normal supplier processing customer contact details is
+  none of those. Second, the DPO cannot be the person who decides how data
+  gets used. That is a conflict of interest written into the regulation, so
+  the CEO, the head of IT and the head of marketing are all disqualified.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If you are not required to have one, appointing one anyway is a mistake
+  dressed as diligence. Once you name a DPO and tell the supervisory
+  authority, you have taken on the whole apparatus: independence, protection
+  from dismissal over their advice, resourcing, a reporting line to the top.
+  Companies do this to look good on a questionnaire and then discover they
+  cannot fire somebody. Work out whether you need one. If you do not, say so
+  and name whoever actually owns data protection instead.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [processes_personal_data, operates_in_eu]
+applies_never_if: [no_eu_operations]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not required. We have assessed our processing against Article 37(1) GDPR
+  and do not meet the criteria for mandatory designation. Responsibility for
+  data protection is assigned and is stated below.
+
+default_verdict: need-one-fact
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Is watching people, or handling health or biometric data, the main thing you do?"
+  options:
+    - id: no
+      label: "No, we just have normal customer data"
+      verdict: not-applicable
+      why: >
+        Then you almost certainly do not need a DPO. Say that you assessed it
+        against Article 37 and name whoever owns data protection instead. That is
+        a complete answer.
+    - id: yes
+      label: "Yes, at scale"
+      verdict: do-it-properly
+      why: >
+        Then it is a legal requirement, not a control choice, and the independence
+        rules matter. This is a conversation with a lawyer rather than with your
+        IT provider.
+    - id: unsure
+      label: "Not sure"
+      verdict: need-one-fact
+      why: >
+        Read Article 37(1). It is three bullet points and it takes ten minutes.
+        Getting this wrong in either direction is expensive.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "assess whether you need one, write it down": "€"
+  "name an internal owner who is not conflicted": "€"
+  "external DPO on retainer": "€€€"
+  "employ one": "€€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 0
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Somebody deals with data protection."
+  better: "A written assessment against Article 37 with the conclusion."
+  strong: "The assessment, the named owner, and where a DPO is required, the notification to the supervisory authority."
+
+answer_risk: certification
+
+frameworks: [gdpr-art30, nist-csf-gv.rr-02]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A data protection officer has been appointed where the law requires one."   # syn.001a
+  - "Does anyone here have data protection as their actual job?"   # syn.001b

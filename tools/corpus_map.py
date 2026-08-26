@@ -69,6 +69,13 @@ except ImportError:
 # names for the things questionnaires ask about. No source wording here -
 # the matching rules that carry it are in private/rules.py.
 CATALOG = [
+    # Added after testing against realistic questions rather than against the
+    # three source questionnaires. See tools/content/part7_gaps.py.
+    ("dpo", "Data Protection Officer", "GV", "control"),
+    ("ransom-payment", "Paying a ransom", "RS", "control"),
+    ("clean-desk", "Clean desk and clear screen", "PR", "control"),
+    ("ai-governance", "AI tools and AI policy", "GV", "control"),
+
     ("company-profile", "Company profile questions", "ID", "admin"),
     ("incident-history", "Past incident disclosure", "ID", "disclosure"),
     ("certification", "Security certification", "ID", "attestation"),

@@ -110,6 +110,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/bia.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The organisation has worked out which processes must come back first."   # syn.042a
-  - "Which part of the business has to come back first?"   # syn.042b
-  - "To what extent is it true that the organisation has worked out which processes must come back first?"   # syn.042c
+  - "The organisation has worked out which processes must come back first."   # syn.046a
+  - "Which part of the business has to come back first?"   # syn.046b
+  - "To what extent is it true that the organisation has worked out which processes must come back first?"   # syn.046c

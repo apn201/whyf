@@ -116,6 +116,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Recovery plans are tried out rather than only written."   # syn.043a
-  - "When did you last try restoring from a backup?"   # syn.043b
-  - "To what extent is it true that recovery plans are tried out rather than only written?"   # syn.043c
+  - "Recovery plans are tried out rather than only written."   # syn.047a
+  - "When did you last try restoring from a backup?"   # syn.047b
+  - "To what extent is it true that recovery plans are tried out rather than only written?"   # syn.047c

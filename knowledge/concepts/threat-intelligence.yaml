@@ -112,6 +112,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/threat-intelligence.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Somebody watches for news of attacks relevant to this organisation."   # syn.020a
-  - "Does anyone track threats aimed at your industry?"   # syn.020b
-  - "To what extent is it true that somebody watches for news of attacks relevant to this organisation?"   # syn.020c
+  - "Somebody watches for news of attacks relevant to this organisation."   # syn.024a
+  - "Does anyone track threats aimed at your industry?"   # syn.024b
+  - "To what extent is it true that somebody watches for news of attacks relevant to this organisation?"   # syn.024c

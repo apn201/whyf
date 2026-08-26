@@ -1,0 +1,99 @@
+id: clean-desk
+title: Clean desk and clear screen
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a rule about not leaving sensitive things lying around. Paper
+  on desks, whiteboards left written on, screens facing the window.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It gets dismissed as the most trivial line on the form, and it is nearly
+  free, so it is a strange one to fail. What people miss is that most of the
+  risk moved home. A clean desk policy written for an office says nothing
+  about the printed customer list on somebody's kitchen table, or the video
+  call taken in a co-working space with the screen visible to the room.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not buy anything and do not audit desks. The whole control is two lines
+  in the acceptable use policy and a lockable drawer where people need one.
+  Where it genuinely matters is a shared or public space, so write it for
+  that rather than for a room only your own staff can enter.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Requirements for handling information on desks, screens and
+  printed material are set out in our acceptable use policy and extend to
+  remote working.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Where does the printing happen?"
+  options:
+    - id: none
+      label: "We barely print anything"
+      verdict: write-it-down
+      why: >
+        Then say that, add two lines to the acceptable use policy for the rare
+        occasions, and stop. Nobody expects a paper handling regime from a company
+        with no paper.
+    - id: office
+      label: "In the office"
+      verdict: already-solved
+      why: >
+        Two lines in the policy and a lockable drawer near the printer. This is
+        one of the cheapest closed questions on the form.
+    - id: home
+      label: "People print at home"
+      verdict: write-it-down
+      why: >
+        That is where the actual exposure is, and almost no clean desk policy
+        mentions it. Cover home printing and disposal explicitly and your answer
+        is better than most large companies'.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "two lines in the acceptable use policy": "€"
+  "lockable storage and a shredder": "€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "People are tidy."
+  better: "The written requirement, in the acceptable use policy or its own page."
+  strong: "The policy, evidence staff accepted it, and secure disposal arranged for paper."
+
+answer_risk: none
+
+frameworks: [iso27002-7.7, nist-csf-pr.ds-01]
+incidents: []
+patterns: [documentation-only, framework-inheritance]
+already_have: [screen-lock]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Staff are told not to leave sensitive paper or screens on show."   # syn.003a
+  - "What happens to a printed customer list at the end of the day?"   # syn.003b

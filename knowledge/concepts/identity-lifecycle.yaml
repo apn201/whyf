@@ -120,6 +120,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Accounts are created when someone joins and closed when they leave."   # syn.026a
-  - "What happens to an account when somebody leaves?"   # syn.026b
-  - "To what extent is it true that accounts are created when someone joins and closed when they leave?"   # syn.026c
+  - "Accounts are created when someone joins and closed when they leave."   # syn.030a
+  - "What happens to an account when somebody leaves?"   # syn.030b
+  - "To what extent is it true that accounts are created when someone joins and closed when they leave?"   # syn.030c

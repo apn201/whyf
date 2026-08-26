@@ -4,12 +4,12 @@ year: 2023
 sector: software
 ot: false                    # did it hit operational technology / a physical process
 
-status: draft               # -> done only when every figure below has a source
+status: done                # every figure below is sourced
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # url not captured yet; the citation is in source_note
+source_url: "https://www.progress.com/docs/default-source/moveit-docs/moveit-transfer_moveit-cloud-vulnerabilities-customer-faq_posted.pdf?sfvrsn=16a47a99_13"   # primary source. Company filing or regulator beats press.
 source_note: "Progress Software's security advisory and customer FAQ. Progress's SEC annual-report disclosures cover the legal and remediation consequences."
 
 one_line: >

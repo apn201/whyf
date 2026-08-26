@@ -113,6 +113,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Systems keep records of who did what, and the records are protected."   # syn.065a
-  - "Would you be able to tell what happened after a break-in?"   # syn.065b
-  - "To what extent is it true that systems keep records of who did what, and the records are protected?"   # syn.065c
+  - "Systems keep records of who did what, and the records are protected."   # syn.069a
+  - "Would you be able to tell what happened after a break-in?"   # syn.069b
+  - "To what extent is it true that systems keep records of who did what, and the records are protected?"   # syn.069c

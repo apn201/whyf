@@ -38,6 +38,19 @@ OUT = ROOT / "corpus" / "synthetic.tsv"
 # thirds of real questionnaire rows arrive.
 CONTROLS = {
     # -- governance ---------------------------------------------------------
+    "dpo": (
+        "a data protection officer has been appointed where the law requires one",
+        "Does anyone here have data protection as their actual job?", False),
+    "ransom-payment": (
+        "somebody has decided in advance who may authorise paying an extortion demand",
+        "If ransomware hit tonight, who could say yes to paying?", True),
+    "clean-desk": (
+        "staff are told not to leave sensitive paper or screens on show",
+        "What happens to a printed customer list at the end of the day?", False),
+    "ai-governance": (
+        "there are rules about which AI tools may be used and what may be put into them",
+        "Can staff paste customer data into an AI tool?", True),
+
     "business-context": (
         "the organisation has written down what it does and which services matter most",
         "Which of your services would hurt most if they stopped?", False),

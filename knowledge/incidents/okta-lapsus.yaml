@@ -4,12 +4,12 @@ year: 2022
 sector: identity
 ot: false                    # did it hit operational technology / a physical process
 
-status: draft               # -> done only when every figure below has a source
+status: done                # every figure below is sourced
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # url not captured yet; the citation is in source_note
+source_url: "https://www.okta.com/sites/default/files/2022-07/J121611_d5_Okta_Forum22_Europe_Event_eBook.pdf"   # primary source. Company filing or regulator beats press.
 source_note: "Okta's own incident analysis, presented by its customer trust team."
 
 one_line: >

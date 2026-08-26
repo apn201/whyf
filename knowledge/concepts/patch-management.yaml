@@ -120,6 +120,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/patch-management.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Updates are applied on a schedule and unsupported equipment is tracked."   # syn.045a
-  - "How quickly do security updates get installed?"   # syn.045b
-  - "To what extent is it true that updates are applied on a schedule and unsupported equipment is tracked?"   # syn.045c
+  - "Updates are applied on a schedule and unsupported equipment is tracked."   # syn.049a
+  - "How quickly do security updates get installed?"   # syn.049b
+  - "To what extent is it true that updates are applied on a schedule and unsupported equipment is tracked?"   # syn.049c

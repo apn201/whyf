@@ -108,6 +108,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/security-roles.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Somebody is named as responsible for security."   # syn.009a
-  - "Who is responsible for security here?"   # syn.009b
-  - "To what extent is it true that somebody is named as responsible for security?"   # syn.009c
+  - "Somebody is named as responsible for security."   # syn.013a
+  - "Who is responsible for security here?"   # syn.013b
+  - "To what extent is it true that somebody is named as responsible for security?"   # syn.013c

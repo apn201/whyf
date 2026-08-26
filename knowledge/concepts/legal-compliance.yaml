@@ -110,5 +110,5 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/legal-compliance.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The laws that apply to the organisation's data have been identified."   # syn.012a
-  - "Which data protection rules apply to you?"   # syn.012b
+  - "The laws that apply to the organisation's data have been identified."   # syn.016a
+  - "Which data protection rules apply to you?"   # syn.016b

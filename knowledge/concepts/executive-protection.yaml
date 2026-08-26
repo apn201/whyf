@@ -112,6 +112,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/executive-protection.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Senior people get extra protection on their personal accounts and devices."   # syn.007a
-  - "Are directors' personal accounts protected any differently?"   # syn.007b
-  - "To what extent is it true that senior people get extra protection on their personal accounts and devices?"   # syn.007c
+  - "Senior people get extra protection on their personal accounts and devices."   # syn.011a
+  - "Are directors' personal accounts protected any differently?"   # syn.011b
+  - "To what extent is it true that senior people get extra protection on their personal accounts and devices?"   # syn.011c

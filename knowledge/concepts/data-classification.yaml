@@ -116,6 +116,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Data is sorted into categories so the sensitive parts can be treated differently."   # syn.017a
-  - "Do you separate sensitive data from ordinary data?"   # syn.017b
-  - "To what extent is it true that data is sorted into categories so the sensitive parts can be treated differently?"   # syn.017c
+  - "Data is sorted into categories so the sensitive parts can be treated differently."   # syn.021a
+  - "Do you separate sensitive data from ordinary data?"   # syn.021b
+  - "To what extent is it true that data is sorted into categories so the sensitive parts can be treated differently?"   # syn.021c

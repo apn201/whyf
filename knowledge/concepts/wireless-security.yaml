@@ -113,6 +113,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The wireless network is protected and guests are kept separate."   # syn.052a
-  - "Is your guest wifi separate from the office network?"   # syn.052b
-  - "To what extent is it true that the wireless network is protected and guests are kept separate?"   # syn.052c
+  - "The wireless network is protected and guests are kept separate."   # syn.056a
+  - "Is your guest wifi separate from the office network?"   # syn.056b
+  - "To what extent is it true that the wireless network is protected and guests are kept separate?"   # syn.056c

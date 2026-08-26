@@ -86,5 +86,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/screen-lock.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Unattended machines lock themselves."   # syn.039a
-  - "Do machines lock when nobody is at them?"   # syn.039b
+  - "Unattended machines lock themselves."   # syn.043a
+  - "Do machines lock when nobody is at them?"   # syn.043b

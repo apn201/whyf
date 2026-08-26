@@ -120,6 +120,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Computers run software that detects and stops malicious code."   # syn.049a
-  - "What is running on the laptops to catch malware?"   # syn.049b
-  - "To what extent is it true that computers run software that detects and stops malicious code?"   # syn.049c
+  - "Computers run software that detects and stops malicious code."   # syn.053a
+  - "What is running on the laptops to catch malware?"   # syn.053b
+  - "To what extent is it true that computers run software that detects and stops malicious code?"   # syn.053c

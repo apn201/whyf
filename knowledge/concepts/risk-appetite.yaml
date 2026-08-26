@@ -113,6 +113,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Security spending decisions are weighed against the risk they remove."   # syn.010a
-  - "How do you decide what a security fix is worth?"   # syn.010b
-  - "To what extent is it true that security spending decisions are weighed against the risk they remove?"   # syn.010c
+  - "Security spending decisions are weighed against the risk they remove."   # syn.014a
+  - "How do you decide what a security fix is worth?"   # syn.014b
+  - "To what extent is it true that security spending decisions are weighed against the risk they remove?"   # syn.014c

@@ -4,12 +4,12 @@ year: 2015
 sector: energy
 ot: true                     # did it hit operational technology / a physical process
 
-status: draft               # -> done only when every figure below has a source
+status: done                # every figure below is sourced
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # url not captured yet; the citation is in source_note
+source_url: "https://www.energy.gov/sites/prod/files/2017/01/f34/Electric%20Grid%20Security%20and%20Resilience--Establishing%20a%20Baseline%20for%20Adversarial%20Threats.pdf"   # primary source. Company filing or regulator beats press.
 source_note: "US Department of Energy case study on electric grid security and resilience, citing the SANS/E-ISAC and US-CERT investigations."
 
 one_line: >

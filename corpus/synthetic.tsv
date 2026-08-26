@@ -1,224 +1,234 @@
 id	concept	form	question	options
-syn.001a	business-context	binary_statement	The organisation has written down what it does and which services matter most.	
-syn.001b	business-context	binary	Which of your services would hurt most if they stopped?	
-syn.002a	acceptable-use	binary_statement	Staff are told in writing what they may and may not do with company equipment.	
-syn.002b	acceptable-use	binary	Is there an acceptable use policy staff have seen?	
-syn.003a	personnel-security	binary_statement	Background checks are carried out before someone is given sensitive access.	
-syn.003b	personnel-security	binary	Are new staff screened before they get access to sensitive systems?	
-syn.003c	personnel-security	maturity_ladder	To what extent is it true that background checks are carried out before someone is given sensitive access?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.004a	nis2-scope	binary_statement	The organisation has established whether NIS2 applies to it.	
-syn.004b	nis2-scope	binary	Has anyone checked whether NIS2 covers your sector and size?	
-syn.005a	cyber-insurance	binary_statement	The organisation holds a cyber insurance policy.	
-syn.005b	cyber-insurance	binary	Do you carry cyber insurance?	
-syn.006a	board-oversight	binary_statement	The owners or board are told regularly how security is going.	
-syn.006b	board-oversight	binary	How often do the owners hear about security?	
-syn.006c	board-oversight	maturity_ladder	To what extent is it true that the owners or board are told regularly how security is going?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.007a	executive-protection	binary_statement	Senior people get extra protection on their personal accounts and devices.	
-syn.007b	executive-protection	binary	Are directors' personal accounts protected any differently?	
-syn.007c	executive-protection	maturity_ladder	To what extent is it true that senior people get extra protection on their personal accounts and devices?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.008a	security-policy	binary_statement	A written security policy exists and is kept current.	
-syn.008b	security-policy	binary	Do you have a security policy, and when was it last touched?	
-syn.008c	security-policy	maturity_ladder	To what extent is it true that a written security policy exists and is kept current?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.009a	security-roles	binary_statement	Somebody is named as responsible for security.	
-syn.009b	security-roles	binary	Who is responsible for security here?	
-syn.009c	security-roles	maturity_ladder	To what extent is it true that somebody is named as responsible for security?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.010a	risk-appetite	binary_statement	Security spending decisions are weighed against the risk they remove.	
-syn.010b	risk-appetite	binary	How do you decide what a security fix is worth?	
-syn.010c	risk-appetite	maturity_ladder	To what extent is it true that security spending decisions are weighed against the risk they remove?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.011a	improvement	binary_statement	What went wrong last time is written down and acted on.	
-syn.011b	improvement	binary	Do you write down what you learned after something went wrong?	
-syn.011c	improvement	maturity_ladder	To what extent is it true that what went wrong last time is written down and acted on?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.012a	legal-compliance	binary_statement	The laws that apply to the organisation's data have been identified.	
-syn.012b	legal-compliance	binary	Which data protection rules apply to you?	
-syn.013a	rpo	binary_statement	The amount of recent work the organisation can afford to lose is decided per system.	
-syn.013b	rpo	binary	If everything broke this afternoon, how much work could you afford to lose?	
-syn.013c	rpo	maturity_ladder	To what extent is it true that the amount of recent work the organisation can afford to lose is decided per system?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.014a	ics-inventory	binary_statement	A list of industrial control equipment is kept up to date.	
-syn.014b	ics-inventory	binary	Do you have a list of your industrial control equipment?	
-syn.014c	ics-inventory	maturity_ladder	To what extent is it true that a list of industrial control equipment is kept up to date?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.015a	supplier-inventory	binary_statement	The outside firms that can log in anywhere are written down somewhere.	
-syn.015b	supplier-inventory	binary	Which outside firms can log in to your systems?	
-syn.015c	supplier-inventory	maturity_ladder	To what extent is it true that the outside firms that can log in anywhere are written down somewhere?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.016a	asset-inventory	binary_statement	A list of computers, software and services in use is kept up to date.	
-syn.016b	asset-inventory	binary	Do you know what computers and software you own?	
-syn.016c	asset-inventory	maturity_ladder	To what extent is it true that a list of computers, software and services in use is kept up to date?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.017a	data-classification	binary_statement	Data is sorted into categories so the sensitive parts can be treated differently.	
-syn.017b	data-classification	binary	Do you separate sensitive data from ordinary data?	
-syn.017c	data-classification	maturity_ladder	To what extent is it true that data is sorted into categories so the sensitive parts can be treated differently?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.018a	secure-procurement	binary_statement	Security is looked at before equipment is bought, not after.	
-syn.018b	secure-procurement	binary	Do you check security before buying equipment?	
-syn.019a	risk-assessment	binary_statement	The organisation has thought through what could go wrong and written it down.	
-syn.019b	risk-assessment	binary	Have you written down what could go wrong?	
-syn.019c	risk-assessment	maturity_ladder	To what extent is it true that the organisation has thought through what could go wrong and written it down?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.020a	threat-intelligence	binary_statement	Somebody watches for news of attacks relevant to this organisation.	
-syn.020b	threat-intelligence	binary	Does anyone track threats aimed at your industry?	
-syn.020c	threat-intelligence	maturity_ladder	To what extent is it true that somebody watches for news of attacks relevant to this organisation?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.021a	mfa	binary_statement	A second authentication factor is required for administrator accounts.	
-syn.021b	mfa	binary	Do administrator accounts need a second factor?	
-syn.021c	mfa	maturity_ladder	To what extent is it true that a second authentication factor is required for administrator accounts?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.022a	sso	binary_statement	Staff sign in to business applications through one identity provider.	
-syn.022b	sso	binary	Do your applications share one login?	
-syn.022c	sso	maturity_ladder	To what extent is it true that staff sign in to business applications through one identity provider?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.023a	password-policy	binary_statement	Password rules are set centrally and applied everywhere.	
-syn.023b	password-policy	binary	What are your password rules?	
-syn.023c	password-policy	maturity_ladder	To what extent is it true that password rules are set centrally and applied everywhere?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.024a	default-passwords	binary_statement	Passwords shipped with equipment are changed before it is used.	
-syn.024b	default-passwords	binary	Do you change the password that came with new equipment?	
-syn.025a	passwords	binary_statement	Stored passwords cannot be read back, only checked.	
-syn.025b	passwords	binary	How are stored passwords protected?	
-syn.026a	identity-lifecycle	binary_statement	Accounts are created when someone joins and closed when they leave.	
-syn.026b	identity-lifecycle	binary	What happens to an account when somebody leaves?	
-syn.026c	identity-lifecycle	maturity_ladder	To what extent is it true that accounts are created when someone joins and closed when they leave?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.027a	privileged-accounts	binary_statement	Administrator accounts are separate from ordinary accounts and reviewed.	
-syn.027b	privileged-accounts	binary	Do admins use a separate account for admin work?	
-syn.027c	privileged-accounts	maturity_ladder	To what extent is it true that administrator accounts are separate from ordinary accounts and reviewed?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.028a	sod	binary_statement	No single person can complete a sensitive transaction alone.	
-syn.028b	sod	binary	Can one person approve and make a payment on their own?	
-syn.029a	plc-access	binary_statement	Controllers and the code that runs on them are protected from casual access.	
-syn.029b	plc-access	binary	Can anyone on the factory floor reach the controllers?	
-syn.030a	remote-access	binary_statement	Access from outside the office is controlled and can be switched off.	
-syn.030b	remote-access	binary	How do people connect from outside the office?	
-syn.030c	remote-access	maturity_ladder	To what extent is it true that access from outside the office is controlled and can be switched off?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.031a	remote-work-model	binary_statement	The organisation has decided what people may reach from home and on which devices.	
-syn.031b	remote-work-model	binary	What can staff reach when working from home?	
-syn.031c	remote-work-model	maturity_ladder	To what extent is it true that the organisation has decided what people may reach from home and on which devices?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.032a	dlp	binary_statement	Tooling watches for sensitive data leaving the organisation.	
-syn.032b	dlp	binary	Is anything watching for sensitive data leaving?	
-syn.032c	dlp	maturity_ladder	To what extent is it true that tooling watches for sensitive data leaving the organisation?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.033a	full-disk-encryption	binary_statement	Laptop and phone storage is encrypted.	
-syn.033b	full-disk-encryption	binary	Are laptop drives encrypted?	
-syn.033c	full-disk-encryption	maturity_ladder	To what extent is it true that laptop and phone storage is encrypted?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.034a	encryption	binary_statement	Stored and transmitted data is encrypted and the keys are looked after.	
-syn.034b	encryption	binary	Is your data encrypted, and who holds the keys?	
-syn.034c	encryption	maturity_ladder	To what extent is it true that stored and transmitted data is encrypted and the keys are looked after?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.035a	tenant-segregation	binary_statement	One customer's data cannot be reached from another customer's account.	
-syn.035b	tenant-segregation	binary	Can one customer see another customer's data?	
-syn.036a	email-security	binary_statement	Incoming mail is filtered and sensitive mail is protected in transit.	
-syn.036b	email-security	binary	What happens to a malicious attachment sent to your staff?	
-syn.036c	email-security	maturity_ladder	To what extent is it true that incoming mail is filtered and sensitive mail is protected in transit?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.037a	dns-filtering	binary_statement	Requests to known-bad web addresses are blocked before they connect.	
-syn.037b	dns-filtering	binary	Are known-bad websites blocked?	
-syn.037c	dns-filtering	maturity_ladder	To what extent is it true that requests to known-bad web addresses are blocked before they connect?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.038a	removable-media	binary_statement	Use of USB storage is limited to what the work actually needs.	
-syn.038b	removable-media	binary	Can staff plug a USB stick into a work machine?	
-syn.038c	removable-media	maturity_ladder	To what extent is it true that use of USB storage is limited to what the work actually needs?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.039a	screen-lock	binary_statement	Unattended machines lock themselves.	
-syn.039b	screen-lock	binary	Do machines lock when nobody is at them?	
-syn.040a	backups	binary_statement	Backups are taken, encrypted, and cover the systems that matter.	
-syn.040b	backups	binary	What do your backups actually cover?	
-syn.040c	backups	maturity_ladder	To what extent is it true that backups are taken, encrypted, and cover the systems that matter?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.041a	offline-backups	binary_statement	At least one backup copy cannot be reached from the systems it protects.	
-syn.041b	offline-backups	binary	Could ransomware reach your backups too?	
-syn.041c	offline-backups	maturity_ladder	To what extent is it true that at least one backup copy cannot be reached from the systems it protects?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.042a	bia	binary_statement	The organisation has worked out which processes must come back first.	
-syn.042b	bia	binary	Which part of the business has to come back first?	
-syn.042c	bia	maturity_ladder	To what extent is it true that the organisation has worked out which processes must come back first?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.043a	continuity-testing	binary_statement	Recovery plans are tried out rather than only written.	
-syn.043b	continuity-testing	binary	When did you last try restoring from a backup?	
-syn.043c	continuity-testing	maturity_ladder	To what extent is it true that recovery plans are tried out rather than only written?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.044a	bcp	binary_statement	A plan exists for carrying on when systems are unavailable.	
-syn.044b	bcp	binary	What is the plan if your systems are down for a week?	
-syn.044c	bcp	maturity_ladder	To what extent is it true that a plan exists for carrying on when systems are unavailable?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.045a	patch-management	binary_statement	Updates are applied on a schedule and unsupported equipment is tracked.	
-syn.045b	patch-management	binary	How quickly do security updates get installed?	
-syn.045c	patch-management	maturity_ladder	To what extent is it true that updates are applied on a schedule and unsupported equipment is tracked?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.046a	vulnerability-management	binary_statement	Systems are scanned for known weaknesses and the findings are fixed.	
-syn.046b	vulnerability-management	binary	Does anything scan your systems for known weaknesses?	
-syn.046c	vulnerability-management	maturity_ladder	To what extent is it true that systems are scanned for known weaknesses and the findings are fixed?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.047a	hardening	binary_statement	Systems are built from a standard configuration rather than one at a time.	
-syn.047b	hardening	binary	Are machines set up the same way every time?	
-syn.047c	hardening	maturity_ladder	To what extent is it true that systems are built from a standard configuration rather than one at a time?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.048a	application-allowlisting	binary_statement	Only approved software is allowed to run.	
-syn.048b	application-allowlisting	binary	Can staff install whatever software they like?	
-syn.048c	application-allowlisting	maturity_ladder	To what extent is it true that only approved software is allowed to run?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.049a	endpoint-protection	binary_statement	Computers run software that detects and stops malicious code.	
-syn.049b	endpoint-protection	binary	What is running on the laptops to catch malware?	
-syn.049c	endpoint-protection	maturity_ladder	To what extent is it true that computers run software that detects and stops malicious code?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.050a	change-management	binary_statement	Changes to systems are approved before they are made.	
-syn.050b	change-management	binary	Who approves a change before it goes in?	
-syn.050c	change-management	maturity_ladder	To what extent is it true that changes to systems are approved before they are made?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.051a	capacity-management	binary_statement	There is enough headroom that normal growth does not cause an outage.	
-syn.051b	capacity-management	binary	Do you track whether systems are running out of room?	
-syn.051c	capacity-management	maturity_ladder	To what extent is it true that there is enough headroom that normal growth does not cause an outage?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.052a	wireless-security	binary_statement	The wireless network is protected and guests are kept separate.	
-syn.052b	wireless-security	binary	Is your guest wifi separate from the office network?	
-syn.052c	wireless-security	maturity_ladder	To what extent is it true that the wireless network is protected and guests are kept separate?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.053a	ddos-protection	binary_statement	There is some protection against being flooded off the internet.	
-syn.053b	ddos-protection	binary	What happens if someone floods your internet connection?	
-syn.053c	ddos-protection	maturity_ladder	To what extent is it true that there is some protection against being flooded off the internet?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.054a	network-segmentation	binary_statement	The network is divided so a problem in one part does not reach the rest.	
-syn.054b	network-segmentation	binary	Can a compromised laptop reach the factory network?	
-syn.054c	network-segmentation	maturity_ladder	To what extent is it true that the network is divided so a problem in one part does not reach the rest?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.055a	perimeter-defence	binary_statement	Traffic in and out of the network passes through a firewall that is configured on purpose.	
-syn.055b	perimeter-defence	binary	Who decides what your firewall lets through?	
-syn.055c	perimeter-defence	maturity_ladder	To what extent is it true that traffic in and out of the network passes through a firewall that is configured on purpose?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.056a	mobile-device-management	binary_statement	Company data on phones can be managed and removed.	
-syn.056b	mobile-device-management	binary	Can you wipe company data off a lost phone?	
-syn.056c	mobile-device-management	maturity_ladder	To what extent is it true that company data on phones can be managed and removed?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.057a	secure-development	binary_statement	Software is written with security in mind and test data is not real data.	
-syn.057b	secure-development	binary	Do your developers work against real customer data?	
-syn.057c	secure-development	maturity_ladder	To what extent is it true that software is written with security in mind and test data is not real data?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.058a	application-security-testing	binary_statement	Applications are tested for weaknesses before they are released.	
-syn.058b	application-security-testing	binary	Is the software tested for security before it ships?	
-syn.058c	application-security-testing	maturity_ladder	To what extent is it true that applications are tested for weaknesses before they are released?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.059a	physical-environmental-protection	binary_statement	Equipment is protected from fire, water, heat and power loss.	
-syn.059b	physical-environmental-protection	binary	What happens to the server room if the power goes?	
-syn.059c	physical-environmental-protection	maturity_ladder	To what extent is it true that equipment is protected from fire, water, heat and power loss?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.060a	hardware-tampering	binary_statement	Equipment is checked for signs of having been interfered with.	
-syn.060b	hardware-tampering	binary	Would you notice if someone opened one of your machines?	
-syn.060c	hardware-tampering	maturity_ladder	To what extent is it true that equipment is checked for signs of having been interfered with?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.061a	surveillance	binary_statement	Entrances are monitored and visitors are recorded.	
-syn.061b	surveillance	binary	Are visitors signed in and accompanied?	
-syn.061c	surveillance	maturity_ladder	To what extent is it true that entrances are monitored and visitors are recorded?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.062a	physical-access-control	binary_statement	Only the people who need to be somewhere can get in.	
-syn.062b	physical-access-control	binary	Who can walk into the room where the servers are?	
-syn.062c	physical-access-control	maturity_ladder	To what extent is it true that only the people who need to be somewhere can get in?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.063a	security-awareness	binary_statement	Staff are told what to watch for and reminded regularly.	
-syn.063b	security-awareness	binary	When did staff last get security training?	
-syn.063c	security-awareness	maturity_ladder	To what extent is it true that staff are told what to watch for and reminded regularly?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.064a	security-monitoring	binary_statement	Somebody actually looks at security alerts.	
-syn.064b	security-monitoring	binary	Who looks at the security alerts?	
-syn.064c	security-monitoring	maturity_ladder	To what extent is it true that somebody actually looks at security alerts?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.065a	logging	binary_statement	Systems keep records of who did what, and the records are protected.	
-syn.065b	logging	binary	Would you be able to tell what happened after a break-in?	
-syn.065c	logging	maturity_ladder	To what extent is it true that systems keep records of who did what, and the records are protected?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.066a	audits-and-pentests	binary_statement	An outsider tests the defences from time to time.	
-syn.066b	audits-and-pentests	binary	Has anyone from outside tried to break in on purpose?	
-syn.066c	audits-and-pentests	maturity_ladder	To what extent is it true that an outsider tests the defences from time to time?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.067a	incident-reporting	binary_statement	There is a decision made in advance about who has to be told, and how fast.	
-syn.067b	incident-reporting	binary	Who has to be told if you are breached, and within how long?	
-syn.067c	incident-reporting	maturity_ladder	To what extent is it true that there is a decision made in advance about who has to be told, and how fast?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.068a	incident-response-testing	binary_statement	The response plan is rehearsed with the people who would run it.	
-syn.068b	incident-response-testing	binary	Have you ever walked through an incident as a rehearsal?	
-syn.068c	incident-response-testing	maturity_ladder	To what extent is it true that the response plan is rehearsed with the people who would run it?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.069a	ir-retainer	binary_statement	The people who would be called in an emergency are lined up in advance.	
-syn.069b	ir-retainer	binary	Who would you call at 2am?	
-syn.069c	ir-retainer	maturity_ladder	To what extent is it true that the people who would be called in an emergency are lined up in advance?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.070a	ics-emergency-modes	binary_statement	Production can be stopped or run in a reduced mode safely.	
-syn.070b	ics-emergency-modes	binary	Can you stop the line safely if you need to?	
-syn.071a	crisis-management	binary_statement	There is a named group who take charge when something serious happens.	
-syn.071b	crisis-management	binary	Who takes charge when something serious happens?	
-syn.071c	crisis-management	maturity_ladder	To what extent is it true that there is a named group who take charge when something serious happens?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.072a	incident-response	binary_statement	There is a written process for handling a security incident.	
-syn.072b	incident-response	binary	What do you do in the first hour after a breach?	
-syn.072c	incident-response	maturity_ladder	To what extent is it true that there is a written process for handling a security incident?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.073a	cloud-provider-assurance	binary_statement	The organisation knows what its cloud providers are responsible for.	
-syn.073b	cloud-provider-assurance	binary	What is your cloud provider responsible for, and what are you?	
-syn.073c	cloud-provider-assurance	maturity_ladder	To what extent is it true that the organisation knows what its cloud providers are responsible for?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.074a	third-party-access	binary_statement	Supplier access to systems is logged and reviewed.	
-syn.074b	third-party-access	binary	Do you know which suppliers logged in last month?	
-syn.074c	third-party-access	maturity_ladder	To what extent is it true that supplier access to systems is logged and reviewed?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.075a	third-party-contracts	binary_statement	Supplier contracts say what is expected of them on security.	
-syn.075b	third-party-contracts	binary	Do your supplier contracts mention security at all?	
-syn.075c	third-party-contracts	maturity_ladder	To what extent is it true that supplier contracts say what is expected of them on security?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.076a	antivirus-exclusions	binary_statement	Vendor software does not require security tooling to be turned off for it.	
-syn.076b	antivirus-exclusions	binary	Does any vendor ask you to exclude their software from scanning?	
-syn.077a	third-party-risk	binary_statement	Suppliers are assessed before they are given access.	
-syn.077b	third-party-risk	binary	Do you check a supplier's security before signing?	
-syn.077c	third-party-risk	maturity_ladder	To what extent is it true that suppliers are assessed before they are given access?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
-syn.078a	company-profile	admin	Organisation name	
-syn.079a	company-profile	admin	Number of employees	
-syn.080a	company-profile	admin	Name and email of the person completing this form	
-syn.081a	incident-history	disclosure	Has the organisation suffered a security breach in the last five years? If so, describe it.	
-syn.082a	incident-history	disclosure	Has any customer claimed their data was exposed by you?	
-syn.083a	certification	attestation	Which security certifications does the organisation hold?	ISO/IEC 27001 | SOC 2 | Cyber Essentials | None of these
+syn.001a	dpo	binary_statement	A data protection officer has been appointed where the law requires one.	
+syn.001b	dpo	binary	Does anyone here have data protection as their actual job?	
+syn.002a	ransom-payment	binary_statement	Somebody has decided in advance who may authorise paying an extortion demand.	
+syn.002b	ransom-payment	binary	If ransomware hit tonight, who could say yes to paying?	
+syn.002c	ransom-payment	maturity_ladder	To what extent is it true that somebody has decided in advance who may authorise paying an extortion demand?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.003a	clean-desk	binary_statement	Staff are told not to leave sensitive paper or screens on show.	
+syn.003b	clean-desk	binary	What happens to a printed customer list at the end of the day?	
+syn.004a	ai-governance	binary_statement	There are rules about which AI tools may be used and what may be put into them.	
+syn.004b	ai-governance	binary	Can staff paste customer data into an AI tool?	
+syn.004c	ai-governance	maturity_ladder	To what extent is it true that there are rules about which AI tools may be used and what may be put into them?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.005a	business-context	binary_statement	The organisation has written down what it does and which services matter most.	
+syn.005b	business-context	binary	Which of your services would hurt most if they stopped?	
+syn.006a	acceptable-use	binary_statement	Staff are told in writing what they may and may not do with company equipment.	
+syn.006b	acceptable-use	binary	Is there an acceptable use policy staff have seen?	
+syn.007a	personnel-security	binary_statement	Background checks are carried out before someone is given sensitive access.	
+syn.007b	personnel-security	binary	Are new staff screened before they get access to sensitive systems?	
+syn.007c	personnel-security	maturity_ladder	To what extent is it true that background checks are carried out before someone is given sensitive access?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.008a	nis2-scope	binary_statement	The organisation has established whether NIS2 applies to it.	
+syn.008b	nis2-scope	binary	Has anyone checked whether NIS2 covers your sector and size?	
+syn.009a	cyber-insurance	binary_statement	The organisation holds a cyber insurance policy.	
+syn.009b	cyber-insurance	binary	Do you carry cyber insurance?	
+syn.010a	board-oversight	binary_statement	The owners or board are told regularly how security is going.	
+syn.010b	board-oversight	binary	How often do the owners hear about security?	
+syn.010c	board-oversight	maturity_ladder	To what extent is it true that the owners or board are told regularly how security is going?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.011a	executive-protection	binary_statement	Senior people get extra protection on their personal accounts and devices.	
+syn.011b	executive-protection	binary	Are directors' personal accounts protected any differently?	
+syn.011c	executive-protection	maturity_ladder	To what extent is it true that senior people get extra protection on their personal accounts and devices?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.012a	security-policy	binary_statement	A written security policy exists and is kept current.	
+syn.012b	security-policy	binary	Do you have a security policy, and when was it last touched?	
+syn.012c	security-policy	maturity_ladder	To what extent is it true that a written security policy exists and is kept current?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.013a	security-roles	binary_statement	Somebody is named as responsible for security.	
+syn.013b	security-roles	binary	Who is responsible for security here?	
+syn.013c	security-roles	maturity_ladder	To what extent is it true that somebody is named as responsible for security?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.014a	risk-appetite	binary_statement	Security spending decisions are weighed against the risk they remove.	
+syn.014b	risk-appetite	binary	How do you decide what a security fix is worth?	
+syn.014c	risk-appetite	maturity_ladder	To what extent is it true that security spending decisions are weighed against the risk they remove?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.015a	improvement	binary_statement	What went wrong last time is written down and acted on.	
+syn.015b	improvement	binary	Do you write down what you learned after something went wrong?	
+syn.015c	improvement	maturity_ladder	To what extent is it true that what went wrong last time is written down and acted on?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.016a	legal-compliance	binary_statement	The laws that apply to the organisation's data have been identified.	
+syn.016b	legal-compliance	binary	Which data protection rules apply to you?	
+syn.017a	rpo	binary_statement	The amount of recent work the organisation can afford to lose is decided per system.	
+syn.017b	rpo	binary	If everything broke this afternoon, how much work could you afford to lose?	
+syn.017c	rpo	maturity_ladder	To what extent is it true that the amount of recent work the organisation can afford to lose is decided per system?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.018a	ics-inventory	binary_statement	A list of industrial control equipment is kept up to date.	
+syn.018b	ics-inventory	binary	Do you have a list of your industrial control equipment?	
+syn.018c	ics-inventory	maturity_ladder	To what extent is it true that a list of industrial control equipment is kept up to date?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.019a	supplier-inventory	binary_statement	The outside firms that can log in anywhere are written down somewhere.	
+syn.019b	supplier-inventory	binary	Which outside firms can log in to your systems?	
+syn.019c	supplier-inventory	maturity_ladder	To what extent is it true that the outside firms that can log in anywhere are written down somewhere?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.020a	asset-inventory	binary_statement	A list of computers, software and services in use is kept up to date.	
+syn.020b	asset-inventory	binary	Do you know what computers and software you own?	
+syn.020c	asset-inventory	maturity_ladder	To what extent is it true that a list of computers, software and services in use is kept up to date?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.021a	data-classification	binary_statement	Data is sorted into categories so the sensitive parts can be treated differently.	
+syn.021b	data-classification	binary	Do you separate sensitive data from ordinary data?	
+syn.021c	data-classification	maturity_ladder	To what extent is it true that data is sorted into categories so the sensitive parts can be treated differently?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.022a	secure-procurement	binary_statement	Security is looked at before equipment is bought, not after.	
+syn.022b	secure-procurement	binary	Do you check security before buying equipment?	
+syn.023a	risk-assessment	binary_statement	The organisation has thought through what could go wrong and written it down.	
+syn.023b	risk-assessment	binary	Have you written down what could go wrong?	
+syn.023c	risk-assessment	maturity_ladder	To what extent is it true that the organisation has thought through what could go wrong and written it down?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.024a	threat-intelligence	binary_statement	Somebody watches for news of attacks relevant to this organisation.	
+syn.024b	threat-intelligence	binary	Does anyone track threats aimed at your industry?	
+syn.024c	threat-intelligence	maturity_ladder	To what extent is it true that somebody watches for news of attacks relevant to this organisation?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.025a	mfa	binary_statement	A second authentication factor is required for administrator accounts.	
+syn.025b	mfa	binary	Do administrator accounts need a second factor?	
+syn.025c	mfa	maturity_ladder	To what extent is it true that a second authentication factor is required for administrator accounts?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.026a	sso	binary_statement	Staff sign in to business applications through one identity provider.	
+syn.026b	sso	binary	Do your applications share one login?	
+syn.026c	sso	maturity_ladder	To what extent is it true that staff sign in to business applications through one identity provider?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.027a	password-policy	binary_statement	Password rules are set centrally and applied everywhere.	
+syn.027b	password-policy	binary	What are your password rules?	
+syn.027c	password-policy	maturity_ladder	To what extent is it true that password rules are set centrally and applied everywhere?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.028a	default-passwords	binary_statement	Passwords shipped with equipment are changed before it is used.	
+syn.028b	default-passwords	binary	Do you change the password that came with new equipment?	
+syn.029a	passwords	binary_statement	Stored passwords cannot be read back, only checked.	
+syn.029b	passwords	binary	How are stored passwords protected?	
+syn.030a	identity-lifecycle	binary_statement	Accounts are created when someone joins and closed when they leave.	
+syn.030b	identity-lifecycle	binary	What happens to an account when somebody leaves?	
+syn.030c	identity-lifecycle	maturity_ladder	To what extent is it true that accounts are created when someone joins and closed when they leave?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.031a	privileged-accounts	binary_statement	Administrator accounts are separate from ordinary accounts and reviewed.	
+syn.031b	privileged-accounts	binary	Do admins use a separate account for admin work?	
+syn.031c	privileged-accounts	maturity_ladder	To what extent is it true that administrator accounts are separate from ordinary accounts and reviewed?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.032a	sod	binary_statement	No single person can complete a sensitive transaction alone.	
+syn.032b	sod	binary	Can one person approve and make a payment on their own?	
+syn.033a	plc-access	binary_statement	Controllers and the code that runs on them are protected from casual access.	
+syn.033b	plc-access	binary	Can anyone on the factory floor reach the controllers?	
+syn.034a	remote-access	binary_statement	Access from outside the office is controlled and can be switched off.	
+syn.034b	remote-access	binary	How do people connect from outside the office?	
+syn.034c	remote-access	maturity_ladder	To what extent is it true that access from outside the office is controlled and can be switched off?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.035a	remote-work-model	binary_statement	The organisation has decided what people may reach from home and on which devices.	
+syn.035b	remote-work-model	binary	What can staff reach when working from home?	
+syn.035c	remote-work-model	maturity_ladder	To what extent is it true that the organisation has decided what people may reach from home and on which devices?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.036a	dlp	binary_statement	Tooling watches for sensitive data leaving the organisation.	
+syn.036b	dlp	binary	Is anything watching for sensitive data leaving?	
+syn.036c	dlp	maturity_ladder	To what extent is it true that tooling watches for sensitive data leaving the organisation?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.037a	full-disk-encryption	binary_statement	Laptop and phone storage is encrypted.	
+syn.037b	full-disk-encryption	binary	Are laptop drives encrypted?	
+syn.037c	full-disk-encryption	maturity_ladder	To what extent is it true that laptop and phone storage is encrypted?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.038a	encryption	binary_statement	Stored and transmitted data is encrypted and the keys are looked after.	
+syn.038b	encryption	binary	Is your data encrypted, and who holds the keys?	
+syn.038c	encryption	maturity_ladder	To what extent is it true that stored and transmitted data is encrypted and the keys are looked after?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.039a	tenant-segregation	binary_statement	One customer's data cannot be reached from another customer's account.	
+syn.039b	tenant-segregation	binary	Can one customer see another customer's data?	
+syn.040a	email-security	binary_statement	Incoming mail is filtered and sensitive mail is protected in transit.	
+syn.040b	email-security	binary	What happens to a malicious attachment sent to your staff?	
+syn.040c	email-security	maturity_ladder	To what extent is it true that incoming mail is filtered and sensitive mail is protected in transit?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.041a	dns-filtering	binary_statement	Requests to known-bad web addresses are blocked before they connect.	
+syn.041b	dns-filtering	binary	Are known-bad websites blocked?	
+syn.041c	dns-filtering	maturity_ladder	To what extent is it true that requests to known-bad web addresses are blocked before they connect?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.042a	removable-media	binary_statement	Use of USB storage is limited to what the work actually needs.	
+syn.042b	removable-media	binary	Can staff plug a USB stick into a work machine?	
+syn.042c	removable-media	maturity_ladder	To what extent is it true that use of USB storage is limited to what the work actually needs?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.043a	screen-lock	binary_statement	Unattended machines lock themselves.	
+syn.043b	screen-lock	binary	Do machines lock when nobody is at them?	
+syn.044a	backups	binary_statement	Backups are taken, encrypted, and cover the systems that matter.	
+syn.044b	backups	binary	What do your backups actually cover?	
+syn.044c	backups	maturity_ladder	To what extent is it true that backups are taken, encrypted, and cover the systems that matter?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.045a	offline-backups	binary_statement	At least one backup copy cannot be reached from the systems it protects.	
+syn.045b	offline-backups	binary	Could ransomware reach your backups too?	
+syn.045c	offline-backups	maturity_ladder	To what extent is it true that at least one backup copy cannot be reached from the systems it protects?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.046a	bia	binary_statement	The organisation has worked out which processes must come back first.	
+syn.046b	bia	binary	Which part of the business has to come back first?	
+syn.046c	bia	maturity_ladder	To what extent is it true that the organisation has worked out which processes must come back first?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.047a	continuity-testing	binary_statement	Recovery plans are tried out rather than only written.	
+syn.047b	continuity-testing	binary	When did you last try restoring from a backup?	
+syn.047c	continuity-testing	maturity_ladder	To what extent is it true that recovery plans are tried out rather than only written?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.048a	bcp	binary_statement	A plan exists for carrying on when systems are unavailable.	
+syn.048b	bcp	binary	What is the plan if your systems are down for a week?	
+syn.048c	bcp	maturity_ladder	To what extent is it true that a plan exists for carrying on when systems are unavailable?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.049a	patch-management	binary_statement	Updates are applied on a schedule and unsupported equipment is tracked.	
+syn.049b	patch-management	binary	How quickly do security updates get installed?	
+syn.049c	patch-management	maturity_ladder	To what extent is it true that updates are applied on a schedule and unsupported equipment is tracked?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.050a	vulnerability-management	binary_statement	Systems are scanned for known weaknesses and the findings are fixed.	
+syn.050b	vulnerability-management	binary	Does anything scan your systems for known weaknesses?	
+syn.050c	vulnerability-management	maturity_ladder	To what extent is it true that systems are scanned for known weaknesses and the findings are fixed?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.051a	hardening	binary_statement	Systems are built from a standard configuration rather than one at a time.	
+syn.051b	hardening	binary	Are machines set up the same way every time?	
+syn.051c	hardening	maturity_ladder	To what extent is it true that systems are built from a standard configuration rather than one at a time?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.052a	application-allowlisting	binary_statement	Only approved software is allowed to run.	
+syn.052b	application-allowlisting	binary	Can staff install whatever software they like?	
+syn.052c	application-allowlisting	maturity_ladder	To what extent is it true that only approved software is allowed to run?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.053a	endpoint-protection	binary_statement	Computers run software that detects and stops malicious code.	
+syn.053b	endpoint-protection	binary	What is running on the laptops to catch malware?	
+syn.053c	endpoint-protection	maturity_ladder	To what extent is it true that computers run software that detects and stops malicious code?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.054a	change-management	binary_statement	Changes to systems are approved before they are made.	
+syn.054b	change-management	binary	Who approves a change before it goes in?	
+syn.054c	change-management	maturity_ladder	To what extent is it true that changes to systems are approved before they are made?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.055a	capacity-management	binary_statement	There is enough headroom that normal growth does not cause an outage.	
+syn.055b	capacity-management	binary	Do you track whether systems are running out of room?	
+syn.055c	capacity-management	maturity_ladder	To what extent is it true that there is enough headroom that normal growth does not cause an outage?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.056a	wireless-security	binary_statement	The wireless network is protected and guests are kept separate.	
+syn.056b	wireless-security	binary	Is your guest wifi separate from the office network?	
+syn.056c	wireless-security	maturity_ladder	To what extent is it true that the wireless network is protected and guests are kept separate?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.057a	ddos-protection	binary_statement	There is some protection against being flooded off the internet.	
+syn.057b	ddos-protection	binary	What happens if someone floods your internet connection?	
+syn.057c	ddos-protection	maturity_ladder	To what extent is it true that there is some protection against being flooded off the internet?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.058a	network-segmentation	binary_statement	The network is divided so a problem in one part does not reach the rest.	
+syn.058b	network-segmentation	binary	Can a compromised laptop reach the factory network?	
+syn.058c	network-segmentation	maturity_ladder	To what extent is it true that the network is divided so a problem in one part does not reach the rest?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.059a	perimeter-defence	binary_statement	Traffic in and out of the network passes through a firewall that is configured on purpose.	
+syn.059b	perimeter-defence	binary	Who decides what your firewall lets through?	
+syn.059c	perimeter-defence	maturity_ladder	To what extent is it true that traffic in and out of the network passes through a firewall that is configured on purpose?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.060a	mobile-device-management	binary_statement	Company data on phones can be managed and removed.	
+syn.060b	mobile-device-management	binary	Can you wipe company data off a lost phone?	
+syn.060c	mobile-device-management	maturity_ladder	To what extent is it true that company data on phones can be managed and removed?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.061a	secure-development	binary_statement	Software is written with security in mind and test data is not real data.	
+syn.061b	secure-development	binary	Do your developers work against real customer data?	
+syn.061c	secure-development	maturity_ladder	To what extent is it true that software is written with security in mind and test data is not real data?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.062a	application-security-testing	binary_statement	Applications are tested for weaknesses before they are released.	
+syn.062b	application-security-testing	binary	Is the software tested for security before it ships?	
+syn.062c	application-security-testing	maturity_ladder	To what extent is it true that applications are tested for weaknesses before they are released?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.063a	physical-environmental-protection	binary_statement	Equipment is protected from fire, water, heat and power loss.	
+syn.063b	physical-environmental-protection	binary	What happens to the server room if the power goes?	
+syn.063c	physical-environmental-protection	maturity_ladder	To what extent is it true that equipment is protected from fire, water, heat and power loss?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.064a	hardware-tampering	binary_statement	Equipment is checked for signs of having been interfered with.	
+syn.064b	hardware-tampering	binary	Would you notice if someone opened one of your machines?	
+syn.064c	hardware-tampering	maturity_ladder	To what extent is it true that equipment is checked for signs of having been interfered with?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.065a	surveillance	binary_statement	Entrances are monitored and visitors are recorded.	
+syn.065b	surveillance	binary	Are visitors signed in and accompanied?	
+syn.065c	surveillance	maturity_ladder	To what extent is it true that entrances are monitored and visitors are recorded?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.066a	physical-access-control	binary_statement	Only the people who need to be somewhere can get in.	
+syn.066b	physical-access-control	binary	Who can walk into the room where the servers are?	
+syn.066c	physical-access-control	maturity_ladder	To what extent is it true that only the people who need to be somewhere can get in?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.067a	security-awareness	binary_statement	Staff are told what to watch for and reminded regularly.	
+syn.067b	security-awareness	binary	When did staff last get security training?	
+syn.067c	security-awareness	maturity_ladder	To what extent is it true that staff are told what to watch for and reminded regularly?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.068a	security-monitoring	binary_statement	Somebody actually looks at security alerts.	
+syn.068b	security-monitoring	binary	Who looks at the security alerts?	
+syn.068c	security-monitoring	maturity_ladder	To what extent is it true that somebody actually looks at security alerts?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.069a	logging	binary_statement	Systems keep records of who did what, and the records are protected.	
+syn.069b	logging	binary	Would you be able to tell what happened after a break-in?	
+syn.069c	logging	maturity_ladder	To what extent is it true that systems keep records of who did what, and the records are protected?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.070a	audits-and-pentests	binary_statement	An outsider tests the defences from time to time.	
+syn.070b	audits-and-pentests	binary	Has anyone from outside tried to break in on purpose?	
+syn.070c	audits-and-pentests	maturity_ladder	To what extent is it true that an outsider tests the defences from time to time?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.071a	incident-reporting	binary_statement	There is a decision made in advance about who has to be told, and how fast.	
+syn.071b	incident-reporting	binary	Who has to be told if you are breached, and within how long?	
+syn.071c	incident-reporting	maturity_ladder	To what extent is it true that there is a decision made in advance about who has to be told, and how fast?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.072a	incident-response-testing	binary_statement	The response plan is rehearsed with the people who would run it.	
+syn.072b	incident-response-testing	binary	Have you ever walked through an incident as a rehearsal?	
+syn.072c	incident-response-testing	maturity_ladder	To what extent is it true that the response plan is rehearsed with the people who would run it?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.073a	ir-retainer	binary_statement	The people who would be called in an emergency are lined up in advance.	
+syn.073b	ir-retainer	binary	Who would you call at 2am?	
+syn.073c	ir-retainer	maturity_ladder	To what extent is it true that the people who would be called in an emergency are lined up in advance?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.074a	ics-emergency-modes	binary_statement	Production can be stopped or run in a reduced mode safely.	
+syn.074b	ics-emergency-modes	binary	Can you stop the line safely if you need to?	
+syn.075a	crisis-management	binary_statement	There is a named group who take charge when something serious happens.	
+syn.075b	crisis-management	binary	Who takes charge when something serious happens?	
+syn.075c	crisis-management	maturity_ladder	To what extent is it true that there is a named group who take charge when something serious happens?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.076a	incident-response	binary_statement	There is a written process for handling a security incident.	
+syn.076b	incident-response	binary	What do you do in the first hour after a breach?	
+syn.076c	incident-response	maturity_ladder	To what extent is it true that there is a written process for handling a security incident?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.077a	cloud-provider-assurance	binary_statement	The organisation knows what its cloud providers are responsible for.	
+syn.077b	cloud-provider-assurance	binary	What is your cloud provider responsible for, and what are you?	
+syn.077c	cloud-provider-assurance	maturity_ladder	To what extent is it true that the organisation knows what its cloud providers are responsible for?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.078a	third-party-access	binary_statement	Supplier access to systems is logged and reviewed.	
+syn.078b	third-party-access	binary	Do you know which suppliers logged in last month?	
+syn.078c	third-party-access	maturity_ladder	To what extent is it true that supplier access to systems is logged and reviewed?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.079a	third-party-contracts	binary_statement	Supplier contracts say what is expected of them on security.	
+syn.079b	third-party-contracts	binary	Do your supplier contracts mention security at all?	
+syn.079c	third-party-contracts	maturity_ladder	To what extent is it true that supplier contracts say what is expected of them on security?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.080a	antivirus-exclusions	binary_statement	Vendor software does not require security tooling to be turned off for it.	
+syn.080b	antivirus-exclusions	binary	Does any vendor ask you to exclude their software from scanning?	
+syn.081a	third-party-risk	binary_statement	Suppliers are assessed before they are given access.	
+syn.081b	third-party-risk	binary	Do you check a supplier's security before signing?	
+syn.081c	third-party-risk	maturity_ladder	To what extent is it true that suppliers are assessed before they are given access?	Not in place | In place for some systems | In place for all systems | In place for all systems, risk-based, and reviewed at least annually
+syn.082a	company-profile	admin	Organisation name	
+syn.083a	company-profile	admin	Number of employees	
+syn.084a	company-profile	admin	Name and email of the person completing this form	
+syn.085a	incident-history	disclosure	Has the organisation suffered a security breach in the last five years? If so, describe it.	
+syn.086a	incident-history	disclosure	Has any customer claimed their data was exposed by you?	
+syn.087a	certification	attestation	Which security certifications does the organisation hold?	ISO/IEC 27001 | SOC 2 | Cyber Essentials | None of these

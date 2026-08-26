@@ -4,12 +4,12 @@ year: 2021
 sector: msp
 ot: false                    # did it hit operational technology / a physical process
 
-status: draft               # -> done only when every figure below has a source
+status: done                # every figure below is sourced
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # url not captured yet; the citation is in source_note
+source_url: "https://helpdesk.kaseya.com/hc/en-gb/articles/4403584098961-Incident-Overview-Technical-Details"   # primary source. Company filing or regulator beats press.
 source_note: "Kaseya's incident overview and technical details, corroborated by the DOJ indictment."
 
 one_line: >

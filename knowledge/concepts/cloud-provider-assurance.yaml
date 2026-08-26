@@ -113,6 +113,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/cloud-provider-assurance.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The organisation knows what its cloud providers are responsible for."   # syn.073a
-  - "What is your cloud provider responsible for, and what are you?"   # syn.073b
-  - "To what extent is it true that the organisation knows what its cloud providers are responsible for?"   # syn.073c
+  - "The organisation knows what its cloud providers are responsible for."   # syn.077a
+  - "What is your cloud provider responsible for, and what are you?"   # syn.077b
+  - "To what extent is it true that the organisation knows what its cloud providers are responsible for?"   # syn.077c

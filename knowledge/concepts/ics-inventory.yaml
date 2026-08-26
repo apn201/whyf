@@ -121,6 +121,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/ics-inventory.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "A list of industrial control equipment is kept up to date."   # syn.014a
-  - "Do you have a list of your industrial control equipment?"   # syn.014b
-  - "To what extent is it true that a list of industrial control equipment is kept up to date?"   # syn.014c
+  - "A list of industrial control equipment is kept up to date."   # syn.018a
+  - "Do you have a list of your industrial control equipment?"   # syn.018b
+  - "To what extent is it true that a list of industrial control equipment is kept up to date?"   # syn.018c

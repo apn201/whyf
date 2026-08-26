@@ -1,0 +1,125 @@
+id: ai-governance
+title: AI tools and AI policy
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have rules about staff using AI tools, and do you know which ones
+  are in use.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Two different questions get asked as one. Which AI tools are in use is an
+  inventory problem. Whether people may paste customer data into them is a
+  policy problem, and it is the one that has already happened at your
+  company whether or not anybody has written it down. The instinct to ban
+  everything is the mistake: a ban you do not enforce moves the same
+  behaviour onto personal accounts where you cannot see it at all.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  You do not need an AI governance framework, an AI risk committee or an ISO
+  42001 certificate. You need one page that says which tools are approved,
+  what must never be pasted into any of them, and who to ask about a new
+  one. Buy the business tier of whatever people are already using, because
+  the consumer tier is usually where the training-on-your-data terms live
+  and the business tier usually is not. That single purchase does more than
+  the policy.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Approved AI tools, and the categories of information that may
+  not be submitted to them, are defined. Where the EU AI Act applies to our
+  use, that assessment is stated separately.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Has anyone here pasted company data into an AI tool this month?"
+  options:
+    - id: yes
+      label: "Certainly"
+      verdict: write-it-down
+      why: >
+        Then the choice is not whether it happens, only whether it happens
+        somewhere you can see. One page of rules and a business tier subscription
+        beats a ban nobody obeys.
+    - id: no
+      label: "I do not think so"
+      verdict: write-it-down
+      why: >
+        Write the rules while that is still true. This is the cheapest it will
+        ever be, and it will not stay true.
+    - id: banned
+      label: "We have banned it"
+      verdict: cheap-checkbox
+      why: >
+        Check whether the ban is real or just stated. An unenforced ban pushes the
+        same activity onto personal accounts, which is the worse outcome and the
+        harder one to answer for.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 is an AI governance programme with model inventories, impact
+    assessments and a review board. That is built for organisations deploying
+    models, not for one using tools. A written rule, an approved list and the
+    business tier is where the risk actually drops.
+  rungs:
+    - level: 1
+      gist: "No rules, nobody knows what is in use."
+      verdict: write-it-down
+    - level: 2
+      gist: "Approved tools listed, rules on what may be pasted."
+      verdict: already-solved
+    - level: 3
+      gist: "Inventory maintained, terms reviewed, training given."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full governance programme with impact assessments."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one page of rules": "€"
+  "business tier instead of consumer tier": "€€"
+  "AI governance programme": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We have talked about it."
+  better: "A written policy naming approved tools and prohibited data categories."
+  strong: "The policy, the tool inventory, and evidence that the approved tools are on terms that do not train on your data."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.am-02, nist-csf-gv.po-01]
+incidents: []
+patterns: [documentation-only]
+already_have: [external-sharing-controls, basic-dlp]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "There are rules about which AI tools may be used and what may be put into them."   # syn.004a
+  - "Can staff paste customer data into an AI tool?"   # syn.004b
+  - "To what extent is it true that there are rules about which AI tools may be used and what may be put into them?"   # syn.004c

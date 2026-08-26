@@ -119,6 +119,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The owners or board are told regularly how security is going."   # syn.006a
-  - "How often do the owners hear about security?"   # syn.006b
-  - "To what extent is it true that the owners or board are told regularly how security is going?"   # syn.006c
+  - "The owners or board are told regularly how security is going."   # syn.010a
+  - "How often do the owners hear about security?"   # syn.010b
+  - "To what extent is it true that the owners or board are told regularly how security is going?"   # syn.010c

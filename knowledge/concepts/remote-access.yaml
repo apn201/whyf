@@ -116,6 +116,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Access from outside the office is controlled and can be switched off."   # syn.030a
-  - "How do people connect from outside the office?"   # syn.030b
-  - "To what extent is it true that access from outside the office is controlled and can be switched off?"   # syn.030c
+  - "Access from outside the office is controlled and can be switched off."   # syn.034a
+  - "How do people connect from outside the office?"   # syn.034b
+  - "To what extent is it true that access from outside the office is controlled and can be switched off?"   # syn.034c

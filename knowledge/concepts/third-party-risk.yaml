@@ -118,6 +118,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Suppliers are assessed before they are given access."   # syn.077a
-  - "Do you check a supplier's security before signing?"   # syn.077b
-  - "To what extent is it true that suppliers are assessed before they are given access?"   # syn.077c
+  - "Suppliers are assessed before they are given access."   # syn.081a
+  - "Do you check a supplier's security before signing?"   # syn.081b
+  - "To what extent is it true that suppliers are assessed before they are given access?"   # syn.081c

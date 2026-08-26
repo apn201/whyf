@@ -119,6 +119,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/sso.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Staff sign in to business applications through one identity provider."   # syn.022a
-  - "Do your applications share one login?"   # syn.022b
-  - "To what extent is it true that staff sign in to business applications through one identity provider?"   # syn.022c
+  - "Staff sign in to business applications through one identity provider."   # syn.026a
+  - "Do your applications share one login?"   # syn.026b
+  - "To what extent is it true that staff sign in to business applications through one identity provider?"   # syn.026c

@@ -112,6 +112,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The outside firms that can reach company systems are written down somewhere."   # syn.015a
-  - "Which outside firms can log in to your systems?"   # syn.015b
-  - "To what extent is it true that the outside firms that can reach company systems are written down somewhere?"   # syn.015c
+  - "The outside firms that can log in anywhere are written down somewhere."   # syn.019a
+  - "Which outside firms can log in to your systems?"   # syn.019b
+  - "To what extent is it true that the outside firms that can log in anywhere are written down somewhere?"   # syn.019c

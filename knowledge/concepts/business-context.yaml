@@ -110,5 +110,5 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/business-context.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The organisation has written down what it does and which services matter most."   # syn.001a
-  - "Which of your services would hurt most if they stopped?"   # syn.001b
+  - "The organisation has written down what it does and which services matter most."   # syn.005a
+  - "Which of your services would hurt most if they stopped?"   # syn.005b

@@ -4,12 +4,12 @@ year: 2013
 sector: retail
 ot: false                    # did it hit operational technology / a physical process
 
-status: draft               # -> done only when every figure below has a source
+status: done                # every figure below is sourced
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # url not captured yet; the citation is in source_note
+source_url: "https://www.sec.gov/Archives/edgar/data/27419/000002741914000014/tgt-20140201x10k.htm"   # primary source. Company filing or regulator beats press.
 source_note: "Target FY2013 Form 10-K; the clearer cost figures are in Target's subsequent quarterly results."
 
 one_line: >

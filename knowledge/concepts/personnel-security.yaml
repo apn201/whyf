@@ -118,6 +118,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/personnel-security.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Background checks are carried out before someone is given sensitive access."   # syn.003a
-  - "Are new staff screened before they get access to sensitive systems?"   # syn.003b
-  - "To what extent is it true that background checks are carried out before someone is given sensitive access?"   # syn.003c
+  - "Background checks are carried out before someone is given sensitive access."   # syn.007a
+  - "Are new staff screened before they get access to sensitive systems?"   # syn.007b
+  - "To what extent is it true that background checks are carried out before someone is given sensitive access?"   # syn.007c

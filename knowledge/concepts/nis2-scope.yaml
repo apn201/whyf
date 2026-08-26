@@ -100,5 +100,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/nis2-scope.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The organisation has established whether NIS2 applies to it."   # syn.004a
-  - "Has anyone checked whether NIS2 covers your sector and size?"   # syn.004b
+  - "The organisation has established whether NIS2 applies to it."   # syn.008a
+  - "Has anyone checked whether NIS2 covers your sector and size?"   # syn.008b

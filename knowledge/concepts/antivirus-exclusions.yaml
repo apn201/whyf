@@ -90,5 +90,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/antivirus-exclusions.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Vendor software does not require security tooling to be turned off for it."   # syn.076a
-  - "Does any vendor ask you to exclude their software from scanning?"   # syn.076b
+  - "Vendor software does not require security tooling to be turned off for it."   # syn.080a
+  - "Does any vendor ask you to exclude their software from scanning?"   # syn.080b

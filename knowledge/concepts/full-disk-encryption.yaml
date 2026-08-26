@@ -114,6 +114,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/full-disk-encryption.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Laptop and phone storage is encrypted."   # syn.033a
-  - "Are laptop drives encrypted?"   # syn.033b
-  - "To what extent is it true that laptop and phone storage is encrypted?"   # syn.033c
+  - "Laptop and phone storage is encrypted."   # syn.037a
+  - "Are laptop drives encrypted?"   # syn.037b
+  - "To what extent is it true that laptop and phone storage is encrypted?"   # syn.037c

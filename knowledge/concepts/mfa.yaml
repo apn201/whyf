@@ -129,6 +129,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "A second authentication factor is required for administrator accounts."   # syn.021a
-  - "Do administrator accounts need a second factor?"   # syn.021b
-  - "To what extent is it true that a second authentication factor is required for administrator accounts?"   # syn.021c
+  - "A second authentication factor is required for administrator accounts."   # syn.025a
+  - "Do administrator accounts need a second factor?"   # syn.025b
+  - "To what extent is it true that a second authentication factor is required for administrator accounts?"   # syn.025c
