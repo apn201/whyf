@@ -68,6 +68,33 @@ class Pipeline:
             # not correctness, so it must never take the request down.
             return self.lexical.match(question, limit=width), False
 
+    # ---- the tap question -------------------------------------------------
+
+    def answer(self, question, concept_id, option_id):
+        """Re-resolve after the user taps one of the deciding question's
+        options. Zero model calls: the card already said what each answer
+        means, so this is a lookup and the verdict changes on screen in
+        milliseconds."""
+        started = time.time()
+        telemetry = Telemetry(tier="cache", model_calls=0)
+
+        card = self.library.concept(concept_id)
+        if not card:
+            telemetry.tier = "declined"
+            telemetry.elapsed_s = time.time() - started
+            return render.declined(question, "no such concept", telemetry)
+
+        options = ((card.get("deciding_question") or {}).get("options")) or []
+        chosen = next((o for o in options if str(o.get("id")) == str(option_id)),
+                      None)
+        if chosen is None:
+            telemetry.elapsed_s = time.time() - started
+            return render.from_card(question, card, self.library,
+                                    telemetry=telemetry)
+
+        telemetry.elapsed_s = time.time() - started
+        return render.answered(question, card, self.library, chosen, telemetry)
+
     # ---- the entry point --------------------------------------------------
 
     def resolve(self, question):
@@ -84,6 +111,15 @@ class Pipeline:
                 hit.telemetry = telemetry
                 return hit
 
+        # ---- daily ceiling -------------------------------------------------
+        # Checked before the work, not after. Over the ceiling the agent still
+        # answers, from the free matcher, and says that it is degraded. A
+        # public demo URL that silently stops working is worse than a slow one.
+        if self.cache is not None:
+            spent = self.cache.add_spend(1)
+            if spent is None or spent > self.config.limits.daily_model_call_ceiling:
+                budget.degrade("daily model call ceiling reached")
+
         # ---- tier 1 --------------------------------------------------------
         candidates, used_embeddings = self.shortlist(question, budget)
         telemetry.shortlist_size = len(candidates)
@@ -97,12 +133,15 @@ class Pipeline:
 
         classification = None
         try:
+            if budget.degraded:
+                raise BudgetExceeded("daily ceiling", 0, 0)
             from .agents.classifier import classify
             classification, _ = classify(
                 question, candidates, self.library,
                 self.model("classifier"), budget)
         except BudgetExceeded as exc:
-            budget.degrade(str(exc))
+            if not budget.degraded:
+                budget.degrade(str(exc))
         except Exception as exc:
             # A model failure falls back to the free matcher rather than
             # failing the request.

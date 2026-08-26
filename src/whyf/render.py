@@ -103,6 +103,35 @@ def from_card(question, card, library, classification=None, telemetry=None):
     return out
 
 
+def answered(question, card, library, option, telemetry=None):
+    """The same card, after the user has tapped one answer.
+
+    This is the whole product in one function. The first verdict was the
+    honest one available without knowing anything about the company. One fact
+    arrives and the verdict changes, because the card said in advance what
+    each answer would mean. No model is involved: the option carries its own
+    verdict and its own reasoning, both written by a human.
+    """
+    out = from_card(question, card, library, telemetry=telemetry)
+
+    verdict_id = option.get("verdict")
+    if verdict_id:
+        meta = resolve_verdict(verdict_id)
+        was = out.headline
+        out.verdict = meta.id
+        out.headline = meta.headline
+        out.subtitle = meta.subtitle
+        if meta.headline != was:
+            out.notes.insert(0, "Changed from \"{}\" because you answered: "
+                                "{}".format(was, option.get("label")))
+
+    why = _clean(option.get("why"))
+    if why:
+        out.plain_english = why
+    out.deciding_question = None      # asked and answered
+    return out
+
+
 def declined(question, reason, telemetry=None):
     """No card, and not enough confidence to write one. Saying so is a correct
     answer and a better one than a guess."""
