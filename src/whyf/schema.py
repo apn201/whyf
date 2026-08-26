@@ -128,6 +128,7 @@ class Telemetry(BaseModel):
     degraded_reason: str = ""
     shortlist_size: int = 0
     counter_unavailable: bool = False
+    declined_because: str = ""
     dropped_references: dict = Field(default_factory=dict)
 
 

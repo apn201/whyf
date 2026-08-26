@@ -152,8 +152,8 @@ def near_miss(question, card, library, missing_topic, telemetry=None):
 
     out.covers_question = False
     out.notes.insert(0,
-        "This is the closest concept I have, and it does not cover {}. "
-        "Read it as background rather than as an answer to your row.".format(gap))
+        "Closest thing here, but it does not cover {}. Background rather than "
+        "an answer.".format(gap))
 
     # The verdict belongs to the concept, not to the question that was asked.
     # Leaving it on the card would be the confidently-wrong outcome this whole
@@ -166,16 +166,20 @@ def near_miss(question, card, library, missing_topic, telemetry=None):
 
 
 def declined(question, reason, telemetry=None):
-    """No card, and not enough confidence to write one. Saying so is a correct
-    answer and a better one than a guess."""
+    """No card, and not enough confidence to write one.
+
+    Kept short on purpose. Somebody who pasted a row wants to know whether
+    there is an answer, not how the knowledge base is put together. The
+    internal reason goes in the telemetry, where it is useful to us and
+    invisible to them.
+    """
     out = Verdict(question=question, telemetry=telemetry)
-    out.headline = "I do not have a card for this yet"
-    out.subtitle = reason
+    out.covers_question = False
+    out.headline = "No card for this one"
+    out.subtitle = "Nothing here covers it well enough to be worth reading."
     out.notes.append(
-        "The knowledge base covers 80 concepts drawn from three real supplier "
-        "questionnaires. This row did not match any of them with enough "
-        "confidence to be useful, and a confident wrong answer would be worse "
-        "than this one.")
+        "The knowledge base is drawn from real supplier questionnaires. This "
+        "row falls outside it.")
     return out
 
 

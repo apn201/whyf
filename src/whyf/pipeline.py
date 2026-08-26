@@ -82,7 +82,8 @@ class Pipeline:
         if not card:
             telemetry.tier = "declined"
             telemetry.elapsed_s = time.time() - started
-            return render.declined(question, "no such concept", telemetry)
+            telemetry.declined_because = "unknown concept id"
+            return render.declined(question, "", telemetry)
 
         options = ((card.get("deciding_question") or {}).get("options")) or []
         chosen = next((o for o in options if str(o.get("id")) == str(option_id)),
@@ -135,7 +136,8 @@ class Pipeline:
         if not candidates:
             telemetry.tier = "declined"
             telemetry.elapsed_s = time.time() - started
-            return render.declined(question, "nothing matched", telemetry)
+            telemetry.declined_because = "shortlist was empty"
+            return render.declined(question, "", telemetry)
 
         classification = None
         try:
@@ -186,7 +188,8 @@ class Pipeline:
         # Not built yet. Declining is the correct behaviour in the meantime,
         # and it is the behaviour the plan asks for when a concept is missing.
         telemetry.tier = "declined"
-        reason = ("no concept matched with enough confidence"
-                  if classification is None or classification.concept == "none"
-                  else "matched {} but that card is not finished".format(concept_id))
-        return render.declined(question, reason, telemetry)
+        telemetry.declined_because = (
+            "no concept matched" if classification is None
+            or classification.concept == "none"
+            else "matched {} but that card is unfinished".format(concept_id))
+        return render.declined(question, telemetry.declined_because, telemetry)
