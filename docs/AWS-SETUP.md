@@ -275,8 +275,13 @@ and it is not required. Plain Lambda first, and never let this block week 2.
 - [ ] Daily spend ceiling in DynamoDB (`SPEND#`) set to something that survives
       a bad weekend without draining the credits.
 - [ ] CloudWatch log retention set to 7 days so logs are not a line item.
-- [ ] `private/` still gitignored. `python tools/check_publishable.py` before the
-      repo goes public.
+- [ ] Before flipping the repo to public, run `python tools/check.py`. It
+      includes `check_secrets.py`, which scans every commit rather than the
+      working tree. Git history is permanent: a key committed and deleted is
+      still there when the repo goes public, and so is every file that was ever
+      tracked.
+- [ ] Rotate anything that check flags, then clean history. In that order. A
+      secret already committed is compromised whether or not you rewrite.
 
 ---
 

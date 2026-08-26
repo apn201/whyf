@@ -17,6 +17,7 @@ STEPS = [
     ("corpus mapping", [sys.executable, "tools/corpus_map.py"]),
     ("card schema and coverage", [sys.executable, "tools/validate_cards.py"]),
     ("publication safety", [sys.executable, "tools/check_publishable.py"]),
+    ("secrets in history", [sys.executable, "tools/check_secrets.py"]),
     ("tests", [sys.executable, "-m", "pytest", "-q"]),
 ]
 
