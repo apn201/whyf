@@ -1,0 +1,39 @@
+id: outcome-as-process
+name: The question asks whether you decided, not whether you bought
+status: done
+
+# How you recognise it.
+tell: >
+  It asks whether a number, a level or an objective has been specified,
+  defined or determined. The thing it asks about is already true of you; the
+  question is whether anyone chose it.
+
+# What the asker actually wants, underneath the wording.
+what_it_means: >
+  You have an answer whether you like it or not. Your backups run nightly,
+  so your tolerable data loss is already 24 hours. The question is whether
+  that was a decision or an accident.
+
+# The cheap correct move.
+what_to_do: >
+  Say the number. Write it down first so it becomes a decision, then answer
+  with it. This is usually the cheapest question on the whole form and
+  people mistake it for the most expensive.
+
+# How companies overspend when they read the question literally.
+trap: >
+  Reading it as a demand for the best possible number and pricing the
+  technology to deliver that. The question does not ask for a good number.
+  It asks for a chosen one.
+
+# Phrases that make the classifier suspect this pattern. Lowercased,
+# matched against the normalised question.
+signals:
+  - "has been specified"
+  - "has been defined"
+  - "is determined"
+  - "maximum accepted"
+  - "objectives are defined"
+  - "has been established"
+
+concepts: [rpo, bia, data-classification, patch-management, continuity-testing, ics-inventory]

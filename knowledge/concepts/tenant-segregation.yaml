@@ -1,0 +1,101 @@
+id: tenant-segregation
+title: Customer data segregation
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  If you hold data for several customers, is one customer's data kept apart
+  from another's.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This is genuinely tricky in practice, especially on older systems that
+  were built when you had one customer. It is also the question where a
+  vague answer does the most damage, because the customer asking is asking
+  whether their competitor can see their data.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If you do not hold data for multiple customers, this does not apply and
+  you should say so rather than reaching for something that sounds similar.
+  If you do, this is not a checkbox, it is an architecture question, and the
+  honest answer is either separate databases, a tenant identifier enforced
+  in code, or you do not know. The third answer is the one worth acting on.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [multi_customer_saas, has_customer_data]
+applies_never_if: [single_customer]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. We do not host data for multiple customers in shared
+  systems. Customer data received under this contract is held separately and
+  is described below.
+
+default_verdict: need-one-fact
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you hold data for more than one customer in the same system?"
+  options:
+    - id: no
+      label: "No"
+      verdict: not-applicable
+      why: >
+        Say so plainly. This is a SaaS question and it does not apply to most
+        companies who receive it.
+    - id: yes_separate
+      label: "Yes, separate databases per customer"
+      verdict: already-solved
+      why: >
+        That is the strongest answer available. Say it and say how a new customer
+        gets provisioned.
+    - id: yes_shared
+      label: "Yes, shared, separated in the application"
+      verdict: do-it-properly
+      why: >
+        Then somebody needs to be able to point at the code and the tests that
+        enforce it. This is the failure mode that ends companies, so it is worth
+        the review even though nobody enjoys it.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "document the separation you already have": "€"
+  "review and test the enforcement": "€€€"
+  "re-architect to separate stores": "€€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Customer data is separated."
+  better: "A written description of how separation is enforced."
+  strong: "The description, plus test cases proving one tenant cannot reach another, run recently."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ds-01, iso27002-8.31]
+incidents: []
+patterns: []
+already_have: [external-sharing-controls]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q1: 1, q2: 1, syn: 2}
+question_forms: [binary_statement, check_all]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/tenant-segregation.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "One customer's data cannot be reached from another customer's account."   # syn.035a
+  - "Can one customer see another customer's data?"   # syn.035b

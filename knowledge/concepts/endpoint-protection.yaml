@@ -1,0 +1,125 @@
+id: endpoint-protection
+title: Endpoint protection
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Endpoint protection is the new name for antivirus, because a virus is no
+  longer the only threat. Is there something on every computer protecting
+  it.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It is not the same as antivirus, but in practice it is. Salespeople have
+  made it confusing with EPP, EDR, NDR, XDR and MDR, partly bundled into the
+  same products. What you need to know: is something running, is it
+  updating, and would anyone find out if it alerted.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Windows Defender is included, it is genuinely good now, and it tests at
+  the top of the independent comparisons. For most companies buying a
+  third-party product is replacing something free and adequate with
+  something paid and adequate. Where the money goes further is the managed
+  part: somebody watching the alerts. That is a different purchase from the
+  agent.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Endpoint protection with malware detection and prevention is
+  deployed and centrally managed. Coverage is stated below.
+
+default_verdict: already-solved
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Would you know if a laptop had malware on it right now?"
+  options:
+    - id: yes
+      label: "Yes, alerts come somewhere"
+      verdict: already-solved
+      why: >
+        Then answer with where they go and who reads them. Having the agent is
+        common. Someone reading the alerts is not.
+    - id: installed
+      label: "Something is installed, nobody watches it"
+      verdict: cheap-checkbox
+      why: >
+        That is most companies. Point the alerts at a mailbox somebody actually
+        opens. Free, and it turns a licence into a control.
+    - id: no
+      label: "No"
+      verdict: do-it-properly
+      why: >
+        Turn on Defender centrally, or whatever your estate has. It is included,
+        and running unprotected in 2026 is not a defensible position on any form.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 adds forensic capability and central event collection, which is EDR
+    with somebody to use it. The agent is free. The person watching is the
+    cost, and that is covered under monitoring. Everything protected and
+    updating, with alerts going somewhere, is the level that matters.
+  rungs:
+    - level: 1
+      gist: "Nothing installed."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Installed on some devices."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "All devices, updating, alerts reaching a person."
+      verdict: already-solved
+    - level: 4
+      gist: "EDR with forensics and central event collection."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "Defender or the built-in agent": "€"
+  "third-party endpoint product": "€€"
+  "managed detection and response": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We have antivirus."
+  better: "A console screenshot showing coverage and update status."
+  strong: "The coverage report, where alerts are sent, and evidence somebody acted on one."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ps-05, nist-csf-de.cm-01, iso27002-8.7]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 8
+corpus_sources: {q2: 5, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 5 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/endpoint-protection.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/endpoint-protection.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Computers run software that detects and stops malicious code."   # syn.049a
+  - "What is running on the laptops to catch malware?"   # syn.049b
+  - "To what extent is it true that computers run software that detects and stops malicious code?"   # syn.049c

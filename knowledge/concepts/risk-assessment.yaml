@@ -1,0 +1,124 @@
+id: risk-assessment
+title: Risk assessment and treatment
+status: done
+class: control
+csf: ID
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Have you actually sat down and worked out what could go wrong, and written
+  it down.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Frameworks bury this and consultants arrive with complicated risk
+  matrices. In simple form it is a spreadsheet. List the risks, add a
+  probability and a cost. Now you know what you should be willing to pay for
+  the control, and the rule is easy: a control cannot cost more than the
+  risk it removes. Add a note to review it once a year and you have the tick
+  as well. Without a consultant.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  The expensive version of this produces a document nobody reads and a heat
+  map nobody acts on. Twenty rows in a spreadsheet, written by the people
+  who actually run the place, beats a hundred rows written by somebody who
+  arrived on Tuesday. The value is entirely in the conversation that
+  produces it.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. An information security risk assessment is maintained and
+  reviewed. Scope and review date are stated below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Is there a list of what could go wrong, with numbers next to it?"
+  options:
+    - id: none
+      label: "No list"
+      verdict: write-it-down
+      why: >
+        A morning with a spreadsheet and the two or three people who know how the
+        place works. Twenty rows. This is the cheapest real security work there
+        is.
+    - id: list
+      label: "Yes, and it gets looked at"
+      verdict: already-solved
+      why: >
+        Answer with the review date. This is one of the few places where having
+        done the boring thing pays back immediately.
+    - id: consultant
+      label: "A consultant did one once"
+      verdict: cheap-checkbox
+      why: >
+        Check whether it still describes your business. If it does, use it and put
+        a review date on it. If it does not, twenty rows of your own beats forty
+        of theirs.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants a standardised method for calculating and prioritising risk,
+    applied consistently and fed into enterprise risk management. That is a
+    function, not a document. A spreadsheet reviewed yearly by people who know
+    the business gets the same decisions made.
+  rungs:
+    - level: 1
+      gist: "No assessment."
+      verdict: write-it-down
+    - level: 2
+      gist: "A spreadsheet with risks, likelihood and cost."
+      verdict: already-solved
+    - level: 3
+      gist: "Reviewed on a schedule and driving a treatment plan."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Standardised method feeding enterprise risk management."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a spreadsheet, done in-house": "€"
+  "reviewed yearly with a treatment plan": "€€"
+  "consultant-run assessment": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We know what our risks are."
+  better: "A risk register with likelihood, impact and an owner per row."
+  strong: "The register, dated, with a treatment plan and evidence of the last review."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.ra-01, nist-csf-id.ra-05, iso27002-5.6, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 16
+corpus_sources: {q1: 1, q2: 2, q3: 10, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 13 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/risk-assessment.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The organisation has thought through what could go wrong and written it down."   # syn.019a
+  - "Have you written down what could go wrong?"   # syn.019b
+  - "To what extent is it true that the organisation has thought through what could go wrong and written it down?"   # syn.019c

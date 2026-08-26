@@ -1,0 +1,39 @@
+id: documentation-only
+name: The question asks for a document, not an outcome
+status: done
+
+# How you recognise it.
+tell: >
+  Anything that asks whether a written policy, procedure or plan exists. The
+  verb is has or is established, never works or was tested.
+
+# What the asker actually wants, underneath the wording.
+what_it_means: >
+  Somebody wants evidence that a decision was made on purpose rather than by
+  accident. They are not asking whether the thing is any good. Nobody will
+  read the document; they will note that it has a date and an owner.
+
+# The cheap correct move.
+what_to_do: >
+  Write the document. Keep it short and true. An afternoon of work closes
+  the question permanently, and the questions underneath it usually close
+  too, because most policy questions are the same policy asked five ways.
+
+# How companies overspend when they read the question literally.
+trap: >
+  Buying a policy pack. You get sixty pages describing controls you do not
+  have, which is worse than having nothing: now there is written evidence
+  that you knew what you were supposed to be doing and were not doing it.
+
+# Phrases that make the classifier suspect this pattern. Lowercased,
+# matched against the normalised question.
+signals:
+  - "a formal policy"
+  - "is documented"
+  - "has been established"
+  - "documented and implemented"
+  - "policy is in place"
+  - "formalized"
+  - "formalised"
+
+concepts: [security-policy, acceptable-use, bcp, incident-response, change-management, crisis-management]

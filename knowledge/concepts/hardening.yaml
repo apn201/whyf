@@ -1,0 +1,118 @@
+id: hardening
+title: Hardening and secure configuration
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Have you turned off the things you do not use.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Systems ship full of features you will never use and each one is a
+  possible weak spot. Hardening means, especially on servers and sensitive
+  systems, removing and disabling what is not needed and switching on the
+  protections that do make sense. The second half of the question is about
+  building machines the same way every time, so that hardening does not have
+  to be redone by hand.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not start from a CIS benchmark with a thousand settings and try to
+  apply all of it. You will break something and then turn the whole thing
+  off. Start from the vendor's own baseline, which Microsoft and Apple both
+  publish free and both ship in their management tools, and deviate where
+  you have to. That is a defensible answer and it costs nothing.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_servers, has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Systems are built from a standard configuration with
+  unnecessary services disabled. The baseline used is stated below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Are two new laptops set up the same way?"
+  options:
+    - id: yes
+      label: "Yes, from a standard build"
+      verdict: already-solved
+      why: >
+        Then name the baseline and say how deviations are handled. That is the
+        whole answer.
+    - id: no
+      label: "Whoever sets it up does it their way"
+      verdict: write-it-down
+      why: >
+        Adopt the vendor baseline in your device management tool. It is free, it
+        is a day of work, and it makes every future machine consistent.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants configurations updated continuously against emerging threats,
+    which means somebody tracking benchmark changes and re-testing. A vendor
+    baseline applied to everything, reviewed when the vendor updates it, gets
+    the same security for a fraction of the attention.
+  rungs:
+    - level: 1
+      gist: "Every machine is different."
+      verdict: write-it-down
+    - level: 2
+      gist: "A standard build is defined, not applied everywhere."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Baseline enforced on all endpoints and servers."
+      verdict: already-solved
+    - level: 4
+      gist: "Continuously updated against emerging threats."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "vendor baseline in your management tool": "€"
+  "hardened server build documented": "€€"
+  "full benchmark compliance with monitoring": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We set machines up sensibly."
+  better: "A named baseline and the policy applying it."
+  strong: "The baseline, a compliance report against it, and the documented deviations."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ps-01, iso27002-8.9]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 7
+corpus_sources: {q1: 1, q2: 2, q3: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 4 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/hardening.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/hardening.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Systems are built from a standard configuration rather than one at a time."   # syn.047a
+  - "Are machines set up the same way every time?"   # syn.047b
+  - "To what extent is it true that systems are built from a standard configuration rather than one at a time?"   # syn.047c

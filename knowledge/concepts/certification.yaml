@@ -1,0 +1,45 @@
+id: certification
+title: Security certification
+status: done
+class: attestation
+csf: ID
+priority: 2
+
+# Not a security control, so it never gets one of the six verdicts.
+
+plain_english: >
+  Do you hold a certificate. ISO 27001, SOC 2, Cyber Essentials, that
+  family.
+
+# What the tool says back.
+response: >
+  Sometimes a certificate is required by law, by regulation, or by a
+  customer who will not sign without it. When it is not required, fixing
+  your processes is worth more than certifying them. A certificate is not
+  proof that you are secure. It is proof that somebody looked at your
+  process on one day and it matched what you said it was. It is expensive
+  and it eats the same people who would otherwise be fixing things, so
+  getting certified is not a goal on its own. What it does buy you is a
+  shortcut: one line on the form can close a whole section of questions, and
+  that is a real commercial saving if you are getting these questionnaires
+  every month. Count how many you got last year before you decide.
+
+answer_risk: certification
+
+# Who to actually talk to, if anyone.
+refer_to: >
+  Whoever owns the biggest customer relationship. They know whether a
+  certificate is actually being asked for or whether somebody just put it on
+  a wish list.
+
+frameworks: []
+patterns: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {q1: 1, q2: 1, syn: 1}
+question_forms: [attestation, binary_statement, check_all]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/certification.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Which security certifications does the organisation hold?"   # syn.083a

@@ -1,0 +1,44 @@
+id: company-profile
+title: Company profile questions
+status: done
+class: admin
+csf: ID
+priority: 1
+
+# Not a security control, so it never gets one of the six verdicts.
+
+plain_english: >
+  Background questions about your company. Name, headcount, how many data
+  centres, sometimes revenue. They often feel too detailed for a security
+  assessment, because they are.
+
+# What the tool says back.
+response: >
+  This is not a security question and there is no verdict to give. Type in
+  what you are willing to type in. Revenue and headcount breakdowns are not
+  needed to assess your security, and you are allowed to leave them blank or
+  answer roughly. Nobody has ever lost a contract over an approximate
+  headcount. If a field is mandatory and you do not want to give the exact
+  figure, give a range and say it is a range.
+
+answer_risk: none
+
+# Who to actually talk to, if anyone.
+refer_to: >
+  Nobody. This is admin. If the form demands financial detail you are not
+  comfortable sharing, that is a question for whoever owns the customer
+  relationship, not for security.
+
+frameworks: []
+patterns: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 11
+corpus_sources: {q2: 8, syn: 3}
+question_forms: [admin_field]
+# 8 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/company-profile.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Organisation name"   # syn.078a
+  - "Number of employees"   # syn.079a
+  - "Name and email of the person completing this form"   # syn.080a

@@ -1,0 +1,125 @@
+id: identity-lifecycle
+title: Joiners, movers and leavers
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Is there a clear process for adding people and, more importantly, removing
+  them.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Identity is not quite the same as user, but here it is close enough. You
+  need a process to create them when needed and delete them when not needed,
+  or when the person asks, which matters under GDPR. Joining is never the
+  problem. Somebody chases it because the new person cannot work. Leaving is
+  the problem, because nobody is chasing it and the account keeps working
+  perfectly.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not buy identity governance tooling for this. In a company under a few
+  hundred people the control is a checklist that HR triggers on the leaving
+  date, and the fix for most of the risk is SSO, so there is one account to
+  disable instead of fifteen. Automation is worth it when the list of
+  systems gets long enough that people forget, not before.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Accounts are created and removed through a defined process
+  triggered by HR, and access is reviewed on role change.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If someone left last month, is their account definitely gone?"
+  options:
+    - id: yes
+      label: "Yes, definitely"
+      verdict: already-solved
+      why: >
+        Then write the process down so somebody else could run it, and point at
+        the last leaver as evidence.
+    - id: think
+      label: "I think so"
+      verdict: do-it-properly
+      why: >
+        Go and check. Not as a paperwork exercise. Dormant accounts belonging to
+        people who left angry are how a lot of small companies get hurt.
+    - id: no
+      label: "Probably not"
+      verdict: do-it-properly
+      why: >
+        This is worth real effort. A leaver checklist tied to the HR date, and SSO
+        underneath so there is one switch rather than fifteen.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants automated provisioning and de-provisioning across every
+    system, kept aligned to emerging risk. The automation is a project and a
+    licence. A checklist that HR actually triggers, with SSO underneath it,
+    closes the same gap for a fraction of the money.
+  rungs:
+    - level: 1
+      gist: "Accounts are removed when somebody remembers."
+      verdict: do-it-properly
+    - level: 2
+      gist: "A leaver checklist exists and is mostly followed."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "HR triggers it, SSO makes it one switch, it is recorded."
+      verdict: already-solved
+    - level: 4
+      gist: "Fully automated joiner, mover and leaver."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a leaver checklist": "€"
+  "SSO so there is one account to disable": "€€"
+  "automated provisioning tooling": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We remove accounts when people leave."
+  better: "A written joiner and leaver process with a named trigger."
+  strong: "The process, plus evidence for recent leavers showing dates and who confirmed."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-01, nist-csf-pr.aa-05, iso27002-5.16, iso27002-5.18, nis2-art21]
+incidents: []
+patterns: []
+already_have: [admin-role-separation]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 7
+corpus_sources: {q2: 2, q3: 2, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 4 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/identity-lifecycle.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/identity-lifecycle.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Accounts are created when someone joins and closed when they leave."   # syn.026a
+  - "What happens to an account when somebody leaves?"   # syn.026b
+  - "To what extent is it true that accounts are created when someone joins and closed when they leave?"   # syn.026c

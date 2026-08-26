@@ -1,0 +1,118 @@
+id: security-awareness
+title: Security awareness and training
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you train your people not to fall for things.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Easiest done with an external service that sends fake phishing and runs
+  automatic training, but even a regular newsletter might count. What does
+  not count is a slide deck shown once at induction three years ago. The
+  point is repetition, and the point of the fake phishing is not to catch
+  people out, it is to give them a safe place to make the mistake.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Simulated phishing platforms are sold per user per month forever and they
+  produce a click rate that goes down and then plateaus. After that you are
+  paying for a metric. A short session at induction, a reminder email when
+  something relevant happens, and an easy way to report a suspicious message
+  gets most of the benefit. The reporting button in particular is free and
+  it is the one that actually catches attacks in progress.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Staff receive security awareness training at induction and at
+  intervals thereafter. Content and frequency are described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "When somebody gets a suspicious email, do they know what to do with it?"
+  options:
+    - id: yes
+      label: "Yes, they forward it to someone"
+      verdict: already-solved
+      why: >
+        That is the control that matters most. Make sure the route is a button
+        rather than a memory, and say so.
+    - id: no
+      label: "They would probably just delete it"
+      verdict: write-it-down
+      why: >
+        Turn on the report button in your mail platform and tell people it exists.
+        Free, ten minutes, and it turns your whole staff into detection.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants training within 30 days of joining, refreshed annually, with
+    specific content for groups like privileged users. That last part is a
+    platform feature you pay for per head. Induction plus an annual refresh
+    plus a reporting route is the level where the risk drops.
+  rungs:
+    - level: 1
+      gist: "No training."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Something at induction, nothing after."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Induction and annual refresh, reporting route in place."
+      verdict: already-solved
+    - level: 4
+      gist: "Role-specific content and simulated phishing."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "induction session and a report button": "€"
+  "annual refresh material": "€€"
+  "phishing simulation platform per user": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We tell people to be careful."
+  better: "Training material and a record of who completed it and when."
+  strong: "The records, the refresh schedule, the reporting route, and evidence people use it."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.at-01, nist-csf-pr.at-02, iso27002-6.3, nis2-art21]
+incidents: []
+patterns: []
+already_have: [email-malware-filtering]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 11
+corpus_sources: {q1: 3, q2: 3, q3: 2, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 8 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/security-awareness.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/security-awareness.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Staff are told what to watch for and reminded regularly."   # syn.063a
+  - "When did staff last get security training?"   # syn.063b
+  - "To what extent is it true that staff are told what to watch for and reminded regularly?"   # syn.063c

@@ -1,0 +1,118 @@
+id: logging
+title: Logging
+status: done
+class: control
+csf: DE
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  When something goes wrong, will the log files still be there.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Normal backups are usually not considered good enough for this. Logs
+  should be in a SIEM or something like it, so you also get value from them
+  at normal times, and so they are still available when your network is
+  toast. The second half is protection: if an attacker can delete the logs
+  that show what they did, the logs were decoration.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  A SIEM is a licence plus a person, and a SIEM with nobody reading it is an
+  expensive disk. Start with retention: make sure your cloud platform and
+  your servers keep logs for ninety days somewhere the local admin account
+  cannot wipe. In Microsoft 365 and Google Workspace that is a settings
+  change. Then worry about analysis.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_servers, has_cloud]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Security-relevant events are logged and retained. Retention
+  period and protection against alteration are described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If something happened three months ago, could you still see it?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: already-solved
+      why: >
+        Then say the retention period and where the logs are held. Ninety days is
+        the number most assessments look for.
+    - id: no
+      label: "No, or I do not know"
+      verdict: write-it-down
+      why: >
+        Check the retention settings on your mail and identity platform first. It
+        is usually a slider, and extending it is the cheapest thing on this whole
+        page.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants logs from every system, synchronised, fed to a SIEM with
+    categorised use cases. The SIEM and the person to run it are the cost, and
+    that is really the monitoring question. Retained for 90 days, protected
+    from deletion, covering the systems that matter, is the logging answer.
+  rungs:
+    - level: 1
+      gist: "Logging off or retained for days."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Logs retained 90 days on the systems that matter."
+      verdict: already-solved
+    - level: 3
+      gist: "Centralised and protected from alteration."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Everything into a SIEM with defined use cases."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "extend retention on what you have": "€"
+  "central log collection": "€€"
+  "SIEM licence and storage": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Systems keep logs."
+  better: "The retention configuration and which systems it covers."
+  strong: "The configuration, evidence logs cannot be altered by local administrators, and a sample retrieval."
+
+answer_risk: none
+
+frameworks: [nist-csf-de.cm-01, nist-csf-de.ae-03, iso27002-8.15, iso27002-5.22]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [audit-logging]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 12
+corpus_sources: {q1: 4, q2: 4, q3: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 9 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/logging.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/logging.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Systems keep records of who did what, and the records are protected."   # syn.065a
+  - "Would you be able to tell what happened after a break-in?"   # syn.065b
+  - "To what extent is it true that systems keep records of who did what, and the records are protected?"   # syn.065c

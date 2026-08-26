@@ -1,0 +1,30 @@
+id: admin-mfa
+title: Admin accounts require MFA
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Multi-factor authentication for administrator accounts is available on
+  every business tier of both platforms at no extra cost. Microsoft's
+  security defaults switch it on for privileged accounts without any
+  licensing beyond the base subscription.
+
+microsoft365:
+  applies_to: "All tiers; security defaults, or conditional access on higher tiers"
+  where_to_look: "Entra admin center, Identity, Overview, Properties, Manage security defaults; or Protection, Conditional Access"
+  evidence: "Screenshot showing security defaults enabled, or the conditional access policy and the accounts it covers."
+
+google_workspace:
+  applies_to: "All editions"
+  where_to_look: "Admin console, Security, Authentication, 2-step verification"
+  evidence: "Screenshot of the enforcement setting and the group it applies to."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  Available is not the same as enabled. Check it is actually on, and check
+  for exclusions: break-glass accounts are a legitimate exception but they
+  need to be named, monitored and few. An emergency account excluded from
+  MFA and forgotten about is a common finding.
+
+concepts: [mfa, privileged-accounts, executive-protection, remote-access]

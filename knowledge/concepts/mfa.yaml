@@ -1,0 +1,134 @@
+id: mfa
+title: Multi-factor authentication
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Is there a second step on top of the password, in the places that matter.
+  A code, or a prompt on your phone.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Passwords are weak. Phishing works, keyloggers exist, and no password
+  policy will save you. MFA is also attackable, but it gives very good
+  protection against phishing and that is the main goal. Many forget that.
+  SSO and the rest are related but do not replace it. The other half people
+  get wrong: MFA should not be asked when it is not needed, because it just
+  annoys people. Write the policy so that a known device on your own network
+  doing a low-risk task is not challenged, and somebody in another country
+  trying your credentials is. Companies overdo it and then staff go looking
+  for workarounds. And MFA is not the control against someone stealing your
+  laptop. It is the control against someone using your credentials from the
+  internet.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is not much of one, which is rare on this list. Admin MFA is
+  included in what you already pay Microsoft or Google, it takes an
+  afternoon, and it stops the single most common way small companies get
+  taken. The only real argument is against the expensive version: hardware
+  tokens for everybody, or a separate MFA product when your identity
+  provider already does it.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Multi-factor authentication is enforced for administrative and
+  remote access. Where it is not enforced, the risk basis for that decision
+  is stated below.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Can an admin account be used with just a password?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: do-it-properly
+      why: >
+        Fix it this week. It is included in the licence you already have, it takes
+        an afternoon, and it is the difference between a phished password being an
+        annoyance and being a ransomware event.
+    - id: admins_only
+      label: "Admins are covered, users are not"
+      verdict: cheap-checkbox
+      why: >
+        That covers the worst of it, and it is a legitimate answer. Extend it to
+        remote access next, and leave the office network alone unless somebody
+        gives you a reason.
+    - id: all
+      label: "Everyone, everywhere"
+      verdict: already-solved
+      why: >
+        Check people are not being challenged so often that they have built
+        workarounds. Over-applied MFA gets defeated by the people it protects.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 is MFA everywhere plus continuous alignment to emerging threats,
+    which in practice means phishing-resistant hardware keys for the whole
+    company. Keys cost money per head and get lost. Admins and remote access
+    covered, with app-based factors, is where the risk curve flattens.
+  rungs:
+    - level: 1
+      gist: "No MFA anywhere."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Some accounts, not all admins."
+      verdict: do-it-properly
+    - level: 3
+      gist: "All admin and all remote access covered."
+      verdict: already-solved
+    - level: 4
+      gist: "Everything, with phishing-resistant hardware factors."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "turn on what your licence includes": "€"
+  "conditional policies tuned by risk": "€€"
+  "hardware keys for everyone": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "The policy says MFA is required."
+  better: "A screenshot of the conditional access or MFA policy showing which accounts it covers."
+  strong: "The policy, a report of accounts covered versus total, and the list of exceptions with reasons."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-03, iso27002-5.17, iso27002-8.5, nis2-art21]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [admin-mfa]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 13
+corpus_sources: {q1: 3, q2: 6, q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 10 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/mfa.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/mfa.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A second authentication factor is required for administrator accounts."   # syn.021a
+  - "Do administrator accounts need a second factor?"   # syn.021b
+  - "To what extent is it true that a second authentication factor is required for administrator accounts?"   # syn.021c

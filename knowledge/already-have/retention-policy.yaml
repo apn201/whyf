@@ -1,0 +1,31 @@
+id: retention-policy
+title: Deleted items are retained and recoverable
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Both platforms keep deleted mail and files recoverable for a period after
+  deletion, without you configuring anything. This covers the
+  accidental-deletion case that people usually mean when they ask about
+  backups.
+
+microsoft365:
+  applies_to: "All tiers, with the period varying; longer retention through Purview on higher tiers"
+  where_to_look: "Purview compliance portal, Data lifecycle management; and the mailbox recoverable items settings"
+  evidence: "Screenshot of the retention configuration and the recoverable period."
+
+google_workspace:
+  applies_to: "All editions, with configurable retention through Vault on editions that include it"
+  where_to_look: "Admin console, plus Google Vault where included"
+  evidence: "Screenshot of the retention rules."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  Default retention is measured in weeks, not years, and it is not a backup.
+  It will not help you against ransomware encrypting files in place, or
+  against a malicious admin, or against a retention period expiring before
+  anyone noticed the data was gone. Say what the actual period is rather
+  than implying indefinite recovery.
+
+concepts: [backups, rpo]

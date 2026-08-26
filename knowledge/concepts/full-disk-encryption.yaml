@@ -1,0 +1,119 @@
+id: full-disk-encryption
+title: Full disk encryption
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Are laptops and phones encrypted so that finding one does not mean reading
+  it.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Nothing is foolproof, but you make it harder. File encryption and full
+  disk encryption used to be two competing strategies. On PCs and phones
+  today the whole disk is encrypted and that argument is over. The remaining
+  question is whether it is actually switched on and whether you can prove
+  it.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is no case against this. BitLocker and FileVault are included, they
+  are a policy toggle on a managed device, and the performance argument died
+  a decade ago. The only real work is making sure recovery keys are escrowed
+  somewhere you can reach them.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Full disk encryption is enforced on company laptops and mobile
+  devices, with recovery keys escrowed centrally.
+
+default_verdict: already-solved
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could you prove today that every laptop is encrypted?"
+  options:
+    - id: report
+      label: "Yes, there is a compliance report"
+      verdict: already-solved
+      why: >
+        Attach it. This is one of the questions you close with a screenshot rather
+        than a paragraph.
+    - id: probably
+      label: "Probably, but I could not prove it"
+      verdict: cheap-checkbox
+      why: >
+        Get the report out of your device management tool. The control is almost
+        certainly already on. What you are missing is the evidence.
+    - id: no
+      label: "No"
+      verdict: do-it-properly
+      why: >
+        Turn it on. It is free, it is an afternoon on a managed estate, and a lost
+        laptop stops being a notifiable event.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 extends encryption to every connecting device including personal
+    ones and IoT. On a phone or personal laptop you cannot enforce it, so the
+    honest control is containing company data instead. Full coverage of
+    company devices is the real target.
+  rungs:
+    - level: 1
+      gist: "Not encrypted."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Some devices."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "All company devices, with keys escrowed."
+      verdict: already-solved
+    - level: 4
+      gist: "Everything that connects, including personal kit."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "turn on BitLocker or FileVault": "€"
+  "central key escrow and reporting": "€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Laptops are encrypted."
+  better: "A device compliance report showing encryption status."
+  strong: "The report covering all devices, plus evidence that recovery keys are escrowed and retrievable."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ds-01, iso27002-8.24]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [data-at-rest-encryption, device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q2: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/full-disk-encryption.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Laptop and phone storage is encrypted."   # syn.033a
+  - "Are laptop drives encrypted?"   # syn.033b
+  - "To what extent is it true that laptop and phone storage is encrypted?"   # syn.033c

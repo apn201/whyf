@@ -1,0 +1,97 @@
+id: sod
+title: Segregation of duties
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Can the same person who orders something also approve paying for it.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This turns up in security questionnaires but it is mostly a finance
+  control, and it is the one on this whole form that most reliably prevents
+  actual money leaving. It is also the answer to executive impersonation
+  fraud, which no amount of email filtering fully stops.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  In a company of five you cannot fully separate duties and pretending
+  otherwise is dishonest. The workable version is a threshold: below a
+  figure, one person; above it, two, one of whom is the owner. Write the
+  figure down. That is a real answer and an auditor will take it.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Given our size, full segregation of duties is not
+  achievable for all processes. Compensating controls, including approval
+  thresholds and owner review, are described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could one person here order something and pay for it alone?"
+  options:
+    - id: yes_any
+      label: "Yes, for any amount"
+      verdict: do-it-properly
+      why: >
+        Set a threshold above which a second person signs. It costs nothing, it
+        takes one conversation, and it is the control that stops the invoice fraud
+        email.
+    - id: threshold
+      label: "Only below a limit"
+      verdict: already-solved
+      why: >
+        That is the honest small-company answer. Say what the limit is and who the
+        second approver is.
+    - id: never
+      label: "Never, always two people"
+      verdict: already-solved
+      why: >
+        Answer it and move on. This one you have.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "agree a threshold and write it down": "€"
+  "enforce it in the finance system": "€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We trust each other."
+  better: "A written approval threshold naming who approves what."
+  strong: "The threshold enforced in the finance system, plus a sample of approvals showing two names."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-05, iso27002-5.3]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {q1: 1, syn: 2}
+question_forms: [binary_statement]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/sod.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "No single person can complete a sensitive transaction alone."   # syn.028a
+  - "Can one person approve and make a payment on their own?"   # syn.028b

@@ -1,0 +1,113 @@
+id: security-roles
+title: Security roles and responsibilities
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Who does what in security. Named people, not a box on an org chart.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This does not require a CISO. In a company of forty the honest answer is
+  often one name for everything, and that is a perfectly good answer as long
+  as the name is written down and the person knows. What fails an audit is
+  not having one person doing it all. It is nobody being able to say who
+  that person is.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not create a security committee. Do not invent a RACI matrix. Write
+  down who decides, who runs it day to day, and who to call at night. Three
+  lines. If those three lines are the same name, write the name three times.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Security responsibilities are assigned by name and recorded.
+  Given our size, several responsibilities sit with the same person, which
+  is stated explicitly rather than obscured.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If I asked three people here who owns security, would I get one answer?"
+  options:
+    - id: yes
+      label: "Yes, same name"
+      verdict: already-solved
+      why: >
+        Then write it down where a stranger can find it and the question is
+        answered. You are further ahead than most.
+    - id: no
+      label: "Probably not"
+      verdict: write-it-down
+      why: >
+        Fix it with a document, not a hire. Ambiguity about who decides is what
+        turns a small incident into a long one.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants roles, responsibilities and authorities defined across the
+    whole organisation with resourcing tied to the risk strategy. In a small
+    company that is a page of fiction. Name the people, state that some wear
+    several hats, move on.
+  rungs:
+    - level: 1
+      gist: "Nobody is named."
+      verdict: write-it-down
+    - level: 2
+      gist: "Names written down, people know."
+      verdict: already-solved
+    - level: 3
+      gist: "Roles documented with deputies and escalation."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full role framework with resourcing tied to risk."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "write down the names": "€"
+  "documented roles and deputies": "€€"
+  "hire someone for the role": "€€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Everyone knows who to ask."
+  better: "A document naming who owns security and who deputises."
+  strong: "The same, plus it appearing in job descriptions and an escalation contact list."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.rr-02, nist-csf-gv.rr-03, nis2-art20, iso27002-5.2]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 8
+corpus_sources: {q1: 1, q2: 1, q3: 3, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 5 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/security-roles.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Somebody is named as responsible for security."   # syn.009a
+  - "Who is responsible for security here?"   # syn.009b
+  - "To what extent is it true that somebody is named as responsible for security?"   # syn.009c

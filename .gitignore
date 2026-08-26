@@ -1,0 +1,44 @@
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# cdk / node
+node_modules/
+cdk.out/
+.cdk.staging/
+
+# build artifacts
+build/
+dist/
+knowledge/.embeddings.json
+
+# secrets. nothing here should ever exist, but belt and braces.
+.env
+*.pem
+credentials
+
+# dropbox / windows noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.sync-conflict-*
+
+# ---------------------------------------------------------------------------
+# Never publish. See corpus/README.md.
+#
+# private/ holds the three real questionnaires, the compiled framework
+# crosswalk, the peer benchmark from a confidential assessment, and the
+# per-concept writing context derived from all of it. The questionnaire text
+# belongs to whoever wrote it, the vendor instrument behind q2 is a commercial
+# product, and the assessment identifies its subject.
+#
+# The repo builds and tests without any of it, against corpus/synthetic.tsv.
+# ---------------------------------------------------------------------------
+private/
+
+# question vectors are derived from the real corpus
+private/question-vectors.json

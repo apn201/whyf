@@ -1,0 +1,117 @@
+id: email-security
+title: Email security
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you stop viruses, spam and phishing arriving by email.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This should go both ways, not just inbound. Stopping annoying mail and
+  stopping dangerous mail are two different jobs, though usually the same
+  tool does both. Genuinely bad items should not be releasable by the user
+  who received them, but there is a thin line there and false positives
+  cause real problems when somebody cannot get the invoice they were waiting
+  for.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Microsoft 365 and Google Workspace both filter malware and spam by
+  default, on every tier, and have done for years. You almost certainly
+  already have this and can answer the question with a screenshot. The
+  add-on products are worth money when you are being targeted specifically,
+  not as a general upgrade.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Inbound and outbound mail is filtered for malware and spam by
+  our mail platform. The controls in place are listed below.
+
+default_verdict: already-solved
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Who provides your email?"
+  options:
+    - id: m365
+      label: "Microsoft 365 or Google Workspace"
+      verdict: already-solved
+      why: >
+        Then malware and spam filtering are already on, included, and have been
+        since you signed up. Screenshot the settings and close three questions at
+        once.
+    - id: own
+      label: "We run our own mail server"
+      verdict: do-it-properly
+      why: >
+        Then this is genuinely your problem, and it is one of the better arguments
+        for moving to a hosted platform. Filtering, patching and reputation
+        management are a real job.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 adds external sender warnings, macro blocking, attachment
+    detonation and threat counting. Most of that is in the higher business
+    tier you may already have. The external sender banner in particular is
+    free and stops more invoice fraud than any product.
+  rungs:
+    - level: 1
+      gist: "No filtering."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Default platform filtering."
+      verdict: already-solved
+    - level: 3
+      gist: "Filtering plus external sender warnings and macro blocking."
+      verdict: already-solved
+    - level: 4
+      gist: "Full mail security suite with detonation and reporting."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "what your platform already does": "€"
+  "external sender banner and macro blocking": "€"
+  "dedicated mail security product": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We have spam filtering."
+  better: "Screenshots of the malware and spam policies in the mail platform."
+  strong: "The policies, plus the external sender warning, macro handling, and a sample of blocked message reporting."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ps-05, nist-csf-de.cm-01, iso27002-8.7]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [email-malware-filtering, email-spam-filtering, email-encryption-in-transit]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 8
+corpus_sources: {q1: 3, q2: 2, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 5 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/email-security.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Incoming mail is filtered and sensitive mail is protected in transit."   # syn.036a
+  - "What happens to a malicious attachment sent to your staff?"   # syn.036b
+  - "To what extent is it true that incoming mail is filtered and sensitive mail is protected in transit?"   # syn.036c

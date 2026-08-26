@@ -1,0 +1,122 @@
+id: application-security-testing
+title: Application security testing
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  How do you test the security of applications you develop, whether for
+  internal use or for customers.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  One might think this applies only to companies that ship software to
+  customers. A website, or even an Excel macro, can contain malicious code,
+  and you should have a process to manage that. The other half is the web
+  application firewall question, which people answer with the network
+  firewall. Those are different things protecting different layers.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Many companies really do not develop anything. If there is a clear policy
+  and change management in place, and you are sure nothing is developed,
+  this is not needed and you should say so. Where you do develop, a scan of
+  the public website costs very little. The full static and dynamic analysis
+  toolchain is priced for software companies, because that is who it is for.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [develops_software, has_website]
+applies_never_if: [no_development]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. We do not develop applications. Purchased software is
+  assessed through supplier management, described separately.
+
+default_verdict: need-one-fact
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you put code in front of the internet?"
+  options:
+    - id: no
+      label: "No"
+      verdict: not-applicable
+      why: >
+        Then say so plainly. Application security testing for a company with no
+        applications is a question that arrived at the wrong address.
+    - id: website
+      label: "Just a website"
+      verdict: cheap-checkbox
+      why: >
+        An external web scan a couple of times a year is enough and it is cheap.
+        Do not buy a testing toolchain for a brochure site.
+    - id: product
+      label: "Yes, it is our product"
+      verdict: do-it-properly
+      why: >
+        Then testing before release is not optional, and this is one of the few
+        places on the form where the expensive answer is the right one.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants static, dynamic, interactive and composition analysis plus
+    threat modelling and runtime protection. That is a full application
+    security programme and it is priced for software companies. Testing before
+    release, with the findings fixed, is the level that matters for everyone
+    else.
+  rungs:
+    - level: 1
+      gist: "Nothing is tested."
+      verdict: do-it-properly
+    - level: 2
+      gist: "External scanning of what faces the internet."
+      verdict: already-solved
+    - level: 3
+      gist: "Testing before release, findings tracked."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full static, dynamic and composition analysis."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "external web scan": "€"
+  "testing before each release": "€€"
+  "full application security toolchain": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We test our software."
+  better: "A recent scan or test report for the application."
+  strong: "Test reports across releases, plus evidence that findings were fixed before going live."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ps-06, nist-csf-id.ra-01, iso27002-8.29]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 5
+corpus_sources: {q1: 1, q2: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/application-security-testing.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Applications are tested for weaknesses before they are released."   # syn.058a
+  - "Is the software tested for security before it ships?"   # syn.058b
+  - "To what extent is it true that applications are tested for weaknesses before they are released?"   # syn.058c

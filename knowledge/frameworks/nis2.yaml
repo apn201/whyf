@@ -1,0 +1,38 @@
+id: nis2
+name: NIS2 Directive (EU) 2022/2555
+url: "https://eur-lex.europa.eu/eli/dir/2022/2555/oj"
+status: done
+
+# The only ids a concept card may cite for this framework. The
+# validator drops anything else before it reaches a user.
+#
+# EU legislation, freely reproducible. Cited by article. Answer the scope
+# question in Article 3 before treating any of the rest as an obligation;
+# most companies asked about NIS2 are not in scope.
+
+controls:
+  - id: nis2-art20
+    title: >-
+      Governance. Management bodies have to approve the risk-management
+      measures, oversee how they are implemented, and can be held personally
+      liable for failing to. They are also required to undergo training.
+  - id: nis2-art21
+    title: >-
+      The risk-management measures themselves. Article 21(2) lists the minimum
+      set: risk analysis and policy, incident handling, business continuity
+      and backup, supply chain security, security in acquisition and
+      development, testing the effectiveness of measures, basic cyber hygiene
+      and training, cryptography, personnel and access control, and
+      multi-factor or continuous authentication. Most of the corpus maps here.
+  - id: nis2-art23
+    title: >-
+      Reporting. An early warning within 24 hours of becoming aware of a
+      significant incident, an incident notification within 72 hours, and a
+      final report within one month. The clock starts at awareness, not at the
+      end of your investigation, which is the part that catches people.
+  - id: nis2-art3
+    title: >-
+      Scope. Defines which organisations count as essential entities and which
+      as important, by sector and by size. This is the article that decides
+      whether any of the rest applies to you, and nobody will write and tell
+      you the answer.

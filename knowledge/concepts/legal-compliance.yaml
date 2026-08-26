@@ -1,0 +1,114 @@
+id: legal-compliance
+title: Legal and regulatory compliance
+status: done
+class: control
+csf: GV
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a way of knowing which laws and regulations apply to you in
+  every country you operate in, and staying inside them.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This goes well beyond finance and chemicals. Employment law shapes what
+  you may monitor and what you may screen. Export control rules can limit
+  which encryption you are allowed to ship or even carry across a border.
+  Data protection law decides what you may keep and for how long. It is not
+  optional and it is not IT's call.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  You cannot skip it, but you can scope it. The question is not whether you
+  have read every statute. It is whether somebody is responsible for
+  noticing when a rule that affects you changes. In a small company that is
+  a named person, an industry newsletter and a yearly check with a lawyer,
+  not a compliance department.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Legal and regulatory requirements relevant to our operations
+  are identified, assigned to an owner and reviewed.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Is there a named person who would notice if the rules changed?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: already-solved
+      why: >
+        Write down who, and what sources they watch. That is the whole control and
+        you already have it.
+    - id: no
+      label: "Not really"
+      verdict: write-it-down
+      why: >
+        Name someone. It does not have to be a lawyer. It has to be somebody whose
+        job includes noticing.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants a tracked register of every legal and contractual
+    requirement, aligned with the security strategy and reviewed on a cycle.
+    In a company that operates in two countries, a one-page list and a named
+    owner does the same job.
+  rungs:
+    - level: 1
+      gist: "Nobody is tracking legal requirements."
+      verdict: write-it-down
+    - level: 2
+      gist: "A named owner and a short list of what applies."
+      verdict: already-solved
+    - level: 3
+      gist: "A maintained register, reviewed yearly."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full register aligned to strategy and contracts."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "name an owner, list what applies": "€"
+  "yearly review with a lawyer": "€€"
+  "maintained compliance register": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We follow the law."
+  better: "A list of applicable legal and regulatory requirements with an owner."
+  strong: "The list, dated, with evidence of review and of legal input."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.oc-03, iso27002-5.31, iso27002-5.34, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 6
+corpus_sources: {q1: 2, q2: 1, q3: 1, syn: 2}
+question_forms: [binary_statement, maturity_ladder]
+# 4 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/legal-compliance.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The laws that apply to the organisation's data have been identified."   # syn.012a
+  - "Which data protection rules apply to you?"   # syn.012b

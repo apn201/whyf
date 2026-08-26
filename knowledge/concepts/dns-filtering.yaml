@@ -1,0 +1,114 @@
+id: dns-filtering
+title: DNS and web filtering
+status: done
+class: control
+csf: PR
+priority: 3
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you block dangerous or unwanted websites by name. Malware sites, and
+  whatever else you have decided people should not reach.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This used to be a product of its own. Nowadays it is usually done in the
+  firewall, or in the endpoint agent, or in a zero trust policy, so people
+  answer no when they actually have it in three places. Check before you buy
+  anything.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  As a security control it is a useful extra layer and nothing more. It will
+  not stop a determined attack and it does not replace endpoint protection.
+  Where it earns its money is stopping the callback after something already
+  got in, and for that a free or cheap DNS service does most of the job.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_network]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Web and DNS filtering is provided through our
+  firewall and endpoint protection rather than a separate service. The
+  categories blocked are described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does anything stop a click on a malware link from connecting?"
+  options:
+    - id: yes
+      label: "Yes, firewall or endpoint blocks it"
+      verdict: already-solved
+      why: >
+        Then answer with which, and do not buy a separate filtering service. You
+        already have the control.
+    - id: no
+      label: "Nothing"
+      verdict: cheap-checkbox
+      why: >
+        A filtering DNS service is a few euros per user per month and a
+        twenty-minute change. Cheap layer, no argument against it.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants command and control detection and content-based
+    categorisation on top. That is a secure web gateway, priced per user per
+    month forever. Blocking known-bad domains gets most of the benefit at a
+    fraction of the cost.
+  rungs:
+    - level: 1
+      gist: "No filtering at all."
+      verdict: cheap-checkbox
+    - level: 2
+      gist: "Known-bad domains blocked."
+      verdict: already-solved
+    - level: 3
+      gist: "Category filtering with a policy behind it."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full gateway with command and control detection."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "filtering DNS service": "€"
+  "firewall web filtering you already own": "€"
+  "secure web gateway": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We block bad websites."
+  better: "The filtering configuration showing which categories are blocked."
+  strong: "The configuration, the coverage across sites and remote users, and a sample of blocked requests."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ir-01, nist-csf-de.cm-01]
+incidents: []
+patterns: [technology-prescription]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 5
+corpus_sources: {q2: 2, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/dns-filtering.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Requests to known-bad web addresses are blocked before they connect."   # syn.037a
+  - "Are known-bad websites blocked?"   # syn.037b
+  - "To what extent is it true that requests to known-bad web addresses are blocked before they connect?"   # syn.037c

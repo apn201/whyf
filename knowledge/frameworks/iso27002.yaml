@@ -1,0 +1,249 @@
+id: iso27002
+name: ISO/IEC 27002:2022
+url: ""
+status: done
+
+# The only ids a concept card may cite for this framework. The
+# validator drops anything else before it reaches a user.
+#
+# Control numbers only, for the same reason. Descriptions are ours. If one
+# reads oddly against the standard, that is the point.
+
+controls:
+  - id: iso27002-5.1
+    title: >-
+      The written security policies, approved and published
+  - id: iso27002-5.2
+    title: >-
+      Who is responsible for what in security
+  - id: iso27002-5.3
+    title: >-
+      Splitting conflicting duties so one person cannot do it all
+  - id: iso27002-5.4
+    title: >-
+      Management requiring staff to actually follow the rules
+  - id: iso27002-5.5
+    title: >-
+      Keeping a working line to regulators and law enforcement
+  - id: iso27002-5.6
+    title: >-
+      Staying connected to industry and security groups
+  - id: iso27002-5.9
+    title: >-
+      A list of information and the things that hold it
+  - id: iso27002-5.10
+    title: >-
+      Rules for how people may use company information and equipment
+  - id: iso27002-5.12
+    title: >-
+      Sorting information by how sensitive it is
+  - id: iso27002-5.13
+    title: >-
+      Marking information so the classification is visible
+  - id: iso27002-5.14
+    title: >-
+      Rules for moving information in, out and between systems
+  - id: iso27002-5.15
+    title: >-
+      Deciding who is allowed to reach what
+  - id: iso27002-5.16
+    title: >-
+      Creating and managing identities over their whole life
+  - id: iso27002-5.17
+    title: >-
+      Handling passwords and the other secrets used to log in
+  - id: iso27002-5.18
+    title: >-
+      Granting, reviewing and removing access rights
+  - id: iso27002-5.19
+    title: >-
+      Managing the security risk that comes from suppliers
+  - id: iso27002-5.20
+    title: >-
+      Putting security requirements into supplier agreements
+  - id: iso27002-5.21
+    title: >-
+      Security risk further down the technology supply chain
+  - id: iso27002-5.22
+    title: >-
+      Watching suppliers deliver what they promised, and handling changes
+  - id: iso27002-5.23
+    title: >-
+      Security when using cloud services
+  - id: iso27002-5.24
+    title: >-
+      Planning for incidents before one happens
+  - id: iso27002-5.25
+    title: >-
+      Deciding which events are actually incidents
+  - id: iso27002-5.26
+    title: >-
+      Handling an incident once it has been declared
+  - id: iso27002-5.27
+    title: >-
+      Using what went wrong to stop it happening again
+  - id: iso27002-5.28
+    title: >-
+      Collecting and preserving evidence so it holds up later
+  - id: iso27002-5.29
+    title: >-
+      Keeping security working while the business is disrupted
+  - id: iso27002-5.30
+    title: >-
+      Technology being ready to support the continuity plan
+  - id: iso27002-5.31
+    title: >-
+      Identifying the legal and contractual rules that apply
+  - id: iso27002-5.32
+    title: >-
+      Respecting software licences and intellectual property
+  - id: iso27002-5.33
+    title: >-
+      Keeping records safe, findable and readable for as long as needed
+  - id: iso27002-5.34
+    title: >-
+      Protecting personal data
+  - id: iso27002-5.35
+    title: >-
+      Somebody independent checking that security works
+  - id: iso27002-5.36
+    title: >-
+      Checking that people actually follow the policy
+  - id: iso27002-6.1
+    title: >-
+      Checking people before you hire them
+  - id: iso27002-6.2
+    title: >-
+      Security duties written into the employment contract
+  - id: iso27002-6.3
+    title: >-
+      Teaching staff what to watch for, and repeating it
+  - id: iso27002-6.5
+    title: >-
+      What stays true after somebody leaves or changes role
+  - id: iso27002-6.6
+    title: >-
+      Confidentiality and non-disclosure agreements
+  - id: iso27002-6.7
+    title: >-
+      Rules for working away from the office
+  - id: iso27002-7.1
+    title: >-
+      Defining the boundary around an area that needs protecting
+  - id: iso27002-7.2
+    title: >-
+      Controlling who gets through the door
+  - id: iso27002-7.3
+    title: >-
+      Protecting the rooms and buildings themselves
+  - id: iso27002-7.4
+    title: >-
+      Watching the premises for people who should not be there
+  - id: iso27002-7.5
+    title: >-
+      Protecting against fire, water, weather and deliberate damage
+  - id: iso27002-7.6
+    title: >-
+      Rules for what people may do inside a secure area
+  - id: iso27002-7.7
+    title: >-
+      Not leaving sensitive things visible on desks or screens
+  - id: iso27002-7.8
+    title: >-
+      Where equipment sits and what protects it there
+  - id: iso27002-7.9
+    title: >-
+      Protecting equipment once it leaves the building
+  - id: iso27002-7.10
+    title: >-
+      Handling disks, tapes and USB storage
+  - id: iso27002-7.11
+    title: >-
+      Power, cooling and the other services equipment depends on
+  - id: iso27002-7.12
+    title: >-
+      Protecting cabling from damage and from being tapped
+  - id: iso27002-7.13
+    title: >-
+      Maintaining equipment without creating a hole while you do it
+  - id: iso27002-7.14
+    title: >-
+      Wiping equipment before it is disposed of or reused
+  - id: iso27002-8.1
+    title: >-
+      Protecting the machines people actually work on
+  - id: iso27002-8.2
+    title: >-
+      Controlling admin-level access
+  - id: iso27002-8.3
+    title: >-
+      Restricting access to the information itself, not just the system
+  - id: iso27002-8.4
+    title: >-
+      Controlling who can read and change source code
+  - id: iso27002-8.5
+    title: >-
+      Making the act of logging in hard to fake
+  - id: iso27002-8.6
+    title: >-
+      Having enough capacity, and knowing before you run out
+  - id: iso27002-8.7
+    title: >-
+      Stopping malicious code
+  - id: iso27002-8.8
+    title: >-
+      Finding and fixing known weaknesses in what you run
+  - id: iso27002-8.9
+    title: >-
+      Building systems to a standard configuration and keeping them there
+  - id: iso27002-8.12
+    title: >-
+      Stopping sensitive data leaving
+  - id: iso27002-8.13
+    title: >-
+      Backups, and being able to restore from them
+  - id: iso27002-8.14
+    title: >-
+      Spare capacity so one failure does not stop everything
+  - id: iso27002-8.15
+    title: >-
+      Recording what happened, and keeping the record
+  - id: iso27002-8.18
+    title: >-
+      Controlling the tools that bypass normal security controls
+  - id: iso27002-8.19
+    title: >-
+      Controlling what software gets installed on live systems
+  - id: iso27002-8.20
+    title: >-
+      Securing the network itself
+  - id: iso27002-8.21
+    title: >-
+      Security requirements for network services you buy
+  - id: iso27002-8.22
+    title: >-
+      Splitting the network so a problem stays in one part
+  - id: iso27002-8.24
+    title: >-
+      Using encryption, and looking after the keys
+  - id: iso27002-8.25
+    title: >-
+      Building security into how software gets made
+  - id: iso27002-8.26
+    title: >-
+      Deciding what an application has to do securely before building it
+  - id: iso27002-8.27
+    title: >-
+      Designing systems on secure principles rather than fixing later
+  - id: iso27002-8.29
+    title: >-
+      Testing security before something goes live
+  - id: iso27002-8.30
+    title: >-
+      Managing developers you do not employ
+  - id: iso27002-8.31
+    title: >-
+      Keeping development, test and live environments apart
+  - id: iso27002-8.32
+    title: >-
+      Approving changes before they are made

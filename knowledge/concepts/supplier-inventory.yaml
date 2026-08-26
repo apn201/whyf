@@ -1,0 +1,117 @@
+id: supplier-inventory
+title: Supplier inventory
+status: done
+class: control
+csf: ID
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a list of your suppliers, and have you looked at which of them
+  could hurt you.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This is not the same list finance keeps. Finance knows who you pay.
+  Security needs to know who can reach your systems or your data, and those
+  are different sets. The cleaning company is on one list. The firm that
+  remotes into your production line is on the other, and often gets paid so
+  little that nobody notices them.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  You do not need a supplier risk platform. Take the finance list, mark the
+  ones that hold your data or can log in, and you are done in an afternoon.
+  That marked subset is usually under ten names, and those ten are the ones
+  worth any further effort.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_suppliers]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. The suppliers who can log in, or who hold our data, are
+  identified and recorded separately from the general supplier list.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could you name every supplier who holds your data or can log in?"
+  options:
+    - id: yes
+      label: "Yes, it is a short list"
+      verdict: already-solved
+      why: >
+        Then write it down where somebody else can find it, with what each one can
+        reach. That is the control.
+    - id: no
+      label: "Not off the top of my head"
+      verdict: write-it-down
+      why: >
+        An afternoon with the finance list and a highlighter. This underpins every
+        third-party question further down the form.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants the list automatically updated as the organisation changes,
+    which means a supplier management platform. In a company with under fifty
+    suppliers the list changes a few times a year and a person updating it is
+    faster than a system nobody feeds.
+  rungs:
+    - level: 1
+      gist: "No list beyond who gets paid."
+      verdict: write-it-down
+    - level: 2
+      gist: "A list of who holds data or has access."
+      verdict: already-solved
+    - level: 3
+      gist: "Full list with criticality, reviewed yearly."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Automatically maintained supplier register."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "mark up the finance list": "€"
+  "criticality and yearly review": "€€"
+  "supplier management platform": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We know who our suppliers are."
+  better: "A list naming the suppliers who can log in or hold data."
+  strong: "The list, with what each can reach, a criticality rating and a dated review."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.sc-04, nist-csf-id.am-04, nis2-art21]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 6
+corpus_sources: {q2: 2, q3: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 3 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/supplier-inventory.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/supplier-inventory.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The outside firms that can reach company systems are written down somewhere."   # syn.015a
+  - "Which outside firms can log in to your systems?"   # syn.015b
+  - "To what extent is it true that the outside firms that can reach company systems are written down somewhere?"   # syn.015c

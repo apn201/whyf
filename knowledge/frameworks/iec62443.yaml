@@ -1,0 +1,21 @@
+id: iec62443
+name: IEC 62443
+url: ""
+status: done
+
+# The only ids a concept card may cite for this framework. The
+# validator drops anything else before it reaches a user.
+#
+# The OT one. Reach for it when the question says ICS, PLC or industrial.
+# The Annex I crosswalk only distinguishes parts of the standard, not
+# individual requirements, so these are coarse.
+
+controls:
+  - id: iec62443-2-1:2009
+    title: >-
+      Setting up a security programme for industrial automation and control
+      systems. The policy, organisation and process half
+  - id: iec62443-3-3:2013
+    title: >-
+      Technical security requirements for a control system, and the security
+      levels those requirements are grouped into

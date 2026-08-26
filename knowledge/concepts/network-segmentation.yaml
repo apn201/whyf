@@ -1,0 +1,132 @@
+id: network-segmentation
+title: Network segmentation
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Have you split the network up so a problem in one part does not reach
+  everything else.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Segmentation happens at several levels: LAN, WAN, layer 2, layer 3. What
+  you need depends on the case. On any larger network, layer 2 segmentation
+  protects against physical problems, loops and noise from a faulty network
+  card taking the whole thing down. At layer 3 it separates the IP traffic
+  and lets you allow only certain things through a firewall, so a vulnerable
+  OT network is not exposed to everything from the office. It can be
+  virtual, physical or both. Many say that in OT all cables and
+  infrastructure must be separate, and that is bullshit. Some segmentation,
+  even virtual, is better than none. On the WAN it means sites should not
+  see each other by default. Real zero trust blocks everything and allows
+  only what is needed, and it is a nightmare to manage.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Full microsegmentation is a multi-year programme with a licence attached
+  and most companies who start one do not finish. The first split is where
+  nearly all the value is: office away from production, or servers away from
+  workstations. One VLAN and a firewall rule. Do that, then stop and see
+  whether you need more.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_network]
+applies_never_if: [has_saas_only]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Network environments are separated so that critical systems
+  are isolated from general user traffic. The segments and the controls
+  between them are described below.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Can a laptop in reception reach the machines that run production?"
+  options:
+    - id: yes
+      label: "Yes, it is one flat network"
+      verdict: do-it-properly
+      why: >
+        This is the single most valuable network change available to you. One VLAN
+        and a firewall rule between office and production. Everything else in
+        network security is secondary to it.
+    - id: no
+      label: "No, they are separated"
+      verdict: already-solved
+      why: >
+        Then answer with the segments and what is allowed between them. That is a
+        strong answer.
+    - id: dontknow
+      label: "I would have to check"
+      verdict: need-one-fact
+      why: >
+        Go and check. It takes ten minutes with a laptop and it is the difference
+        between a contained incident and a total one.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants all sensitive data isolated with segmentation reassessed
+    annually, which in vendor terms means microsegmentation and a per-workload
+    licence. The step from one flat network to a handful of segments removes
+    most of the blast radius. Everything after that is expensive refinement.
+  rungs:
+    - level: 1
+      gist: "One flat network."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Critical systems on their own segment."
+      verdict: already-solved
+    - level: 3
+      gist: "All critical systems and data separated, rules documented."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Microsegmentation reassessed annually."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a VLAN and a firewall rule": "€"
+  "proper segment design across sites": "€€€"
+  "microsegmentation platform": "€€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "The network is split up."
+  better: "A network diagram showing segments and the controls between them."
+  strong: "The diagram, the firewall rules enforcing it, and evidence the rules were reviewed."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ir-01, iso27002-8.22, nis2-art21, iec62443-3-3:2013]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 9
+corpus_sources: {q1: 4, q2: 1, q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 6 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/network-segmentation.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/network-segmentation.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The network is divided so a problem in one part does not reach the rest."   # syn.054a
+  - "Can a compromised laptop reach the factory network?"   # syn.054b
+  - "To what extent is it true that the network is divided so a problem in one part does not reach the rest?"   # syn.054c

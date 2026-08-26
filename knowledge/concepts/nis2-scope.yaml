@@ -1,0 +1,104 @@
+id: nis2-scope
+title: Does NIS2 apply to you
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Does your company fall under NIS2. This is a scope question, not a control
+  question, and getting it wrong in either direction costs you.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  NIS1 was telecoms and a short list of obvious infrastructure. NIS2 pulls
+  in a lot of normal companies, including ones that are only in scope
+  because they are part of a food production chain, or waste, or
+  manufacturing of certain products. Nobody will write to you and tell you.
+  There is no letter. Your own people have to work it out from the annexes
+  and the national transposition, and the national laws are not identical.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is no argument for skipping this, but there is a strong argument
+  against doing anything else until it is answered. If you are not in scope,
+  half the questions in a NIS2-flavoured questionnaire are not obligations
+  on you, and you can say so. If you are in scope, registration and incident
+  reporting deadlines are legal duties with personal liability attached to
+  management, and no amount of tooling substitutes for having registered.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [operates_in_eu]
+applies_never_if: [no_eu_operations]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. We have assessed our sector and size against Annexes I and
+  II of Directive (EU) 2022/2555 and the national transposition in our
+  operating countries, and we do not fall within scope.
+
+default_verdict: need-one-fact
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Has anyone actually checked whether NIS2 covers you?"
+  options:
+    - id: checked_out
+      label: "Checked, we are out of scope"
+      verdict: not-applicable
+      why: >
+        Good. Say so in one line and cite the annex you checked against. That
+        closes a lot of questions in one go.
+    - id: checked_in
+      label: "Checked, we are in scope"
+      verdict: do-it-properly
+      why: >
+        Then registration and the reporting deadlines are legal duties, not good
+        practice. This stops being a security project and becomes a compliance one
+        with your management personally on the hook.
+    - id: not_checked
+      label: "Nobody has looked"
+      verdict: need-one-fact
+      why: >
+        That is the job, and it is a legal question rather than a technical one. A
+        day of somebody's time now, or a nasty surprise later.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "read the annexes yourself": "€"
+  "legal opinion on scope": "€€"
+  "registration and reporting readiness if in scope": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 0
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Somebody has an opinion about whether NIS2 applies."
+  better: "A written scope assessment naming the annex and the sector."
+  strong: "The assessment, dated, reviewed by legal, plus registration confirmation if in scope."
+
+answer_risk: certification
+
+frameworks: [nis2-art3, nis2-art21, nis2-art23]
+incidents: []
+patterns: [framework-inheritance]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 6
+corpus_sources: {q2: 4, syn: 2}
+question_forms: [binary_statement]
+# 4 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/nis2-scope.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The organisation has established whether NIS2 applies to it."   # syn.004a
+  - "Has anyone checked whether NIS2 covers your sector and size?"   # syn.004b

@@ -1,0 +1,118 @@
+id: wireless-security
+title: Wireless network security
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Is the wireless network secured, and are guests kept off your internal
+  network.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  People answer this with the encryption standard and stop. The encryption
+  is the easy part and has been fine since WPA2. The part that matters is
+  whether the guest network can reach anything internal, and whether an
+  access point somebody plugged in themselves is sitting in a meeting room
+  broadcasting your office network.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  You do not need wireless intrusion detection. You need a guest network
+  that only reaches the internet, WPA2 or better on the office one, and
+  somebody to notice unfamiliar access points. Two of those are settings you
+  already have.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_office, has_network]
+applies_never_if: [no_office]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. We operate no corporate wireless network at our
+  sites. Where wireless is provided, it is isolated from internal systems
+  and described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Can a guest on your wifi reach the office network?"
+  options:
+    - id: yes
+      label: "Yes, or I am not sure"
+      verdict: do-it-properly
+      why: >
+        Split it. Guest wireless that only reaches the internet is a setting on
+        almost every business access point, and it removes the easiest physical
+        way onto your network.
+    - id: no
+      label: "No, guests are separated"
+      verdict: already-solved
+      why: >
+        Then answer with that plus the encryption standard and you are done.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants rogue access point detection and host-based firewalls on
+    every wireless device. Rogue detection needs controller-grade kit.
+    Separated guest network, modern encryption, changed defaults and wireless
+    off where it is not needed is the practical target.
+  rungs:
+    - level: 1
+      gist: "One flat wireless network, default settings."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Modern encryption, defaults changed."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Guest network separated, wireless off where unneeded."
+      verdict: already-solved
+    - level: 4
+      gist: "Rogue access point detection and monitoring."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "separate the guest SSID": "€"
+  "business access points with proper segmentation": "€€"
+  "controller with rogue detection": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "The wifi has a password."
+  better: "The wireless configuration showing encryption and guest separation."
+  strong: "The configuration, the network segments each SSID lands in, and a record of the last check for unauthorised access points."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ir-01, iso27002-8.20]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 6
+corpus_sources: {q1: 2, q2: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 3 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/wireless-security.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/wireless-security.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The wireless network is protected and guests are kept separate."   # syn.052a
+  - "Is your guest wifi separate from the office network?"   # syn.052b
+  - "To what extent is it true that the wireless network is protected and guests are kept separate?"   # syn.052c

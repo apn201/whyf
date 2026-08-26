@@ -1,0 +1,129 @@
+id: rpo
+title: Recovery Point Objective
+status: done
+class: control
+csf: ID
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  How much recent work you can afford to lose if a system dies. Not how
+  often you back up. How much you are willing to redo.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Backup frequency is not an RPO. Nightly backups mean you already decided
+  on 24 hours, you just did not decide it on purpose. The question is not
+  asking whether you have backups. It is asking whether anyone chose the
+  number.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  For most companies the honest answer is 24 hours and that is fine. Going
+  below it means continuous replication, which means paying for the same
+  storage twice and building a restore process nobody will test. If losing a
+  day of work would cost you less than the difference, do not buy anything.
+  Write the number down and move on.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable in the form asked. This control assumes the supplier holds
+  or processes your data. We do not. Our own maximum tolerable data loss is
+  defined for the systems supporting this contract and is stated below.
+
+default_verdict: need-one-fact
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If everything broke at 3pm, could you live with losing today's work?"
+  options:
+    - id: yes_fine
+      label: "Annoying, not fatal"
+      verdict: write-it-down
+      why: >
+        Your RPO is 24 hours and the nightly backup already meets it. This is a
+        documentation job, not a purchase. One paragraph, one afternoon.
+    - id: painful
+      label: "Painful, we would survive"
+      verdict: cheap-checkbox
+      why: >
+        Answer 24 hours honestly, then decide separately whether the two or three
+        systems that actually hurt deserve a shorter one. Do not buy a platform to
+        fix three systems.
+    - id: no_way
+      label: "Business stops"
+      verdict: do-it-properly
+      why: >
+        A day of lost transactions is not a documentation problem. The
+        questionnaire has accidentally found something worth money.
+    - id: dont_know
+      label: "No idea"
+      verdict: need-one-fact
+      why: >
+        Then that is the work. Ask the person who would have to redo it. Ten
+        minutes to get the answer, and it changes what you spend.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 is continuous replication with a tested failover. That is six
+    figures of storage and engineering to move from losing a day to losing a
+    minute. No questionnaire has ever been failed for answering rung 2 with a
+    real number and a restore test attached.
+  rungs:
+    - level: 1
+      gist: "Nobody decided. Backups happen, or they do not."
+      verdict: write-it-down
+    - level: 2
+      gist: "A number exists per system and the nightly backup meets it."
+      verdict: already-solved
+    - level: 3
+      gist: "Per-system numbers by criticality, restores tested on a schedule."
+      verdict: do-it-properly
+    - level: 4
+      gist: "Continuous replication and automated failover."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "24 hours": "€"
+  "4 hours": "€€"
+  "1 hour": "€€€"
+  "15 minutes": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Policy says backups are taken."
+  better: "Policy plus a backup schedule per system."
+  strong: "A documented number per system, backup reports, and a record of the last restore test."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ds-11, nist-csf-rc.rp-01, iso27002-8.13, nis2-art21]
+incidents: []
+patterns: [outcome-as-process]
+already_have: [retention-policy, backup-encryption]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q1: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/rpo.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The amount of recent work the organisation can afford to lose is decided per system."   # syn.013a
+  - "If everything broke this afternoon, how much work could you afford to lose?"   # syn.013b
+  - "To what extent is it true that the amount of recent work the organisation can afford to lose is decided per system?"   # syn.013c

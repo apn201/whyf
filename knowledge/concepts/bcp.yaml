@@ -1,0 +1,120 @@
+id: bcp
+title: Business continuity and disaster recovery
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a plan for what to do when it all goes wrong.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  A business continuity plan is not about IT. It is about being ready for
+  different kinds of trouble: illness, war, flooding, political mess, and IT
+  incidents as one item on that list. People hand this to the IT person and
+  get back a disaster recovery plan for the servers, which is a useful
+  document and not the one that was asked for.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Many small companies skip it, and it is still useful to have. When
+  something happens you are too busy staying afloat to work out who calls
+  the insurer. But the useful version is short. Who decides, who calls whom,
+  where do people go, what do we tell customers, how do we keep taking
+  orders. Five pages. The hundred-page plan is written to be audited, not
+  used.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. A business continuity plan covering our critical services is
+  maintained, and the technical recovery plan sits underneath it.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If the building were unusable tomorrow, would anyone know what to do?"
+  options:
+    - id: yes
+      label: "Yes, there is a plan"
+      verdict: already-solved
+      why: >
+        Answer with the date it was last updated and whether it has been tested.
+        Testing is covered separately and it is what an auditor will actually push
+        on.
+    - id: no
+      label: "We would work it out"
+      verdict: write-it-down
+      why: >
+        Write five pages while nothing is on fire. Who decides, who calls whom,
+        where people go, what customers are told. That is the plan.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants continuity and technical recovery plans for every part of the
+    business, practised annually, covering supplier failure and data
+    corruption as separate scenarios. Practised annually is worth it. Covering
+    every part of the business is where small companies generate paperwork
+    nobody reads.
+  rungs:
+    - level: 1
+      gist: "No plan."
+      verdict: write-it-down
+    - level: 2
+      gist: "A short plan for the critical services."
+      verdict: already-solved
+    - level: 3
+      gist: "Plans for all businesses, reviewed."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "All businesses, practised annually, all scenarios."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "five pages, written in-house": "€"
+  "plans per business area": "€€"
+  "consultant-written continuity programme": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would cope."
+  better: "A written continuity plan naming roles and contacts."
+  strong: "The plan, dated, with evidence of the last review and the last exercise."
+
+answer_risk: none
+
+frameworks: [nist-csf-rc.rp-01, nist-csf-id.im-02, iso27002-5.29, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 13
+corpus_sources: {q1: 4, q2: 5, q3: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 10 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/bcp.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/bcp.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A plan exists for carrying on when systems are unavailable."   # syn.044a
+  - "What is the plan if your systems are down for a week?"   # syn.044b
+  - "To what extent is it true that a plan exists for carrying on when systems are unavailable?"   # syn.044c

@@ -1,0 +1,126 @@
+id: ics-inventory
+title: Industrial system inventory
+status: done
+class: control
+csf: ID
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you know which systems control your machines. The PLCs, the SCADA
+  boxes, the controllers on the line. A list of them, kept current.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Nothing fancy. ICS, OT, IIoT all mean roughly the same thing here: the
+  computers that control machines rather than people. The word cartography
+  turns up in these questions and scares people. It means a list. If you
+  have no machines, you have no list to make, and that is the whole answer.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If you do not run a factory, a plant, a pumping station or a building
+  management system, this does not apply to you at all and you should say so
+  rather than inventing something. These questions come from industrial
+  templates and get sent to accountants and software companies without
+  anyone rereading them. Answering as if you had OT when you do not is how
+  you end up committing to controls you will never build.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_ot]
+applies_never_if: [has_ot_none]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. We do not operate industrial control systems, SCADA or PLC
+  equipment. Our IT asset inventory is described under the asset management
+  questions.
+
+default_verdict: not-applicable
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you have machines with their own control computers?"
+  options:
+    - id: no_ot
+      label: "No machines"
+      verdict: not-applicable
+      why: >
+        Say so plainly and point them at your normal IT asset list. This is an
+        industrial template landing on the wrong company. It happens constantly
+        and nobody minds.
+    - id: some_ot
+      label: "A few, in a building or a workshop"
+      verdict: write-it-down
+      why: >
+        Then it is a short list, not a project. Building management, access
+        control, a couple of machines. An afternoon with a notepad and you are
+        done.
+    - id: real_ot
+      label: "A plant or production line"
+      verdict: do-it-properly
+      why: >
+        This one is genuinely worth the work, and not because of the
+        questionnaire. You cannot patch, segment or recover what you have not
+        listed, and OT is where the expensive outages live.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants the list tied into a live discovery tool that keeps itself
+    current. On an OT network, passive discovery kit is five figures and it
+    will find things your engineers already knew about. A spreadsheet that
+    someone actually updates when a machine changes beats an expensive tool
+    nobody looks at.
+  rungs:
+    - level: 1
+      gist: "Nobody has written down what is on the line."
+      verdict: do-it-properly
+    - level: 2
+      gist: "A list exists, per site, and it is roughly right."
+      verdict: already-solved
+    - level: 3
+      gist: "List covers everything and is checked on a schedule."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Automated discovery keeps the list current by itself."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a list in a spreadsheet": "€"
+  "list plus a yearly walk-around": "€€"
+  "passive OT discovery tooling": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Somebody says they know what is out there."
+  better: "A spreadsheet per site with make, model and firmware version."
+  strong: "The list, plus a dated record of the last time it was checked against reality, plus who owns each machine."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.am-01, nist-csf-id.am-02, nis2-art21]
+incidents: []
+patterns: [outcome-as-process]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 6
+corpus_sources: {q1: 3, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 3 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/ics-inventory.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A list of industrial control equipment is kept up to date."   # syn.014a
+  - "Do you have a list of your industrial control equipment?"   # syn.014b
+  - "To what extent is it true that a list of industrial control equipment is kept up to date?"   # syn.014c

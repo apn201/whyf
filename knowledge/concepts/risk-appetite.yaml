@@ -1,0 +1,118 @@
+id: risk-appetite
+title: Risk appetite and quantification
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Has management said how much risk they are willing to carry. The number,
+  or at least the sentence, that everything else gets measured against.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This is the basis for everything else in security and almost nobody has
+  it. Without a target risk level you cannot say whether a gap matters, so
+  every finding looks equally urgent and nothing gets prioritised. If
+  management is not interested in security, get this one thing from them and
+  you can do the rest yourself.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  The questionnaire wants financial quantification and return on security
+  investment modelling. Skip that. One sentence from the owner, something
+  like a day of downtime is survivable and a week is not, is enough to sort
+  a risk register. The modelling only pays for itself in companies large
+  enough to have someone whose job is modelling.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Management has stated the level of disruption and loss the
+  business will tolerate, and controls are prioritised against it.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could the owner tell you how long an outage they can survive?"
+  options:
+    - id: yes
+      label: "Yes, roughly"
+      verdict: write-it-down
+      why: >
+        Then get it in writing, one sentence, signed off. That sentence is what
+        lets you say no to the next expensive suggestion.
+    - id: no
+      label: "No idea"
+      verdict: need-one-fact
+      why: >
+        Ask them. It takes one conversation, and without it you cannot rank
+        anything, including whether this questionnaire matters.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 is consistent evaluation using financial metrics aligned to
+    tolerance thresholds. That is a quantitative risk function, which is a
+    person and a tool. A stated tolerance and a ranked list gets you the same
+    decisions in a company under a few hundred people.
+  rungs:
+    - level: 1
+      gist: "Nobody has said what is tolerable."
+      verdict: write-it-down
+    - level: 2
+      gist: "Management has stated it and it is written down."
+      verdict: already-solved
+    - level: 3
+      gist: "Applied consistently to prioritise controls."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Financially quantified against tolerance thresholds."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one conversation, written down": "€"
+  "a ranked risk register against it": "€€"
+  "quantified risk modelling": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Management cares about risk."
+  better: "A written statement of tolerable loss or downtime, signed off."
+  strong: "The statement, plus a risk register showing decisions made against it."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.rm-01, nist-csf-gv.rm-02, iso27002-5.19, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 14
+corpus_sources: {q2: 2, q3: 9, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 11 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/risk-appetite.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/risk-appetite.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Security spending decisions are weighed against the risk they remove."   # syn.010a
+  - "How do you decide what a security fix is worth?"   # syn.010b
+  - "To what extent is it true that security spending decisions are weighed against the risk they remove?"   # syn.010c

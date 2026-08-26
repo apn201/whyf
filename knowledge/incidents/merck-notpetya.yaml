@@ -1,0 +1,29 @@
+id: merck-notpetya
+name: Merck / NotPetya
+year: 2017
+sector: pharma
+ot: true                     # did it hit operational technology / a physical process
+
+status: skeleton            # -> done only when every figure below has a source
+
+# VERIFY EVERY NUMBER. This is the field that kills the submission if it is
+# wrong. If you cannot find a figure you would defend in a boardroom, delete
+# the field rather than estimating. The agent may only cite what is here.
+source_url: ""              # primary source. Company filing or regulator beats press.
+source_note: ""             # e.g. "10-K, page 42" or "company press release"
+
+one_line: >
+  TODO one sentence a non-technical reader understands.
+
+what_happened: >
+  TODO three or four sentences. Mechanism, not drama.
+
+what_it_cost:
+  figure: ""                # e.g. "USD 300 million" - only if sourced
+  basis: ""                 # e.g. "company statement, Q3 2017 results"
+
+the_control_that_would_have_helped: >
+  TODO. Be honest. Often it is one boring thing, and often it is not the
+  control the questionnaire is asking about.
+
+concepts: []                # concept ids this incident is legitimate evidence for

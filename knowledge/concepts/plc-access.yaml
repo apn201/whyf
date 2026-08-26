@@ -1,0 +1,102 @@
+id: plc-access
+title: PLC and source code access
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you control who can get at the systems that run production. The
+  controllers, and the code loaded onto them.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  On the factory floor the engineering laptop is usually the real control
+  point, not the PLC. Many controllers have no meaningful authentication at
+  all and cannot be given any, so protecting them means protecting what can
+  reach them: the laptop, the switch port and the door. Asking whether the
+  PLC has a strong password often has no useful answer.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not go looking for a way to put passwords on twenty-year-old
+  controllers. It will not work and the vendor may void support. Control the
+  engineering workstation, control the network path, control the door. Say
+  that plainly instead of pretending the controller does something it
+  cannot.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_ot]
+applies_never_if: [has_ot_none]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. We do not operate programmable logic controllers or hold
+  embedded source code. Access control for our IT systems is described
+  separately.
+
+default_verdict: not-applicable
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you have controllers running machines?"
+  options:
+    - id: no
+      label: "No machines"
+      verdict: not-applicable
+      why: >
+        Say so. This is an industrial question that arrived at the wrong company,
+        which happens on most of these forms.
+    - id: yes_old
+      label: "Yes, and they are old"
+      verdict: write-it-down
+      why: >
+        Then say what actually protects them: the engineering laptop, the network
+        segment, the locked door. That is a truthful answer and it is better than
+        claiming a password the device cannot enforce.
+    - id: yes_modern
+      label: "Yes, and they support accounts"
+      verdict: do-it-properly
+      why: >
+        Then use them. Named accounts on the controllers, and the engineering
+        laptop treated as a privileged device.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "document what actually protects them": "€"
+  "lock down the engineering workstation": "€€"
+  "network segmentation for the cell": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Only our engineers touch the machines."
+  better: "A description of what controls access: workstation, network path, physical door."
+  strong: "The same, plus named accounts where the equipment supports them and a record of who has them."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-01, iec62443-3-3:2013]
+incidents: []
+patterns: [technology-prescription]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q1: 2, syn: 2}
+question_forms: [binary_statement]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/plc-access.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Controllers and the code that runs on them are protected from casual access."   # syn.029a
+  - "Can anyone on the factory floor reach the controllers?"   # syn.029b

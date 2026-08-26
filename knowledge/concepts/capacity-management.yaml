@@ -1,0 +1,118 @@
+id: capacity-management
+title: Capacity management
+status: done
+class: control
+csf: PR
+priority: 3
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  In a security context this usually means your infrastructure. Do you know
+  when you will need more compute, memory or disk.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Capacity can mean people in a factory, or HR headcount. In IT it usually
+  means is our server big enough and is the network fast enough. It is in
+  the security questionnaire because running out of disk takes systems down
+  just as effectively as an attacker, and because the backup that silently
+  stopped running is nearly always a full disk.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  No fancy system is needed. What you need is to find out you are running
+  out before you run out. A disk space alert on the servers, which every
+  monitoring tool does free, covers the majority of real incidents. Capacity
+  planning as a discipline is for people who buy hardware in advance, and in
+  the cloud that problem mostly went away.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_servers]
+applies_never_if: [has_saas_only]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Our systems are cloud-hosted and scale on demand.
+  Monitoring of resource limits is described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Would you find out before a disk filled up?"
+  options:
+    - id: yes
+      label: "Yes, there is an alert"
+      verdict: already-solved
+      why: >
+        That is the control. Say so and name where the alert goes.
+    - id: no
+      label: "We find out when something breaks"
+      verdict: write-it-down
+      why: >
+        Turn on disk and memory alerts. Every monitoring tool does it free and it
+        takes an hour. It is also the most common cause of a backup silently
+        failing.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants managed redundancy across all workloads including protection
+    against flooding attacks. That is capacity planning merged with resilience
+    engineering. Alerts before you run out, and somewhere to add capacity when
+    you do, is enough for almost everyone.
+  rungs:
+    - level: 1
+      gist: "Nobody watches it."
+      verdict: write-it-down
+    - level: 2
+      gist: "Alerts on the critical systems."
+      verdict: already-solved
+    - level: 3
+      gist: "Documented plan with headroom for growth."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Managed redundancy across all workloads."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "alerts in your existing monitoring": "€"
+  "a written capacity plan": "€€"
+  "redundant capacity held spare": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We have not run out yet."
+  better: "Alerting configuration for disk, memory and bandwidth."
+  strong: "The alerting, plus a written statement of how additional capacity is obtained and how quickly."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ir-04, iso27002-8.6]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 6
+corpus_sources: {q1: 1, q2: 1, q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 3 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/capacity-management.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/capacity-management.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "There is enough headroom that normal growth does not cause an outage."   # syn.051a
+  - "Do you track whether systems are running out of room?"   # syn.051b
+  - "To what extent is it true that there is enough headroom that normal growth does not cause an outage?"   # syn.051c

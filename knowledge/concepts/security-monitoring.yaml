@@ -1,0 +1,122 @@
+id: security-monitoring
+title: Security event monitoring
+status: done
+class: control
+csf: DE
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Is anybody actually reading the security logs.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  If you have a hundred CCTV cameras and nobody watching them, is that
+  security? Same question. Collecting the logs is the cheap half and most
+  companies stop there because it feels like progress. Detection only exists
+  when a human, or a service, looks at the alert and does something.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  This is the most expensive control on the entire form and the one where
+  the gap between the checkbox and the reality is widest. A 24-hour managed
+  detection service is a serious monthly bill. Before you go there: point
+  the alerts from your endpoint tool and your identity platform at a mailbox
+  somebody opens every morning. That is not a SOC, and you should not claim
+  it is, but it is a real improvement over nobody and it costs nothing.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_servers, has_cloud]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. We do not operate a security operations centre.
+  Alerts from endpoint and identity platforms are reviewed by named staff,
+  and the arrangement is described below rather than overstated.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If your endpoint tool raised an alert at 2am, who would see it?"
+  options:
+    - id: service
+      label: "A monitoring service"
+      verdict: already-solved
+      why: >
+        Then answer with who and what their hours are. This is a strong answer and
+        you are paying for it, so use it.
+    - id: morning
+      label: "Somebody, in the morning"
+      verdict: cheap-checkbox
+      why: >
+        That is an honest answer and better than most. Say it in exactly those
+        words rather than implying round-the-clock cover.
+    - id: nobody
+      label: "Nobody"
+      verdict: do-it-properly
+      why: >
+        Point the alerts at a mailbox that gets opened. It costs nothing and it is
+        the difference between having a tool and having detection.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 is a monitoring team tuning use cases against threat intelligence
+    and investigating events, which means a service contract or a hire. Alerts
+    arriving somewhere a human looks daily is where a small company gets most
+    of the value. Be honest about which rung you are on. Claiming a SOC you do
+    not have is the answer that comes back to hurt.
+  rungs:
+    - level: 1
+      gist: "Alerts go nowhere."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Alerts reviewed by named staff during working hours."
+      verdict: already-solved
+    - level: 3
+      gist: "Central collection with defined alert handling."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Managed detection with 24-hour investigation."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "point alerts at a monitored mailbox": "€"
+  "central alerting with a handling procedure": "€€"
+  "managed detection and response": "€€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We have monitoring."
+  better: "A statement of which alerts go where and who reviews them."
+  strong: "The routing, the hours covered, the handling procedure, and examples of alerts that were investigated."
+
+answer_risk: none
+
+frameworks: [nist-csf-de.cm-01, nist-csf-de.ae-02, iso27002-5.25, nis2-art21]
+incidents: []
+patterns: [technology-prescription]
+already_have: [audit-logging]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 15
+corpus_sources: {q1: 1, q2: 1, q3: 10, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 12 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/security-monitoring.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Somebody actually looks at security alerts."   # syn.064a
+  - "Who looks at the security alerts?"   # syn.064b
+  - "To what extent is it true that somebody actually looks at security alerts?"   # syn.064c

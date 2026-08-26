@@ -1,0 +1,112 @@
+id: offline-backups
+title: Offline and immutable backups
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Is there a backup copy somewhere that is not reachable from your network.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Tapes are not always used any more and often the only backup sits on a
+  NAS, on the same network. So when everything gets encrypted, so does the
+  backup. And if there is a fire, that burns too. It should be easy and a
+  lot of companies still fail it.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is no argument against having one copy out of reach, and it is cheap
+  now: immutable storage in the cloud, or a rotated drive in a different
+  building. The expensive version is a full second site. You do not need a
+  second site. You need one copy that ransomware cannot delete.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. At least one backup copy is held offline or in immutable
+  storage, separate from the systems it protects.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If ransomware hit tonight, could it reach your backups too?"
+  options:
+    - id: yes
+      label: "Probably, it is on the same network"
+      verdict: do-it-properly
+      why: >
+        This is the one to fix first. Immutable cloud storage costs very little,
+        and it is the difference between a bad week and paying a ransom.
+    - id: no
+      label: "No, there is a copy out of reach"
+      verdict: already-solved
+      why: >
+        Then say where and how it is protected. This is one of the strongest
+        answers you can give on the whole form.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 adds separate credentials, periodic auditing and validation of the
+    offline copy. Separate credentials are worth doing and nearly free. The
+    rest is programme overhead. One immutable copy, with its own credentials,
+    tested once, is the control.
+  rungs:
+    - level: 1
+      gist: "Everything reachable from the network."
+      verdict: do-it-properly
+    - level: 2
+      gist: "One copy immutable or offline."
+      verdict: already-solved
+    - level: 3
+      gist: "Offline copy with separate credentials, tested."
+      verdict: already-solved
+    - level: 4
+      gist: "Audited and validated on a schedule."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "immutable cloud storage": "€€"
+  "rotated drives held offsite": "€€"
+  "second site with replication": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We have backups somewhere else."
+  better: "A description of the offline or immutable copy and how it is isolated."
+  strong: "The description, evidence of immutability settings or rotation records, and separate credentials."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ds-11, nist-csf-rc.rp-03, iso27002-8.13]
+incidents: []
+patterns: []
+already_have: [backup-encryption]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q2: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/offline-backups.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "At least one backup copy cannot be reached from the systems it protects."   # syn.041a
+  - "Could ransomware reach your backups too?"   # syn.041b
+  - "To what extent is it true that at least one backup copy cannot be reached from the systems it protects?"   # syn.041c

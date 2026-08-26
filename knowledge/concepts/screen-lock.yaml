@@ -1,0 +1,90 @@
+id: screen-lock
+title: Screen lock
+status: done
+class: control
+csf: PR
+priority: 3
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do machines lock themselves when people walk away from them.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  The standard Windows screensaver is enough, as long as it asks for a
+  password when you come back. That is the whole control. People over-think
+  it and then set the timeout to two minutes, which just teaches everybody
+  to jiggle the mouse.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  This is already on in any managed Windows or Mac estate and is set
+  centrally in Intune or the equivalent. If it is not on, it is a policy
+  toggle, not a project. The only real judgement is the timeout, and fifteen
+  minutes in an office with a locked front door is a defensible answer even
+  when a checklist says five.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees, has_office]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Workstations lock automatically after a defined period of
+  inactivity and require re-authentication.
+
+default_verdict: already-solved
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does your device lock itself if you go for a coffee?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: already-solved
+      why: >
+        Go and screenshot the policy that sets it. This is one of the questions
+        you can close in five minutes with a picture.
+    - id: no
+      label: "No"
+      verdict: write-it-down
+      why: >
+        Turn it on centrally. It is included in what you already have, it takes
+        ten minutes, and it closes the question permanently.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "turn on the policy you already have": "€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "People lock their screens."
+  better: "A screenshot of the group policy or device policy setting the timeout."
+  strong: "The policy plus a compliance report showing which devices it applies to."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-05, iso27002-7.7]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [screen-lock, device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {q1: 1, syn: 2}
+question_forms: [binary_statement]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/screen-lock.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Unattended machines lock themselves."   # syn.039a
+  - "Do machines lock when nobody is at them?"   # syn.039b

@@ -1,0 +1,120 @@
+id: security-policy
+title: The security policy itself
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a written policy saying how you handle security. The document
+  itself, not the controls in it.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  People think this means a policy set: twenty documents, a numbering
+  scheme, a review board. It means one document that says what you protect,
+  who decides, and what everyone is expected to do. If you cannot describe
+  your security in ten pages, the problem is not the document.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  This is the cheapest tick on the whole form and it stays cheap as long as
+  you write it yourself. The moment you buy a policy pack you get sixty
+  pages describing controls you do not have, which is worse than nothing:
+  now you have written evidence of a gap. Write what is true today, date it,
+  review it when something changes.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Our information security policy is maintained and available to
+  staff. Scope and review date are stated below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Is there a document, and does it describe what you actually do?"
+  options:
+    - id: none
+      label: "No document"
+      verdict: write-it-down
+      why: >
+        An afternoon. Ten pages maximum, describing what is true. This one
+        question sits underneath a dozen others on most forms.
+    - id: bought
+      label: "We bought a template pack"
+      verdict: do-it-properly
+      why: >
+        Read it. If it describes controls you do not have, it is a liability
+        rather than an answer. Cut it down to what is true before anyone audits
+        against it.
+    - id: real
+      label: "Yes, and it matches reality"
+      verdict: already-solved
+      why: >
+        Answer with the date of the last review and move on.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants the policy set reviewed, communicated and enforced on a cycle
+    with evidence at each step. For a small company that is a documentation
+    industry. One policy, reviewed when something changes, with a date on it,
+    answers the question.
+  rungs:
+    - level: 1
+      gist: "No policy, or one nobody has read."
+      verdict: write-it-down
+    - level: 2
+      gist: "One policy, current, staff have seen it."
+      verdict: already-solved
+    - level: 3
+      gist: "Policy set, reviewed yearly, acceptance recorded."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Reviewed, communicated and enforced with evidence throughout."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "write it yourself": "€"
+  "a template pack, cut down": "€€"
+  "consultant-written policy set": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Somebody says there is a policy."
+  better: "The policy, with a date and an owner."
+  strong: "The policy, its review history, and a record that staff have seen it."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.po-01, nist-csf-gv.po-02, iso27002-5.1, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 11
+corpus_sources: {q2: 7, q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 8 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/security-policy.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A written security policy exists and is kept current."   # syn.008a
+  - "Do you have a security policy, and when was it last touched?"   # syn.008b
+  - "To what extent is it true that a written security policy exists and is kept current?"   # syn.008c

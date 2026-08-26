@@ -1,0 +1,128 @@
+id: backups
+title: Backups
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have backups. Are you certain they work. Do they match what you
+  decided about downtime and data loss.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It is not enough to have a backup. You must test that it works, and you
+  must be able to restore in a reasonable time. A backup that has never been
+  restored is not a backup, it is a hope. The second thing people miss is
+  scope: databases and servers get backed up, and the file share somebody
+  set up on a spare PC does not.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  In full cloud the concept gets vague. If there is no legal retention
+  requirement, a small company can often be fine with the data sitting in
+  the cloud service, provided the provider keeps enough history and you
+  accept the supplier risk. That is a legitimate answer. It stops being
+  legitimate the moment somebody deletes a mailbox and you find out the
+  retention was thirty days.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Backups are taken for the systems supporting this contract,
+  and restore capability is tested. Scope and frequency are described below.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "When did you last restore something from backup?"
+  options:
+    - id: recent
+      label: "Recently, and it worked"
+      verdict: already-solved
+      why: >
+        Then you are in a small minority. Answer with the date and what you
+        restored, because that single fact is worth more than the whole backup
+        policy.
+    - id: long
+      label: "A while ago"
+      verdict: cheap-checkbox
+      why: >
+        Do one now, on one system, and write down the date and how long it took.
+        An hour of work and it turns your answer from a claim into evidence.
+    - id: never
+      label: "Never"
+      verdict: do-it-properly
+      why: >
+        Then you do not know whether you have backups. Test one this week. This is
+        the single highest-value hour on the entire questionnaire.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 asks for automated backup, frequency by criticality, restore
+    testing by criticality, offsite and disconnected copies and periodic
+    auditing. The offsite and disconnected part matters and is covered
+    separately. The auditing programme is where the cost runs away for little
+    extra protection.
+  rungs:
+    - level: 1
+      gist: "No backups, or nobody knows."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Backups run, never tested."
+      verdict: do-it-properly
+    - level: 3
+      gist: "Backups run, scope is known, restores tested."
+      verdict: already-solved
+    - level: 4
+      gist: "Frequency and testing driven by criticality, audited."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "cloud provider retention you already pay for": "€"
+  "backup product for servers and endpoints": "€€"
+  "tested restores on a schedule": "€€"
+  "full backup programme with auditing": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Backups are taken."
+  better: "A backup schedule listing which systems are covered."
+  strong: "The schedule, plus a dated restore test record with how long it took."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ds-11, nist-csf-rc.rp-01, iso27002-8.13, nis2-art21]
+incidents: []
+patterns: [outcome-as-process]
+already_have: [backup-encryption, retention-policy]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 10
+corpus_sources: {q1: 3, q2: 2, q3: 2, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 7 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/backups.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/backups.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Backups are taken, encrypted, and cover the systems that matter."   # syn.040a
+  - "What do your backups actually cover?"   # syn.040b
+  - "To what extent is it true that backups are taken, encrypted, and cover the systems that matter?"   # syn.040c

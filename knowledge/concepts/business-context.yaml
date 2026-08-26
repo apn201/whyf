@@ -1,0 +1,114 @@
+id: business-context
+title: What the business actually does
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  What is it that brings money in. If you make pencils, it is selling
+  pencils. All security has to line up behind that.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Many think the goal is maximum security. That is wrong. The goal is to
+  sell pencils safely. So only do things that either help the business or
+  stop a risk that would hurt the business, directly or indirectly.
+  Everything else is somebody's hobby.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is no argument against this one. You have to know what your business
+  is, and it takes an afternoon to write down. The argument is against the
+  version consultants sell, where this becomes a workshop series and a
+  stakeholder map. One page: what we sell, what stops us selling it, which
+  systems that depends on.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Our critical services and the systems supporting them are
+  identified and reviewed.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could you name the three systems that stop the money if they die?"
+  options:
+    - id: yes
+      label: "Easily"
+      verdict: write-it-down
+      why: >
+        Then you already did the thinking. Put it on one page so somebody else can
+        read it, and this whole section of the questionnaire answers itself.
+    - id: no
+      label: "I would have to think"
+      verdict: do-it-properly
+      why: >
+        That is the gap, and it is not a paperwork gap. Every other decision here,
+        what to back up, what to segment, what to spend on, depends on that
+        answer.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants this reviewed on a cycle with named stakeholders and
+    documented dependencies. For a company under a few hundred people the
+    answer changes maybe once a year, when you add a product or lose a
+    customer. Update it then.
+  rungs:
+    - level: 1
+      gist: "Nobody wrote down what the business depends on."
+      verdict: write-it-down
+    - level: 2
+      gist: "One page naming the critical services and systems."
+      verdict: already-solved
+    - level: 3
+      gist: "Reviewed yearly, dependencies mapped."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Continuous review with stakeholder sign-off."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one page, written once": "€"
+  "reviewed yearly": "€"
+  "full dependency mapping": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Somebody can describe the business in a meeting."
+  better: "A written list of critical services and the systems behind them."
+  strong: "The same list, dated, with an owner per service and evidence it was reviewed."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.oc-01, nist-csf-gv.oc-04, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 10
+corpus_sources: {q3: 8, syn: 2}
+question_forms: [binary_statement, maturity_ladder]
+# 8 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/business-context.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The organisation has written down what it does and which services matter most."   # syn.001a
+  - "Which of your services would hurt most if they stopped?"   # syn.001b

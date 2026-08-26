@@ -1,0 +1,123 @@
+id: ir-retainer
+title: Incident response partners
+status: done
+class: control
+csf: RS
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  A retainer is a contract with an incident response company signed up
+  front, before anything happens.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  When something happens it is too late to go looking for a vendor and get
+  approvals. A retainer means it is all handled beforehand, so when an
+  incident happens you get help immediately. They differ: in some you pay up
+  front, in others it is just a contract with your background details
+  already lodged.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  The paid-up-front kind is a real annual cost for something you hope never
+  to use, and for a small company that money often does more good spent on
+  backups. But the zero-fee version, where you sign the contract and lodge
+  your details in advance and only pay if you call, is close to free and
+  there is no reason not to have one. Many cyber insurance policies include
+  access to a panel, so check before buying separately.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. We do not hold a paid incident response retainer.
+  Arrangements for obtaining specialist support during an incident are
+  described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Who would you call at 2am if you found ransomware?"
+  options:
+    - id: named
+      label: "I have a number"
+      verdict: already-solved
+      why: >
+        Then say who, and whether there is a contract behind it. A number with a
+        signed contract behind it is the strong answer.
+    - id: insurer
+      label: "The insurer's panel"
+      verdict: already-solved
+      why: >
+        That counts and it is already paid for. Check the number is somewhere you
+        can reach it when the network is down.
+    - id: nobody
+      label: "I would start searching"
+      verdict: write-it-down
+      why: >
+        Sign a zero-fee retainer, or confirm your insurer's panel. Either takes an
+        afternoon and neither costs money up front.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants a full panel lined up: breach coach, legal, public relations,
+    forensics, notification. That is what an insurer provides, which is why
+    buying it separately is usually paying twice. A contract in place and the
+    number printed is the control.
+  rungs:
+    - level: 1
+      gist: "No arrangement."
+      verdict: write-it-down
+    - level: 2
+      gist: "A contract or insurer panel, number available offline."
+      verdict: already-solved
+    - level: 3
+      gist: "Retainer with agreed response times."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full panel across legal, PR and forensics."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "zero-fee retainer or insurer panel": "€"
+  "paid retainer with response times": "€€€"
+  "full panel on retainer": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would find somebody."
+  better: "A signed retainer or a documented insurer panel contact."
+  strong: "The contract, agreed response times, and evidence the contact details are available offline."
+
+answer_risk: none
+
+frameworks: [nist-csf-rs.ma-01, nist-csf-gv.sc-08]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q2: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/ir-retainer.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The people who would be called in an emergency are lined up in advance."   # syn.069a
+  - "Who would you call at 2am?"   # syn.069b
+  - "To what extent is it true that the people who would be called in an emergency are lined up in advance?"   # syn.069c

@@ -1,0 +1,121 @@
+id: remote-access
+title: Remote access
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a process controlling how people reach your systems from
+  outside, and can you switch it off.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  VPN is still widely used and often it is not needed. Why would somebody at
+  home need the same access they have at work? Zero trust thinking is
+  getting more popular and the useful part of it is simple: only give access
+  to the things they actually need. The other half people miss is suppliers.
+  The remote access that hurts is usually not an employee, it is a
+  maintenance session somebody opened in 2019 and never closed.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  A full zero trust rebuild is a multi-year programme and vendors will
+  happily sell you one. You do not need it to answer this. MFA on the VPN, a
+  list of who has access, and a rule that supplier sessions are opened on
+  request and closed afterwards covers most of the actual risk for a
+  fraction of the price.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_remote_workers, has_servers]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Remote access requires multi-factor authentication, is limited
+  to named users, and can be revoked centrally. Third-party access is
+  described separately.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could you list everyone who can reach your network from outside today?"
+  options:
+    - id: yes
+      label: "Yes, it is a short list"
+      verdict: already-solved
+      why: >
+        Then answer with how the list is controlled and how quickly you can remove
+        somebody. That is the question underneath the question.
+    - id: no
+      label: "Not without checking"
+      verdict: do-it-properly
+      why: >
+        Go and look. Old supplier accounts and forgotten VPN users are one of the
+        most common ways in, and the fix is deleting things rather than buying
+        anything.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants both site-to-site and per-user encrypted access with
+    continuous policy enforcement, which is where the zero trust platforms
+    live. MFA on the VPN, a reviewed user list and closed supplier sessions is
+    the point where the risk drops sharply and the price has not yet.
+  rungs:
+    - level: 1
+      gist: "Remote access with a password only, or nobody knows who has it."
+      verdict: do-it-properly
+    - level: 2
+      gist: "VPN with MFA, user list roughly known."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "MFA, reviewed list, supplier sessions opened on request."
+      verdict: already-solved
+    - level: 4
+      gist: "Per-application zero trust access with continuous policy."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "MFA on the existing VPN": "€"
+  "reviewed access list and session control": "€€"
+  "zero trust network access platform": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Remote access needs a VPN."
+  better: "A list of who has remote access and the MFA policy covering it."
+  strong: "The list, dated review, evidence of MFA enforcement, and the process for opening and closing supplier sessions."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-03, nist-csf-pr.ir-01, iso27002-6.7, nis2-art21]
+incidents: []
+patterns: []
+already_have: [admin-mfa, device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 9
+corpus_sources: {q1: 3, q2: 3, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 6 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/remote-access.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/remote-access.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Access from outside the office is controlled and can be switched off."   # syn.030a
+  - "How do people connect from outside the office?"   # syn.030b
+  - "To what extent is it true that access from outside the office is controlled and can be switched off?"   # syn.030c

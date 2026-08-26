@@ -1,0 +1,126 @@
+id: physical-environmental-protection
+title: Physical and environmental protection
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you protect the systems and the building against burglars, water, fire
+  and power cuts.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This turns up in the security questionnaire and gets sent to IT, who
+  answer about the server room. It is a facilities question. The bit that
+  genuinely belongs to IT is short: does the equipment survive a power cut
+  long enough to shut down cleanly, and is the server cupboard also the room
+  where the cleaner keeps the mop bucket.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  The questionnaire lists air conditioning, water detection, humidity
+  sensors, raised floors, fire suppression and 48 hours of uninterruptible
+  power. That is a data centre specification, and if your servers are in a
+  cupboard the honest answer is that they are in a cupboard. Better still,
+  if the systems are in the cloud, most of this question is now your
+  provider's problem and you should say so.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_office, has_servers]
+applies_never_if: [has_saas_only]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Our production systems are hosted with cloud
+  providers whose facility controls are covered by their certifications.
+  On-site equipment and its protections are described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Where do your servers actually live?"
+  options:
+    - id: cloud
+      label: "In the cloud"
+      verdict: not-applicable
+      why: >
+        Then most of this question belongs to your provider, and citing their
+        certification is a legitimate answer. Say what is left on site.
+    - id: datacentre
+      label: "In a data centre"
+      verdict: already-solved
+      why: >
+        Same answer, with the data centre's certifications attached.
+    - id: cupboard
+      label: "In a room here"
+      verdict: write-it-down
+      why: >
+        Then describe honestly what protects it: the lock, the smoke alarm, the
+        UPS if there is one. An honest short answer beats claiming a specification
+        you do not have.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants the full facility specification including 48 hours of
+    uninterruptible power at every site. That is a data centre build. Enough
+    UPS to shut down cleanly, a smoke detector, and equipment not stored under
+    a water pipe is the version that applies to a normal building.
+  rungs:
+    - level: 1
+      gist: "No protection, equipment in an open area."
+      verdict: write-it-down
+    - level: 2
+      gist: "Locked room, smoke detection, UPS for clean shutdown."
+      verdict: already-solved
+    - level: 3
+      gist: "Environmental monitoring and fire suppression."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full facility specification with extended power."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "lock the cupboard, add a UPS": "€€"
+  "environmental monitoring": "€€€"
+  "data centre specification on site": "€€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "The servers are in a locked room."
+  better: "A description of the room and its protections, or the provider's certification."
+  strong: "The description plus evidence: UPS test records, or the provider's current certificate."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ir-02, iso27002-7.5, iso27002-7.8, iso27002-7.11]
+incidents: []
+patterns: [framework-inheritance]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 8
+corpus_sources: {q1: 2, q2: 2, q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 5 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/physical-environmental-protection.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/physical-environmental-protection.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Equipment is protected from fire, water, heat and power loss."   # syn.059a
+  - "What happens to the server room if the power goes?"   # syn.059b
+  - "To what extent is it true that equipment is protected from fire, water, heat and power loss?"   # syn.059c

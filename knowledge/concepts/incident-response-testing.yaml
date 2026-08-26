@@ -1,0 +1,116 @@
+id: incident-response-testing
+title: Incident response exercises
+status: done
+class: control
+csf: RS
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Assuming you have an incident response team and a policy, how often do
+  they practise.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It does not need to be a fancy red team exercise. A tabletop once a year
+  is a good starting point. Nothing technical. Just a scenario and a
+  discussion of who would have done what. The value is almost entirely in
+  discovering that two people thought the other one was going to call the
+  insurer.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  A facilitated exercise with an external provider is a real cost and it is
+  worth it once, to see how it is done. After that you can run it yourself
+  over lunch. What you must not do is skip it because the external version
+  looks expensive. The unrehearsed plan is the one that fails.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. The incident response process is exercised and the outcomes
+  recorded. Frequency and format are described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Have you ever walked through an incident with the people who would handle it?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: already-solved
+      why: >
+        Then attach the date and what came out of it. The findings are the
+        evidence, more than the exercise.
+    - id: no
+      label: "No"
+      verdict: write-it-down
+      why: >
+        Book two hours. Pick a scenario, sit the relevant people down, and ask
+        what happens next at each step. You will find three broken things before
+        the coffee gets cold.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants tabletops based on emerging threats, involving senior
+    management and every stakeholder in the plan, with documented improvement
+    actions. Senior management being there is worth insisting on. The rest is
+    a programme. One exercise a year, written up, is what actually finds the
+    gaps.
+  rungs:
+    - level: 1
+      gist: "Never practised."
+      verdict: write-it-down
+    - level: 2
+      gist: "One tabletop a year, written up."
+      verdict: already-solved
+    - level: 3
+      gist: "Exercises involving management, actions tracked."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Threat-driven programme with full stakeholder involvement."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "two hours around a table": "€"
+  "facilitated exercise": "€€€"
+  "annual programme with external facilitation": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We have a plan."
+  better: "A dated record of an exercise and who attended."
+  strong: "The record, what did not work, and the changes made afterwards."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.im-02, nist-csf-rs.ma-01, iso27002-5.24]
+incidents: []
+patterns: [outcome-as-process]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q2: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/incident-response-testing.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The response plan is rehearsed with the people who would run it."   # syn.068a
+  - "Have you ever walked through an incident as a rehearsal?"   # syn.068b
+  - "To what extent is it true that the response plan is rehearsed with the people who would run it?"   # syn.068c

@@ -1,0 +1,127 @@
+id: encryption
+title: Encryption and key management
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Is your data encrypted where it sits and where it travels, and does anyone
+  look after the keys.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Many think everything is encrypted by default now. It is not. And even
+  where it is, you need a way to manage the keys. What happens when an
+  encrypted PC will not boot and the recovery key is in an account nobody
+  can get into? If you operate internationally there is another trap: some
+  countries limit which encryption you may use or import, and that is a
+  legal question rather than a technical one.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Disk encryption and encryption in transit are both already on in any
+  modern setup and cost nothing. The expensive version is holding your own
+  keys in a hardware module so the cloud provider cannot read your data.
+  That is a real control for a handful of regulated businesses and an
+  expensive way to lock yourself out for everyone else.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Data is encrypted at rest and in transit using platform
+  capabilities. Key management responsibilities and any legal restrictions
+  in our operating countries are described below.
+
+default_verdict: already-solved
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If a laptop was stolen tonight, could someone read the disk?"
+  options:
+    - id: no
+      label: "No, it is encrypted"
+      verdict: already-solved
+      why: >
+        Then answer with the mechanism and, more importantly, say where the
+        recovery keys are held. The keys are the part people fail on.
+    - id: yes
+      label: "Probably"
+      verdict: do-it-properly
+      why: >
+        Turn on disk encryption. It is built into Windows and macOS, it costs
+        nothing, and it converts a lost laptop from a data breach into a hardware
+        loss.
+    - id: dontknow
+      label: "No idea"
+      verdict: need-one-fact
+      why: >
+        Go and check one machine. It takes two minutes and it decides whether this
+        is a five-minute answer or a week of work.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 usually means customer-managed keys in a hardware security module.
+    That is a real control if a regulator requires it and an expensive way to
+    lose access to your own data if not. Platform encryption with keys you can
+    actually recover is where most companies should stop.
+  rungs:
+    - level: 1
+      gist: "Nothing encrypted."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Some systems, no key management."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "At rest and in transit, keys recoverable and held safely."
+      verdict: already-solved
+    - level: 4
+      gist: "Customer-managed keys in dedicated hardware."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "turn on platform encryption": "€"
+  "documented key management": "€€"
+  "customer-managed keys in an HSM": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Our data is encrypted."
+  better: "Policy plus evidence that disk encryption is enforced on devices."
+  strong: "The policy, a device compliance report, and a written statement of where recovery keys are held and who can get them."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ds-01, nist-csf-pr.ds-02, iso27002-8.24, nis2-art21]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [data-at-rest-encryption, email-encryption-in-transit]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 13
+corpus_sources: {q1: 3, q2: 4, q3: 3, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 10 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/encryption.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/encryption.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Stored and transmitted data is encrypted and the keys are looked after."   # syn.034a
+  - "Is your data encrypted, and who holds the keys?"   # syn.034b
+  - "To what extent is it true that stored and transmitted data is encrypted and the keys are looked after?"   # syn.034c

@@ -1,0 +1,122 @@
+id: third-party-access
+title: Third party access control
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a process for letting outside people into your systems. The
+  HVAC repairman, the network technician, the supplier who maintains your
+  production line.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Access must be tightly limited and watched. Sessions should be opened for
+  a single job and closed afterwards, and ideally recorded. The thing people
+  miss is that this is where the famous breaches actually started: not a
+  clever exploit, a maintenance account with a password from 2015 that
+  nobody switched off.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Session recording and a privileged access platform are the expensive
+  answer and they are aimed at organisations with dozens of suppliers
+  logging in. If you have four, the control is a named account per supplier
+  instead of a shared one, MFA on it, and a rule that it is disabled between
+  jobs. That is free and it removes most of the risk.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_suppliers, has_servers]
+applies_never_if: [no_third_party_access]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. No third party holds access to our information systems.
+  Supplier work is performed on site under supervision.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does any supplier have a login to your systems right now?"
+  options:
+    - id: none
+      label: "No"
+      verdict: not-applicable
+      why: >
+        Say so, and say how supplier work gets done instead. Clean answer.
+    - id: shared
+      label: "Yes, and it is a shared account"
+      verdict: do-it-properly
+      why: >
+        Split it into named accounts per person, put MFA on them, and disable them
+        between jobs. A shared supplier account is the single most reliable way
+        into a small company.
+    - id: named
+      label: "Yes, named accounts, MFA"
+      verdict: already-solved
+      why: >
+        Then answer with how they are reviewed and how quickly you can turn one
+        off. Add logging if it is not there.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants every third-party session logged, reviewed and usually
+    recorded, which means a platform. Named accounts, MFA, disabled between
+    jobs and reviewed twice a year gets you almost all of the protection with
+    none of the licence cost.
+  rungs:
+    - level: 1
+      gist: "Shared supplier account, always on."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Named accounts, but always on."
+      verdict: do-it-properly
+    - level: 3
+      gist: "Named accounts with MFA, opened per job, reviewed."
+      verdict: already-solved
+    - level: 4
+      gist: "Full session logging and recording through a platform."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "named accounts and MFA": "€"
+  "open and close per job, reviewed": "€€"
+  "session recording platform": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Suppliers get access when they need it."
+  better: "A list of third parties with access and what each can reach."
+  strong: "The list, evidence of MFA, a dated review, and logs showing sessions opened and closed."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-05, nist-csf-gv.sc-07, iso27002-5.20, nis2-art21]
+incidents: []
+patterns: []
+already_have: [audit-logging]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 5
+corpus_sources: {q1: 2, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/third-party-access.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Supplier access to systems is logged and reviewed."   # syn.074a
+  - "Do you know which suppliers logged in last month?"   # syn.074b
+  - "To what extent is it true that supplier access to systems is logged and reviewed?"   # syn.074c

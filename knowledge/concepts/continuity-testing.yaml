@@ -1,0 +1,121 @@
+id: continuity-testing
+title: Continuity and recovery testing
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you test the continuity and recovery plans, or do they just exist.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  A plan is not a plan if it has not been tested. That is the whole card.
+  Every untested recovery plan contains at least one thing that does not
+  work, and you find out which one at the worst possible time.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  A full failover exercise is expensive and disruptive and most companies
+  will never do one. They do not have to. Restore one system from backup and
+  time it. Walk through the plan around a table for an hour. Write down what
+  did not work. That is a test, it costs a morning, and it finds the same
+  broken things the expensive version finds.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Recovery capability is tested and the results are recorded.
+  The scope and frequency of testing are described below.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Has anyone ever actually tried the recovery plan?"
+  options:
+    - id: yes
+      label: "Yes, and we wrote down what broke"
+      verdict: already-solved
+      why: >
+        That is a better answer than most large companies can give. Attach the
+        report.
+    - id: partial
+      label: "We restored a file once"
+      verdict: cheap-checkbox
+      why: >
+        Do it properly once on one system, end to end, and time it. Half a day,
+        and it turns a claim into evidence.
+    - id: no
+      label: "No"
+      verdict: do-it-properly
+      why: >
+        Then the plan is a document, not a capability. One tabletop and one
+        restore test. A morning each.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants every process that has to come back exercised, with everybody
+    who would be involved, on a planned cycle, written up each time. For most
+    companies one tabletop and one real restore per year finds everything the
+    full programme would.
+  rungs:
+    - level: 1
+      gist: "Never tested."
+      verdict: do-it-properly
+    - level: 2
+      gist: "One tabletop or one restore test per year, written up."
+      verdict: already-solved
+    - level: 3
+      gist: "Planned exercises covering critical systems."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full programme with all personnel and post-exercise reports."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a tabletop and a restore test": "€"
+  "annual exercise programme": "€€"
+  "full failover testing": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "The plan exists."
+  better: "A dated record of a restore test or tabletop exercise."
+  strong: "The record, what failed, what changed as a result, and the date of the next one."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.im-02, nist-csf-rc.rp-05, iso27002-5.30]
+incidents: []
+patterns: [outcome-as-process]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 6
+corpus_sources: {q1: 2, q2: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 3 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/continuity-testing.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/continuity-testing.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Recovery plans are tried out rather than only written."   # syn.043a
+  - "When did you last try restoring from a backup?"   # syn.043b
+  - "To what extent is it true that recovery plans are tried out rather than only written?"   # syn.043c

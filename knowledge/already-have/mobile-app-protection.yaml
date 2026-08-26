@@ -1,0 +1,30 @@
+id: mobile-app-protection
+title: Company data on phones is contained
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Both platforms can keep company data inside managed apps on a phone, so it
+  can be removed without touching anything personal on the device. This
+  works on phones the company does not own.
+
+microsoft365:
+  applies_to: "Business Premium and above, where Intune is included"
+  where_to_look: "Intune admin center, Apps, App protection policies"
+  evidence: "Screenshot of the app protection policy and the users it covers."
+
+google_workspace:
+  applies_to: "Editions including mobile management"
+  where_to_look: "Admin console, Devices, Mobile and endpoints, Settings, Universal, Data sharing"
+  evidence: "Screenshot of the work profile or data sharing restrictions."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  Same licensing line as device compliance: entry tiers may not include it.
+  Also, containment is not the same as full device management, and it is
+  worth saying which one you have. Wiping company data from a container is
+  possible; wiping a personal phone usually is not, and in some countries
+  attempting to would be a legal problem.
+
+concepts: [mobile-device-management, remote-work-model]

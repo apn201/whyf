@@ -1,0 +1,124 @@
+id: application-allowlisting
+title: Application allow listing
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  A policy that blocks everything by default and only allows certain
+  applications to run.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Blocklisting does nothing. Malware is compiled fresh for every attack.
+  Allowlisting works, but it is hard to maintain in a complex environment.
+  Depending how you do it, it breaks on software updates, or you allow a
+  path and malware simply uses the same path. The common misunderstanding is
+  that this is about installing. It is about executing. Nobody should have
+  admin rights, which mostly stops installing, but it does not stop
+  executing.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Maintaining it is always more work than you expect. On a larger estate you
+  genuinely need somebody resourced to support it before you switch it on,
+  or you will spend your first month unblocking legitimate software and your
+  second month with it disabled. Removing admin rights delivers a large
+  share of the benefit and costs nothing.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Software execution is controlled through removal of
+  administrative rights and an approved software list. Full allow-listing
+  technology is not deployed, and the reason is stated below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do your users have admin rights on their own machines?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: do-it-properly
+      why: >
+        Take them away before you look at any allow-listing product. That one
+        change stops most of what allow-listing would have stopped, and it is
+        free.
+    - id: no
+      label: "No"
+      verdict: already-solved
+      why: >
+        Then answer honestly: admin rights removed, approved software list, no
+        allow-listing product. That is a legitimate rung and an auditor will take
+        it.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 covers executables, libraries and scripts including macros and
+    PowerShell. Script-level allow-listing is where the maintenance load
+    becomes a job, and it is aimed at organisations with a team. Removing
+    admin rights and keeping an approved software list is where a small
+    company should stop.
+  rungs:
+    - level: 1
+      gist: "Users are admins, anything runs."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Admin rights removed, approved software list."
+      verdict: already-solved
+    - level: 3
+      gist: "Allow-listing on executables, maintained."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Executables, libraries and scripts covered."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "remove admin rights": "€"
+  "approved software list": "€"
+  "allow-listing product plus the person to run it": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "People cannot install things."
+  better: "The policy showing admin rights removed, plus the approved software list."
+  strong: "The policy, a report of who still holds local admin and why, and the exception process."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ps-01, iso27002-8.19]
+incidents: []
+patterns: [technology-prescription]
+already_have: [device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 6
+corpus_sources: {q2: 2, q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 3 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/application-allowlisting.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/application-allowlisting.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Only approved software is allowed to run."   # syn.048a
+  - "Can staff install whatever software they like?"   # syn.048b
+  - "To what extent is it true that only approved software is allowed to run?"   # syn.048c

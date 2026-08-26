@@ -1,0 +1,121 @@
+id: surveillance
+title: CCTV, intrusion detection and visitors
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have CCTV or other physical monitoring, and do you record who
+  visits.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Cameras get bought and then nothing is ever watched or retained long
+  enough to be useful. The visitor part is the cheaper half and the one
+  auditors actually check: a book at reception with name, time in, time out
+  and who they came to see. In the EU there is a second half people forget,
+  which is that CCTV is personal data processing and needs a lawful basis,
+  signage and a retention period.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  A camera system is a real cost and it is mostly useful after the fact. The
+  visitor book costs nothing and prevents more than the cameras do, because
+  somebody has to sign in and be collected. If you are choosing between
+  them, start with the book.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_office]
+applies_never_if: [fully_remote]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. We operate no premises of our own. Where
+  surveillance is provided by the landlord, it is described below, along
+  with our visitor handling.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If a stranger walked in today, would there be a record of it?"
+  options:
+    - id: book
+      label: "Yes, they would sign in"
+      verdict: already-solved
+      why: >
+        That is the control. Say so and note the retention period.
+    - id: camera
+      label: "There is a camera"
+      verdict: cheap-checkbox
+      why: >
+        Check somebody could actually retrieve the footage and that the retention
+        is documented. In the EU it also needs signage and a lawful basis.
+    - id: neither
+      label: "No"
+      verdict: write-it-down
+      why: >
+        Start a visitor book. It costs nothing, it is the thing auditors ask for,
+        and it works better than a camera nobody watches.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants intrusion detection and CCTV covering both offices and
+    industrial systems, monitored. Monitored means somebody watching, which is
+    a service contract. Recorded footage, a documented retention period and a
+    visitor book covers what an assessment actually looks for.
+  rungs:
+    - level: 1
+      gist: "No record of who comes and goes."
+      verdict: write-it-down
+    - level: 2
+      gist: "Visitor log kept, entrances covered."
+      verdict: already-solved
+    - level: 3
+      gist: "CCTV with documented retention plus visitor log."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Monitored intrusion detection and CCTV."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a visitor book": "€"
+  "CCTV with retention": "€€€"
+  "monitored alarm and camera service": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "There are cameras."
+  better: "A visitor log and a statement of camera coverage and retention."
+  strong: "The log, the retention policy, signage and lawful basis for recording, and evidence footage can be retrieved."
+
+answer_risk: none
+
+frameworks: [nist-csf-de.cm-02, iso27002-7.4, gdpr-art32]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 7
+corpus_sources: {q1: 3, q2: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 4 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/surveillance.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Entrances are monitored and visitors are recorded."   # syn.061a
+  - "Are visitors signed in and accompanied?"   # syn.061b
+  - "To what extent is it true that entrances are monitored and visitors are recorded?"   # syn.061c

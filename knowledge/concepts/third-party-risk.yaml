@@ -1,0 +1,123 @@
+id: third-party-risk
+title: Third party risk management
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you assess the risk coming from your suppliers and other third parties.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This is the question you are currently answering, pointed back at you. The
+  company sending you this questionnaire is doing third-party risk
+  management, and now they want to know whether you do it to your own
+  suppliers. The mistake is treating it as a paperwork exercise in both
+  directions, when the actual risk is concentrated in the two or three
+  suppliers who could stop your business or leak your data.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not build the thing that is currently annoying you. Sending a
+  sixty-question form to every supplier produces a filing cabinet and no
+  safety. Take the list of suppliers who hold your data or can log in, which
+  should be under ten names, and for each one ask what happens if they fail
+  and what happens if they are breached. Write the answers down. That is a
+  defensible third-party risk process.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_suppliers]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Suppliers with access to our systems or data are assessed
+  before engagement and reviewed. The approach is proportionate to the
+  criticality of the supplier and is described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Which supplier would hurt most if they were breached tomorrow?"
+  options:
+    - id: named
+      label: "I can name them"
+      verdict: write-it-down
+      why: >
+        Then write down what you would do about it, for each of the top few. That
+        short document is your third-party risk process and it beats a
+        questionnaire programme.
+    - id: unsure
+      label: "I would have to think"
+      verdict: do-it-properly
+      why: >
+        Start with the supplier list and work out which ones hold data or have
+        access. Nearly every large breach of a small company came in through a
+        supplier.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants all third parties assessed and reassessed as agreements
+    change, with thresholds, escalation and financial modelling. That is a
+    supplier risk function with a platform. Assessing the handful that hold
+    your data or can log in, and reviewing them yearly, gets the same
+    protection.
+  rungs:
+    - level: 1
+      gist: "Nobody assesses suppliers."
+      verdict: do-it-properly
+    - level: 2
+      gist: "The critical few assessed and written down."
+      verdict: already-solved
+    - level: 3
+      gist: "All suppliers assessed, reviewed on change."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Formal methodology with thresholds and modelling."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "assess the critical few yourself": "€"
+  "yearly review with documented criteria": "€€"
+  "supplier risk platform and programme": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We use reputable suppliers."
+  better: "A written assessment of the suppliers who hold data or have access."
+  strong: "The assessments, dated, with criticality, what was checked, and the review schedule."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.sc-04, nist-csf-gv.sc-07, iso27002-5.19, nis2-art21]
+incidents: []
+patterns: [certificate-shortcut]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 14
+corpus_sources: {q1: 2, q2: 4, q3: 5, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 11 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/third-party-risk.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/third-party-risk.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Suppliers are assessed before they are given access."   # syn.077a
+  - "Do you check a supplier's security before signing?"   # syn.077b
+  - "To what extent is it true that suppliers are assessed before they are given access?"   # syn.077c

@@ -1,0 +1,29 @@
+id: admin-role-separation
+title: Admin roles are separate from user accounts
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Both platforms let you assign administrative roles to separate accounts,
+  and both provide granular roles so somebody who only manages users does
+  not also control everything else. Included at every tier.
+
+microsoft365:
+  applies_to: "All tiers"
+  where_to_look: "Entra admin center, Identity, Roles and administrators"
+  evidence: "A list of who holds which administrative role, plus evidence those are separate accounts from the holders' daily ones."
+
+google_workspace:
+  applies_to: "All editions"
+  where_to_look: "Admin console, Account, Admin roles"
+  evidence: "The admin role assignment list."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  The capability is free; using it is a decision. The common finding is a
+  handful of accounts holding Global Administrator because it was easier,
+  and those same accounts being used to read email. Answering yes means
+  separate accounts actually exist, not that the platform supports them.
+
+concepts: [privileged-accounts, identity-lifecycle]

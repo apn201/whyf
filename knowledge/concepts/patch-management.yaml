@@ -1,0 +1,125 @@
+id: patch-management
+title: Patch management and obsolescence
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a process to update vulnerable systems within a set number of
+  days.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Not only the operating system. All software and firmware has to be
+  patched. Best is to patch everything immediately, but in complex networks
+  and OT environments that is not easy. Instead of doing nothing, get an
+  approved exception for the things you cannot patch. A usual rule looks
+  like: anything scoring CVSS 9 or above within 5 days, the rest within 15.
+  Pick numbers you can actually meet and write them down.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is no argument against patching. There is a strong argument against
+  buying a patch management platform before you have turned on the automatic
+  updates that are already free. Windows Update, the browser's own updater
+  and the app store cover most of the estate at zero cost. The platform
+  earns its money when you have servers and OT that need scheduling around
+  production.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_servers, has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Patches are applied within defined timeframes based on
+  severity. Systems that cannot be patched are subject to a documented
+  exception with compensating controls.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "How long between a critical patch appearing and it being installed?"
+  options:
+    - id: days
+      label: "Days"
+      verdict: already-solved
+      why: >
+        Then write the number down as a rule and you have both the control and the
+        answer. Most companies cannot say this.
+    - id: weeks
+      label: "Weeks, when someone gets to it"
+      verdict: cheap-checkbox
+      why: >
+        Turn on automatic updates for everything that can take them, then set a
+        rule for the rest. Most of the gap closes for free.
+    - id: unknown
+      label: "No idea"
+      verdict: do-it-properly
+      why: >
+        This is where most real compromises start, and it is not a paperwork gap.
+        Start with automatic updates on the endpoints, then work out what is left.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants out-of-band patch notifications correlated against your own
+    environment with external sources reviewed annually. The correlation is
+    only possible if the asset inventory is good, and that is the real
+    prerequisite. Defined timeframes, met and evidenced, is the level that
+    actually reduces risk.
+  rungs:
+    - level: 1
+      gist: "Patching happens when somebody remembers."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Automatic updates on endpoints, servers ad hoc."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Defined timeframes by severity, met and recorded."
+      verdict: already-solved
+    - level: 4
+      gist: "Out-of-band notification correlated to the asset inventory."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "turn on automatic updates": "€"
+  "patch tooling for servers": "€€"
+  "OT patching with production windows": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We keep things up to date."
+  better: "A written patching standard with timeframes by severity."
+  strong: "The standard, plus a report showing actual patch levels against it and the approved exceptions."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.ra-01, nist-csf-pr.ps-02, iso27002-8.8, nis2-art21]
+incidents: []
+patterns: [outcome-as-process]
+already_have: [device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 11
+corpus_sources: {q1: 4, q2: 2, q3: 2, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 8 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/patch-management.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Updates are applied on a schedule and unsupported equipment is tracked."   # syn.045a
+  - "How quickly do security updates get installed?"   # syn.045b
+  - "To what extent is it true that updates are applied on a schedule and unsupported equipment is tracked?"   # syn.045c

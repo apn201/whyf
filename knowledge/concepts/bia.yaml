@@ -1,0 +1,115 @@
+id: bia
+title: Business impact analysis
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have an estimate of what different kinds of incident would cost
+  you.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It is not rocket science. It is a spreadsheet saying that if our main
+  server dies we lose ten thousand euros a day. That is a business impact
+  analysis. Everything the frameworks add on top is refinement of that one
+  number, and the one number is what actually changes decisions.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If you run a business, you should know roughly what it costs when things
+  go wrong, and you probably already do without having written it down. The
+  consultant version produces a document with recovery time objectives per
+  process and a dependency map. Useful in a bank. In a company of forty,
+  four lines in a spreadsheet gets the same decisions made.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. The business impact of losing key systems has been estimated
+  and is used to prioritise recovery.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "What does a day of downtime cost you?"
+  options:
+    - id: know
+      label: "I could give you a figure"
+      verdict: write-it-down
+      why: >
+        Then write it down. That figure is what tells you whether any of the
+        expensive controls on this form are worth buying.
+    - id: dont
+      label: "No idea"
+      verdict: need-one-fact
+      why: >
+        Work it out roughly. Revenue per day, plus the people sitting idle, plus
+        whatever you have to do twice. An hour of arithmetic and every other
+        decision here gets easier.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants every kind of loss modelled separately: sales you never made,
+    the extra cost of working round it, kit that insurance will not replace.
+    That is an actuarial exercise. Revenue per day plus idle salaries gets you
+    within the right order of magnitude, which is all a decision needs.
+  rungs:
+    - level: 1
+      gist: "No idea what an outage costs."
+      verdict: write-it-down
+    - level: 2
+      gist: "A rough figure per day, written down."
+      verdict: already-solved
+    - level: 3
+      gist: "Per-system impact driving recovery priorities."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full financial modelling across impact types."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "an hour with a spreadsheet": "€"
+  "per-system impact analysis": "€€"
+  "consultant-run financial modelling": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Downtime would be expensive."
+  better: "A written estimate of daily loss for key systems."
+  strong: "The estimate, its basis, and evidence it is used to set recovery priorities."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.ra-04, nist-csf-gv.oc-04, iso27002-5.30, nis2-art21]
+incidents: []
+patterns: [outcome-as-process]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 6
+corpus_sources: {q1: 2, q2: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 3 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/bia.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The organisation has worked out which processes must come back first."   # syn.042a
+  - "Which part of the business has to come back first?"   # syn.042b
+  - "To what extent is it true that the organisation has worked out which processes must come back first?"   # syn.042c

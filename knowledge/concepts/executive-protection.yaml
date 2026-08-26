@@ -1,0 +1,117 @@
+id: executive-protection
+title: Protecting executives personally
+status: done
+class: control
+csf: GV
+priority: 3
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do directors and senior people get extra protection on their personal
+  accounts and devices.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  These days everyone needs roughly the same protection. A blue-collar
+  worker's PC is as good an entry point as the CEO's, and attackers know
+  that the person with the weakest setup is often not the person with the
+  biggest title. Where executives are genuinely different is fraud: they get
+  impersonated, and their approval is what moves money.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  The questionnaire lists personal vulnerability assessments, identity theft
+  monitoring and a personal incident response provider. That is a product
+  bundle aimed at people who can afford it, and it is close to irrelevant
+  for a company of thirty. Put the effort into payment approval rules
+  instead, which is where executive impersonation actually costs money.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable as a separate programme. Protection is applied uniformly
+  across all users rather than by seniority. Payment approval controls
+  covering executive impersonation are described separately.
+
+default_verdict: not-applicable
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Can one email from the boss move money?"
+  options:
+    - id: yes
+      label: "Probably, yes"
+      verdict: do-it-properly
+      why: >
+        Then the fix is not personal cyber insurance for the boss. It is a rule
+        that no payment moves on an email alone, whoever sent it. Cheap, and it
+        stops the actual attack.
+    - id: no
+      label: "No, payments need two people"
+      verdict: already-solved
+      why: >
+        Then say that. The control the question is groping towards is already in
+        place, and you can skip the executive protection bundle.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 1
+  why_not_4: >
+    Every rung above the first is a purchase aimed at wealthy individuals
+    rather than at the company's risk. Unless you have a specific, named
+    threat against a specific person, the money is better spent on the payment
+    controls.
+  rungs:
+    - level: 1
+      gist: "Same protection for everyone, payment rules in place."
+      verdict: already-solved
+    - level: 2
+      gist: "Extra monitoring on a few senior accounts."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Personal device and account protection provided."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full personal protection programme with a retainer."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "payment approval rules": "€"
+  "extra monitoring on senior accounts": "€€"
+  "personal protection bundle per executive": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 1
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Nobody has thought about it."
+  better: "A written statement that protection is applied uniformly, plus the payment approval rule."
+  strong: "The same, plus evidence the payment rule has been tested."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-01]
+incidents: []
+patterns: [technology-prescription]
+already_have: [admin-mfa]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q2: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/executive-protection.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Senior people get extra protection on their personal accounts and devices."   # syn.007a
+  - "Are directors' personal accounts protected any differently?"   # syn.007b
+  - "To what extent is it true that senior people get extra protection on their personal accounts and devices?"   # syn.007c

@@ -1,0 +1,25 @@
+id: gdpr
+name: GDPR (EU) 2016/679
+url: "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+status: done
+
+# The only ids a concept card may cite for this framework. The
+# validator drops anything else before it reaches a user.
+#
+# EU legislation, freely reproducible. Cited by article, and only where
+# personal data is genuinely involved.
+
+controls:
+  - id: gdpr-art30
+    title: >-
+      Records of processing activities. A written record of what personal data
+      you process, why, who you share it with, and how long you keep it. Small
+      organisations get a partial exemption, but it rarely survives contact
+      with regular processing of personal data.
+  - id: gdpr-art32
+    title: >-
+      Security of processing. Requires technical and organisational measures
+      appropriate to the risk, and specifically names pseudonymisation and
+      encryption, confidentiality, integrity, availability and resilience, the
+      ability to restore access after an incident, and regular testing of the
+      measures.

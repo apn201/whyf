@@ -1,0 +1,94 @@
+id: antivirus-exclusions
+title: Anti-virus exclusions for vendor software
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a process for systems where antivirus cannot be installed.
+  Usually production and OT systems.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Air-gapped is usually not good enough. Every system eventually gets
+  connected to external media or a network, so some protection is needed.
+  Where it genuinely cannot be installed, the exception has to be approved
+  and the system hardened instead. The version of this question that catches
+  people out is the negative phrasing. It is worded so that agreeing means
+  the opposite of what it looks like. Read it twice before ticking.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If it is an office and all the PCs run Windows with Defender not disabled,
+  you are good. This whole card is for people running realtime or embedded
+  systems where antivirus cannot go. If that is not you, say so in one line
+  and skip it.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_ot, has_servers]
+applies_never_if: [all_systems_protected]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. All systems in scope run endpoint protection with no
+  vendor-required exclusions.
+
+default_verdict: need-one-fact
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Is there any machine here that cannot run antivirus?"
+  options:
+    - id: none
+      label: "No, everything runs it"
+      verdict: not-applicable
+      why: >
+        Say that. Short answer, and it is the right one for most companies getting
+        this question.
+    - id: some
+      label: "Yes, a few production systems"
+      verdict: write-it-down
+      why: >
+        Then write down which ones, why, who approved it, and what protects them
+        instead. Usually network isolation and locked-down access. That is a
+        complete answer.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "document the exceptions": "€"
+  "isolate and harden the excepted systems": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Everything has antivirus."
+  better: "A list of systems without endpoint protection and the reason."
+  strong: "The list, the approval for each exception, and a description of the compensating controls."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ps-05, iso27002-8.7]
+incidents: []
+patterns: [technology-prescription]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {q1: 1, syn: 2}
+question_forms: [binary_statement]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/antivirus-exclusions.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Vendor software does not require security tooling to be turned off for it."   # syn.076a
+  - "Does any vendor ask you to exclude their software from scanning?"   # syn.076b

@@ -1,0 +1,126 @@
+id: secure-development
+title: Secure development
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have rules for how to develop software safely.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Web pages and Excel macros count. People answer no because they do not
+  have a development team, while somebody in finance maintains a macro that
+  touches customer data and somebody in marketing edits the website. That is
+  development, and it is where the unreviewed code lives.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If you genuinely develop nothing, say so and move on, but check first.
+  Where there is development, the two controls worth having cost nothing:
+  keep development away from production, and do not test with real customer
+  data. Formal secure coding training for developers is worth it when you
+  have enough developers for a course to make sense.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [develops_software]
+applies_never_if: [no_development]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. We do not develop software in-house or through
+  contractors. Configuration changes to purchased systems are handled
+  through change management, described separately.
+
+default_verdict: need-one-fact
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does anyone here write code, a script, or a spreadsheet macro that matters?"
+  options:
+    - id: no
+      label: "Nobody"
+      verdict: not-applicable
+      why: >
+        Say so, and say that changes to bought systems go through change
+        management. Clean answer, and it closes several questions.
+    - id: informal
+      label: "Sort of, scripts and macros"
+      verdict: write-it-down
+      why: >
+        Then write down two rules: nobody tests on live customer data, and
+        somebody other than the author looks at it before it goes live. Free, and
+        it covers the realistic risk.
+    - id: yes
+      label: "Yes, we build software"
+      verdict: do-it-properly
+      why: >
+        Then separate development from production, mask test data, and get the
+        developers trained. This is the real version of the question.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants secure coding practices, environment separation, duty
+    separation between developers and production support, data masking and
+    annual training aligned to emerging threats. In a team of three
+    developers, separation of duties between development and production
+    support is not achievable and pretending otherwise is dishonest. Separated
+    environments and no live data in test is the achievable target.
+  rungs:
+    - level: 1
+      gist: "Development on production, live data in test."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Separate environments, no live customer data in test."
+      verdict: already-solved
+    - level: 3
+      gist: "Code review and secure coding standards applied."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full lifecycle with duty separation and annual training."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "separate environments and mask test data": "€"
+  "code review as standard practice": "€€"
+  "developer security training programme": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Our developers are careful."
+  better: "A written development standard covering environments and test data."
+  strong: "The standard, evidence of code review, and confirmation that test environments hold no live customer data."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ps-06, iso27002-8.25, iso27002-8.31]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 10
+corpus_sources: {q1: 3, q2: 3, q3: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 7 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/secure-development.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/secure-development.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Software is written with security in mind and test data is not real data."   # syn.057a
+  - "Do your developers work against real customer data?"   # syn.057b
+  - "To what extent is it true that software is written with security in mind and test data is not real data?"   # syn.057c

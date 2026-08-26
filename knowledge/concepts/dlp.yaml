@@ -1,0 +1,131 @@
+id: dlp
+title: Data loss prevention
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a control to stop sensitive data leaving your company
+  electronically. Email, USB, uploads, someone forwarding a customer list to
+  their private address.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Many think it is just a tool. It is a process and a policy, and the tool
+  is the last part. Somebody first has to decide what sensitive means here.
+  Is it your IP, or personal data, or card numbers? Then somebody has to
+  decide what happens when the tool blocks something, and who is allowed to
+  release it. That should not be IT. IT does not know whether that
+  spreadsheet was supposed to go to that customer.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  The question names a product category, so people go and buy the product
+  category. A real DLP rollout is months of tuning, a queue of false
+  positives nobody has time to clear, and a permanent argument with sales
+  about attachments. Meanwhile Microsoft 365 and Google Workspace both ship
+  basic policies that catch card numbers and national ID numbers, off by
+  default, free, and enough to answer this question honestly. Turn those on,
+  write down what you class as sensitive, and only buy a platform when you
+  can name the leak you are trying to stop.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_customer_data, processes_personal_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable in the product sense. We do not operate a dedicated data
+  loss prevention platform. Our data handling rules and the controls that
+  enforce them are described in the data classification and email security
+  answers.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Has anyone written down what counts as sensitive here?"
+  options:
+    - id: no_idea
+      label: "Not really"
+      verdict: write-it-down
+      why: >
+        Start there, not with a purchase. One page listing what must not leave and
+        who decides. Without it you cannot configure any tool, and you cannot
+        answer this question honestly either.
+    - id: written
+      label: "Yes, it is written down"
+      verdict: cheap-checkbox
+      why: >
+        Then turn on the built-in policies in the mail and file platform you
+        already pay for, point at those, and stop. That answers the question and
+        costs nothing.
+    - id: regulated
+      label: "Yes, and losing it would be reportable"
+      verdict: do-it-properly
+      why: >
+        Card data, health data, or a regulator who will ask. Now the tool is worth
+        the tuning cost, because the alternative is a notification letter.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 adds monitoring on top of blocking: somebody watching the release
+    queue and tuning the rules. That is most of a full-time job, or a managed
+    service on a monthly bill. For the great majority of companies asked this
+    question, the risk it removes is smaller than the salary it costs.
+  rungs:
+    - level: 1
+      gist: "No rules, no tooling, nobody has thought about it."
+      verdict: write-it-down
+    - level: 2
+      gist: "Sensitive is defined, built-in policies are on."
+      verdict: already-solved
+    - level: 3
+      gist: "A tool blocks, and someone owns the exceptions."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Blocking plus monitoring plus continuous tuning."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "decide what sensitive means": "€"
+  "turn on what M365 or Workspace already has": "€"
+  "a real DLP platform, licensed": "€€€"
+  "the same platform, tuned and watched": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "The policy says data must be handled carefully."
+  better: "A written definition of sensitive data, plus screenshots of the policies switched on in your mail platform."
+  strong: "The definition, the enabled policies, a sample of blocked events, and the name of the person outside IT who releases them."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ds-01, nist-csf-pr.ds-02, iso27002-8.12]
+incidents: []
+patterns: [technology-prescription, framework-inheritance]
+already_have: [basic-dlp, external-sharing-controls]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q1: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/dlp.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Tooling watches for sensitive data leaving the organisation."   # syn.032a
+  - "Is anything watching for sensitive data leaving?"   # syn.032b
+  - "To what extent is it true that tooling watches for sensitive data leaving the organisation?"   # syn.032c

@@ -1,0 +1,46 @@
+id: incident-history
+title: Past incident disclosure
+status: done
+class: disclosure
+csf: ID
+priority: 1
+
+# Not a security control, so it never gets one of the six verdicts.
+
+plain_english: >
+  Have you been breached, and if so what happened. Sometimes phrased as five
+  years, sometimes ever. Often sitting right next to a question about
+  whether any customer has ever complained.
+
+# What the tool says back.
+response: >
+  This tool will not help you word this answer. That is not caution, it is
+  the whole rule: everything else here is an opinion about a control, but
+  this is a statement of fact about your past. Get it wrong and it is a
+  misrepresentation, not a failed control. If there is an insurance policy
+  anywhere near this contract, a wrong answer here can void it. Go and find
+  out what actually happened before you tick anything. Separately, and this
+  is the useful part: you should be keeping this list anyway. Write down
+  what happened, when, why, and what you changed afterwards. Then answering
+  questions like this is five minutes instead of a week of asking around.
+
+answer_risk: disclosure
+
+# Who to actually talk to, if anyone.
+refer_to: >
+  Your insurance broker before you answer, if you have cyber cover or are
+  applying for it. Your lawyer if the incident involved personal data or a
+  customer claim. Not IT, and not this tool.
+
+frameworks: []
+patterns: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 5
+corpus_sources: {q2: 3, syn: 2}
+question_forms: [disclosure]
+# 3 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/incident-history.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Has the organisation suffered a security breach in the last five years? If so, describe it."   # syn.081a
+  - "Has any customer claimed their data was exposed by you?"   # syn.082a

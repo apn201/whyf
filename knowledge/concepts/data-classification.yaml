@@ -1,0 +1,121 @@
+id: data-classification
+title: Data classification
+status: done
+class: control
+csf: ID
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Is your data marked as Public, Internal or Confidential, or whatever
+  labels you chose.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This should be straightforward and it is actually quite rare. The reason
+  it matters is that every other data control depends on it. You cannot
+  decide what to encrypt, what to stop leaving, or what to keep for seven
+  years, until somebody has said which data is which.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Companies try to dodge the tedious part by declaring that all our data is
+  confidential, especially when facing retrospective classification of
+  twenty years of files. That is a defensible answer if you mean it and you
+  then treat it all that way. It is a bad answer if you say it and carry on
+  emailing spreadsheets around, because now you have written evidence that
+  you knew. Three labels, applied going forward, beats a project to classify
+  the archive.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. A classification scheme is defined and applied to information
+  created going forward. The treatment of legacy data is described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If I picked a file at random, would anything tell me how secret it is?"
+  options:
+    - id: yes
+      label: "Yes, it is labelled"
+      verdict: already-solved
+      why: >
+        Then answer with the scheme and how it is applied. You are ahead of most
+        companies asked this.
+    - id: no
+      label: "No"
+      verdict: write-it-down
+      why: >
+        Pick three labels, write one line each saying how to handle them, and
+        apply them going forward. Do not start with the archive or you will never
+        finish.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants classification applied regularly, at every significant
+    change, across all use cases. That is a data governance function with
+    tooling. A three-label scheme applied to new documents, with the old
+    material left alone unless it moves, is honest and it is what most
+    companies at rung 4 are actually doing anyway.
+  rungs:
+    - level: 1
+      gist: "No scheme, or one nobody uses."
+      verdict: write-it-down
+    - level: 2
+      gist: "A scheme exists and is applied to new material."
+      verdict: already-solved
+    - level: 3
+      gist: "Applied consistently, drives handling rules."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Reviewed at every change, covers everything."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "three labels and a handling rule each": "€"
+  "labelling built into the office tools": "€€"
+  "retrospective classification project": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We know what is sensitive."
+  better: "A written classification scheme with handling rules per label."
+  strong: "The scheme, evidence it is applied in the document tools, and the rules that follow from each label."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.am-05, iso27002-5.12, iso27002-5.13]
+incidents: []
+patterns: [outcome-as-process]
+already_have: [external-sharing-controls]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 7
+corpus_sources: {q1: 2, q2: 2, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 4 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/data-classification.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/data-classification.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Data is sorted into categories so the sensitive parts can be treated differently."   # syn.017a
+  - "Do you separate sensitive data from ordinary data?"   # syn.017b
+  - "To what extent is it true that data is sorted into categories so the sensitive parts can be treated differently?"   # syn.017c

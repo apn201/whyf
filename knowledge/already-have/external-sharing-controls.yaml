@@ -1,0 +1,29 @@
+id: external-sharing-controls
+title: Sharing outside the company is controlled
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  File sharing with people outside the organisation is governed by a central
+  setting in both platforms. The defaults are usually more permissive than
+  owners expect, but the control exists and costs nothing to tighten.
+
+microsoft365:
+  applies_to: "All tiers with SharePoint or OneDrive"
+  where_to_look: "SharePoint admin center, Policies, Sharing"
+  evidence: "Screenshot of the external sharing level for the tenant and for individual sites."
+
+google_workspace:
+  applies_to: "All editions with Drive"
+  where_to_look: "Admin console, Apps, Google Workspace, Drive and Docs, Sharing settings"
+  evidence: "Screenshot of the external sharing configuration."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  The default often allows sharing with anyone who has the link, which is
+  not what most owners assume. Check before you answer, because answering
+  yes and then discovering that anonymous links are enabled is worse than
+  answering honestly the first time.
+
+concepts: [data-classification, dlp, tenant-segregation]

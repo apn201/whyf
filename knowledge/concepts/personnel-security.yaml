@@ -1,0 +1,123 @@
+id: personnel-security
+title: Personnel security
+status: done
+class: control
+csf: GV
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  How do you know who to trust before you hand them a key, a laptop or an
+  admin account. Background checks, references, contracts.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  People file this under physical security and stop at the front door. It
+  goes wider than that. The cleaner with a master key, the contractor with a
+  VPN account and the new hire in finance are the same problem: somebody is
+  being trusted, and you should know on what basis. In much of Europe what
+  you are allowed to check is limited by law, so the honest answer is often
+  smaller than the question implies.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not buy a screening service. For most roles a reference call and a
+  signed contract is the whole control, and in several countries a criminal
+  record check is simply not available to a private employer. Spend the
+  effort on the handful of roles that can actually cause damage: admins,
+  finance, anyone with unescorted site access.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Pre-employment screening is limited by local
+  employment law in our operating countries. Our practice, and what it
+  covers, is described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you check anything before someone gets admin rights or a site key?"
+  options:
+    - id: nothing
+      label: "Not really"
+      verdict: write-it-down
+      why: >
+        Decide what you check and for which roles, then write the two lines down.
+        The checking is usually already happening informally, it is just not
+        recorded.
+    - id: some
+      label: "References and a contract"
+      verdict: already-solved
+      why: >
+        That is the control for most roles. Say so and name the roles where you do
+        more.
+    - id: formal
+      label: "Formal screening for sensitive roles"
+      verdict: already-solved
+      why: >
+        Answer it and attach the role list. Nothing more to buy.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants screening repeated periodically for everyone. That is a
+    running cost per head, it annoys long-serving staff, and in several
+    European countries you cannot do it anyway. Screen at hire, screen again
+    on promotion into a sensitive role, stop.
+  rungs:
+    - level: 1
+      gist: "Nobody checks anything."
+      verdict: write-it-down
+    - level: 2
+      gist: "References and contracts, more for sensitive roles."
+      verdict: already-solved
+    - level: 3
+      gist: "Documented screening standard per role."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Repeated screening on a cycle."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "references and a contract": "€"
+  "formal screening for sensitive roles": "€€"
+  "repeat screening for everyone": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We know the people we hire."
+  better: "A written statement of what is checked, for which roles."
+  strong: "The same, plus records per hire showing it happened."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.rr-04, iso27002-6.1, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 5
+corpus_sources: {q2: 1, q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/personnel-security.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Background checks are carried out before someone is given sensitive access."   # syn.003a
+  - "Are new staff screened before they get access to sensitive systems?"   # syn.003b
+  - "To what extent is it true that background checks are carried out before someone is given sensitive access?"   # syn.003c

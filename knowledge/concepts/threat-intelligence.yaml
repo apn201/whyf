@@ -1,0 +1,117 @@
+id: threat-intelligence
+title: Threat intelligence
+status: done
+class: control
+csf: ID
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you collect information about who might attack you and how.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Usually nonsense, and a lot of people are proud of the time they waste on
+  it. You need to be prepared for anything anyway. Think about how to
+  protect the business. Do not spend your week caring which group is
+  threatening it. The one useful slice is vulnerability advisories for the
+  specific products you run, and that is a mailing list, not an intelligence
+  programme.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  For almost every company being asked this question, a paid threat
+  intelligence feed is money set on fire. The reports are written for
+  organisations with a team to act on them. Subscribe to the vendor
+  advisories for what you actually run, and to your national CERT. Both
+  free. That is a complete and honest answer.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. We do not operate a threat intelligence function. We
+  subscribe to vendor security advisories for the products in use and to
+  national CERT bulletins, and act on them through vulnerability management.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you get told when the software you run has a serious hole?"
+  options:
+    - id: yes
+      label: "Yes, we are on the vendor lists"
+      verdict: already-solved
+      why: >
+        That is the useful part of threat intelligence and you have it. Say so,
+        name the sources, and do not buy a feed.
+    - id: no
+      label: "Not systematically"
+      verdict: write-it-down
+      why: >
+        Sign up to the advisories for your main products and your national CERT.
+        Free, an hour of work, and it feeds patching, which is where the actual
+        risk is.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants intelligence correlated against your environment and audited
+    for effectiveness. That is a team. Vendor advisories plus a CERT feed,
+    acted on through patching, is the honest answer for almost everyone and it
+    is free.
+  rungs:
+    - level: 1
+      gist: "No sources at all."
+      verdict: write-it-down
+    - level: 2
+      gist: "Vendor advisories and a CERT feed, acted on."
+      verdict: already-solved
+    - level: 3
+      gist: "Sources correlated against your own asset list."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full intelligence function with effectiveness review."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "vendor advisories and CERT feeds": "€"
+  "correlated against your asset inventory": "€€"
+  "commercial intelligence feed": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We keep an eye on the news."
+  better: "A list of the advisory sources subscribed to."
+  strong: "The sources, plus examples of advisories that triggered a patch or a change."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.ra-02, nist-csf-id.ra-03, nis2-art21]
+incidents: []
+patterns: [technology-prescription]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/threat-intelligence.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Somebody watches for news of attacks relevant to this organisation."   # syn.020a
+  - "Does anyone track threats aimed at your industry?"   # syn.020b
+  - "To what extent is it true that somebody watches for news of attacks relevant to this organisation?"   # syn.020c

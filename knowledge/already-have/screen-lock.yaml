@@ -1,0 +1,29 @@
+id: screen-lock
+title: Workstations lock themselves
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Automatic screen lock with a password on return is a policy setting on any
+  centrally managed Windows or Mac estate. On unmanaged machines it is a
+  default the user can change.
+
+microsoft365:
+  applies_to: "Business Premium and above, where Intune is included; also available through Active Directory group policy on domain-joined machines"
+  where_to_look: "Intune admin center, Devices, Configuration, or Group Policy under screen saver settings"
+  evidence: "Screenshot of the policy showing the timeout, plus a device compliance report listing which machines it reached."
+
+google_workspace:
+  applies_to: "Editions including endpoint management"
+  where_to_look: "Admin console, Devices, Mobile and endpoints, Settings"
+  evidence: "Screenshot of the screen lock policy and the devices it applies to."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  Central enforcement needs a management tool. If your machines are not
+  enrolled in anything, the lock may well be on because it is a default, but
+  you cannot prove it and a user can turn it off. Say which of those two
+  situations you are in rather than claiming enforcement you do not have.
+
+concepts: [screen-lock]

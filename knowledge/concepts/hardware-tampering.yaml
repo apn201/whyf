@@ -1,0 +1,120 @@
+id: hardware-tampering
+title: Hardware tampering
+status: done
+class: control
+csf: PR
+priority: 3
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you stop people physically interfering with your hardware. Servers,
+  network kit, cabling.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It does not really mean breaking things. It is easy to get into a server
+  if you can stand next to it and boot from a USB stick. You can reach a
+  protected network just by changing which port a cable is patched into.
+  Some equipment has tamper alarms on the chassis, but in simple terms this
+  asks whether you can stop people getting near these systems in the first
+  place.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Tamper-evident seals and physical inspection routines are for environments
+  where somebody genuinely might interfere with equipment: payment
+  terminals, unattended cabinets, remote sites. For a server in a locked
+  room in a staffed office, the lock is the control and the inspection
+  routine is paperwork.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_servers, has_office]
+applies_never_if: [has_saas_only]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Equipment is held in access-controlled areas rather
+  than subject to a separate tamper inspection programme. Where equipment is
+  unattended or remote, the controls are described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Is there any of your equipment somewhere nobody would notice a stranger?"
+  options:
+    - id: no
+      label: "No, everything is in staffed or locked areas"
+      verdict: already-solved
+      why: >
+        Then the access control is the answer. Say so rather than inventing an
+        inspection routine.
+    - id: yes
+      label: "Yes, remote sites or unattended cabinets"
+      verdict: do-it-properly
+      why: >
+        Then seals and a check when somebody visits are worth it, because that is
+        exactly the situation this control was designed for.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants tamper inspection on all systems, more often after
+    maintenance. That is a routine somebody has to run and record. Where
+    equipment sits behind a locked door in a staffed building, the door is the
+    control and adding an inspection log adds paperwork rather than security.
+  rungs:
+    - level: 1
+      gist: "Equipment accessible to anyone."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Equipment in locked or staffed areas."
+      verdict: already-solved
+    - level: 3
+      gist: "Seals or inspection on unattended equipment."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Inspection programme across all systems."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "lock the room": "€"
+  "tamper seals on remote cabinets": "€€"
+  "inspection programme with records": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 1
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Equipment is in a locked room."
+  better: "A statement of where equipment sits and what controls access."
+  strong: "The same, plus inspection or seal records for anything unattended."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ir-02, iso27002-7.8]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q2: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/hardware-tampering.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/hardware-tampering.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Equipment is checked for signs of having been interfered with."   # syn.060a
+  - "Would you notice if someone opened one of your machines?"   # syn.060b
+  - "To what extent is it true that equipment is checked for signs of having been interfered with?"   # syn.060c

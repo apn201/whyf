@@ -1,0 +1,99 @@
+id: acceptable-use
+title: Acceptable use policy
+status: done
+class: control
+csf: GV
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  A policy telling people the do's and don'ts with company equipment and
+  accounts.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It does not need to be long. Sometimes shorter is better, because a page
+  people read beats twelve pages they sign without reading. The whole thing
+  fits in four lines: do not use company kit to commit crimes or harm the
+  company, do not install illegal software, do not tamper with security
+  controls, limited private use is fine on breaks.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If you are a one-person company, there is nobody to hand the policy to and
+  you should say so. Beyond that there is no real argument against it,
+  because it costs an afternoon and it is the document that lets you act
+  when somebody does something stupid. Without it, dismissing someone for
+  what they did with a company laptop gets complicated.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. The company has no employees other than the owner, so
+  there is no user population for an acceptable use policy to govern.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "How many people use company equipment?"
+  options:
+    - id: one
+      label: "Just me"
+      verdict: not-applicable
+      why: >
+        Say so. A policy is an instruction from the company to its people. With
+        one person there is nobody to instruct.
+    - id: few
+      label: "A handful"
+      verdict: write-it-down
+      why: >
+        One page, signed at onboarding. An afternoon of work and the question is
+        closed for good.
+    - id: many
+      label: "Enough that I do not know them all"
+      verdict: write-it-down
+      why: >
+        Same one page, but attach it to onboarding properly so you can show who
+        accepted it and when. Still not a project.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one page, signed at onboarding": "€"
+  "policy set with yearly re-acceptance": "€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Somebody says everyone knows the rules."
+  better: "A written acceptable use policy."
+  strong: "The policy plus a record of who accepted it and when."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.po-01, iso27002-5.10]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {q2: 1, syn: 2}
+question_forms: [binary_statement]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/acceptable-use.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Staff are told in writing what they may and may not do with company equipment."   # syn.002a
+  - "Is there an acceptable use policy staff have seen?"   # syn.002b

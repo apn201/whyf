@@ -1,0 +1,94 @@
+id: ics-emergency-modes
+title: Emergency stop and degraded modes
+status: done
+class: control
+csf: RS
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do the production systems, the pumps and the motors, have controls that
+  stop them before somebody gets hurt.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It is not really IT related. A single emergency stop button counts. More
+  complex systems have more complex controls, and degraded mode means the
+  plant can keep running in a reduced, safe state rather than only having on
+  and off. It appears in a cyber questionnaire because ransomware on the
+  control network and a mechanical fault produce the same question: can you
+  stop safely.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If you have no machinery, this does not apply and you say so. Where you do
+  have machinery, safety systems are almost certainly already there because
+  machinery safety law required them long before anyone asked a cyber
+  question. The answer is usually already in your machinery safety
+  documentation, and it belongs to your safety engineer rather than to IT.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_ot]
+applies_never_if: [has_ot_none]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. We operate no industrial machinery or process control
+  systems.
+
+default_verdict: not-applicable
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you have machinery that could hurt somebody?"
+  options:
+    - id: no
+      label: "No machinery"
+      verdict: not-applicable
+      why: >
+        Say so. This is a plant question and it reaches a lot of offices.
+    - id: yes
+      label: "Yes"
+      verdict: already-solved
+      why: >
+        Then the answer already exists in your machinery safety documentation. Get
+        it from the safety engineer and reference it rather than writing something
+        new.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "reference existing machinery safety documentation": "€"
+  "degraded mode design for the process": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "The machines have stop buttons."
+  better: "The machinery safety documentation covering emergency stop and safe states."
+  strong: "The documentation, plus evidence the safe states have been tested and cover loss of the control system."
+
+answer_risk: none
+
+frameworks: [nist-csf-rs.mi-02, iec62443-3-3:2013]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q1: 2, syn: 2}
+question_forms: [binary_statement]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/ics-emergency-modes.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Production can be stopped or run in a reduced mode safely."   # syn.070a
+  - "Can you stop the line safely if you need to?"   # syn.070b

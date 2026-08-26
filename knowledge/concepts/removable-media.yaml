@@ -1,0 +1,118 @@
+id: removable-media
+title: Removable media
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a policy about USB sticks and external drives.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Removable media used to be the main event. Not so much any more, but it is
+  still a good way to get malware into protected areas, particularly OT
+  networks where the engineer's USB stick is the only thing that crosses the
+  boundary. Do you have a process for that?
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Blocking USB storage everywhere annoys people who have a legitimate reason
+  and pushes them onto personal cloud accounts, which is worse. Block it
+  where it matters, which is the production network and any machine handling
+  sensitive data, and leave the office alone unless you have a reason. The
+  blocking itself is a policy setting you already own.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Removable media is restricted on systems where it
+  presents a risk. The scope of that restriction is described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does anything of yours sit on a network that a USB stick could reach?"
+  options:
+    - id: ot
+      label: "Yes, production kit"
+      verdict: do-it-properly
+      why: >
+        Then this is a real control rather than a checkbox. Scanning station at
+        the boundary, and a rule that engineers do not carry sticks between the
+        office and the line.
+    - id: office
+      label: "Just office machines"
+      verdict: cheap-checkbox
+      why: >
+        Restrict it centrally where it costs you nothing, say what you did, and do
+        not make a project of it.
+    - id: cloud
+      label: "We are cloud only, nothing local"
+      verdict: not-applicable
+      why: >
+        Then say that. There is no data on the endpoint worth taking on a stick,
+        and that is a better answer than a policy.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants an authorisation process for every removal of media from the
+    premises, logged. In a manufacturing site with a controlled boundary that
+    is real. In an office it is a form that nobody fills in.
+  rungs:
+    - level: 1
+      gist: "No restriction, no policy."
+      verdict: write-it-down
+    - level: 2
+      gist: "Restricted where it matters, written down."
+      verdict: already-solved
+    - level: 3
+      gist: "Central control with exceptions approved."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Authorisation and logging for every removal."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "policy setting on managed devices": "€"
+  "scanning station for the OT boundary": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We tell people not to use USB sticks."
+  better: "The device policy showing removable storage restricted, and where."
+  strong: "The policy, the exception list, and for OT the scanning procedure at the boundary."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ds-01, iso27002-7.10]
+incidents: []
+patterns: []
+already_have: [device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 5
+corpus_sources: {q1: 2, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/removable-media.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Use of USB storage is limited to what the work actually needs."   # syn.038a
+  - "Can staff plug a USB stick into a work machine?"   # syn.038b
+  - "To what extent is it true that use of USB storage is limited to what the work actually needs?"   # syn.038c

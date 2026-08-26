@@ -1,0 +1,120 @@
+id: third-party-contracts
+title: Third party contracts and escrow
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do your third-party contracts say anything about security and privacy.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Required under NIS2 for entities in scope, and under GDPR wherever a
+  supplier processes personal data for you. And it is the reason these
+  questionnaires exist in the first place: somebody put a clause in a
+  contract, and the clause has to be evidenced. The escrow question in the
+  same section is a different animal, and it is nearly always answered no
+  for good reason.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not renegotiate every contract you have. Add standard security and data
+  protection terms to your template so new agreements carry them, and only
+  reopen an existing contract when it is up for renewal or when the supplier
+  is one of the critical few. Software escrow in particular is expensive,
+  rarely invoked, and usually delivers source code nobody can build.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_suppliers]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Security and data protection requirements are included in
+  contracts with suppliers who hold our data or access our systems. Legacy
+  agreements are updated at renewal.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does your standard contract template mention security at all?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: already-solved
+      why: >
+        Then answer with what it covers and how legacy contracts get updated. The
+        legacy part is what gets asked next.
+    - id: no
+      label: "No"
+      verdict: write-it-down
+      why: >
+        Add a clause to the template. One conversation with a lawyer, and every
+        new agreement carries it from then on. Do not reopen the old ones.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants every third party contractually bound to service levels and
+    indemnities, updated as services change. Getting a small supplier to
+    accept an indemnity is a negotiation you will usually lose. Standard terms
+    in your template, applied at renewal, is the version that actually
+    happens.
+  rungs:
+    - level: 1
+      gist: "Contracts say nothing about security."
+      verdict: write-it-down
+    - level: 2
+      gist: "Standard terms in the template, applied to new agreements."
+      verdict: already-solved
+    - level: 3
+      gist: "Critical suppliers under specific security terms."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "All suppliers bound to service levels and indemnities."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "add a clause to the template": "€"
+  "specific terms for critical suppliers": "€€"
+  "renegotiate the whole supplier base": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Our contracts are standard."
+  better: "The standard security and data protection clauses in the contract template."
+  strong: "The clauses, plus signed examples from critical suppliers and the plan for updating legacy agreements."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.sc-05, iso27002-5.20, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 8
+corpus_sources: {q1: 3, q2: 1, q3: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 5 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/third-party-contracts.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/third-party-contracts.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Supplier contracts say what is expected of them on security."   # syn.075a
+  - "Do your supplier contracts mention security at all?"   # syn.075b
+  - "To what extent is it true that supplier contracts say what is expected of them on security?"   # syn.075c

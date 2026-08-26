@@ -1,0 +1,115 @@
+id: mobile-device-management
+title: Mobile device management
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Can you wipe company data off a phone when it goes missing.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  MDM covers a lot of ground, but in its simplest form it means you can
+  remove your data in an emergency. It can also deploy phones, manage
+  applications and push endpoint protection, but you do not always need
+  that. Start with the wipe. The rest is optional.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Full device management on a phone somebody bought themselves is a fight
+  you will lose, and in some countries a legal problem. Application level
+  protection, where the company data lives in a container you can wipe and
+  the holiday photos are untouched, is included in Microsoft 365 and Google
+  Workspace business tiers and answers this question honestly.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_mobile_devices]
+applies_never_if: [no_mobile_access]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Company data on mobile devices is contained and can
+  be removed remotely. Full device management is not applied to personally
+  owned devices, and the boundary is described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If a phone with company email vanished today, could you clear it?"
+  options:
+    - id: yes
+      label: "Yes, remotely"
+      verdict: already-solved
+      why: >
+        Then answer with the mechanism and whether it covers personal devices too.
+        You already own this.
+    - id: no
+      label: "No"
+      verdict: write-it-down
+      why: >
+        Turn on app protection in the licence you already have. It contains the
+        company data without touching the rest of the phone, and it takes an
+        afternoon.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants full management on every connecting device including
+    personally owned ones. That is a per-device licence and an argument with
+    staff. Containing company data so it can be wiped separately is the
+    control that matters and it is already in the subscription.
+  rungs:
+    - level: 1
+      gist: "No way to remove company data from a phone."
+      verdict: write-it-down
+    - level: 2
+      gist: "App-level protection, company data can be wiped."
+      verdict: already-solved
+    - level: 3
+      gist: "Full management on company devices, containers on personal."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full management on everything that connects."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "app protection in your existing licence": "€"
+  "full MDM on company devices": "€€"
+  "managed devices for everyone": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We could ask them to change their password."
+  better: "A screenshot of the app protection or device policy."
+  strong: "The policy, the devices it covers, and a record of a wipe having been performed."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-05, iso27002-8.1]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [mobile-app-protection, device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q1: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/mobile-device-management.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Company data on phones can be managed and removed."   # syn.056a
+  - "Can you wipe company data off a lost phone?"   # syn.056b
+  - "To what extent is it true that company data on phones can be managed and removed?"   # syn.056c

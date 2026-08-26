@@ -1,0 +1,94 @@
+id: secure-procurement
+title: Buying equipment safely
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Does procurement have a way of judging supplier risk before signing, and
+  do your contracts mention security and privacy at all.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Security gets asked after the contract is signed, which is the one moment
+  when you have no leverage left. Before signature you can ask for anything.
+  After it you are asking a favour. The same applies to equipment: the time
+  to ask whether a machine can be patched is before it arrives on a pallet.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not build a procurement gate that everybody routes around. Two
+  questions on the purchase form, one about whether the supplier will hold
+  company or personal data and one about whether they need access to
+  systems, catches the purchases that matter. Everything else goes through
+  unchanged.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_suppliers]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Security and privacy requirements are considered before
+  purchase where the supplier will hold data or require access, and are
+  reflected in contracts.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does anyone ask about security before you sign with a new supplier?"
+  options:
+    - id: yes
+      label: "Yes, it is part of the process"
+      verdict: already-solved
+      why: >
+        Write down what gets asked, so it survives the person who currently asks
+        it leaving.
+    - id: no
+      label: "It comes up afterwards, if at all"
+      verdict: write-it-down
+      why: >
+        Add two questions to the purchase form. It costs nothing and it moves the
+        conversation to the only point where you have leverage.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "two questions on the purchase form": "€"
+  "standard security terms in contracts": "€€"
+  "formal supplier assessment before signing": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We think about security when buying."
+  better: "The purchase process showing where security is considered."
+  strong: "The process, the standard contract clauses, and examples from recent purchases."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.sc-05, nist-csf-gv.sc-06, iso27002-5.20]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {q1: 1, syn: 2}
+question_forms: [binary_statement]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/secure-procurement.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Security is looked at before equipment is bought, not after."   # syn.018a
+  - "Do you check security before buying equipment?"   # syn.018b

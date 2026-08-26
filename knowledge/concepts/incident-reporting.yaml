@@ -1,0 +1,116 @@
+id: incident-reporting
+title: Incident reporting obligations
+status: done
+class: control
+csf: RS
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have rules on how and when to report incidents, inside the company
+  and outside it.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  GDPR and NIS2 both come with tight clocks. Under GDPR it is 72 hours to
+  the supervisory authority for a personal data breach. NIS2 adds an early
+  warning inside 24 hours for entities in scope. The clock starts when you
+  become aware, not when you finish investigating, and that is the part that
+  catches people out.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is nothing to buy. The whole control is knowing in advance who
+  reports, to whom, and by when, so nobody spends the first day of an
+  incident looking up the rules. Whether the clocks apply to you at all
+  depends on the NIS2 scope question, so answer that one first.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [processes_personal_data, operates_in_eu]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Reporting obligations and timeframes are identified and
+  assigned. Whether the NIS2 timeframes apply depends on our scope
+  assessment, which is stated separately.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you know who you would have to tell, and how fast?"
+  options:
+    - id: yes
+      label: "Yes, it is written down"
+      verdict: already-solved
+      why: >
+        Then answer with the timeframes and who owns the notification. Good
+        position to be in.
+    - id: no
+      label: "Not really"
+      verdict: write-it-down
+      why: >
+        One page: which regulator, which customers by contract, which insurer, and
+        the deadline for each. Free, and it removes the worst day-one confusion
+        there is.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants reporting integrated with third parties and evidenced across
+    every stage. The step that matters is much earlier: knowing the deadlines
+    and who owns them before an incident, rather than reading the regulation
+    on the day.
+  rungs:
+    - level: 1
+      gist: "Nobody knows the obligations."
+      verdict: write-it-down
+    - level: 2
+      gist: "Obligations and deadlines written down with an owner."
+      verdict: already-solved
+    - level: 3
+      gist: "Templates prepared and contacts confirmed."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Fully integrated reporting including third parties."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one page listing obligations and deadlines": "€"
+  "prepared templates and confirmed contacts": "€€"
+  "legal review of the notification process": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would tell the right people."
+  better: "A written list of reporting obligations with timeframes and an owner."
+  strong: "The list, prepared notification templates, and confirmed regulator and customer contacts."
+
+answer_risk: none
+
+frameworks: [nist-csf-rs.co-02, nist-csf-rc.co-04, nis2-art23, gdpr-art32]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/incident-reporting.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "There is a decision made in advance about who has to be told, and how fast."   # syn.067a
+  - "Who has to be told if you are breached, and within how long?"   # syn.067b
+  - "To what extent is it true that there is a decision made in advance about who has to be told, and how fast?"   # syn.067c

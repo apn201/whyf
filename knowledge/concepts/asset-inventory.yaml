@@ -1,0 +1,125 @@
+id: asset-inventory
+title: Asset inventory
+status: done
+class: control
+csf: ID
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you know what you have. Data, software, hardware. At minimum, every PC
+  and what is installed on it.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  One might think this is only for finance. It matters just as much for
+  security. The asset inventory is where you see software and firmware
+  versions, and where you match them against published vulnerabilities to
+  work out what needs patching. Without it, patching is guesswork and so is
+  answering the vulnerability questions further down the form.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Some kind of inventory is always needed, but you may already have it
+  without knowing. If you run Intune, or Jamf, or almost any RMM tool, the
+  list is already being collected and you just have to export it. Buying an
+  asset management product before checking what your existing tools already
+  know is the common mistake here.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. An inventory of hardware, software and information assets is
+  maintained. The mechanism and refresh frequency are described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could you produce a list of every PC and what is on it today?"
+  options:
+    - id: tool
+      label: "Yes, from Intune or similar"
+      verdict: already-solved
+      why: >
+        Export it and attach it. You already own this one and most people in your
+        position do not realise it.
+    - id: sheet
+      label: "There is a spreadsheet somewhere"
+      verdict: cheap-checkbox
+      why: >
+        Good enough to answer, as long as it is roughly current. Put a reminder in
+        the calendar to check it twice a year and that closes it.
+    - id: no
+      label: "No"
+      verdict: do-it-properly
+      why: >
+        This one is worth doing properly because everything else leans on it.
+        Patching, vulnerability management and incident response all start with
+        knowing what you have.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants automated inventory that updates as the organisation changes.
+    If you already manage devices centrally, you are at rung 4 without buying
+    anything, which is why this is worth checking before spending. If you do
+    not, the tool is a real cost for a list a person could maintain.
+  rungs:
+    - level: 1
+      gist: "Nobody knows what is out there."
+      verdict: do-it-properly
+    - level: 2
+      gist: "A partial list, out of date."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Covers everything, checked periodically."
+      verdict: already-solved
+    - level: 4
+      gist: "Automated and current by itself."
+      verdict: already-solved
+
+# What it costs, by how far you take it.
+cost_bands:
+  "export what your device tool already collects": "€"
+  "a maintained spreadsheet": "€"
+  "asset management product": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We know what we have."
+  better: "An exported inventory with make, model and installed software."
+  strong: "The inventory, its source system, the refresh frequency, and an owner per asset class."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.am-01, nist-csf-id.am-02, iso27002-5.9, nis2-art21]
+incidents: []
+patterns: [framework-inheritance]
+already_have: [device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 15
+corpus_sources: {q1: 2, q2: 3, q3: 7, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 12 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/asset-inventory.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/asset-inventory.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A list of computers, software and services in use is kept up to date."   # syn.016a
+  - "Do you know what computers and software you own?"   # syn.016b
+  - "To what extent is it true that a list of computers, software and services in use is kept up to date?"   # syn.016c

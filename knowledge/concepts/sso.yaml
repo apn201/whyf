@@ -1,0 +1,124 @@
+id: sso
+title: Single sign-on
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do people sign in to your business applications through one login rather
+  than a separate password for each.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It sounds backwards but SSO is good for security. The goal of security is
+  to make the business frictionless: remove friction for real use, add it
+  for malicious use. Done properly SSO does exactly that. People use the
+  systems with their identity without logging in to each one separately,
+  which means fewer passwords, fewer sticky notes, and one place to switch
+  someone off when they leave.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  The trap is the per-application licence uplift. Plenty of SaaS vendors
+  charge extra for the SSO connector, sometimes doubling the price, and for
+  a five-person tool that is not worth it. Do SSO for the systems everybody
+  uses and the ones holding customer data. Leave the long tail on their own
+  logins with a password manager.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees, has_cloud]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. Single sign-on covers our core business
+  applications. Applications outside that scope are listed, with the reason,
+  below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "How many separate passwords does a new joiner get handed?"
+  options:
+    - id: one
+      label: "One"
+      verdict: already-solved
+      why: >
+        You already have this. Say so, and name the applications that sit outside
+        it, because there always are some.
+    - id: several
+      label: "A handful"
+      verdict: cheap-checkbox
+      why: >
+        Normal. Cover the ones everybody uses and the ones with customer data in
+        them, and be honest about the rest. That is a real answer.
+    - id: many
+      label: "I have lost count"
+      verdict: do-it-properly
+      why: >
+        That is a leaver problem more than a login problem. When somebody goes,
+        you will not close all of those accounts, and you will not know which you
+        missed.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 asks for SSO across everything including administrative access,
+    kept aligned to emerging threats. The blocker is rarely technical, it is
+    the licence uplift vendors charge for the connector. Cover the core and
+    the customer data, and document the exceptions instead of paying for them.
+  rungs:
+    - level: 1
+      gist: "Separate login for everything."
+      verdict: do-it-properly
+    - level: 2
+      gist: "SSO on a few systems."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "SSO across core business and admin systems."
+      verdict: already-solved
+    - level: 4
+      gist: "Everything, including the long tail."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "SSO on what already supports it": "€"
+  "connectors for the main applications": "€€"
+  "SSO licence uplift across every tool": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "People mostly use one login."
+  better: "A list of applications behind SSO."
+  strong: "The list, plus the exceptions with a reason, and evidence that disabling the identity closes access."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-04, iso27002-5.16]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/sso.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Staff sign in to business applications through one identity provider."   # syn.022a
+  - "Do your applications share one login?"   # syn.022b
+  - "To what extent is it true that staff sign in to business applications through one identity provider?"   # syn.022c

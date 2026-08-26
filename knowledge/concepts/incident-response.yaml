@@ -1,0 +1,119 @@
+id: incident-response
+title: Incident response
+status: done
+class: control
+csf: RS
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you know what counts as an incident here, and what happens when one
+  occurs.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This is not difficult. A simple policy saying what the declaration
+  criteria are and what happens next. What is an event, what is an incident,
+  what is a major incident, what triggers the incident response team, what
+  triggers the crisis management team. And who calls the shots. That last
+  one is the question that wastes the first two hours of every real
+  incident.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Nobody needs a fifty-page incident response plan and nobody reads one
+  during an incident anyway. Two pages: what counts, who decides, who gets
+  called, in what order, and the phone numbers. Printed, because if it is
+  only on the file share you cannot read it during a ransomware event.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. An incident response process is defined, covering
+  identification, investigation, containment, reporting and recovery.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If you found ransomware at 11pm, who makes the call to shut things down?"
+  options:
+    - id: named
+      label: "A specific person"
+      verdict: already-solved
+      why: >
+        Then write the name and number down and print it. You have the hard part
+        already.
+    - id: depends
+      label: "It would depend"
+      verdict: do-it-properly
+      why: >
+        Decide now. Authority to disconnect, and authority to spend, are the two
+        decisions that stall real incidents. Both are free to sort out on a quiet
+        day.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants the plan covering identification, triage, containment,
+    eradication, reporting and recovery, executed with third parties. Those
+    stages are worth listing. The programme around them is not, for a company
+    of this size. Two pages, printed, with the decision authority named.
+  rungs:
+    - level: 1
+      gist: "No plan."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Two pages, decision authority named, contacts printed."
+      verdict: already-solved
+    - level: 3
+      gist: "Full process covering all stages, reviewed."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Executed with third parties, all stages evidenced."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "two pages and a printed contact list": "€"
+  "a full process document": "€€"
+  "consultant-built response programme": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would deal with it."
+  better: "A written incident response process naming who decides."
+  strong: "The process, the contact list, evidence it has been used or exercised, and the review date."
+
+answer_risk: none
+
+frameworks: [nist-csf-rs.ma-01, nist-csf-rs.ma-02, iso27002-5.26, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 24
+corpus_sources: {q1: 1, q2: 3, q3: 17, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 21 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/incident-response.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/incident-response.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "There is a written process for handling a security incident."   # syn.072a
+  - "What do you do in the first hour after a breach?"   # syn.072b
+  - "To what extent is it true that there is a written process for handling a security incident?"   # syn.072c

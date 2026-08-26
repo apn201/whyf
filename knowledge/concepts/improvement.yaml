@@ -1,0 +1,113 @@
+id: improvement
+title: Learning from what went wrong
+status: done
+class: control
+csf: ID
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  When something goes wrong, do you write down what you learned so it does
+  not happen again.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  People hear lessons learned and picture a formal post-incident review with
+  a facilitator. It is a paragraph. What broke, why, what we changed. The
+  failure is not the format, it is that the paragraph never gets written and
+  the same thing happens again in eight months.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is nothing to buy here and no reason to skip it. The only argument
+  is against the industrial version, where every minor incident generates a
+  report and a corrective action with a due date, and people start not
+  reporting things to avoid the paperwork. Keep it to real incidents and
+  keep it short.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Incidents and exercises are followed by a recorded review, and
+  resulting changes are tracked.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could you say what changed after the last thing that went wrong?"
+  options:
+    - id: yes
+      label: "Yes, we changed something"
+      verdict: already-solved
+      why: >
+        Then write those down as they happen and you have the evidence without
+        doing extra work.
+    - id: no
+      label: "Nothing changed"
+      verdict: write-it-down
+      why: >
+        That is the gap, and it is free to close. One paragraph per incident. If
+        nothing needed changing, write that down too, with why.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants improvement fed from incidents, exercises, audits and
+    monitoring into a managed programme. That is a quality function. A
+    paragraph per incident, kept in one place, is the version that survives
+    contact with a busy week.
+  rungs:
+    - level: 1
+      gist: "Nothing is recorded after an incident."
+      verdict: write-it-down
+    - level: 2
+      gist: "A short written review after real incidents."
+      verdict: already-solved
+    - level: 3
+      gist: "Reviews after incidents and exercises, actions tracked."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Improvement programme fed from every source."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a paragraph per incident": "€"
+  "tracked actions with owners": "€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We talk about what went wrong."
+  better: "Written reviews for past incidents."
+  strong: "Reviews plus a tracked list of changes made, with dates."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.im-01, nist-csf-id.im-03, iso27002-8.29, nis2-art21]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 7
+corpus_sources: {q3: 4, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 4 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/improvement.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "What went wrong last time is written down and acted on."   # syn.011a
+  - "Do you write down what you learned after something went wrong?"   # syn.011b
+  - "To what extent is it true that what went wrong last time is written down and acted on?"   # syn.011c

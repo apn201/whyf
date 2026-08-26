@@ -1,0 +1,30 @@
+id: backup-encryption
+title: Backups are encrypted at rest
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Data held in Microsoft 365 or Google Workspace, including the provider's
+  own copies, is encrypted at rest by default. You did not configure it and
+  cannot switch it off.
+
+microsoft365:
+  applies_to: "All tiers"
+  where_to_look: "Service Trust Portal and the platform's encryption documentation"
+  evidence: "The provider's published encryption statement, cited by name and date."
+
+google_workspace:
+  applies_to: "All editions"
+  where_to_look: "The platform's published encryption documentation"
+  evidence: "The same."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  This covers the provider's storage. If you also run your own backups, to a
+  NAS or to a third-party backup service, those are your responsibility and
+  they may not be encrypted. Check before answering yes for everything.
+  Encryption also does nothing about the risk that actually hurts, which is
+  the backup being reachable from the network it protects.
+
+concepts: [backups, offline-backups, rpo]

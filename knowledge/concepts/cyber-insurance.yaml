@@ -1,0 +1,44 @@
+id: cyber-insurance
+title: Cyber insurance
+status: done
+class: attestation
+csf: GV
+priority: 2
+
+# Not a security control, so it never gets one of the six verdicts.
+
+plain_english: >
+  Do you have a cyber insurance policy.
+
+# What the tool says back.
+response: >
+  Cyber insurance is there to carry the risk you cannot mitigate away, which
+  is the last slice after you have done the affordable controls. It is
+  difficult to get now and the questions are hard, and that is the second
+  reason to look at it: an insurer's application form is a free gap analysis
+  with money attached at the end. Having a policy also signals maturity,
+  because insurers do not hand them out to companies with no MFA. Careful
+  with the answers, though. An insurance application is a warranty. If you
+  say you have something and you do not, the policy may not pay when you
+  need it.
+
+answer_risk: warranty
+
+# Who to actually talk to, if anyone.
+refer_to: >
+  A broker who does cyber, not your general business insurance contact. Ask
+  them for the application form before you commit to anything, and read it
+  as a to-do list.
+
+frameworks: []
+patterns: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q2: 2, syn: 2}
+question_forms: [binary_statement, maturity_ladder]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/cyber-insurance.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The organisation holds a cyber insurance policy."   # syn.005a
+  - "Do you carry cyber insurance?"   # syn.005b

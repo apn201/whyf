@@ -1,0 +1,41 @@
+id: certificate-shortcut
+name: One certificate closes a whole section
+status: done
+
+# How you recognise it.
+tell: >
+  A block of questions covering ground that a recognised certification
+  already audits, usually preceded or followed by a question asking which
+  certifications you hold.
+
+# What the asker actually wants, underneath the wording.
+what_it_means: >
+  The asker has a process that accepts certificates in place of answers.
+  They would rather read one certificate than forty of your paragraphs, and
+  their own form usually says so somewhere.
+
+# The cheap correct move.
+what_to_do: >
+  If you hold one, name it and attach the scope statement, then check
+  whether the rest of the section can be answered by reference. If you do
+  not hold one, this is worth a commercial calculation rather than a
+  security one: count how many of these questionnaires you filled in last
+  year.
+
+# How companies overspend when they read the question literally.
+trap: >
+  Getting certified because a questionnaire mentioned it. Certification is
+  expensive and it consumes the same people who would otherwise be fixing
+  things. It is a sales cost, and it should be justified as one.
+
+# Phrases that make the classifier suspect this pattern. Lowercased,
+# matched against the normalised question.
+signals:
+  - "certification"
+  - "iso/iec 27001"
+  - "soc 2"
+  - "cyber essentials"
+  - "certification report"
+  - "attach your certificate"
+
+concepts: [certification, third-party-risk, cloud-provider-assurance]

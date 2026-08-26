@@ -1,0 +1,119 @@
+id: crisis-management
+title: Crisis management
+status: done
+class: control
+csf: RS
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a crisis management plan and a team. The people who sit in a
+  war room when something bad happens. Not limited to cyber.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Some think it is the same as the incident response team and only about
+  cyber. It is usually the non-IT extension of incident response. When there
+  is a fire, or ransomware, and the plant is out for a week: who informs
+  customers, who informs the authorities, how do you reroute logistics. All
+  the non-IT parts, and of course IT as well, belong to crisis management.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  In a small company the crisis team is the management team and writing that
+  down takes ten minutes. What is worth the extra effort is the contact
+  directory and the deputy for each role, because crises have a habit of
+  starting while somebody is on a plane. The full crisis management
+  framework with exercise programmes is aimed at organisations where the
+  crisis team does not already eat lunch together.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Crisis roles, contacts and responsibilities are defined. Given
+  our size the crisis team is the management team, which is stated
+  explicitly.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If the plant were down for a week, who tells the customers?"
+  options:
+    - id: named
+      label: "A specific person"
+      verdict: already-solved
+      why: >
+        Then write down the whole set: who tells customers, who tells authorities,
+        who talks to press, and their deputies. One page.
+    - id: unclear
+      label: "We would work it out"
+      verdict: write-it-down
+      why: >
+        Work it out now instead. The list of who calls whom is the entire
+        deliverable, and it is ten minutes of thinking on a good day versus two
+        hours of confusion on a bad one.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants a crisis policy, a role directory, defined actions per role,
+    awareness sessions and periodic exercises, including for industrial
+    systems. The directory and the defined actions are worth having. The
+    exercise programme is where a small company generates documents instead of
+    readiness.
+  rungs:
+    - level: 1
+      gist: "No plan, no named team."
+      verdict: write-it-down
+    - level: 2
+      gist: "Roles and contacts written down with deputies."
+      verdict: already-solved
+    - level: 3
+      gist: "Defined actions per role, awareness sessions held."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full programme with periodic exercises."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one page of roles and contacts": "€"
+  "defined actions and a directory": "€€"
+  "full crisis programme with exercises": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Management would handle it."
+  better: "A crisis role and contact directory with deputies."
+  strong: "The directory, the actions per role, and a record of the last exercise or real activation."
+
+answer_risk: none
+
+frameworks: [nist-csf-rs.co-02, nist-csf-rc.co-03, iso27002-5.29]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 9
+corpus_sources: {q1: 6, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 6 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/crisis-management.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "There is a named group who take charge when something serious happens."   # syn.071a
+  - "Who takes charge when something serious happens?"   # syn.071b
+  - "To what extent is it true that there is a named group who take charge when something serious happens?"   # syn.071c

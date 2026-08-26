@@ -1,0 +1,118 @@
+id: change-management
+title: Change management
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Is there a process requiring approval before somebody changes something
+  that could break things.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Change management is not just a part of ITIL and the other frameworks. It
+  can be based on email. Always ask your boss before you change something.
+  It does not have to be a fancy automated system with hard controls. What
+  matters is that somebody other than the person making the change knows it
+  is happening.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  A change advisory board in a company of thirty is theatre and it slows
+  things down until people start making changes without telling anyone,
+  which is the outcome you were trying to prevent. An email to a second
+  person before touching production, kept in a folder, is a real control and
+  it passes audit.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_servers]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Changes to production systems are approved before
+  implementation and recorded. The mechanism is proportionate to our size
+  and is described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Can one person change production without telling anyone?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: write-it-down
+      why: >
+        Add one step: tell somebody first, in writing. Email is fine. It costs
+        nothing and it catches the change that was going to take the line down on
+        a Friday.
+    - id: no
+      label: "No, it gets approved"
+      verdict: already-solved
+      why: >
+        Then say how, and keep the approvals where you can find them. Email in a
+        folder counts.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants security impact assessment on every change, with high-risk
+    requests denied by policy and everything in a workflow tool. The tool and
+    the assessment step are where change management starts getting routed
+    around. Written approval before production changes is the control that
+    survives.
+  rungs:
+    - level: 1
+      gist: "Anyone changes anything."
+      verdict: write-it-down
+    - level: 2
+      gist: "Changes approved in writing before production."
+      verdict: already-solved
+    - level: 3
+      gist: "Approvals recorded with impact considered."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Formal workflow with security impact assessment."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "an email before changing production": "€"
+  "a ticket system you already have": "€"
+  "formal change management tooling": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We talk to each other before changing things."
+  better: "A record of change approvals, even if it is an email folder."
+  strong: "The process written down, approval records over a period, and evidence that emergency changes get reviewed afterwards."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ps-01, iso27002-8.32, iso27002-8.9]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 7
+corpus_sources: {q1: 4, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 4 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/change-management.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Changes to systems are approved before they are made."   # syn.050a
+  - "Who approves a change before it goes in?"   # syn.050b
+  - "To what extent is it true that changes to systems are approved before they are made?"   # syn.050c

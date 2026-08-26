@@ -1,0 +1,118 @@
+id: cloud-provider-assurance
+title: Cloud provider assurance
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  How do you satisfy yourself that your cloud providers are reliable.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This is part of normal vendor management. Saying that Google makes no
+  special contracts is not an excuse. You should have a way of deciding how
+  much risk a provider represents and then checking whether that is
+  acceptable. The other half people miss is the shared responsibility line:
+  the provider secures the platform, you secure what you put on it, and a
+  lot of assumed protection sits on your side of that line.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  You are not going to audit Microsoft and they are not going to answer your
+  questionnaire. What you do instead is read the certification report they
+  already publish, note the date, and write down which parts of the
+  responsibility model are yours. That is a complete and honest answer, it
+  costs an afternoon, and it is what every large company does too.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_cloud]
+applies_never_if: [no_cloud]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Cloud providers are assessed using their published
+  certifications and audit reports, and the division of responsibility is
+  documented.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you know which parts of cloud security are yours rather than theirs?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: already-solved
+      why: >
+        Then write it down per provider. The shared responsibility split is the
+        whole answer to this question and almost nobody documents it.
+    - id: no
+      label: "Not clearly"
+      verdict: write-it-down
+      why: >
+        Get the provider's shared responsibility model and mark your side. An
+        afternoon, and it will show you two or three things you assumed were
+        covered and are not.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants regular risk assessments of every cloud provider by solution
+    type, with continuity and incident response evidence from each. For
+    hyperscalers that evidence is their published audit report, so the work is
+    reading and recording rather than assessing. Collecting the reports and
+    documenting your side of the line is the real control.
+  rungs:
+    - level: 1
+      gist: "Nobody has looked at provider assurance."
+      verdict: write-it-down
+    - level: 2
+      gist: "Certifications collected, responsibility split documented."
+      verdict: already-solved
+    - level: 3
+      gist: "Providers rated by criticality and reviewed yearly."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Formal assessment per solution type with evidence."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "collect the certifications and read them": "€"
+  "documented responsibility model per provider": "€€"
+  "formal cloud assurance programme": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We use major providers."
+  better: "Current certification reports for the main providers."
+  strong: "The reports with their dates, plus a written statement of which controls are yours under each provider's responsibility model."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.sc-07, nist-csf-id.am-04, iso27002-5.23]
+incidents: []
+patterns: [certificate-shortcut]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 7
+corpus_sources: {q1: 4, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 4 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/cloud-provider-assurance.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The organisation knows what its cloud providers are responsible for."   # syn.073a
+  - "What is your cloud provider responsible for, and what are you?"   # syn.073b
+  - "To what extent is it true that the organisation knows what its cloud providers are responsible for?"   # syn.073c

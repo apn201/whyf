@@ -1,0 +1,124 @@
+id: board-oversight
+title: Board and executive oversight
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do the owners or the board know that security is theirs, and do they back
+  it. Not whether they attend a meeting. Whether they own it.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Many think cyber security is an IT problem. It is a business problem. A
+  fire can stop a factory and so can ransomware, and nobody calls a fire an
+  IT problem. Under NIS2 in the EU this gets sharper: top management are
+  personally responsible, and being told about it afterwards is not a
+  defence.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If there is no board, this does not apply and you say so. Where there is
+  one, the questionnaire wants quarterly reporting with metrics and risk
+  indicators, and for a company of thirty people that is theatre. Twice a
+  year, twenty minutes, three slides: what changed, what happened, what we
+  want money for. Minute it. That is the control.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_board]
+applies_never_if: [no_board]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. The company has no separate board. Security is
+  reported to and owned by the managing director, and this is recorded.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "When did the owners last hear about security?"
+  options:
+    - id: never
+      label: "They have not"
+      verdict: do-it-properly
+      why: >
+        Not because of the questionnaire. If they have never heard about it, you
+        will not get money when you need it, and under NIS2 they are carrying a
+        liability they do not know about.
+    - id: adhoc
+      label: "When something went wrong"
+      verdict: write-it-down
+      why: >
+        Put it on the agenda twice a year instead. Same effort, and it stops being
+        a conversation that only happens on bad days.
+    - id: regular
+      label: "It is a standing agenda item"
+      verdict: already-solved
+      why: >
+        Then answer with the frequency and point at the minutes. Done.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants quarterly board reporting with key risk indicators and
+    financial thresholds. Building that reporting pack is a consulting
+    engagement, and in a company where the owner is in the building every day
+    it tells them nothing they did not know. Twice yearly and minuted is a
+    real answer.
+  rungs:
+    - level: 1
+      gist: "Security never reaches the owners."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Discussed twice a year and minuted."
+      verdict: already-solved
+    - level: 3
+      gist: "Standing item with metrics and a roadmap."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Quarterly, with risk indicators and thresholds."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "put it on the agenda": "€"
+  "a proper reporting pack": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "The owner says they care about security."
+  better: "Minutes showing security was discussed, with a date."
+  strong: "Minutes across several meetings, plus a named executive owner and evidence a decision followed."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.ov-01, nist-csf-gv.rr-01, nis2-art20]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 10
+corpus_sources: {q2: 4, q3: 3, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 7 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/board-oversight.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/board-oversight.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The owners or board are told regularly how security is going."   # syn.006a
+  - "How often do the owners hear about security?"   # syn.006b
+  - "To what extent is it true that the owners or board are told regularly how security is going?"   # syn.006c

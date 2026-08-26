@@ -1,0 +1,39 @@
+id: technology-prescription
+name: The question names a product category instead of a risk
+status: done
+
+# How you recognise it.
+tell: >
+  The question asks whether a solution or a tool is implemented. It names
+  the shelf in the shop rather than the problem you were trying to solve.
+
+# What the asker actually wants, underneath the wording.
+what_it_means: >
+  Whoever wrote the question had a product in mind, usually because their
+  own company bought one. What they are worried about is the underlying
+  risk, and they will accept any credible answer that addresses it.
+
+# The cheap correct move.
+what_to_do: >
+  Answer the risk, not the shelf. Say what you do about the underlying
+  problem, and check whether the platform you already pay for includes a
+  version of the product. It usually does, switched off.
+
+# How companies overspend when they read the question literally.
+trap: >
+  Buying the product category because the question named it. This is how a
+  company of thirty ends up with a data loss prevention platform, a threat
+  intelligence feed and a security operations contract, none of which anyone
+  has time to run.
+
+# Phrases that make the classifier suspect this pattern. Lowercased,
+# matched against the normalised question.
+signals:
+  - "a solution is implemented"
+  - "do you utilize"
+  - "do you deploy"
+  - "tool is in place"
+  - "do you use a"
+  - "solution is in place"
+
+concepts: [dlp, threat-intelligence, security-monitoring, application-allowlisting, dns-filtering, ddos-protection]

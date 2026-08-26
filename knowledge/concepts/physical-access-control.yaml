@@ -1,0 +1,123 @@
+id: physical-access-control
+title: Physical access control
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a process for managing doors and locks.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Not difficult, but it needs a process. Who can get which key. How do you
+  get the key back. How do you know who went where. The failure is almost
+  never the lock. It is that nobody knows how many keys exist to the server
+  room, or that the code has been the same since 2018.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  An access control system with cards and a controller is a real cost per
+  door and it is aimed at sites with a lot of doors and a lot of people. In
+  a small office the control is a key register: who has what, signed for,
+  returned on the way out. A page in a folder. That passes audit and it
+  actually gets used.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_office]
+applies_never_if: [fully_remote]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Partially applicable. We operate no premises of our own. Physical security
+  of the facilities we occupy is provided by the landlord, and our
+  arrangements are described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "How many keys are there to the room with the servers in it?"
+  options:
+    - id: known
+      label: "I could tell you exactly"
+      verdict: already-solved
+      why: >
+        Then you have the control. Write the register down and note when keys get
+        returned.
+    - id: unknown
+      label: "No idea"
+      verdict: write-it-down
+      why: >
+        Start the register. An afternoon, and it is the honest answer to several
+        physical security questions at once.
+    - id: nokeys
+      label: "We do not have our own premises"
+      verdict: not-applicable
+      why: >
+        Say so and describe what the landlord provides. That is a complete answer
+        and it is increasingly common.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants periodic access audits at all facilities, run more often
+    after changes. Access control systems with automated review are priced per
+    door. A key register plus removal on the leaving date covers the risk in a
+    building where everybody knows everybody.
+  rungs:
+    - level: 1
+      gist: "No idea who holds keys."
+      verdict: write-it-down
+    - level: 2
+      gist: "A key register that is roughly current."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Register maintained, access removed when people leave."
+      verdict: already-solved
+    - level: 4
+      gist: "Access control system with periodic audits."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a key register": "€"
+  "coded locks on sensitive rooms": "€€"
+  "card access system across the site": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Only staff can get in."
+  better: "A key or badge register showing who holds access to what."
+  strong: "The register, evidence that access is removed on leaving, and a dated review."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-06, iso27002-7.1, iso27002-7.2]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 12
+corpus_sources: {q1: 4, q2: 4, q3: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 9 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/physical-access-control.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/physical-access-control.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Only the people who need to be somewhere can get in."   # syn.062a
+  - "Who can walk into the room where the servers are?"   # syn.062b
+  - "To what extent is it true that only the people who need to be somewhere can get in?"   # syn.062c

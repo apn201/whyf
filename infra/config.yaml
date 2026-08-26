@@ -1,0 +1,60 @@
+# Single source of truth for anything that differs between accounts or regions.
+# Copy the model ids out of the Bedrock console. Do not retype them.
+
+region: eu-west-1
+# Deliberately not here. The repo is public, and an account id in a public repo
+# is free reconnaissance for anyone enumerating role ARNs. The CDK stack reads
+# it from the environment at synth time:
+#
+#   $env:CDK_DEFAULT_ACCOUNT = (aws sts get-caller-identity --query Account --output text)
+#
+# or just let CDK pick it up from the profile, which it does by default.
+account_id: ""                 # leave empty. never commit a real value.
+
+table_name: whyf
+knowledge_bucket_prefix: whyf-knowledge   # full name is <prefix>-<account_id>
+search_key_parameter: /whyf/search-api-key
+
+# Ireland, not Frankfurt. The Frankfurt catalog carries no Anthropic models;
+# Ireland has Opus 5, Sonnet 5 and Haiku 4.5. Both are EU, so the data
+# residency line for NIS2-adjacent customers holds either way.
+#
+# Fill these with `python tools/probe_bedrock.py --region eu-west-1 --write`.
+# Do not type model ids from the console by hand - in the EU they are usually
+# only callable through an inference profile, and the id is not the one shown.
+models:
+  # Picks from the shortlist tier 1 produces. Small, cheap, called often.
+  classifier: "eu.anthropic.claude-haiku-4-5-20251001-v1:0"
+  # Writes the verdict and the skeptic case. Quality shows here.
+  synthesiser: "eu.anthropic.claude-sonnet-4-6"
+  # Measured against the 364 real corpus rows on 26 August, shortlist of 15:
+  #   lexical only   82%   free, 0.2 ms
+  #   embedding      90%   one Bedrock call, 10 ms
+  #   hybrid         91%   same call, best on the worst-performing source
+  # Hybrid ships. Empty this field and tier 1 falls back to lexical alone,
+  # which is what happens when the daily spend ceiling is hit.
+  embedding: "amazon.titan-embed-text-v2:0"
+  embedding_dimensions: 1024
+
+# How many concepts the lexical index hands the classifier to choose between.
+# Wider costs a few input tokens and catches more; 15 is where recall against
+# the real corpus stops climbing usefully.
+tier1_shortlist: 15
+
+# Hard caps enforced in code, not just in Budgets. See src/whyf/limits.py.
+limits:
+  max_model_calls_per_request: 6
+  max_searches_per_request: 3
+  max_input_tokens_per_call: 8000
+  max_output_tokens_per_call: 1500
+  daily_model_call_ceiling: 2000
+  cache_ttl_days: 30
+
+# An EU inference profile can route to any region in this list, so the runtime
+# IAM policy has to allow the foundation model ARN in every one of them, not
+# just in `region` above. Home region first.
+inference_profile_regions:
+  - eu-west-1
+  - eu-central-1
+  - eu-west-3
+  - eu-north-1

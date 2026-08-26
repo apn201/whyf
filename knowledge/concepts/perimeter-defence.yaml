@@ -1,0 +1,122 @@
+id: perimeter-defence
+title: Perimeter defence
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Can mean a physical or a virtual perimeter. Do you have a way of keeping
+  the wrong people out of your premises and your networks.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  It can mean physical security, doors, locks, guards and a reception, or it
+  can mean the firewall watching traffic at the network edge. The physical
+  side is more often neglected, and it can be counter-intuitive. In a small
+  company badges can be counter-productive, because they give an attacker
+  credibility and they can be faked. Without badges somebody actually has to
+  know you before they let you in.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Next-generation firewall licences renew every year and most of the modules
+  never get turned on. Before adding another one, check what the firewall
+  you already own is doing. The blocking that matters, inbound denied by
+  default and outbound restricted to what is needed, is in every firewall
+  ever sold.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_network, has_office]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Perimeter controls are in place at network boundaries and at
+  site entrances. The specific controls are described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does your firewall block outbound traffic, or only inbound?"
+  options:
+    - id: both
+      label: "Both"
+      verdict: already-solved
+      why: >
+        That puts you ahead of most. Outbound restriction is what stops malware
+        calling home, and almost nobody does it.
+    - id: inbound
+      label: "Inbound only"
+      verdict: cheap-checkbox
+      why: >
+        Normal, and worth improving when you have a quiet week. Start by blocking
+        outbound on the servers, which is the low-risk half.
+    - id: dontknow
+      label: "No idea"
+      verdict: need-one-fact
+      why: >
+        Somebody should look at the rules. Firewalls accumulate rules for a decade
+        and nobody ever removes one.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants the full set of perimeter tools across the entire network:
+    intrusion prevention, web filtering, malware detection, egress control.
+    That is a licence bundle renewed yearly. Inbound denied by default with
+    outbound restricted on servers is where the risk actually drops.
+  rungs:
+    - level: 1
+      gist: "No firewall, or nobody knows the rules."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Firewall with inbound blocked."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Inbound and outbound controlled, rules reviewed."
+      verdict: already-solved
+    - level: 4
+      gist: "Full tool set across the whole network."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "use the firewall you have properly": "€"
+  "reviewed rule set": "€€"
+  "next-generation firewall licence bundle": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We have a firewall."
+  better: "The firewall rule set with a review date."
+  strong: "The rules, evidence of review, and a description of physical perimeter controls at each site."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ir-01, iso27002-8.20, iso27002-7.1]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 5
+corpus_sources: {q2: 2, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 2 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/perimeter-defence.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Traffic in and out of the network passes through a firewall that is configured on purpose."   # syn.055a
+  - "Who decides what your firewall lets through?"   # syn.055b
+  - "To what extent is it true that traffic in and out of the network passes through a firewall that is configured on purpose?"   # syn.055c

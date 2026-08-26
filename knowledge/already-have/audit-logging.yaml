@@ -1,0 +1,30 @@
+id: audit-logging
+title: Admin and sign-in activity is logged
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Both platforms record administrator actions and sign-in activity
+  centrally, without you configuring anything. Who logged in, from where,
+  and what an admin changed are all already being written down.
+
+microsoft365:
+  applies_to: "All tiers, with retention varying by tier"
+  where_to_look: "Microsoft Purview compliance portal, Audit; and Entra admin center, Monitoring, Sign-in logs"
+  evidence: "A screenshot of a search over the audit log covering a real date range."
+
+google_workspace:
+  applies_to: "All editions, with retention varying by edition"
+  where_to_look: "Admin console, Reporting, Audit and investigation"
+  evidence: "An export from the admin audit log."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  Retention is the catch and it varies a lot by tier. The questionnaire
+  often asks for 90 days or more, and the entry-level retention may be
+  shorter than that. Check yours before answering, and if it is short,
+  extending it is usually a licence question rather than a configuration
+  one.
+
+concepts: [logging, privileged-accounts, third-party-access]

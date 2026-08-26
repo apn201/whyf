@@ -1,0 +1,29 @@
+id: device-compliance
+title: Only managed devices reach company data
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Both platforms can require that a device is enrolled and meets a policy
+  before it is allowed to reach company data. This is included in the
+  business tiers that bundle device management.
+
+microsoft365:
+  applies_to: "Business Premium and above, where Intune is included"
+  where_to_look: "Intune admin center, Devices, Compliance policies; and Entra Conditional Access to require compliance"
+  evidence: "Screenshot of the compliance policy and the conditional access rule enforcing it, plus a device compliance report."
+
+google_workspace:
+  applies_to: "Editions including endpoint management"
+  where_to_look: "Admin console, Devices, Mobile and endpoints, Settings, Universal settings"
+  evidence: "Screenshot of the device approval requirement and the device list."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  This is a real licensing line. Entry tiers such as Business Basic do not
+  include Intune, so on those the control is not available without an
+  add-on. Check what you actually pay for before claiming it. Enrolment also
+  has to be enforced, not just offered, or unmanaged devices keep working.
+
+concepts: [remote-work-model, asset-inventory, hardening, screen-lock, removable-media, endpoint-protection, mobile-device-management, patch-management, remote-access, application-allowlisting, full-disk-encryption]

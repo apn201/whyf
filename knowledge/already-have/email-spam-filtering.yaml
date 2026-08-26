@@ -1,0 +1,28 @@
+id: email-spam-filtering
+title: Email is filtered for spam
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Both major platforms filter spam by default on every business plan. This
+  is a separate policy from malware filtering and it is also already on.
+
+microsoft365:
+  applies_to: "Any plan including Exchange Online"
+  where_to_look: "Microsoft Defender portal, Email and collaboration, Policies and rules, Anti-spam"
+  evidence: "Screenshot of the default anti-spam inbound policy."
+
+google_workspace:
+  applies_to: "All Google Workspace editions"
+  where_to_look: "Admin console, Apps, Google Workspace, Gmail, Spam, phishing and malware"
+  evidence: "Screenshot of the spam settings."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  Same as malware filtering: self-hosted mail, or a third-party gateway in
+  front, changes the answer. Allow-lists added over the years are the common
+  weakness, because a sender on the allow-list bypasses the filtering
+  entirely.
+
+concepts: [email-security]

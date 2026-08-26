@@ -1,0 +1,120 @@
+id: privileged-accounts
+title: Admin and privileged accounts
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you protect the accounts that can destroy things, and are they separate
+  from the accounts those people use to read email.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Privileged accounts are the ones that can change or destroy important
+  things, or hand out access to them. Nobody should have those permissions
+  on their daily account. Not because we do not trust the person, but
+  because they can be hacked too, and when they are, the attacker gets
+  whatever the account had. A separate admin account means the phishing
+  email lands in a mailbox that cannot do any damage.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  The separate-account discipline is free and worth it. Everything above
+  that gets expensive fast: session recording, just-in-time elevation, a
+  full privileged access management platform. Those are built for
+  organisations with dozens of administrators. If you have three, the
+  control is separate accounts, MFA on them, and a yearly look at who still
+  needs them.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_servers, has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Administrative access is granted through dedicated accounts,
+  separate from day-to-day accounts, and reviewed.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does your admin read email with the same account they use to run the servers?"
+  options:
+    - id: yes
+      label: "Yes"
+      verdict: do-it-properly
+      why: >
+        Split it. It is an afternoon, it costs nothing, and it turns a successful
+        phish from a company-ending event into a bad morning.
+    - id: no
+      label: "No, separate accounts"
+      verdict: already-solved
+      why: >
+        Then put MFA on the admin accounts if it is not there, and review the list
+        once a year. That is the whole control.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants privileged access restricted by risk of the elevation and
+    actively monitored, which means a PAM platform and somebody watching it.
+    That is priced for organisations with a team. Separate accounts, MFA, and
+    an annual review is where the value is.
+  rungs:
+    - level: 1
+      gist: "Everyone works as admin."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Some separation, not consistent."
+      verdict: do-it-properly
+    - level: 3
+      gist: "Dedicated admin accounts with MFA, reviewed yearly."
+      verdict: already-solved
+    - level: 4
+      gist: "PAM with session recording and just-in-time elevation."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "separate admin accounts": "€"
+  "MFA and a yearly review": "€"
+  "privileged access management platform": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Admins know to be careful."
+  better: "A list of privileged accounts and who holds them."
+  strong: "The list, evidence of separation from daily accounts, MFA coverage, and a dated review."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-05, iso27002-8.2, iso27002-8.18, nis2-art21]
+incidents: []
+patterns: []
+already_have: [admin-role-separation, admin-mfa, audit-logging]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 12
+corpus_sources: {q1: 5, q2: 3, q3: 1, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 9 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/privileged-accounts.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/privileged-accounts.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Administrator accounts are separate from ordinary accounts and reviewed."   # syn.027a
+  - "Do admins use a separate account for admin work?"   # syn.027b
+  - "To what extent is it true that administrator accounts are separate from ordinary accounts and reviewed?"   # syn.027c

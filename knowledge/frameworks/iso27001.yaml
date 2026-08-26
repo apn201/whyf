@@ -1,0 +1,34 @@
+id: iso27001
+name: ISO/IEC 27001:2022
+url: ""
+status: done
+
+# The only ids a concept card may cite for this framework. The
+# validator drops anything else before it reaches a user.
+#
+# Management system clauses. Numbers only. Every description below is
+# written for this repository and does not reproduce the standard's own
+# wording.
+
+controls:
+  - id: iso27001-clause4.1
+    title: >-
+      Working out what the organisation is and what affects it
+  - id: iso27001-clause6
+    title: >-
+      Planning the management system and what it has to achieve
+  - id: iso27001-clause6.1.2
+    title: >-
+      How information security risk gets assessed
+  - id: iso27001-clause6.1.3
+    title: >-
+      How assessed risk gets treated, and who accepts what is left
+  - id: iso27001-clause7.4
+    title: >-
+      Deciding what gets communicated about security, to whom, and when
+  - id: iso27001-clause8.3
+    title: >-
+      Carrying out the risk treatment plan and keeping evidence
+  - id: iso27001-clause9.3
+    title: >-
+      Management formally reviewing whether the system is working

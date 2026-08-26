@@ -1,0 +1,29 @@
+id: data-at-rest-encryption
+title: Stored data is encrypted at rest
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Data held in either platform is encrypted at rest as standard. On
+  endpoints, BitLocker on Windows and FileVault on macOS are included with
+  the operating system at no extra cost.
+
+microsoft365:
+  applies_to: "All tiers for cloud storage; BitLocker included with Windows Pro and above"
+  where_to_look: "For endpoints: Intune admin center, Devices, Configuration, disk encryption. For cloud: the platform's encryption documentation"
+  evidence: "A device compliance report showing encryption status, plus the provider's encryption statement."
+
+google_workspace:
+  applies_to: "All editions for cloud storage; endpoint encryption depends on the operating system"
+  where_to_look: "Admin console, Devices, plus the platform's encryption documentation"
+  evidence: "Device inventory showing encryption status."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  Endpoint encryption is included but not always switched on, particularly
+  on machines that were set up by hand. Being able to show a report is the
+  difference between a claim and evidence. Servers and any on-premises
+  storage are separate and usually not encrypted unless somebody chose to.
+
+concepts: [encryption, full-disk-encryption]

@@ -1,0 +1,40 @@
+id: framework-inheritance
+name: You already have it and nobody told you
+status: done
+
+# How you recognise it.
+tell: >
+  A PROTECT-section question about something a mail, identity or device
+  platform does by default. Malware filtering, screen lock, password
+  storage, encryption at rest.
+
+# What the asker actually wants, underneath the wording.
+what_it_means: >
+  The control exists. It came with the subscription, it was configured by
+  the vendor, and nobody at your end ever had to think about it. The asker
+  assumes you bought something.
+
+# The cheap correct move.
+what_to_do: >
+  Go and find the setting, screenshot it, and answer yes with evidence. See
+  the already-have cards for where each one lives. This is the single
+  fastest way to shorten a questionnaire.
+
+# How companies overspend when they read the question literally.
+trap: >
+  Answering no because nobody here implemented it, and then buying a product
+  to close a gap that was never open. Or the opposite trap: answering yes
+  without checking, on a subscription tier where it is genuinely not
+  included.
+
+# Phrases that make the classifier suspect this pattern. Lowercased,
+# matched against the normalised question.
+signals:
+  - "protected against malware"
+  - "secured against spam"
+  - "passwords are stored"
+  - "automatically lock"
+  - "encrypted at rest"
+  - "backups are encrypted"
+
+concepts: [email-security, screen-lock, passwords, encryption, full-disk-encryption, endpoint-protection, logging]

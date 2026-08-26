@@ -1,0 +1,115 @@
+id: ddos-protection
+title: DDoS protection
+status: done
+class: control
+csf: PR
+priority: 3
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have anything to stop someone flooding your servers with rubbish
+  until they fall over.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Many assume their hosting provider takes care of it, and often the
+  provider does handle the crude volumetric attacks. But special controls
+  are still needed even in AWS and the rest, and the protection that is on
+  by default usually stops the network flood while leaving the
+  application-level attack to you.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  If you do not run a public service that matters by the minute, this is
+  somebody else's problem and you should say so. A brochure website going
+  down for two hours costs almost nothing. Cloudflare's free tier in front
+  of a website is a complete answer for most companies asked this question.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_website]
+applies_never_if: [no_internet_facing_service]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable in the form asked. We operate no internet-facing service
+  where availability is contractually committed. Protection provided by our
+  hosting arrangements is described below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does it cost you money if your website is down for two hours?"
+  options:
+    - id: no
+      label: "Not really"
+      verdict: not-applicable
+      why: >
+        Then say so. Availability protection you do not need is the easiest money
+        to not spend, and the honest answer is a good answer.
+    - id: yes
+      label: "Yes, it is how we sell"
+      verdict: do-it-properly
+      why: >
+        Then put a filtering service in front of it. The entry tiers cost almost
+        nothing and they handle the attacks that actually happen.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants redundancy managed across all workloads to absorb flooding.
+    That is capacity you pay for and never use. A filtering service in front
+    of the public service, which is what everyone at rung 4 also has, is the
+    actual control.
+  rungs:
+    - level: 1
+      gist: "Nothing at all."
+      verdict: cheap-checkbox
+    - level: 2
+      gist: "Provider-level protection, filtering on the public service."
+      verdict: already-solved
+    - level: 3
+      gist: "Filtering plus tested failover."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Redundant capacity across all workloads."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "provider default protection": "€"
+  "filtering service in front of the website": "€"
+  "held redundant capacity": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Our host deals with that."
+  better: "A statement of what protection exists and who provides it."
+  strong: "The protection described, plus the provider's terms and any test or incident record."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.ir-04, iso27002-8.6]
+incidents: []
+patterns: [technology-prescription]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 4
+corpus_sources: {q1: 1, syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# 1 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/ddos-protection.md instead.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "There is some protection against being flooded off the internet."   # syn.053a
+  - "What happens if someone floods your internet connection?"   # syn.053b
+  - "To what extent is it true that there is some protection against being flooded off the internet?"   # syn.053c

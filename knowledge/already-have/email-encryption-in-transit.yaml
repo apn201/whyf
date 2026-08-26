@@ -1,0 +1,31 @@
+id: email-encryption-in-transit
+title: Email is encrypted in transit
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Mail between your platform and any other modern mail service travels over
+  TLS by default. Both major platforms do this without configuration and
+  have for years.
+
+microsoft365:
+  applies_to: "All tiers"
+  where_to_look: "Exchange admin center, Mail flow, Connectors, plus the platform documentation"
+  evidence: "The platform's published statement on transport encryption, and message headers showing TLS on a delivered message."
+
+google_workspace:
+  applies_to: "All editions"
+  where_to_look: "Admin console, Apps, Google Workspace, Gmail, plus the transparency report on email encryption"
+  evidence: "Message headers showing TLS, and the published encryption reporting."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  This is opportunistic encryption. If the recipient's mail server does not
+  support TLS, delivery may fall back to plaintext unless you have
+  configured enforced TLS for that domain. So the honest answer is encrypted
+  in transit where the recipient supports it, which is nearly everywhere but
+  not everywhere. It is also not the same as encrypting the message content
+  itself, which is a different question.
+
+concepts: [email-security, encryption]

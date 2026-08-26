@@ -1,0 +1,31 @@
+id: basic-dlp
+title: Built-in leak protection exists without buying anything
+status: done
+
+# What is already true for anyone on a normal business subscription.
+claim: >
+  Both platforms include policies that can detect and block recognisable
+  sensitive data, such as card numbers and national identifiers, leaving the
+  organisation. They ship switched off, or in report-only mode, and most
+  owners never look.
+
+microsoft365:
+  applies_to: "Business Premium and above; check entry tiers before claiming it"
+  where_to_look: "Microsoft Purview compliance portal, Data loss prevention, Policies"
+  evidence: "Screenshot of an enabled policy and the locations it covers."
+
+google_workspace:
+  applies_to: "Enterprise editions; not available on the entry business editions"
+  where_to_look: "Admin console, Security, Data protection"
+  evidence: "Screenshot of the configured rules."
+
+# When the claim is NOT true. There is always a case, and leaving it
+# out is how this becomes a liability generator.
+caveat: >
+  This is the clearest licensing trap of the set. Data loss prevention is
+  genuinely not included in the cheaper editions of either platform, so
+  check what you pay for before answering. Even where it is included, a
+  policy in report-only mode is monitoring rather than prevention, and the
+  difference matters if somebody audits the answer.
+
+concepts: [dlp]

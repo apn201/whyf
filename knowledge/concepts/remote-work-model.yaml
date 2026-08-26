@@ -1,0 +1,123 @@
+id: remote-work-model
+title: Remote working setup
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have rules for working from home. Not the connection, the
+  arrangement.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  People read this as remote access and answer with VPN. It is wider than
+  that. Rights and responsibilities, furniture, printers, electricity,
+  insurance, and how you keep a clean desk policy alive in somebody's
+  kitchen. Whether personal devices are allowed at all is part of it, and
+  that is a decision somebody has to actually make rather than let happen.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Most of this is an HR document, not a security purchase. The security part
+  is two decisions: are personal devices allowed to reach company data, and
+  what happens to paper at home. Answer those two, write them into the
+  remote working policy that HR already needs, and stop.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_remote_workers]
+applies_never_if: [no_remote_work]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. Staff work from company premises and are not permitted to
+  access company systems from elsewhere.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Can somebody use their own laptop for work?"
+  options:
+    - id: no
+      label: "No, company devices only"
+      verdict: already-solved
+      why: >
+        That is the cleanest answer on this whole question and it makes several
+        others easy. Write it down and enforce it at the login.
+    - id: yes_unmanaged
+      label: "Yes, whatever they have"
+      verdict: do-it-properly
+      why: >
+        Decide what that device is allowed to reach. Browser-only access to cloud
+        apps is a reasonable middle ground and costs nothing.
+    - id: yes_managed
+      label: "Yes, if it is enrolled"
+      verdict: already-solved
+      why: >
+        Fine. Say that access requires an enrolled device and point at the
+        compliance policy.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants remote working covered in business continuity plans, tabletop
+    exercises and monitoring of every connecting device. Most companies
+    learned the continuity part in 2020 by doing it. A written policy and a
+    device rule is the part that was never actually written down.
+  rungs:
+    - level: 1
+      gist: "No rules, people work out their own arrangement."
+      verdict: write-it-down
+    - level: 2
+      gist: "A written policy covering devices and paper."
+      verdict: already-solved
+    - level: 3
+      gist: "Policy plus enforced device compliance."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Remote working built into continuity plans and exercises."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "write the policy": "€"
+  "enforce enrolled devices": "€€"
+  "issue company devices to everyone": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "People work from home sometimes."
+  better: "A written remote working policy covering devices and information handling."
+  strong: "The policy, plus a device compliance rule enforced at login."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-05, iso27002-6.7]
+incidents: []
+patterns: [documentation-only]
+already_have: [device-compliance, mobile-app-protection]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 13
+corpus_sources: {q2: 10, syn: 3}
+question_forms: [binary_statement, check_all, maturity_ladder]
+# 10 real questionnaire rows map here. Their wording is not ours to
+# publish, so it lives in private/context/remote-work-model.md instead.
+# A peer benchmark figure exists for this concept. It is the assessor's
+# proprietary data, so it stays in private/context/remote-work-model.md. Express what
+# it told you in your own words in `why_not_4`.
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The organisation has decided what people may reach from home and on which devices."   # syn.031a
+  - "What can staff reach when working from home?"   # syn.031b
+  - "To what extent is it true that the organisation has decided what people may reach from home and on which devices?"   # syn.031c
