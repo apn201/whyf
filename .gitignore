@@ -42,3 +42,7 @@ private/
 
 # question vectors are derived from the real corpus
 private/question-vectors.json
+
+# lambda bundle and cdk synth output
+build/
+infra/cdk.out/
