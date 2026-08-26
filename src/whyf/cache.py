@@ -20,6 +20,11 @@ import os
 
 from .schema import Verdict
 
+#: The spend counter could not be read or written. Distinct from a number,
+#: because "I do not know what has been spent" and "too much has been spent"
+#: call for opposite responses.
+UNAVAILABLE = object()
+
 
 class MemoryCache:
     """Local and test use. Also what the Lambda falls back to if DynamoDB is
@@ -138,9 +143,11 @@ class DynamoCache:
             return int(response["Attributes"]["model_calls"])
         except Exception:
             self.errors += 1
-            # Failing open on the counter would be the expensive mistake, so
-            # report the ceiling and let the caller degrade.
-            return None
+            # Unavailable is not the same as spent, and conflating them is how
+            # a transient DynamoDB error turns into an agent that quietly stops
+            # thinking. The per-request caps still bound the damage, so this
+            # fails open and says so.
+            return UNAVAILABLE
 
     def stats(self):
         total = self.hits + self.misses

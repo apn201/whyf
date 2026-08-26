@@ -91,34 +91,71 @@ def main():
                     "{} was committed at some point. It is in history even if "
                     "it is gone now.".format(path))
 
-    # ---- 2. content of every blob in every commit -------------------------
+    # ---- 2. every unique blob, once ---------------------------------------
+    # One `git show` per file per commit is O(commits x files) subprocesses and
+    # takes minutes on Windows. A check that slow stops being run, which makes
+    # it worse than no check. Stream every object instead, deduped by sha.
+    blobs = {}
+    for line in git("rev-list", "--objects", "--all").splitlines():
+        parts = line.split(maxsplit=1)
+        if len(parts) == 2:
+            blobs.setdefault(parts[0], parts[1])
+
     scanned = 0
-    for commit in commits:
-        listing = git("ls-tree", "-r", "--name-only", commit)
-        for path in listing.splitlines():
-            path = path.strip()
-            if not path:
+    if blobs:
+        proc = subprocess.Popen(
+            ["git", "cat-file", "--batch"], cwd=ROOT,
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+        request = ("\n".join(blobs) + "\n").encode()
+        raw, _ = proc.communicate(request)
+
+        # Walk the stream by its own headers rather than by request order, and
+        # take the path from the sha the response reports. `rev-list --objects`
+        # yields trees as well as blobs, and skipping a tree's header without
+        # its body desyncs everything after it, which shows up as findings
+        # attributed to the wrong file. A scanner that names the wrong file is
+        # worse than one that says nothing.
+        offset = 0
+        while offset < len(raw):
+            header_end = raw.find(b"\n", offset)
+            if header_end < 0:
+                break
+            header = raw[offset:header_end].split()
+            if len(header) < 3:
+                offset = header_end + 1
                 continue
-            blob = git("show", "{}:{}".format(commit, path))
-            if not blob:
+            sha = header[0].decode()
+            kind = header[1]
+            size = int(header[2])
+            body = raw[header_end + 1:header_end + 1 + size]
+            offset = header_end + 1 + size + 1
+            if kind != b"blob":
+                continue
+
+            path = blobs.get(sha, "(unknown path)")
+            try:
+                text = body.decode("utf-8")
+            except UnicodeDecodeError:
                 continue
             scanned += 1
+
             for label, pattern in SECRETS:
-                m = pattern.search(blob)
+                m = pattern.search(text)
                 if m:
-                    blocking.append("{} in {} (commit {}): {}".format(
-                        label, path, commit[:8], m.group(0)[:24] + "..."))
+                    blocking.append("{} in {}: {}".format(
+                        label, path, m.group(0)[:24] + "..."))
             if NUMERIC_NOISE.search(path):
                 continue
             for label, pattern in IDENTIFYING:
-                m = pattern.search(blob)
+                m = pattern.search(text)
                 if m:
                     warnings.append("{} in {}: {}".format(
                         label, path, m.group(0)))
 
     print("scanned {} commits".format(len(commits)))
     if verbose:
-        print("  {} tracked paths, {} blob reads".format(len(tracked), scanned))
+        print("  {} tracked paths, {} unique blobs scanned".format(
+            len(tracked), scanned))
 
     # ---- 3. is private/ actually ignored, right now -----------------------
     if (ROOT / "private").exists():

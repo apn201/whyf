@@ -28,14 +28,22 @@ def _pipeline():
         from .pipeline import Pipeline
 
         config = load()
+        cache = MemoryCache()
         try:
-            cache = DynamoCache(table_name=config.table_name,
-                                region=config.region,
-                                ttl_days=config.limits.cache_ttl_days)
-        except Exception:
-            # No table yet, or no permission. Running without tier 0 is slower
-            # and more expensive, not broken.
-            cache = MemoryCache()
+            candidate = DynamoCache(table_name=config.table_name,
+                                    region=config.region,
+                                    ttl_days=config.limits.cache_ttl_days)
+            # boto3 builds a Table handle lazily, so constructing one proves
+            # nothing. Touch it, or a missing table looks like a working cache
+            # that always misses.
+            candidate.spend_today()
+            if candidate.errors == 0:
+                cache = candidate
+            else:
+                print("dynamodb unreachable, running without tier 0")
+        except Exception as exc:
+            print("dynamodb unavailable ({}), running without tier 0".format(
+                type(exc).__name__))
         _PIPELINE = Pipeline(config=config, cache=cache)
         _COLD_START_MS = (time.time() - started) * 1000
     return _PIPELINE

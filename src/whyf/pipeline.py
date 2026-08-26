@@ -116,8 +116,14 @@ class Pipeline:
         # answers, from the free matcher, and says that it is degraded. A
         # public demo URL that silently stops working is worse than a slow one.
         if self.cache is not None:
+            from .cache import UNAVAILABLE
             spent = self.cache.add_spend(1)
-            if spent is None or spent > self.config.limits.daily_model_call_ceiling:
+            if spent is UNAVAILABLE:
+                # Carry on. The per-request caps still apply, and an agent that
+                # stops answering because a counter is unreachable is a worse
+                # outcome than one that briefly cannot count.
+                telemetry.counter_unavailable = True
+            elif spent is not None and                     spent > self.config.limits.daily_model_call_ceiling:
                 budget.degrade("daily model call ceiling reached")
 
         # ---- tier 1 --------------------------------------------------------
