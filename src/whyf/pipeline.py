@@ -169,6 +169,12 @@ class Pipeline:
         telemetry.degraded_reason = budget.degraded_reason
         telemetry.elapsed_s = time.time() - started
 
+        if card and classification and not classification.covers_the_question:
+            # Closest, but it does not answer the row. Show it as a near miss.
+            telemetry.tier = "near-miss"
+            return render.near_miss(question, card, self.library,
+                                    classification.missing_topic, telemetry)
+
         if card:
             verdict = render.from_card(question, card, self.library,
                                        classification, telemetry)

@@ -2,28 +2,37 @@ id: okta-lapsus
 name: Okta / Lapsus$ via support vendor
 year: 2022
 sector: identity
-ot: false                     # did it hit operational technology / a physical process
+ot: false                    # did it hit operational technology / a physical process
 
-status: skeleton            # -> done only when every figure below has a source
+status: draft               # -> done only when every figure below has a source
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # primary source. Company filing or regulator beats press.
-source_note: ""             # e.g. "10-K, page 42" or "company press release"
+source_url: ""              # url not captured yet; the citation is in source_note
+source_note: "Okta's own incident analysis, presented by its customer trust team."
 
 one_line: >
-  TODO one sentence a non-technical reader understands.
+  Attackers got into the account of a support engineer at one of Okta's
+  suppliers and briefly saw customer information through the support tool.
 
 what_happened: >
-  TODO three or four sentences. Mechanism, not drama.
+  Okta detected an attempt against an account belonging to a third-party
+  customer support engineer. The activity happened on 21 January 2022 and
+  lasted about twenty-five minutes. The attacker reached the support tool and
+  viewed information relating to two customers. What that account could reach
+  had been deliberately limited, and that limit is the reason this is a short
+  entry rather than a long one.
 
 what_it_cost:
-  figure: ""                # e.g. "USD 300 million" - only if sourced
-  basis: ""                 # e.g. "company statement, Q3 2017 results"
+  figure: ""
+  basis: "No incident-specific financial figure was disclosed, and none is estimated here."
 
 the_control_that_would_have_helped: >
-  TODO. Be honest. Often it is one boring thing, and often it is not the
-  control the questionnaire is asking about.
+  Awkwardly for a horror story, the controls worked: MFA, least privilege,
+  logging and detection kept a support account compromise to two customers and
+  twenty-five minutes. What failed was governing third-party access and telling
+  customers in time. Worth citing when somebody asks for evidence that
+  least privilege earns its keep.
 
-concepts: []                # concept ids this incident is legitimate evidence for
+concepts: [third-party-access, mfa, security-monitoring, logging]

@@ -2,28 +2,37 @@ id: kaseya-vsa
 name: Kaseya VSA / REvil
 year: 2021
 sector: msp
-ot: false                     # did it hit operational technology / a physical process
+ot: false                    # did it hit operational technology / a physical process
 
-status: skeleton            # -> done only when every figure below has a source
+status: draft               # -> done only when every figure below has a source
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # primary source. Company filing or regulator beats press.
-source_note: ""             # e.g. "10-K, page 42" or "company press release"
+source_url: ""              # url not captured yet; the citation is in source_note
+source_note: "Kaseya's incident overview and technical details, corroborated by the DOJ indictment."
 
 one_line: >
-  TODO one sentence a non-technical reader understands.
+  Attackers broke the software that IT providers use to manage their customers'
+  computers, then used that trusted software to push ransomware onto the
+  customers.
 
 what_happened: >
-  TODO three or four sentences. Mechanism, not drama.
+  Attackers exploited zero-day flaws in Kaseya VSA to bypass authentication and
+  run commands. VSA is a remote management platform, so owning it gave them a
+  supported, trusted and entirely normal-looking route onto every endpoint it
+  managed. The ransomware landed on the downstream customers of managed service
+  providers, most of whom had never heard of Kaseya. It is the textbook case of
+  a compromised management plane.
 
 what_it_cost:
-  figure: ""                # e.g. "USD 300 million" - only if sourced
-  basis: ""                 # e.g. "company statement, Q3 2017 results"
+  figure: "USD 70 million, demanded not paid"
+  basis: "Ransom demand recorded in the congressional investigation. Kaseya did not pay it, and no total loss figure for the affected customers is cited here."
 
 the_control_that_would_have_helped: >
-  TODO. Be honest. Often it is one boring thing, and often it is not the
-  control the questionnaire is asking about.
+  Secure development and fast patching, at the vendor. For everyone else the
+  lesson is blast radius: a tool that can run commands on all of your machines
+  deserves exactly as much trust as its worst day, and almost nobody asks what
+  happens when that tool is the attacker.
 
-concepts: []                # concept ids this incident is legitimate evidence for
+concepts: [secure-development, vulnerability-management, privileged-accounts, third-party-risk]

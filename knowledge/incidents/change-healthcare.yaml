@@ -2,27 +2,36 @@ id: change-healthcare
 name: Change Healthcare
 year: 2024
 sector: healthcare
-ot: false                     # did it hit operational technology / a physical process
+ot: false                    # did it hit operational technology / a physical process
 
-status: draft            # -> done only when every figure below has a source
+status: draft               # -> done only when every figure below has a source
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: "https://www.aha.org/change-healthcare-cyberattack-underscores-urgent-need-strengthen-cyber-preparedness-individual-health-care-organizations-and"              # primary source. Company filing or regulator beats press.
-source_note: ""             # e.g. "10-K, page 42" or "company press release"
+source_url: ""              # url not captured yet; the citation is in source_note
+source_note: "UnitedHealth Group 2024 Form 10-K, p. 24. See also the Form 8-K filed February 2024."
 
 one_line: >
-  Many hospital systems got cryptolocked..
+  Ransomware inside Change Healthcare's IT systems stopped the machinery that
+  moves claims and payments between providers, insurers and pharmacies.
 
 what_happened: >
-  On Feb. 21, 2024, an attack by the Russian ransomware group ALPHV BlackCat encrypted and incapacitated significant portions of Change Healthcare’s functionality.TODO three or four sentences. Mechanism, not drama.
+  Attackers reached Change Healthcare's IT environment on 21 February 2024.
+  UnitedHealth isolated the affected systems, and that isolation is what
+  stopped claims processing, payments and a long list of other services.
+  Nothing medical was touched - no device, no treatment process, nothing
+  physical. Recovery meant rebuilding and restoring systems while lending money
+  to the providers who could no longer get paid.
 
 what_it_cost:
-  figure: "$6.3 billion"                # e.g. "USD 300 million" - only if sourced
-  basis: "According to Kodiak Solutions, a revenue cycle data analytics firm, the attack caused the value of claims submitted to drop $6.3 billion for their 1,850 hospital and 250,000 physician clients alone in just the first three weeks after the attack."                 # e.g. "company statement, Q3 2017 results"
+  figure: "USD 2.2 billion"
+  basis: "UnitedHealth Group 2024 Form 10-K: direct response costs recognised in 2024. The same filing puts a further USD 867 million on estimated business disruption."
 
 the_control_that_would_have_helped: >
-  Restricted local admin rights. Modern endpoint protection.
+  Privileged access control and segmentation. What mattered was the distance
+  between one compromised account and the transaction infrastructure of an
+  entire industry, and there was not enough of it. This is an identity and
+  containment story, not a healthcare one.
 
-concepts: []                # concept ids this incident is legitimate evidence for
+concepts: [privileged-accounts, mfa, network-segmentation, incident-response]

@@ -4,26 +4,34 @@ year: 2015
 sector: energy
 ot: true                     # did it hit operational technology / a physical process
 
-status: skeleton            # -> done only when every figure below has a source
+status: draft               # -> done only when every figure below has a source
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # primary source. Company filing or regulator beats press.
-source_note: ""             # e.g. "10-K, page 42" or "company press release"
+source_url: ""              # url not captured yet; the citation is in source_note
+source_note: "US Department of Energy case study on electric grid security and resilience, citing the SANS/E-ISAC and US-CERT investigations."
 
 one_line: >
-  TODO one sentence a non-technical reader understands.
+  Attackers operated the substations themselves, opened the breakers and
+  switched the power off for around 225,000 customers.
 
 what_happened: >
-  TODO three or four sentences. Mechanism, not drama.
+  Attackers compromised Ukrainian electricity distribution companies and
+  reached the SCADA operator workstations. They used the operators' own
+  interfaces to open breakers at substations, and at the same time wrecked the
+  operators' ability to take control back. Malware damaged computers and
+  supporting infrastructure to slow the recovery. Around 225,000 customers lost
+  power for one to six hours, and crews restored it by hand.
 
 what_it_cost:
-  figure: ""                # e.g. "USD 300 million" - only if sourced
-  basis: ""                 # e.g. "company statement, Q3 2017 results"
+  figure: ""
+  basis: "No robust single loss figure exists that belongs in a normalised database. None is estimated here."
 
 the_control_that_would_have_helped: >
-  TODO. Be honest. Often it is one boring thing, and often it is not the
-  control the questionnaire is asking about.
+  Segmentation between the office network and the control network, hardened
+  remote access, and the ability to run and recover manually. The lesson people
+  miss: there was a firewall on the IT/OT boundary. A boundary that legitimate
+  remote paths still cross is a boundary the attacker uses too.
 
-concepts: []                # concept ids this incident is legitimate evidence for
+concepts: [network-segmentation, remote-access, plc-access, ics-emergency-modes]

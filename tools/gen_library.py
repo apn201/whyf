@@ -15,23 +15,29 @@ ROOT = Path(__file__).resolve().parent.parent
 K = ROOT / "knowledge"
 
 # --------------------------------------------------------------------------
-# incidents. Twelve records. Every number in these files must be traceable to
+# incidents. Eighteen records. Every number in these files must be traceable to
 # the source url. Nothing here is prefilled from model memory on purpose -
 # the figures are blank because you are going to verify them.
 # --------------------------------------------------------------------------
 INCIDENTS = [
-    ("maersk-notpetya",     "Maersk / NotPetya",                  2017, "logistics",     True),
-    ("merck-notpetya",      "Merck / NotPetya",                   2017, "pharma",        True),
-    ("norsk-hydro",         "Norsk Hydro / LockerGoga",           2019, "manufacturing", True),
-    ("colonial-pipeline",   "Colonial Pipeline",                  2021, "energy",        True),
+    ("stuxnet",             "Stuxnet / Natanz",                   2010, "nuclear",       True),
+    ("saudi-aramco-shamoon", "Saudi Aramco / Shamoon",            2012, "energy",        False),
+    ("target-hvac",         "Target / HVAC vendor credentials",   2013, "retail",        False),
+    ("german-steel-mill",   "German steel mill",                  2014, "manufacturing", True),
     ("ukraine-grid-2015",   "Ukraine power grid",                 2015, "energy",        True),
-    ("oldsmar-water",       "Oldsmar water treatment",            2021, "utilities",     True),
+    ("kemuri-water",        "Kemuri Water Company",               2016, "utilities",     True),
+    ("maersk-notpetya",     "Maersk / NotPetya",                  2017, "logistics",     False),
+    ("merck-notpetya",      "Merck / NotPetya",                   2017, "pharma",        False),
+    ("wannacry-nhs",        "WannaCry / NHS",                     2017, "healthcare",    False),
+    ("triton-trisis",       "Triton / Trisis safety system",      2017, "chemicals",     True),
+    ("norsk-hydro",         "Norsk Hydro / LockerGoga",           2019, "manufacturing", False),
     ("solarwinds",          "SolarWinds Orion supply chain",      2020, "software",      False),
+    ("colonial-pipeline",   "Colonial Pipeline",                  2021, "energy",        False),
     ("kaseya-vsa",          "Kaseya VSA / REvil",                 2021, "msp",           False),
+    ("oldsmar-water",       "Oldsmar water treatment",            2021, "utilities",     True),
+    ("okta-lapsus",         "Okta / Lapsus$ via support vendor",  2022, "identity",      False),
     ("moveit",              "MOVEit Transfer mass exploitation",  2023, "software",      False),
     ("change-healthcare",   "Change Healthcare",                  2024, "healthcare",    False),
-    ("target-hvac",         "Target / HVAC vendor credentials",   2013, "retail",        False),
-    ("okta-lapsus",         "Okta / Lapsus$ via support vendor",  2022, "identity",      False),
 ]
 
 INCIDENT_TPL = """\

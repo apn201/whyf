@@ -2,28 +2,36 @@ id: solarwinds
 name: SolarWinds Orion supply chain
 year: 2020
 sector: software
-ot: false                     # did it hit operational technology / a physical process
+ot: false                    # did it hit operational technology / a physical process
 
-status: skeleton            # -> done only when every figure below has a source
+status: draft               # -> done only when every figure below has a source
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # primary source. Company filing or regulator beats press.
-source_note: ""             # e.g. "10-K, page 42" or "company press release"
+source_url: ""              # url not captured yet; the citation is in source_note
+source_note: "SolarWinds Form 8-K of 17 December 2020. The CISA advisory is the authoritative technical corroboration."
 
 one_line: >
-  TODO one sentence a non-technical reader understands.
+  Attackers hid malicious code inside SolarWinds' own software, so customers
+  installing a legitimate update installed the attacker with it.
 
 what_happened: >
-  TODO three or four sentences. Mechanism, not drama.
+  Attackers compromised the environment where SolarWinds builds its software
+  and inserted the SUNBURST backdoor into Orion builds. The poisoned builds
+  went out through the normal update mechanism, signed and expected. Selected
+  customers were then followed up individually after installing what looked
+  like an ordinary patch. The campaign was espionage: nothing was encrypted and
+  nothing stopped working.
 
 what_it_cost:
-  figure: ""                # e.g. "USD 300 million" - only if sourced
-  basis: ""                 # e.g. "company statement, Q3 2017 results"
+  figure: ""
+  basis: "SolarWinds disclosed significant investigation, remediation and legal consequences, but no single incident cost with a defined accounting basis. None is invented here."
 
 the_control_that_would_have_helped: >
-  TODO. Be honest. Often it is one boring thing, and often it is not the
-  control the questionnaire is asking about.
+  Treating the build pipeline as production. Hardened build infrastructure,
+  privileged access control around it, separated build environments and some
+  independent check that the artifact shipped is the artifact written. Note
+  what does not help: patching faster would have made this worse.
 
-concepts: []                # concept ids this incident is legitimate evidence for
+concepts: [secure-development, secure-procurement, privileged-accounts, third-party-risk]

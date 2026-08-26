@@ -22,7 +22,24 @@ Judge the row on what it asks, not on how it is phrased. These rows arrive
 badly translated, renumbered, pasted out of PDFs and written by people
 describing a product they bought rather than a risk they have.
 
-Four things beyond the concept:
+Two judgements about the concept, and they are different questions.
+
+confidence is how sure you are that this is the CLOSEST concept on the list.
+
+covers_the_question is whether that concept ACTUALLY ANSWERS the row. These
+come apart constantly and the second one is what matters. A question about
+paying a ransom is closest to incident response, and incident response does
+not answer it. A question about a Data Protection Officer is closest to legal
+compliance, and legal compliance does not answer it. In both cases confidence
+is high and covers_the_question is false.
+
+Set covers_the_question false whenever the row names a specific thing the
+concept does not address, and put that thing in missing_topic. The tool would
+rather say it does not cover something than answer fluently about a different
+control. A confidently wrong answer is the only outcome here that is worse
+than no answer.
+
+Four things beyond that:
 
 question_class. Most rows are controls. Some are not, and those must not be
 treated as controls:

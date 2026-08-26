@@ -2,28 +2,35 @@ id: target-hvac
 name: Target / HVAC vendor credentials
 year: 2013
 sector: retail
-ot: false                     # did it hit operational technology / a physical process
+ot: false                    # did it hit operational technology / a physical process
 
-status: skeleton            # -> done only when every figure below has a source
+status: draft               # -> done only when every figure below has a source
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # primary source. Company filing or regulator beats press.
-source_note: ""             # e.g. "10-K, page 42" or "company press release"
+source_url: ""              # url not captured yet; the citation is in source_note
+source_note: "Target FY2013 Form 10-K; the clearer cost figures are in Target's subsequent quarterly results."
 
 one_line: >
-  TODO one sentence a non-technical reader understands.
+  Attackers took the credentials of a heating and ventilation contractor, used
+  them to get into Target's network, and left with payment card data.
 
 what_happened: >
-  TODO three or four sentences. Mechanism, not drama.
+  Attackers compromised a third-party HVAC contractor that held legitimate
+  access to Target's environment. They used those credentials to get in, and
+  from there reached the systems handling payment cards. Malware on the tills
+  collected card data as it was swiped. It became the landmark case of vendor
+  access turning into a headline breach.
 
 what_it_cost:
-  figure: ""                # e.g. "USD 300 million" - only if sourced
-  basis: ""                 # e.g. "company statement, Q3 2017 results"
+  figure: "USD 162 million net through FY2014"
+  basis: "Target's FY2014 results: USD 145 million of net breach-related expense in FY2014, plus USD 17 million in FY2013."
 
 the_control_that_would_have_helped: >
-  TODO. Be honest. Often it is one boring thing, and often it is not the
-  control the questionnaire is asking about.
+  Third-party access control and segmentation. The failure was never
+  air-conditioning cybersecurity, whatever the retelling says. It was that a
+  path existed from a low-trust supplier's login to the systems handling card
+  data, and nobody had ever walked it.
 
-concepts: []                # concept ids this incident is legitimate evidence for
+concepts: [third-party-access, network-segmentation, third-party-risk, supplier-inventory]

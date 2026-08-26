@@ -1,8 +1,8 @@
-id: merck-notpetya
-name: Merck / NotPetya
+id: triton-trisis
+name: Triton / Trisis safety system
 year: 2017
-sector: pharma
-ot: false                    # did it hit operational technology / a physical process
+sector: chemicals
+ot: true                     # did it hit operational technology / a physical process
 
 status: skeleton            # -> done only when every figure below has a source
 

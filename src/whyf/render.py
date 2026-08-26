@@ -132,6 +132,32 @@ def answered(question, card, library, option, telemetry=None):
     return out
 
 
+def near_miss(question, card, library, missing_topic, telemetry=None):
+    """The closest card, shown as a near miss rather than as an answer.
+
+    A flat "I have no card" throws away something useful: the neighbouring
+    concept usually IS worth reading, it just does not answer the specific
+    thing asked. Saying which part is missing is more use than either
+    pretending to cover it or refusing to speak.
+    """
+    out = from_card(question, card, library, telemetry=telemetry)
+    gap = _clean(missing_topic) or "the specific thing you asked about"
+
+    out.covers_question = False
+    out.notes.insert(0,
+        "This is the closest concept I have, and it does not cover {}. "
+        "Read it as background rather than as an answer to your row.".format(gap))
+
+    # The verdict belongs to the concept, not to the question that was asked.
+    # Leaving it on the card would be the confidently-wrong outcome this whole
+    # path exists to avoid.
+    out.verdict = None
+    out.headline = "Closest match: " + (card.get("title") or card.get("id"))
+    out.subtitle = "Does not cover " + gap
+    out.deciding_question = None
+    return out
+
+
 def declined(question, reason, telemetry=None):
     """No card, and not enough confidence to write one. Saying so is a correct
     answer and a better one than a guess."""

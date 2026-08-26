@@ -2,28 +2,36 @@ id: norsk-hydro
 name: Norsk Hydro / LockerGoga
 year: 2019
 sector: manufacturing
-ot: true                     # did it hit operational technology / a physical process
+ot: false                    # did it hit operational technology / a physical process
 
-status: skeleton            # -> done only when every figure below has a source
+status: draft               # -> done only when every figure below has a source
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # primary source. Company filing or regulator beats press.
-source_note: ""             # e.g. "10-K, page 42" or "company press release"
+source_url: ""              # url not captured yet; the citation is in source_note
+source_note: "Norsk Hydro 2019 Annual Report, Board of Directors' Report."
 
 one_line: >
-  TODO one sentence a non-technical reader understands.
+  Ransomware took out Hydro's IT systems, and parts of an aluminium business
+  went back to running on paper at reduced output.
 
 what_happened: >
-  TODO three or four sentences. Mechanism, not drama.
+  Norsk Hydro was hit on 19 March 2019. IT systems were disrupted across the
+  group, with Extruded Solutions worst affected. Production and order
+  processing suffered, and parts of the business ran manually until systems
+  came back. Nobody manipulated the metal: the attacker never touched the
+  physical process, and the production loss came from losing the IT wrapped
+  around it.
 
 what_it_cost:
-  figure: ""                # e.g. "USD 300 million" - only if sourced
-  basis: ""                 # e.g. "company statement, Q3 2017 results"
+  figure: "NOK 650-750 million"
+  basis: "Norsk Hydro 2019 Annual Report. NOK 216 million of insurance compensation was recognised in 2019."
 
 the_control_that_would_have_helped: >
-  TODO. Be honest. Often it is one boring thing, and often it is not the
-  control the questionnaire is asking about.
+  Segmentation, and production systems able to keep running when corporate IT
+  is gone. Use this one as the counterexample whenever somebody calls a factory
+  outage an OT attack: output fell without a single command being sent to a
+  machine.
 
-concepts: []                # concept ids this incident is legitimate evidence for
+concepts: [network-segmentation, offline-backups, bcp, ics-emergency-modes]

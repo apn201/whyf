@@ -2,28 +2,35 @@ id: maersk-notpetya
 name: Maersk / NotPetya
 year: 2017
 sector: logistics
-ot: true                     # did it hit operational technology / a physical process
+ot: false                    # did it hit operational technology / a physical process
 
-status: skeleton            # -> done only when every figure below has a source
+status: draft               # -> done only when every figure below has a source
 
 # VERIFY EVERY NUMBER. This is the field that kills the submission if it is
 # wrong. If you cannot find a figure you would defend in a boardroom, delete
 # the field rather than estimating. The agent may only cite what is here.
-source_url: ""              # primary source. Company filing or regulator beats press.
-source_note: ""             # e.g. "10-K, page 42" or "company press release"
+source_url: ""              # url not captured yet; the citation is in source_note
+source_note: "A.P. Moller-Maersk 2017 Annual Report, operational risks and cyber-attack section."
 
 one_line: >
-  TODO one sentence a non-technical reader understands.
+  NotPetya destroyed most of Maersk's corporate IT, and a global shipping
+  company had to rebuild thousands of computers and servers from nothing.
 
 what_happened: >
-  TODO three or four sentences. Mechanism, not drama.
+  NotPetya got into Maersk's Windows environment and spread across the network
+  at speed. It encrypted machines and left applications and computers unusable.
+  Booking, logistics, terminal and administrative work stopped across the
+  company. Maersk rebuilt large parts of its computing estate rather than
+  decrypting it.
 
 what_it_cost:
-  figure: ""                # e.g. "USD 300 million" - only if sourced
-  basis: ""                 # e.g. "company statement, Q3 2017 results"
+  figure: "approximately USD 300 million"
+  basis: "Maersk's own estimate of the financial impact, reported with its 2017 results. The 2017 Annual Report describes the attack and the operational consequences."
 
 the_control_that_would_have_helped: >
-  TODO. Be honest. Often it is one boring thing, and often it is not the
-  control the questionnaire is asking about.
+  Segmentation, and a recovery capability that does not live on the network it
+  is recovering. NotPetya proves an attacker does not need to understand your
+  business: a flat, uniformly trusted Windows and Active Directory estate turns
+  one infected machine into a company-wide outage without any help.
 
-concepts: []                # concept ids this incident is legitimate evidence for
+concepts: [network-segmentation, offline-backups, patch-management, bcp]

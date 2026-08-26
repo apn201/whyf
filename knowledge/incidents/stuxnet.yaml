@@ -1,8 +1,8 @@
-id: merck-notpetya
-name: Merck / NotPetya
-year: 2017
-sector: pharma
-ot: false                    # did it hit operational technology / a physical process
+id: stuxnet
+name: Stuxnet / Natanz
+year: 2010
+sector: nuclear
+ot: true                     # did it hit operational technology / a physical process
 
 status: skeleton            # -> done only when every figure below has a source
 

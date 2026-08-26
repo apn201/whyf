@@ -33,7 +33,22 @@ class Classification(BaseModel):
     concept: str = Field(
         description="Concept id, chosen from the shortlist provided. Use the "
                     "literal string 'none' if none of them fit.")
-    confidence: Literal["high", "medium", "low"]
+    confidence: Literal["high", "medium", "low"] = Field(
+        description="How sure you are that this is the closest concept.")
+    covers_the_question: bool = Field(
+        description="Separate judgement, and the important one. True only if "
+                    "the concept ACTUALLY ANSWERS what was asked. False when "
+                    "it is merely the nearest topic. 'Do you have a policy on "
+                    "paying a ransom' is near incident response and is not "
+                    "answered by it. Being closest is not the same as being "
+                    "right, and a fluent answer to a different question is "
+                    "worse than admitting the gap.")
+    missing_topic: str = Field(
+        default="",
+        description="When covers_the_question is false, name in three or four "
+                    "words the specific thing the concept does not address. "
+                    "Empty otherwise.",
+        max_length=80)
     question_class: QuestionClass = Field(
         description="control for a security control. disclosure for a "
                     "statement of past fact such as breach history. admin for "
@@ -97,7 +112,7 @@ class ColdVerdict(BaseModel):
 
 
 class Telemetry(BaseModel):
-    tier: Literal["cache", "concept", "cold", "declined"]
+    tier: Literal["cache", "concept", "near-miss", "cold", "declined"]
     model_calls: int = 0
     searches: int = 0
     elapsed_s: float = 0.0
@@ -133,6 +148,7 @@ class Verdict(BaseModel):
     maturity_ladder: dict = Field(default_factory=dict)
     deciding_question: Optional[dict] = None
 
+    covers_question: bool = True
     answer_risk: str = "none"
     references: dict = Field(default_factory=dict)
     reference_text: dict = Field(default_factory=dict)
