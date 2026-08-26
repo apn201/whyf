@@ -116,6 +116,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/surveillance.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Entrances are monitored and visitors are recorded."   # syn.065a
-  - "Are visitors signed in and accompanied?"   # syn.065b
-  - "To what extent is it true that entrances are monitored and visitors are recorded?"   # syn.065c
+  - "Entrances are monitored and visitors are recorded."   # syn.090a
+  - "Are visitors signed in and accompanied?"   # syn.090b
+  - "To what extent is it true that entrances are monitored and visitors are recorded?"   # syn.090c

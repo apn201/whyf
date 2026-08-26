@@ -1,0 +1,107 @@
+id: dpa
+title: Data processing agreement
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a standard data processing agreement, and does it contain what
+  Article 28 requires.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  People treat this as paperwork and it is, but it is paperwork with a fixed
+  shape. Article 28 lists what has to be in it: act only on documented
+  instructions, confidentiality obligations on staff, security measures,
+  rules for subprocessors, help with data subject requests, help with breach
+  notification, delete or return at the end, and allow audits. A DPA missing
+  any of those is not a DPA. The other half people miss is which side of it
+  they are on: if you decide why the data is processed you are a controller
+  and this is a different conversation entirely.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not have a lawyer draft one from nothing. The clauses are prescribed by
+  the regulation, every large processor publishes theirs, and the sensible
+  move is to start from a good published one and have a lawyer check the
+  edits. What is worth paying for is the review, not the drafting. And do
+  not sign the customer's version unread: customer DPAs routinely contain
+  audit rights and notification windows that are fine for a large supplier
+  and impossible for a small one.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [processes_personal_data, has_customer_data]
+applies_never_if: [no_personal_data]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. We do not process personal data on behalf of customers in
+  delivering this service. Where personal data is involved we act as
+  controller, and our privacy notice describes that separately.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you handle personal data because a customer told you to?"
+  options:
+    - id: no
+      label: "No personal data at all"
+      verdict: not-applicable
+      why: >
+        Then say so and the whole privacy section shortens dramatically. Be sure
+        though: names and work email addresses of your customer's staff are
+        personal data.
+    - id: controller
+      label: "Yes, but we decide what happens to it"
+      verdict: write-it-down
+      why: >
+        Then you are a controller, not a processor, and a DPA is the wrong
+        instrument. Say which role you are in. Getting this backwards is the most
+        common mistake in this section.
+    - id: processor
+      label: "Yes, on their instructions"
+      verdict: do-it-properly
+      why: >
+        Then you need a DPA and it is not optional. Start from a published one,
+        get it checked, and have it ready before the next questionnaire rather
+        than during it.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "adapt a published DPA": "€"
+  "legal review of your standard terms": "€€"
+  "negotiating each customer's version separately": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 0
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We have terms and conditions."
+  better: "A standard DPA covering the Article 28 requirements."
+  strong: "The DPA, signed with customers, plus the subprocessor list it refers to."
+
+answer_risk: warranty
+
+frameworks: [gdpr-art30, gdpr-art32, iso27002-5.20]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A data processing agreement covering the required clauses is in place."   # syn.022a
+  - "Do you process personal data because a customer told you to?"   # syn.022b

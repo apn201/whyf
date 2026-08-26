@@ -39,6 +39,6 @@ question_forms: [admin_field]
 # publish, so it lives in private/context/company-profile.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Organisation name"   # syn.082a
-  - "Number of employees"   # syn.083a
-  - "Name and email of the person completing this form"   # syn.084a
+  - "Organisation name"   # syn.107a
+  - "Number of employees"   # syn.108a
+  - "Name and email of the person completing this form"   # syn.109a

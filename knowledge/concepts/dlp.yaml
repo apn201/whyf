@@ -126,6 +126,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/dlp.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Tooling watches for sensitive data leaving the organisation."   # syn.036a
-  - "Is anything watching for sensitive data leaving?"   # syn.036b
-  - "To what extent is it true that tooling watches for sensitive data leaving the organisation?"   # syn.036c
+  - "Tooling watches for sensitive data leaving the organisation."   # syn.061a
+  - "Is anything watching for sensitive data leaving?"   # syn.061b
+  - "To what extent is it true that tooling watches for sensitive data leaving the organisation?"   # syn.061c

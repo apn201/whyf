@@ -90,5 +90,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/ics-emergency-modes.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Production can be stopped or run in a reduced mode safely."   # syn.074a
-  - "Can you stop the line safely if you need to?"   # syn.074b
+  - "Production can be stopped or run in a reduced mode safely."   # syn.099a
+  - "Can you stop the line safely if you need to?"   # syn.099b

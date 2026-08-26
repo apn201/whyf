@@ -118,6 +118,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Only the people who need to be somewhere can get in."   # syn.066a
-  - "Who can walk into the room where the servers are?"   # syn.066b
-  - "To what extent is it true that only the people who need to be somewhere can get in?"   # syn.066c
+  - "Only the people who need to be somewhere can get in."   # syn.091a
+  - "Who can walk into the room where the servers are?"   # syn.091b
+  - "To what extent is it true that only the people who need to be somewhere can get in?"   # syn.091c

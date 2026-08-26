@@ -115,6 +115,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Equipment is checked for signs of having been interfered with."   # syn.064a
-  - "Would you notice if someone opened one of your machines?"   # syn.064b
-  - "To what extent is it true that equipment is checked for signs of having been interfered with?"   # syn.064c
+  - "Equipment is checked for signs of having been interfered with."   # syn.089a
+  - "Would you notice if someone opened one of your machines?"   # syn.089b
+  - "To what extent is it true that equipment is checked for signs of having been interfered with?"   # syn.089c

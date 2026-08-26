@@ -1,0 +1,118 @@
+id: personal-data-breach
+title: Personal data breach notification
+status: done
+class: control
+csf: RS
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  If personal data leaks, do you know who you have to tell, and how fast.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This is not the same question as incident response, and answering it with
+  your incident plan misses the point. A personal data breach has its own
+  clock and its own audience. As a processor your first obligation is
+  usually to your customer, without undue delay, and your contract probably
+  sets a tighter number than the regulation does, often twenty-four or
+  forty-eight hours. The controller then has seventy-two hours to the
+  regulator. And it is not only about theft: losing access to personal data,
+  or destroying it by accident, is also a personal data breach, which
+  surprises people whose plan only covers attackers.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Nothing to buy. The whole control is a page saying who decides it is a
+  personal data breach, who they tell, in what order, and by when, with the
+  contractual deadlines written down rather than looked up on the day. What
+  is expensive is discovering during an incident that three customer
+  contracts each specify a different notification window.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [processes_personal_data]
+applies_never_if: [no_personal_data]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. A defined process covers identification, assessment and
+  notification of personal data breaches, including the contractual
+  notification timeframes agreed with customers.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "What is the shortest breach notification deadline in any of your customer contracts?"
+  options:
+    - id: known
+      label: "I know the number"
+      verdict: already-solved
+      why: >
+        Then write it down next to the incident plan with the customer contact
+        route. You are ahead of most suppliers.
+    - id: unknown
+      label: "No idea"
+      verdict: do-it-properly
+      why: >
+        Go and look. It is usually twenty-four or forty-eight hours, it is shorter
+        than the regulation, and it is the deadline you will actually miss. An
+        hour with the contracts now.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants breach handling integrated across the incident process,
+    tested, with templates ready. Templates are worth having. The step that
+    matters is much earlier: knowing the contractual deadline before the day
+    you need it.
+  rungs:
+    - level: 1
+      gist: "No process, deadlines unknown."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Process written, contractual deadlines known."
+      verdict: already-solved
+    - level: 3
+      gist: "Templates prepared, contacts confirmed."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Exercised as part of incident response."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a page, and reading your contracts": "€"
+  "prepared templates and contact routes": "€€"
+  "legal on standby for notifications": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would tell the customer."
+  better: "A written process naming who assesses, who notifies, and within what deadline."
+  strong: "The process, the per-customer deadlines, templates, and evidence it has been exercised or used."
+
+answer_risk: warranty
+
+frameworks: [gdpr-art32, nist-csf-rs.co-02, nis2-art23]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "There is a defined process and deadline for telling customers about a data breach."   # syn.025a
+  - "How fast must you tell a customer their data leaked?"   # syn.025b
+  - "To what extent is it true that there is a defined process and deadline for telling customers about a data breach?"   # syn.025c

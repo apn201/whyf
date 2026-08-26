@@ -119,6 +119,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Only approved software is allowed to run."   # syn.052a
-  - "Can staff install whatever software they like?"   # syn.052b
-  - "To what extent is it true that only approved software is allowed to run?"   # syn.052c
+  - "Only approved software is allowed to run."   # syn.077a
+  - "Can staff install whatever software they like?"   # syn.077b
+  - "To what extent is it true that only approved software is allowed to run?"   # syn.077c

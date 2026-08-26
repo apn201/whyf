@@ -1,0 +1,105 @@
+id: dsar
+title: Data subject requests
+status: done
+class: control
+csf: GV
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Can you find, export or delete one person's data when they ask, or when
+  your customer asks on their behalf.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  As a processor you are rarely the one who answers the request, but you are
+  contractually obliged to help the customer answer it, and that means being
+  able to find one person's data across your systems within days. People
+  discover the real problem at that point: the data is in the product
+  database, and the support desk, and the backups, and an analytics tool,
+  and nobody has ever tried to assemble it. Backups are the argument that
+  always comes up, and the accepted position is that you do not have to
+  unpick a backup, you have to not restore the deleted data back into
+  production.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not buy a privacy platform for this. The control is knowing where
+  personal data lives, which is the data inventory question again, and
+  having tried the exercise once. Run one search for a real person and time
+  it. That single dry run tells you more than any policy and gives you a
+  defensible answer.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [processes_personal_data]
+applies_never_if: [no_personal_data]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. We assist customers in responding to data subject requests
+  within the timeframes set out in our data processing agreement. The
+  systems in scope and the process are described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could you find everything you hold about one named person this week?"
+  options:
+    - id: yes
+      label: "Yes, we have done it"
+      verdict: already-solved
+      why: >
+        Then say so and say how long it took. A tested answer beats a described
+        one everywhere on this form.
+    - id: probably
+      label: "Probably, never tried"
+      verdict: write-it-down
+      why: >
+        Try it once with a real record. You will find one system nobody
+        remembered, which is exactly the point of doing it now rather than under a
+        deadline.
+    - id: no
+      label: "No"
+      verdict: do-it-properly
+      why: >
+        Start with where personal data actually lives. This is the data inventory
+        question wearing a different hat, and it blocks several answers in this
+        section.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one dry run and write down what happened": "€"
+  "documented process across systems": "€€"
+  "privacy request tooling": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 0
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would help if asked."
+  better: "A written process covering which systems are searched and within what timeframe."
+  strong: "The process, plus a record of a completed or rehearsed request and how long it took."
+
+answer_risk: none
+
+frameworks: [gdpr-art30, iso27002-5.34]
+incidents: []
+patterns: []
+already_have: [retention-policy]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "One persons data can be found and exported across systems on request."   # syn.026a
+  - "Could you find everything you hold about one named person?"   # syn.026b

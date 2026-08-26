@@ -1,0 +1,102 @@
+id: ropa
+title: Record of processing activities
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have a written record of what personal data you handle, why, and
+  who else sees it. GDPR calls it a record of processing activities.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  There is a small-company exemption in Article 30 and almost nobody
+  qualifies for it, because it falls away the moment processing is regular
+  rather than occasional, and payroll alone is regular. So the practical
+  answer for most companies is that they need one. The other
+  misunderstanding is scale: this is a table, not a project. Each row is a
+  purpose, and most companies have between eight and fifteen: payroll,
+  recruitment, customers, marketing, CCTV, and so on.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  No tool required and no consultant. Most supervisory authorities publish a
+  template spreadsheet for exactly this, free, and it is the same table a
+  privacy platform would sell you. Where it earns its keep is not
+  compliance: filling it in is the only exercise that reliably shows you
+  where personal data actually lives, which is the prerequisite for
+  answering deletion, transfer and subject request questions.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [processes_personal_data]
+applies_never_if: [no_personal_data]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. A record of processing activities is maintained covering the
+  purposes for which we process personal data, the categories involved,
+  recipients, transfers and retention.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Is there a table anywhere listing what personal data you hold and why?"
+  options:
+    - id: yes
+      label: "Yes, and it is current"
+      verdict: already-solved
+      why: >
+        Then say so and note when it was last reviewed. It also answers the data
+        inventory, transfer and retention questions, so point at it repeatedly.
+    - id: old
+      label: "There was one, years ago"
+      verdict: write-it-down
+      why: >
+        Update it rather than starting again. An out-of-date record is still most
+        of the work already done.
+    - id: no
+      label: "No"
+      verdict: write-it-down
+      why: >
+        Download your supervisory authority's template and spend a morning on it.
+        Eight to fifteen rows. It unlocks several other answers on this form.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a template spreadsheet, filled in": "€"
+  "reviewed yearly with an owner": "€"
+  "privacy management platform": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We know what data we hold."
+  better: "A record of processing activities with purposes and categories."
+  strong: "The record, with recipients, transfers, retention periods and a review date."
+
+answer_risk: warranty
+
+frameworks: [gdpr-art30, nist-csf-id.am-05, iso27002-5.34]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "There is a written record of what personal data is held and why."   # syn.037a
+  - "Is there a table listing what personal data you hold and why?"   # syn.037b

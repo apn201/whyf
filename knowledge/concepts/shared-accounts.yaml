@@ -1,0 +1,103 @@
+id: shared-accounts
+title: Unique accounts, no sharing
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Does every person have their own login, or do people share one.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Shared accounts are usually defended as practical and they are, right up
+  to the first thing that goes wrong. The cost is not really security, it is
+  that your logs become useless: you can see what was done and never who did
+  it, which breaks incident response, breaks accountability, and makes the
+  leaver process impossible because you cannot remove one person from a
+  shared password without disrupting everyone. Where sharing is genuinely
+  unavoidable, on old machinery or a legacy system, the answer is to name it
+  as an exception and control who can check the credential out.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is almost nothing to buy. Named accounts are free in every system
+  that supports them, and where a system does not support them the fix is a
+  password manager with check-out, not a replacement system. The one
+  legitimate exception is machinery that physically cannot do it, and the
+  honest answer there is to say so and describe what compensates.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Individual named accounts are used. Where a system does not
+  support them, the account is listed as an exception with controlled access
+  and the compensating measures stated.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Does anyone here log in with a password that other people also know?"
+  options:
+    - id: no
+      label: "No, everyone has their own"
+      verdict: already-solved
+      why: >
+        Then say so and note any service accounts, because those are the ones that
+        get asked about next.
+    - id: few
+      label: "One or two old systems"
+      verdict: write-it-down
+      why: >
+        Name them as exceptions with what controls access to the credential. That
+        is a truthful answer and an auditor will take it. Pretending otherwise is
+        where this goes wrong.
+    - id: yes
+      label: "Yes, quite a few"
+      verdict: do-it-properly
+      why: >
+        Worth fixing, and not for the questionnaire. Shared logins mean your logs
+        cannot tell you who did anything, which is exactly what you need on the
+        worst day.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "create named accounts where systems support it": "€"
+  "password manager with check-out for the rest": "€€"
+  "replacing a system that cannot do it": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Everyone has their own login."
+  better: "A list of any shared or generic accounts and what they are for."
+  strong: "The list, who can access each, and the record of check-out or the compensating control."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-01, iso27002-5.16, iso27002-8.15]
+incidents: []
+patterns: []
+already_have: [admin-role-separation, audit-logging]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Every person has their own login rather than sharing one."   # syn.031a
+  - "Does anyone log in with a password other people also know?"   # syn.031b

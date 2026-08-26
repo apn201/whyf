@@ -112,6 +112,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/email-security.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Incoming mail is filtered and sensitive mail is protected in transit."   # syn.040a
-  - "What happens to a malicious attachment sent to your staff?"   # syn.040b
-  - "To what extent is it true that incoming mail is filtered and sensitive mail is protected in transit?"   # syn.040c
+  - "Incoming mail is filtered and sensitive mail is protected in transit."   # syn.065a
+  - "What happens to a malicious attachment sent to your staff?"   # syn.065b
+  - "To what extent is it true that incoming mail is filtered and sensitive mail is protected in transit?"   # syn.065c

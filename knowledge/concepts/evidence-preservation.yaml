@@ -1,0 +1,95 @@
+id: evidence-preservation
+title: Preserving evidence in an incident
+status: done
+class: control
+csf: RS
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  During an incident, does anybody stop to preserve what happened before
+  wiping the machine and moving on.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  The instinct under pressure is to get the business running again, and that
+  instinct destroys the answer to what happened. Rebuild the server and the
+  evidence goes with it. Pull the power and you lose everything that was
+  only in memory. It matters more than people expect, because you cannot
+  tell a customer or a regulator what was accessed if you deleted the means
+  of finding out, and not knowing usually means notifying everybody.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Forensic readiness as a discipline, with imaging kit and chain of custody
+  forms, is for organisations that expect litigation. For everyone else this
+  is one line in the incident plan: before you rebuild anything, take a
+  snapshot and copy the logs off. In a virtualised or cloud environment that
+  is a button, it takes minutes, and it is the difference between an
+  investigation and a shrug.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_servers, any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Our incident process requires preservation of system state and
+  logs before affected systems are rebuilt or restored.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If a server were compromised tonight, what would happen to it first?"
+  options:
+    - id: rebuild
+      label: "It would get rebuilt fast"
+      verdict: do-it-properly
+      why: >
+        Add one line to the incident plan: snapshot and export the logs before
+        rebuilding. It costs minutes and it is the difference between knowing what
+        was taken and having to assume the worst.
+    - id: snapshot
+      label: "Snapshot first, then rebuild"
+      verdict: already-solved
+      why: >
+        Then say so. It is a short answer and a genuinely strong one, because
+        almost nobody does it.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one line in the incident plan": "€"
+  "somewhere to keep images and logs": "€€"
+  "forensic readiness with chain of custody": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would investigate."
+  better: "The incident process requiring preservation before rebuild."
+  strong: "The process, plus where images and logs are kept and for how long."
+
+answer_risk: none
+
+frameworks: [nist-csf-rs.an-06, nist-csf-rs.an-07, iso27002-5.28]
+incidents: []
+patterns: []
+already_have: [audit-logging]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A compromised machine is snapshotted before anybody rebuilds it."   # syn.040a
+  - "If a server were compromised tonight, what happens to it first?"   # syn.040b

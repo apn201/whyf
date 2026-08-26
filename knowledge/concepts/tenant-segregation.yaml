@@ -97,5 +97,5 @@ question_forms: [binary_statement, check_all]
 # publish, so it lives in private/context/tenant-segregation.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "One customer's data cannot be reached from another customer's account."   # syn.039a
-  - "Can one customer see another customer's data?"   # syn.039b
+  - "One customer's data cannot be reached from another customer's account."   # syn.064a
+  - "Can one customer see another customer's data?"   # syn.064b

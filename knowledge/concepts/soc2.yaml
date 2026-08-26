@@ -1,0 +1,48 @@
+id: soc2
+title: SOC 2 report
+status: done
+class: attestation
+csf: GV
+priority: 1
+
+# Not a security control, so it never gets one of the six verdicts.
+
+plain_english: >
+  Do you have a SOC 2 report. An American audit report about how you run
+  your service, produced by an accounting firm.
+
+# What the tool says back.
+response: >
+  Two things decide whether this is worth anything to the asker. Type I says
+  your controls were designed sensibly on one day. Type II says they
+  actually operated over a period, usually six or twelve months, and it is
+  the only one most buyers accept. And the Trust Services Criteria: every
+  report covers Security, but Availability, Confidentiality, Processing
+  Integrity and Privacy are each optional, so a report can be genuine and
+  still not cover what the buyer is asking about. Say which criteria yours
+  covers rather than saying yes. If the audit period ended before today,
+  they will ask for a bridge letter, which is a short statement from you
+  that nothing material has changed since; it is normal, it is free, and you
+  write it yourself. Reports go out under NDA, always. If you do not have
+  one, say so plainly: SOC 2 is a serious cost and a European supplier not
+  having one is entirely normal, so do not imply that one is imminent unless
+  it is.
+
+answer_risk: certification
+
+# Who to actually talk to, if anyone.
+refer_to: >
+  Whoever holds the report, and your lawyer for the NDA. If you are
+  considering getting one, count how many customers have asked first; it is
+  a sales cost and should clear a sales bar.
+
+frameworks: []
+patterns: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A SOC 2 report covering the relevant criteria is available under NDA."   # syn.018a
+  - "Do you have a SOC 2 report, and which criteria does it cover?"   # syn.018b

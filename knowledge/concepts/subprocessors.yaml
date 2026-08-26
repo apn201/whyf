@@ -1,0 +1,118 @@
+id: subprocessors
+title: Subprocessors
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you keep a list of the other companies that touch your customers' data,
+  and do you tell customers before it changes.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Everybody thinks of the obvious ones and forgets the rest. Your hosting
+  provider is a subprocessor. So is your email platform, your support desk
+  tool, your analytics, your backup service, and the freelancer who logs in
+  occasionally. If customer personal data passes through it, it belongs on
+  the list. The notification half is the part with teeth: most DPAs give the
+  customer a window to object before you add one, and adding a subprocessor
+  without telling anyone is a contractual breach even when the new supplier
+  is better than the old one.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is nothing to buy and the list is short, usually under fifteen
+  names. The cost is remembering to update it, which is why it belongs next
+  to the procurement question rather than in a security folder. Publishing
+  it on your website with an email subscribe link is the cheapest possible
+  way to meet the notification obligation, and it converts a recurring
+  contractual risk into a page you update.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [processes_personal_data, has_customer_data]
+applies_never_if: [no_personal_data]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Not applicable. We engage no subprocessors in the delivery of this
+  service. Any change to that position would be notified in advance under
+  our data processing agreement.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could you list today everyone whose systems touch a customer's data?"
+  options:
+    - id: yes
+      label: "Yes, there is a list"
+      verdict: already-solved
+      why: >
+        Publish it and add an email notification list. That satisfies the advance
+        notice obligation permanently and costs an hour.
+    - id: no
+      label: "Not without going through invoices"
+      verdict: write-it-down
+      why: >
+        An afternoon with the finance list, marking everything that touches
+        customer data. It is nearly always fewer than fifteen and it answers
+        several questions at once.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants the list maintained automatically as the organisation
+    changes. In a company with fifteen subprocessors that changes twice a
+    year, a published page and a habit beats a system nobody feeds.
+  rungs:
+    - level: 1
+      gist: "No list."
+      verdict: write-it-down
+    - level: 2
+      gist: "A current list, published, with notification."
+      verdict: already-solved
+    - level: 3
+      gist: "Criticality assessed, contracts flow down obligations."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Maintained automatically with change notification."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a list and a published page": "€"
+  "flow-down clauses in each contract": "€€"
+  "subprocessor management tooling": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We know who our suppliers are."
+  better: "A current subprocessor list naming each company, what it does and where it is."
+  strong: "The list, published or contractually provided, plus the notification mechanism and evidence it has been used."
+
+answer_risk: warranty
+
+frameworks: [gdpr-art30, nist-csf-gv.sc-04, iso27002-5.20]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The other companies that touch customer data are listed and notified on change."   # syn.023a
+  - "Which other companies touch your customers data?"   # syn.023b
+  - "To what extent is it true that the other companies that touch customer data are listed and notified on change?"   # syn.023c

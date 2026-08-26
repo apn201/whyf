@@ -113,6 +113,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Staff are told what to watch for and reminded regularly."   # syn.067a
-  - "When did staff last get security training?"   # syn.067b
-  - "To what extent is it true that staff are told what to watch for and reminded regularly?"   # syn.067c
+  - "Staff are told what to watch for and reminded regularly."   # syn.092a
+  - "When did staff last get security training?"   # syn.092b
+  - "To what extent is it true that staff are told what to watch for and reminded regularly?"   # syn.092c

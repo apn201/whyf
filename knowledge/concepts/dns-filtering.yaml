@@ -109,6 +109,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/dns-filtering.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Requests to known-bad web addresses are blocked before they connect."   # syn.041a
-  - "Are known-bad websites blocked?"   # syn.041b
-  - "To what extent is it true that requests to known-bad web addresses are blocked before they connect?"   # syn.041c
+  - "Requests to known-bad web addresses are blocked before they connect."   # syn.066a
+  - "Are known-bad websites blocked?"   # syn.066b
+  - "To what extent is it true that requests to known-bad web addresses are blocked before they connect?"   # syn.066c

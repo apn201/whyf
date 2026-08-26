@@ -1,0 +1,117 @@
+id: security-metrics
+title: Security objectives and metrics
+status: done
+class: control
+csf: GV
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you measure anything about security, and does anyone look at the
+  numbers.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Metrics get confused with reporting. Counting blocked emails is reporting;
+  it goes up and down and changes nothing. A metric is a number attached to
+  a decision: how long a critical patch takes to land, how many admin
+  accounts exist, how long since the last restore test. Three numbers that
+  would change what you do next beat a dashboard of forty that nobody acts
+  on.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Security dashboards are sold on the promise that measurement is
+  improvement, and mostly they produce a slide. For a company of this size,
+  pick three numbers, write them down twice a year, and look at whether they
+  moved. That is a metrics programme and it costs an hour. The expensive
+  version starts with buying a tool to collect numbers nobody has decided to
+  act on.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable and deliberately small. A defined set of security measures is
+  tracked and reviewed with management. The measures and their frequency are
+  stated below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Name one security number you could quote right now."
+  options:
+    - id: yes
+      label: "I could name a few"
+      verdict: already-solved
+      why: >
+        Then write them down as the official set, with who sees them and how
+        often. You are describing something you already do.
+    - id: no
+      label: "Not really"
+      verdict: write-it-down
+      why: >
+        Pick three: patch latency, admin account count, days since the last
+        restore test. All three come from systems you already have and all three
+        would change a decision.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants objectives with targets, tracked continuously and reported to
+    the board with trends. That is a reporting function. Three numbers
+    reviewed twice a year, that actually influence what gets done, is where
+    the value is.
+  rungs:
+    - level: 1
+      gist: "Nothing measured."
+      verdict: write-it-down
+    - level: 2
+      gist: "A few numbers tracked and reviewed."
+      verdict: already-solved
+    - level: 3
+      gist: "Objectives with targets, reviewed on a cycle."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Continuous measurement reported with trends."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "pick three numbers, review twice a year": "€"
+  "objectives with targets and tracking": "€€"
+  "a security dashboard product": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We keep an eye on things."
+  better: "A written set of security measures with their targets."
+  strong: "The measures, dated records over time, and evidence that management reviewed them."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.ov-01, nist-csf-gv.ov-03, iso27002-5.36]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A small set of security measures is tracked and reviewed with management."   # syn.030a
+  - "Name one security number you could quote right now."   # syn.030b
+  - "To what extent is it true that a small set of security measures is tracked and reviewed with management?"   # syn.030c

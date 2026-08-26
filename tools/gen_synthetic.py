@@ -88,6 +88,83 @@ CONTROLS = {
         "the laws that apply to the organisation's data have been identified",
         "Which data protection rules apply to you?", False),
 
+    "isms": (
+        "the security policy, risk work and management review happen on a cycle",
+        "Does anything review your security on a schedule?", True),
+    "soc2": (
+        "a SOC 2 report covering the relevant criteria is available under NDA",
+        "Do you have a SOC 2 report, and which criteria does it cover?", False),
+    "pci-dss": (
+        "card data either does not touch your systems or the scope is documented",
+        "Do card numbers ever touch your systems?", False),
+    "hipaa": (
+        "a business associate agreement is in place where US health data is handled",
+        "Do you handle US health data for a customer?", False),
+    "dora": (
+        "contracts with financial customers carry audit, notification and exit terms",
+        "Do you supply anyone in EU financial services?", False),
+    "dpa": (
+        "a data processing agreement covering the required clauses is in place",
+        "Do you process personal data because a customer told you to?", False),
+    "subprocessors": (
+        "the other companies that touch customer data are listed and notified on change",
+        "Which other companies touch your customers data?", True),
+    "data-transfers": (
+        "where customer data leaves Europe, the transfer mechanism is documented",
+        "Does customer data ever leave Europe?", True),
+    "personal-data-breach": (
+        "there is a defined process and deadline for telling customers about a data breach",
+        "How fast must you tell a customer their data leaked?", True),
+    "dsar": (
+        "one persons data can be found and exported across systems on request",
+        "Could you find everything you hold about one named person?", False),
+    "data-retention": (
+        "how long each kind of data is kept is decided, and deletion happens at expiry",
+        "What happens to a customers data a year after they leave?", True),
+    "secure-disposal": (
+        "devices are wiped before reassignment or disposal and a record is kept",
+        "Where is the last laptop that left the company?", False),
+    "risk-acceptance": (
+        "controls that cannot be met are recorded as time-limited exceptions",
+        "What happens when you cannot do what the policy requires?", True),
+    "security-metrics": (
+        "a small set of security measures is tracked and reviewed with management",
+        "Name one security number you could quote right now.", True),
+    "shared-accounts": (
+        "every person has their own login rather than sharing one",
+        "Does anyone log in with a password other people also know?", False),
+    "least-privilege": (
+        "people hold only the access their job needs, and it is reviewed",
+        "When somebody changes job, does their old access go away?", True),
+    "attack-surface": (
+        "what of yours answers on the public internet is listed and checked",
+        "Could you list everything of yours reachable from the internet?", True),
+    "credential-monitoring": (
+        "leaked staff credentials are made harmless by a second factor",
+        "If a staff password leaked tomorrow, would it get anybody in?", True),
+    "shadow-it": (
+        "the cloud services people actually use are known and new ones get approved",
+        "If somebody wanted a new SaaS tool tomorrow, who would they ask?", True),
+    "rto": (
+        "how long the business can be down before it hurts is decided per system",
+        "If your main system died this morning, when would it cost real money?", True),
+
+    "ropa": (
+        "there is a written record of what personal data is held and why",
+        "Is there a table listing what personal data you hold and why?", False),
+    "monitoring-privacy": (
+        "staff have been told what is monitored, and the basis for it is written down",
+        "Have your staff been told what is monitored?", True),
+    "local-admin-rights": (
+        "people cannot install what they like on a work laptop without asking",
+        "Can the average person here install software on their laptop?", True),
+    "evidence-preservation": (
+        "a compromised machine is snapshotted before anybody rebuilds it",
+        "If a server were compromised tonight, what happens to it first?", False),
+    "byod": (
+        "what a personally owned phone or laptop may reach is decided and enforced",
+        "Can somebody read work email on a phone the company did not buy?", True),
+
     # -- identify -----------------------------------------------------------
     "rpo": (
         "the amount of recent work the organisation can afford to lose is decided per system",

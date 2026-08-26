@@ -1,0 +1,115 @@
+id: least-privilege
+title: Least privilege and access review
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do people have only the access they need, or does everybody end up with
+  everything.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Access accumulates. Somebody covers for a colleague, joins a project,
+  moves department, and each time they gain rights and never lose any. After
+  three years the finance assistant can reach systems nobody would grant
+  them today, and no single decision was wrong. That is the mover half of
+  joiners, movers and leavers, and it is the half everybody skips.
+  Role-based access is the usual answer, and it helps, but only if somebody
+  prunes the roles.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  An access governance platform is priced for organisations with thousands
+  of identities. Below that, the control is a review: once or twice a year,
+  print who has access to the systems that matter and ask each manager
+  whether their people still need it. It is dull, it takes a morning, and it
+  removes more standing access than any product.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Access is granted on the basis of role and reviewed
+  periodically. Review frequency and the systems covered are stated below.
+
+default_verdict: cheap-checkbox
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "When somebody changes job internally, does their old access go away?"
+  options:
+    - id: yes
+      label: "Yes, it gets adjusted"
+      verdict: already-solved
+      why: >
+        Then say so, and say when access was last reviewed. The review date is
+        what gets asked for.
+    - id: no
+      label: "It just accumulates"
+      verdict: do-it-properly
+      why: >
+        Do one review. Print the access list for your main systems and walk it
+        with the managers. A morning, and it will surprise you.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants automated recertification across every system on a risk-based
+    frequency. That is an identity governance platform. A manual review of the
+    systems that matter, once or twice a year and recorded, removes most of
+    the standing access a platform would.
+  rungs:
+    - level: 1
+      gist: "Access only ever accumulates."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Role-based, adjusted on change."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Reviewed periodically and recorded."
+      verdict: already-solved
+    - level: 4
+      gist: "Automated recertification across all systems."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "an annual review with managers": "€"
+  "role definitions maintained": "€€"
+  "identity governance tooling": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "People have what they need."
+  better: "A description of how access is granted by role."
+  strong: "The role definitions, plus a dated access review with what was removed as a result."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-05, iso27002-5.15, iso27002-5.18]
+incidents: []
+patterns: []
+already_have: [admin-role-separation, device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "People hold only the access their job needs, and it is reviewed."   # syn.032a
+  - "When somebody changes job, does their old access go away?"   # syn.032b
+  - "To what extent is it true that people hold only the access their job needs, and it is reviewed?"   # syn.032c

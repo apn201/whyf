@@ -122,6 +122,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Stored and transmitted data is encrypted and the keys are looked after."   # syn.038a
-  - "Is your data encrypted, and who holds the keys?"   # syn.038b
-  - "To what extent is it true that stored and transmitted data is encrypted and the keys are looked after?"   # syn.038c
+  - "Stored and transmitted data is encrypted and the keys are looked after."   # syn.063a
+  - "Is your data encrypted, and who holds the keys?"   # syn.063b
+  - "To what extent is it true that stored and transmitted data is encrypted and the keys are looked after?"   # syn.063c

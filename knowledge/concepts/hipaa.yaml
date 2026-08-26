@@ -1,0 +1,43 @@
+id: hipaa
+title: HIPAA and business associate agreements
+status: done
+class: attestation
+csf: GV
+priority: 2
+
+# Not a security control, so it never gets one of the six verdicts.
+
+plain_english: >
+  Do you handle American health data, and will you sign the agreement that
+  comes with it.
+
+# What the tool says back.
+response: >
+  This one is binary and it is contractual before it is technical. If you
+  handle protected health information on behalf of a US healthcare customer,
+  you are a business associate and you have to sign a Business Associate
+  Agreement. No BAA means you cannot take the work. If you do not serve US
+  healthcare, say so in one line and the whole section disappears. Do not
+  answer these questions aspirationally: signing a BAA commits you to breach
+  notification timeframes and to safeguards you then have to actually have,
+  and it is enforceable by a US regulator against a European company through
+  the contract.
+
+answer_risk: warranty
+
+# Who to actually talk to, if anyone.
+refer_to: >
+  A lawyer, before signing a BAA, not after. This is one of the few places
+  on a questionnaire where the answer creates a legal obligation rather than
+  describing one.
+
+frameworks: []
+patterns: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "A business associate agreement is in place where US health data is handled."   # syn.020a
+  - "Do you handle US health data for a customer?"   # syn.020b

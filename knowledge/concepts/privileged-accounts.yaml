@@ -115,6 +115,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Administrator accounts are separate from ordinary accounts and reviewed."   # syn.031a
-  - "Do admins use a separate account for admin work?"   # syn.031b
-  - "To what extent is it true that administrator accounts are separate from ordinary accounts and reviewed?"   # syn.031c
+  - "Administrator accounts are separate from ordinary accounts and reviewed."   # syn.056a
+  - "Do admins use a separate account for admin work?"   # syn.056b
+  - "To what extent is it true that administrator accounts are separate from ordinary accounts and reviewed?"   # syn.056c

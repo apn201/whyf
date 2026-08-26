@@ -59,6 +59,14 @@ class Classification(BaseModel):
         description="True when agreeing with the row means the opposite of "
                     "what it first appears. Rows carrying a double negative "
                     "about an exemption or an exclusion are the usual case.")
+    policy_question: bool = Field(
+        default=False,
+        description="True when the row asks whether a POLICY SAYS something, "
+                    "rather than whether the control is in place. 'Does the "
+                    "policy prohibit sharing passwords' is a policy question; "
+                    "'do people share passwords' is not. Whole sections of a "
+                    "questionnaire are one policy asked forty ways, and the "
+                    "answer to all of them is the same document.")
     translation_damage: bool = Field(
         description="True when the row reads as a bad translation or is so "
                     "mangled that its meaning is uncertain.")

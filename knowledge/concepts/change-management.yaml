@@ -113,6 +113,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/change-management.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Changes to systems are approved before they are made."   # syn.054a
-  - "Who approves a change before it goes in?"   # syn.054b
-  - "To what extent is it true that changes to systems are approved before they are made?"   # syn.054c
+  - "Changes to systems are approved before they are made."   # syn.079a
+  - "Who approves a change before it goes in?"   # syn.079b
+  - "To what extent is it true that changes to systems are approved before they are made?"   # syn.079c

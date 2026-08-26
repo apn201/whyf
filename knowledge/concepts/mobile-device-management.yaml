@@ -110,6 +110,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/mobile-device-management.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Company data on phones can be managed and removed."   # syn.060a
-  - "Can you wipe company data off a lost phone?"   # syn.060b
-  - "To what extent is it true that company data on phones can be managed and removed?"   # syn.060c
+  - "Company data on phones can be managed and removed."   # syn.085a
+  - "Can you wipe company data off a lost phone?"   # syn.085b
+  - "To what extent is it true that company data on phones can be managed and removed?"   # syn.085c

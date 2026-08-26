@@ -1,0 +1,124 @@
+id: local-admin-rights
+title: Local administrator rights
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Can people install and run whatever they like on their own laptop, or do
+  they have to ask.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Removing local admin rights is treated as an unpopular restriction and it
+  is the single highest-value endpoint control there is: most malware that
+  lands on a laptop needs those rights to persist. The mistake is doing it
+  without an escape hatch. If the only way to install a legitimate tool is a
+  three-day ticket, people find a workaround and you have traded a technical
+  control for a social one. Temporary elevation on request, logged, is what
+  makes the removal stick.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  The removal itself is free and is a policy setting. The elevation tooling
+  that makes it bearable is a per-seat licence, and it is worth it above
+  roughly twenty machines because below that the requests can go through a
+  person. Where companies waste money is buying the tooling first and never
+  actually removing the rights, which is the common outcome and produces a
+  licence bill and no control.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Standing local administrator rights are not granted by
+  default. Where they are required they are justified, recorded and
+  reviewed, and temporary elevation is logged.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Can the average person here install software on their laptop?"
+  options:
+    - id: yes
+      label: "Yes, everybody can"
+      verdict: do-it-properly
+      why: >
+        This is the highest-value endpoint change available to you, and it costs
+        nothing to make. Pair it with a fast route to get elevation when it is
+        genuinely needed, or people will route around it.
+    - id: some
+      label: "Some people have it"
+      verdict: cheap-checkbox
+      why: >
+        Then write down who, why, and when it gets reviewed. A short justified
+        list is a good answer; an undocumented one is not.
+    - id: no
+      label: "No, and there is a request route"
+      verdict: already-solved
+      why: >
+        That is the strong answer. Say whether elevation requests are logged,
+        because that is what gets asked next.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 3
+  why_not_4: >
+    Rung 4 wants every elevated session recorded and reviewed. Recording is a
+    licence tier and reviewing it is somebody's time. Rights removed by
+    default, with justified exceptions and logged elevation, is where the risk
+    actually drops.
+  rungs:
+    - level: 1
+      gist: "Everyone is a local administrator."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Removed for most, undocumented exceptions."
+      verdict: cheap-checkbox
+    - level: 3
+      gist: "Removed by default, exceptions justified, elevation logged."
+      verdict: already-solved
+    - level: 4
+      gist: "Elevated sessions recorded and reviewed."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "remove the rights, handle requests manually": "€"
+  "temporary elevation tooling per seat": "€€"
+  "elevation with session recording and review": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Most people are not administrators."
+  better: "The policy plus a report of who holds local admin rights."
+  strong: "The report, the justification and review date for each exception, and logs of temporary elevation."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-05, nist-csf-pr.ps-01, iso27002-8.2]
+incidents: []
+patterns: []
+already_have: [device-compliance, admin-role-separation]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "People cannot install what they like on a work laptop without asking."   # syn.039a
+  - "Can the average person here install software on their laptop?"   # syn.039b
+  - "To what extent is it true that people cannot install what they like on a work laptop without asking?"   # syn.039c

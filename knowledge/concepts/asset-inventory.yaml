@@ -120,6 +120,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "A list of computers, software and services in use is kept up to date."   # syn.020a
-  - "Do you know what computers and software you own?"   # syn.020b
-  - "To what extent is it true that a list of computers, software and services in use is kept up to date?"   # syn.020c
+  - "A list of computers, software and services in use is kept up to date."   # syn.045a
+  - "Do you know what computers and software you own?"   # syn.045b
+  - "To what extent is it true that a list of computers, software and services in use is kept up to date?"   # syn.045c

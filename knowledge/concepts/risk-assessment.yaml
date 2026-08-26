@@ -119,6 +119,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/risk-assessment.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The organisation has thought through what could go wrong and written it down."   # syn.023a
-  - "Have you written down what could go wrong?"   # syn.023b
-  - "To what extent is it true that the organisation has thought through what could go wrong and written it down?"   # syn.023c
+  - "The organisation has thought through what could go wrong and written it down."   # syn.048a
+  - "Have you written down what could go wrong?"   # syn.048b
+  - "To what extent is it true that the organisation has thought through what could go wrong and written it down?"   # syn.048c

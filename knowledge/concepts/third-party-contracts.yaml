@@ -115,6 +115,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Supplier contracts say what is expected of them on security."   # syn.079a
-  - "Do your supplier contracts mention security at all?"   # syn.079b
-  - "To what extent is it true that supplier contracts say what is expected of them on security?"   # syn.079c
+  - "Supplier contracts say what is expected of them on security."   # syn.104a
+  - "Do your supplier contracts mention security at all?"   # syn.104b
+  - "To what extent is it true that supplier contracts say what is expected of them on security?"   # syn.104c

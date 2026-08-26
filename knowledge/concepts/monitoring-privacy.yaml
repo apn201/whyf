@@ -1,0 +1,120 @@
+id: monitoring-privacy
+title: Monitoring staff lawfully
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  You monitor company systems for security. Are you allowed to, and have you
+  told anybody.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Almost every answer to the logging and monitoring questions on a
+  questionnaire describes capability and ignores legality. In Europe
+  monitoring employees is employment law and data protection law before it
+  is a security control: it needs a lawful basis, it has to be proportionate
+  to an actual purpose, people have to be told, and in several countries the
+  works council has to be consulted before you switch it on. Doing it
+  quietly is not a grey area, it is the thing that produces a fine and an
+  unenforceable dismissal.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  This costs a page and a conversation, and skipping it can invalidate the
+  monitoring you already paid for. The trap in the other direction is
+  over-collecting because a tool offers it: keystroke logging, screen
+  capture and browsing histories are rarely proportionate for a normal
+  company and each one raises the bar you have to justify. Collect what
+  security genuinely needs, say so, and leave the rest switched off.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Monitoring is limited to what is necessary for security and
+  operational integrity, staff are informed, and access to any user content
+  is authorised and proportionate. The lawful basis and consultation
+  position are described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Have your staff been told what is monitored?"
+  options:
+    - id: yes
+      label: "Yes, in writing"
+      verdict: already-solved
+      why: >
+        Then say so and name where. That single fact turns your monitoring answers
+        from a capability claim into a defensible one.
+    - id: no
+      label: "Not really"
+      verdict: do-it-properly
+      why: >
+        Write it down and tell people. In parts of Europe you may also need to
+        consult the works council before monitoring continues, and that is a legal
+        question rather than a security one.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants documented proportionality assessments per monitoring
+    capability with legal review. Proportionate for a large employer. A
+    written notice, a stated purpose and authorised access to content is the
+    level that makes the monitoring lawful and usable.
+  rungs:
+    - level: 1
+      gist: "Monitoring happens, nobody has been told."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Staff informed, purpose and limits written down."
+      verdict: already-solved
+    - level: 3
+      gist: "Lawful basis documented, content access authorised."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Assessed per capability with legal and council review."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a page in the handbook": "€"
+  "legal review of the basis": "€€"
+  "works council consultation": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 1
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We log things."
+  better: "A written notice to staff describing what is monitored and why."
+  strong: "The notice, the lawful basis, who may access user content and under what authorisation, and any consultation record."
+
+answer_risk: none
+
+frameworks: [gdpr-art32, iso27002-5.34, iso27002-8.15]
+incidents: []
+patterns: []
+already_have: [audit-logging]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Staff have been told what is monitored, and the basis for it is written down."   # syn.038a
+  - "Have your staff been told what is monitored?"   # syn.038b
+  - "To what extent is it true that staff have been told what is monitored, and the basis for it is written down?"   # syn.038c

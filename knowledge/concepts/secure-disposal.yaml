@@ -1,0 +1,93 @@
+id: secure-disposal
+title: Secure disposal of data and kit
+status: done
+class: control
+csf: PR
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  When a laptop is reassigned or a disk is thrown away, is the data gone.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Physical destruction gets all the attention and matters least for most
+  companies. If the disk is encrypted and you destroy the key, the data is
+  gone without a shredder, and that is what a wipe on a modern device does.
+  The real gaps are elsewhere: the machine that went to a member of staff's
+  family, the phone traded in, the server returned to the leasing company,
+  and cloud storage that was never deleted because nobody owned it.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Certified destruction with certificates per drive is priced for
+  organisations disposing of hundreds. For a company retiring five laptops a
+  year, a documented wipe procedure and a note of what happened to each
+  device is a complete and defensible answer. Spend the effort on the
+  leaving process instead, because equipment that is never returned cannot
+  be wiped at all.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Devices are wiped or cryptographically erased before
+  reassignment or disposal, and a record is kept. The procedure is described
+  below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Where is the last laptop that left the company?"
+  options:
+    - id: known
+      label: "I know, and it was wiped"
+      verdict: already-solved
+      why: >
+        Then write the procedure down and keep the record per device. That record
+        is the evidence, and it is a line in a spreadsheet.
+    - id: unknown
+      label: "Not sure"
+      verdict: write-it-down
+      why: >
+        Start the record now. The procedure is the easy part; knowing which
+        devices exist and where they went is the part that fails.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "a wipe procedure and a spreadsheet": "€"
+  "certified destruction with certificates": "€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We wipe machines before reuse."
+  better: "A written disposal procedure covering wipe and disposal routes."
+  strong: "The procedure plus a per-device record of what was done and when."
+
+answer_risk: none
+
+frameworks: [iso27002-7.14, nist-csf-pr.ds-01]
+incidents: []
+patterns: []
+already_have: [data-at-rest-encryption, device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Devices are wiped before reassignment or disposal and a record is kept."   # syn.028a
+  - "Where is the last laptop that left the company?"   # syn.028b

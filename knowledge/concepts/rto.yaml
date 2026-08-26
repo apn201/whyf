@@ -1,0 +1,135 @@
+id: rto
+title: Recovery Time Objective
+status: done
+class: control
+csf: RC
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  How long you can be down before it really hurts. The sister question to
+  how much work you can afford to lose, and the one that gets forgotten.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  People answer this with how long a restore takes, which is backwards. The
+  recovery time objective is a business decision about tolerable downtime,
+  made before anyone looks at the technology. Then you find out what your
+  actual recovery time is, and the gap between the two is the thing worth
+  money. Most companies have never measured the second number, which is why
+  the honest answer to this question is usually a shrug dressed up as four
+  hours.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Every hour you shave off recovery costs more than the last one, and the
+  curve gets vertical near the end. Going from a day to four hours is
+  usually process and practice. Going from four hours to fifteen minutes is
+  standby infrastructure you pay for continuously and use once. Decide the
+  number from what downtime actually costs you, which is the business impact
+  question, and be suspicious of any target somebody picked because it
+  sounded professional.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Recovery time objectives are defined for the systems
+  supporting this contract, and our tested recovery time against them is
+  stated below.
+
+default_verdict: need-one-fact
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If your main system died this morning, when would it start costing real money?"
+  options:
+    - id: day
+      label: "End of the day"
+      verdict: write-it-down
+      why: >
+        Then your target is a day, a normal backup and restore meets it, and this
+        is a documentation job. Write the number down and time one restore so the
+        claim has evidence behind it.
+    - id: hours
+      label: "Within a few hours"
+      verdict: cheap-checkbox
+      why: >
+        Answer with the target honestly and check what your actual recovery time
+        is. The gap between them is the only thing here worth spending on, and you
+        cannot see it without measuring.
+    - id: minutes
+      label: "Almost immediately"
+      verdict: do-it-properly
+      why: >
+        Then you need standby capacity and a tested failover, and that is a real
+        cost. It is also the right cost, because at that tolerance an outage is
+        more expensive than the infrastructure.
+    - id: unknown
+      label: "I have never worked it out"
+      verdict: need-one-fact
+      why: >
+        Start with what an hour of downtime costs. Everything else here follows
+        from that one number and it takes an afternoon.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 is automated failover tested regularly, which means paying for a
+    second environment permanently. That is right for a service somebody
+    depends on by the minute and wasteful for one measured in days. A stated
+    target with a measured actual recovery time is the level that survives
+    scrutiny.
+  rungs:
+    - level: 1
+      gist: "No target, no idea how long recovery takes."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Target stated, one restore timed against it."
+      verdict: already-solved
+    - level: 3
+      gist: "Targets per system, tested on a schedule."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Automated failover, regularly exercised."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "decide the number and time a restore": "€"
+  "shorten recovery through process and practice": "€€"
+  "warm standby infrastructure": "€€€€"
+  "automated failover": "€€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would get back up quickly."
+  better: "A stated recovery time objective per critical system."
+  strong: "The objectives, plus a dated test showing what recovery actually took against them."
+
+answer_risk: none
+
+frameworks: [nist-csf-rc.rp-02, nist-csf-id.ra-04, iso27002-5.30, nis2-art21]
+incidents: []
+patterns: [outcome-as-process]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "How long the business can be down before it hurts is decided per system."   # syn.036a
+  - "If your main system died this morning, when would it cost real money?"   # syn.036b
+  - "To what extent is it true that how long the business can be down before it hurts is decided per system?"   # syn.036c

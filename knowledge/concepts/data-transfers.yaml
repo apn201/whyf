@@ -1,0 +1,127 @@
+id: data-transfers
+title: International data transfers
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Does customer data leave Europe, and if it does, what makes that legal.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  People answer this about their own servers and forget everything else.
+  Your support tool, your error tracking, your analytics and your AI
+  features may all move data outside the EEA without anyone deciding to. The
+  legal part has two halves and most answers only cover one: the mechanism,
+  usually Standard Contractual Clauses or an adequacy decision, and the
+  assessment of whether the destination country's authorities could compel
+  access anyway. That second half is the one that has been litigated and the
+  one buyers in regulated sectors actually read.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  You are not going to build your own transfer impact assessment from first
+  principles, and you do not have to. The large providers publish theirs,
+  the clauses are standard text you adopt rather than negotiate, and for
+  most suppliers the honest answer is a short list of where data goes and
+  which mechanism covers each. Where it gets genuinely expensive is
+  promising to keep data in one region, so do not promise that unless you
+  have checked every tool in the path.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [processes_personal_data, operates_in_eu]
+applies_never_if: [no_personal_data]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable and limited. Customer data is processed within the EEA. Where a
+  subprocessor operates outside it, the transfer mechanism and the countries
+  involved are listed below.
+
+default_verdict: need-one-fact
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Do you know every country your customer data touches?"
+  options:
+    - id: eea
+      label: "It all stays in the EEA"
+      verdict: already-solved
+      why: >
+        Then say so and name the regions. Check your support desk and error
+        tracking before you commit to it, because those are where the surprise
+        usually is.
+    - id: some
+      label: "Some of it goes to the US or elsewhere"
+      verdict: write-it-down
+      why: >
+        List which tools, which countries, and which mechanism covers each. That
+        list is the whole answer and it takes an afternoon.
+    - id: unknown
+      label: "Not really"
+      verdict: do-it-properly
+      why: >
+        Then that is the work, and it is the same list as the subprocessor one
+        with a country column added. You cannot answer any of this section without
+        it.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 is a documented transfer impact assessment per destination with
+    legal review. That is real work and it is proportionate for a large
+    processor. Knowing where the data goes and which mechanism applies is the
+    step that closes most of the exposure.
+  rungs:
+    - level: 1
+      gist: "Nobody knows where the data goes."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Destinations and mechanisms listed."
+      verdict: already-solved
+    - level: 3
+      gist: "Transfer assessments documented per destination."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Assessed, legally reviewed and reviewed on change."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "list the destinations and mechanisms": "€"
+  "adopt standard contractual clauses": "€"
+  "transfer impact assessment with legal review": "€€€"
+  "guaranteeing regional data residency": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 0
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "Our data is in Europe."
+  better: "A list of processing locations with the transfer mechanism for each."
+  strong: "The list, the executed clauses, and an assessment of government access risk for each destination."
+
+answer_risk: warranty
+
+frameworks: [gdpr-art30, gdpr-art32, iso27002-5.34]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Where customer data leaves Europe, the transfer mechanism is documented."   # syn.024a
+  - "Does customer data ever leave Europe?"   # syn.024b
+  - "To what extent is it true that where customer data leaves Europe, the transfer mechanism is documented?"   # syn.024c

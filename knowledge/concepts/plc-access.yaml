@@ -98,5 +98,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/plc-access.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Controllers and the code that runs on them are protected from casual access."   # syn.033a
-  - "Can anyone on the factory floor reach the controllers?"   # syn.033b
+  - "Controllers and the code that runs on them are protected from casual access."   # syn.058a
+  - "Can anyone on the factory floor reach the controllers?"   # syn.058b

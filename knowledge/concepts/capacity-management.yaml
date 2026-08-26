@@ -113,6 +113,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "There is enough headroom that normal growth does not cause an outage."   # syn.055a
-  - "Do you track whether systems are running out of room?"   # syn.055b
-  - "To what extent is it true that there is enough headroom that normal growth does not cause an outage?"   # syn.055c
+  - "There is enough headroom that normal growth does not cause an outage."   # syn.080a
+  - "Do you track whether systems are running out of room?"   # syn.080b
+  - "To what extent is it true that there is enough headroom that normal growth does not cause an outage?"   # syn.080c

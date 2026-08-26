@@ -1,0 +1,115 @@
+id: risk-acceptance
+title: Exceptions and risk acceptance
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  When you cannot meet a control, is there a way to say so on purpose and
+  have someone accept the risk in writing.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  The absence of this is why questionnaires get lied on. Without an
+  exception process the only options are pretend you have the control or
+  admit a gap with nothing attached to it, so people pretend. With one, a
+  gap becomes a documented decision with an owner, a reason and a review
+  date, which is a far better answer and a true one. The other half people
+  get wrong is who accepts: it has to be someone who carries the
+  consequence, which is management, not the person who found the gap.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  There is nothing to buy and it takes one page. The only real argument is
+  against letting it become a queue of permanent exceptions that nobody
+  revisits, which is what happens when there is no expiry date. Put a date
+  on every one. An exception without an expiry is just a gap with better
+  paperwork.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Controls that cannot be met are recorded as time-limited
+  exceptions with a named owner, a stated reason, compensating measures and
+  a review date.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "What happens when you cannot do something the policy requires?"
+  options:
+    - id: documented
+      label: "It gets written down and accepted"
+      verdict: already-solved
+      why: >
+        Then say so and mention the review dates. This is one of the strongest
+        governance answers available and it costs nothing.
+    - id: ignored
+      label: "It just does not happen"
+      verdict: write-it-down
+      why: >
+        One page turns that into a decision. It also makes the rest of this
+        questionnaire answerable honestly rather than optimistically.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants exceptions tracked in a register, tied to the risk
+    assessment, reviewed at management level on a cycle. The register is worth
+    having. The tooling around it is not, for a company with fewer than a
+    dozen live exceptions.
+  rungs:
+    - level: 1
+      gist: "No process, gaps are silent."
+      verdict: write-it-down
+    - level: 2
+      gist: "Exceptions written down with owner and expiry."
+      verdict: already-solved
+    - level: 3
+      gist: "Register maintained and reviewed."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Tied to risk assessment with management sign-off."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "one page and a spreadsheet": "€"
+  "reviewed register with expiry tracking": "€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We know where our gaps are."
+  better: "A written exception process and a current list of exceptions."
+  strong: "The process, the register with owners and expiry dates, and evidence that expired ones were revisited."
+
+answer_risk: none
+
+frameworks: [nist-csf-gv.rm-04, nist-csf-id.ra-06, iso27002-5.36]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Controls that cannot be met are recorded as time-limited exceptions."   # syn.029a
+  - "What happens when you cannot do what the policy requires?"   # syn.029b
+  - "To what extent is it true that controls that cannot be met are recorded as time-limited exceptions?"   # syn.029c

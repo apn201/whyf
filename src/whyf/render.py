@@ -83,6 +83,13 @@ def from_card(question, card, library, classification=None, telemetry=None):
             out.notes.append(
                 "The wording of this row is mangled enough that its meaning is "
                 "uncertain. Check what was actually meant before answering.")
+        if getattr(classification, "policy_question", False):
+            out.notes.insert(0,
+                "This asks what your policy SAYS, not what you do. That is the "
+                "cheapest kind of question on the form: a paragraph in a "
+                "document closes it, and the same document usually closes the "
+                "twenty rows around it. The control below is what the "
+                "paragraph should describe.")
         if classification.form == "maturity_ladder" and out.maturity_ladder:
             enough = out.maturity_ladder.get("enough_rung")
             if enough:

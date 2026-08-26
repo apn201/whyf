@@ -1,0 +1,117 @@
+id: shadow-it
+title: Cloud and SaaS in use
+status: done
+class: control
+csf: ID
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you know which cloud services and SaaS tools your people actually use,
+  and is there a way to get a new one approved.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  The reason this matters is not that people use tools. It is that somebody
+  signs up with a company card, uploads customer data, and that tool is now
+  a subprocessor nobody has assessed, in a country nobody has checked, with
+  an account that survives their departure. Blocking is the instinct and it
+  fails: the tool moves to a personal account and you lose all visibility
+  instead of some. An approval route that takes a day is the control,
+  because people route around a process that takes a month.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  A cloud access security broker is a serious purchase aimed at large
+  estates. You can get most of the way with two free things: look at what
+  the company card has been paying for, and ask finance to flag new software
+  subscriptions. That finds the tools. Then a one-page approval route so the
+  next one arrives through the front door.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_cloud, has_employees]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Cloud and SaaS services used for company data are recorded,
+  and new services are subject to an approval route. The register and the
+  process are described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If somebody wanted a new SaaS tool tomorrow, who would they ask?"
+  options:
+    - id: someone
+      label: "There is a route"
+      verdict: already-solved
+      why: >
+        Then write it down and keep the register current. Point at it for the
+        subprocessor question too; it is the same list.
+    - id: nobody
+      label: "They would just sign up"
+      verdict: write-it-down
+      why: >
+        Two things: go through the card statements to find what is already in use,
+        and put a one-page approval route in place so the next one is visible.
+        Both cheap, both today.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants discovery tooling enforcing policy across every service. That
+    is a broker product and a project. A register built from the card
+    statement, plus an approval route people will actually use, gets the
+    visibility that matters.
+  rungs:
+    - level: 1
+      gist: "No idea what is in use."
+      verdict: write-it-down
+    - level: 2
+      gist: "A register, and a route for approving new services."
+      verdict: already-solved
+    - level: 3
+      gist: "Services assessed before approval, register reviewed."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Automated discovery and policy enforcement."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "card statements and a one-page route": "€"
+  "assessment before approval": "€€"
+  "cloud access security broker": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "People use the tools we provide."
+  better: "A register of cloud and SaaS services in use."
+  strong: "The register, the approval route, and evidence a recent request went through it."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.am-04, nist-csf-gv.sc-04, iso27002-5.23]
+incidents: []
+patterns: []
+already_have: [external-sharing-controls]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The cloud services people actually use are known and new ones get approved."   # syn.035a
+  - "If somebody wanted a new SaaS tool tomorrow, who would they ask?"   # syn.035b
+  - "To what extent is it true that the cloud services people actually use are known and new ones get approved?"   # syn.035c

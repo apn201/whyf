@@ -1,0 +1,44 @@
+id: isms
+title: Information security management system
+status: done
+class: attestation
+csf: GV
+priority: 1
+
+# Not a security control, so it never gets one of the six verdicts.
+
+plain_english: >
+  Do you have an information security management system. Not a policy, not a
+  tool. The management loop around security: decide, do, check, fix, repeat.
+
+# What the tool says back.
+response: >
+  An ISMS is the machinery, not the documents. Policy, risk assessment, a
+  treatment plan, objectives, internal review, and management actually
+  looking at the results. If you have those and they happen on a schedule,
+  you have an ISMS whether or not anyone has used the word. If you have a
+  folder of policies and nothing reviews them, you do not, and saying you do
+  is the kind of claim that unravels in an audit. You do not need
+  certification to have one, and that distinction is worth making explicitly
+  in your answer: aligned with ISO 27001 is a true statement, certified is a
+  different and checkable one.
+
+answer_risk: certification
+
+# Who to actually talk to, if anyone.
+refer_to: >
+  Nobody external, unless you are pursuing certification. If you are, an
+  auditor will tell you in an hour whether what you have counts, which is
+  cheaper than guessing for six months.
+
+frameworks: []
+patterns: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "The security policy, risk work and management review happen on a cycle."   # syn.017a
+  - "Does anything review your security on a schedule?"   # syn.017b
+  - "To what extent is it true that the security policy, risk work and management review happen on a cycle?"   # syn.017c

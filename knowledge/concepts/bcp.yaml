@@ -115,6 +115,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "A plan exists for carrying on when systems are unavailable."   # syn.048a
-  - "What is the plan if your systems are down for a week?"   # syn.048b
-  - "To what extent is it true that a plan exists for carrying on when systems are unavailable?"   # syn.048c
+  - "A plan exists for carrying on when systems are unavailable."   # syn.073a
+  - "What is the plan if your systems are down for a week?"   # syn.073b
+  - "To what extent is it true that a plan exists for carrying on when systems are unavailable?"   # syn.073c

@@ -48,6 +48,13 @@ treated as controls:
   admin       - company details. Headcount, contact email, number of sites.
   attestation - a claim about holding a certificate or an insurance policy.
 
+policy_question. Whole sections of a real questionnaire are one policy asked
+forty different ways: does the policy cover this, does it prohibit that, does it
+require the other. Set this true when the row asks what a DOCUMENT SAYS rather
+than what the organisation DOES. Still pick the concept the policy clause is
+about, because the underlying control is what the reader needs to understand;
+the difference is that the work is writing a paragraph, not building anything.
+
 form. binary_statement is a sentence you are asked to agree with. Statement
 form matters: agreeing to it is a contractual act, which is why the tool never
 answers on the user's behalf.

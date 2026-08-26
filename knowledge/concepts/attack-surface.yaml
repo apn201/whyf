@@ -1,0 +1,116 @@
+id: attack-surface
+title: What is exposed to the internet
+status: done
+class: control
+csf: ID
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you know what of yours is reachable from the internet.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This is not the same as the asset inventory and it is not the same as
+  vulnerability scanning. It is the list of things an outsider can see and
+  reach without any credentials: your website, the VPN, a mail server, a
+  forgotten test environment somebody spun up in 2022, the admin interface
+  of an appliance that was never meant to be public. Attackers enumerate
+  this automatically and continuously. The question is only whether you have
+  seen the same list they have.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Attack surface management is now a product category with a price to match.
+  You do not need one to start. Your own domain list, a free external port
+  scan and a look at what your hosting account actually has running will
+  find the forgotten test environment, which is the thing that gets
+  exploited. Buy the product when the estate is too big to eyeball, not
+  before.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_website, has_network]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Internet-facing systems and services are inventoried and
+  reviewed. The scope and review frequency are stated below.
+
+default_verdict: do-it-properly
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Could you list everything of yours that answers on the public internet?"
+  options:
+    - id: yes
+      label: "Yes, it is a short list"
+      verdict: already-solved
+      why: >
+        Then say so and say when you last checked it against reality. Checking is
+        the part that matters, because the list drifts.
+    - id: no
+      label: "Not confidently"
+      verdict: do-it-properly
+      why: >
+        Scan your own ranges and look at what the hosting account is running.
+        Almost everyone finds something they had forgotten, and forgotten is
+        exactly what gets exploited.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 is continuous external discovery with alerting on change, which is
+    a subscription. A list, checked a few times a year against an actual scan,
+    catches the forgotten test box that continuous monitoring would also
+    catch, just later.
+  rungs:
+    - level: 1
+      gist: "Nobody knows what is exposed."
+      verdict: do-it-properly
+    - level: 2
+      gist: "A list, checked periodically against a scan."
+      verdict: already-solved
+    - level: 3
+      gist: "Reviewed on change with an owner per service."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Continuous discovery with change alerting."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "free external scan and a list": "€"
+  "regular scanning with an owner per service": "€€"
+  "attack surface management platform": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 3
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We know what we host."
+  better: "A list of internet-facing systems with an owner for each."
+  strong: "The list, a recent external scan confirming it, and the date it was last reconciled."
+
+answer_risk: none
+
+frameworks: [nist-csf-id.am-01, nist-csf-de.cm-09, iso27002-8.20]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "What of yours answers on the public internet is listed and checked."   # syn.033a
+  - "Could you list everything of yours reachable from the internet?"   # syn.033b
+  - "To what extent is it true that what of yours answers on the public internet is listed and checked?"   # syn.033c

@@ -107,6 +107,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/offline-backups.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "At least one backup copy cannot be reached from the systems it protects."   # syn.045a
-  - "Could ransomware reach your backups too?"   # syn.045b
-  - "To what extent is it true that at least one backup copy cannot be reached from the systems it protects?"   # syn.045c
+  - "At least one backup copy cannot be reached from the systems it protects."   # syn.070a
+  - "Could ransomware reach your backups too?"   # syn.070b
+  - "To what extent is it true that at least one backup copy cannot be reached from the systems it protects?"   # syn.070c

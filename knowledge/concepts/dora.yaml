@@ -1,0 +1,45 @@
+id: dora
+title: DORA and financial-sector customers
+status: done
+class: attestation
+csf: GV
+priority: 1
+
+# Not a security control, so it never gets one of the six verdicts.
+
+plain_english: >
+  Do you supply financial-sector customers in the EU. If you do, their
+  regulator now reaches you through their contract with you.
+
+# What the tool says back.
+response: >
+  DORA does not regulate you directly unless you are designated critical,
+  but it obliges your financial customers to put specific things in their
+  contracts with you, so it arrives as contract terms rather than as a law
+  you read. The recurring four: audit and access rights for the customer and
+  their regulator, incident notification to the customer on their timetable,
+  a documented exit plan so they can leave without the service collapsing,
+  and visibility of your own critical subcontractors, because their supply
+  chain now includes yours. If you have no financial customers, say so and
+  skip it. If you have one, expect these terms and decide in advance which
+  you can actually live with; agreeing to unlimited on-site audit rights and
+  then refusing the first request is worse than negotiating now.
+
+answer_risk: warranty
+
+# Who to actually talk to, if anyone.
+refer_to: >
+  Your lawyer, and whoever owns the financial-sector customer relationship.
+  These are contract negotiations, not security controls, and the security
+  answer is the easy half.
+
+frameworks: []
+patterns: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Contracts with financial customers carry audit, notification and exit terms."   # syn.021a
+  - "Do you supply anyone in EU financial services?"   # syn.021b

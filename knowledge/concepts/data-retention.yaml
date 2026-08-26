@@ -1,0 +1,118 @@
+id: data-retention
+title: Retention and deletion
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Do you have rules about how long you keep things, and do you actually
+  delete when the time is up.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  The instinct is to keep everything forever because storage is cheap, and
+  that instinct is the risk. Data you no longer hold cannot leak, cannot be
+  demanded in a dispute, and cannot appear in a breach notification. The
+  other half people miss is that deletion has to reach the copies: the
+  export somebody made, the support ticket with the attachment, the backup
+  that will restore it all next month. And retention is not one number.
+  Invoices have a legal minimum, personal data has a legal maximum, and
+  those pull in opposite directions.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Do not build a records management programme. Pick the handful of data
+  types that matter, put a number against each, and turn on the retention
+  settings your platforms already have. Where it gets expensive is
+  retrofitting deletion into an old product that was built assuming nothing
+  ever goes away, and that is worth knowing before you promise a customer a
+  deletion timeframe.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [any_business_data]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Retention periods are defined by data type and deletion is
+  applied at expiry. Periods and the systems they cover are described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "What happens to a customer's data a year after they leave?"
+  options:
+    - id: deleted
+      label: "It gets deleted on a schedule"
+      verdict: already-solved
+      why: >
+        Then state the periods and say what covers backups. That last part is what
+        gets asked next.
+    - id: kept
+      label: "It is still there"
+      verdict: write-it-down
+      why: >
+        Decide the numbers and turn on the retention settings you already pay for.
+        Data you do not hold cannot be breached, and this is the rare control that
+        reduces both risk and cost.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants retention applied and evidenced across every system including
+    backups and archives, reviewed on change. Backups are the expensive part
+    and the accepted position is that they age out rather than being unpicked.
+    Defined periods actually applied to live systems is the useful level.
+  rungs:
+    - level: 1
+      gist: "Everything kept forever."
+      verdict: write-it-down
+    - level: 2
+      gist: "Periods defined and applied to live systems."
+      verdict: already-solved
+    - level: 3
+      gist: "Applied across systems, backups age out on schedule."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Evidenced everywhere and reviewed on change."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "decide the periods, turn on platform retention": "€"
+  "apply it across systems": "€€"
+  "retrofit deletion into an old product": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We delete things eventually."
+  better: "A retention schedule by data type with the periods."
+  strong: "The schedule, the platform settings enforcing it, and how backups and exports are covered."
+
+answer_risk: none
+
+frameworks: [gdpr-art30, iso27002-5.33, nist-csf-pr.ds-01]
+incidents: []
+patterns: [documentation-only]
+already_have: [retention-policy]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "How long each kind of data is kept is decided, and deletion happens at expiry."   # syn.027a
+  - "What happens to a customers data a year after they leave?"   # syn.027b
+  - "To what extent is it true that how long each kind of data is kept is decided, and deletion happens at expiry?"   # syn.027c

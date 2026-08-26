@@ -117,6 +117,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/security-monitoring.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Somebody actually looks at security alerts."   # syn.068a
-  - "Who looks at the security alerts?"   # syn.068b
-  - "To what extent is it true that somebody actually looks at security alerts?"   # syn.068c
+  - "Somebody actually looks at security alerts."   # syn.093a
+  - "Who looks at the security alerts?"   # syn.093b
+  - "To what extent is it true that somebody actually looks at security alerts?"   # syn.093c

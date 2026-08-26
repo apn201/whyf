@@ -90,5 +90,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/secure-procurement.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Security is looked at before equipment is bought, not after."   # syn.022a
-  - "Do you check security before buying equipment?"   # syn.022b
+  - "Security is looked at before equipment is bought, not after."   # syn.047a
+  - "Do you check security before buying equipment?"   # syn.047b

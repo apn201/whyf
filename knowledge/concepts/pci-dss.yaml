@@ -1,0 +1,47 @@
+id: pci-dss
+title: PCI DSS scope
+status: done
+class: attestation
+csf: GV
+priority: 1
+
+# Not a security control, so it never gets one of the six verdicts.
+
+plain_english: >
+  Does the card payment standard apply to you. It applies if you store,
+  process or transmit cardholder data, and to anything that can affect the
+  security of the systems that do.
+
+# What the tool says back.
+response: >
+  Most companies who think they are in scope are not, and the ones who are
+  usually could be less so. If payments go through a hosted page or a
+  redirect at your payment provider, and card numbers never touch your
+  systems, your obligation is usually the shortest self-assessment
+  questionnaire rather than an audit. The way to reduce this is not better
+  controls, it is removing card data from your environment entirely, and
+  that is a change to how checkout works rather than a security project. If
+  you are genuinely in scope, the buyer will want your Attestation of
+  Compliance and, for anything shared, a responsibility matrix saying which
+  requirements are yours and which are theirs. Your own payment provider and
+  anyone touching that flow can affect your compliance, so they belong in
+  your supplier list.
+
+answer_risk: certification
+
+# Who to actually talk to, if anyone.
+refer_to: >
+  Your payment provider first. They know your merchant level and which
+  self-assessment applies, and they will usually tell you free. A QSA only
+  if the provider says you need one.
+
+frameworks: []
+patterns: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Card data either does not touch your systems or the scope is documented."   # syn.019a
+  - "Do card numbers ever touch your systems?"   # syn.019b

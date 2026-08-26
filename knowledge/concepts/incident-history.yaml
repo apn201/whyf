@@ -42,5 +42,5 @@ question_forms: [disclosure]
 # publish, so it lives in private/context/incident-history.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Has the organisation suffered a security breach in the last five years? If so, describe it."   # syn.085a
-  - "Has any customer claimed their data was exposed by you?"   # syn.086a
+  - "Has the organisation suffered a security breach in the last five years? If so, describe it."   # syn.110a
+  - "Has any customer claimed their data was exposed by you?"   # syn.111a

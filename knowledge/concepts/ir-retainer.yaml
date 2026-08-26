@@ -118,6 +118,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/ir-retainer.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The people who would be called in an emergency are lined up in advance."   # syn.073a
-  - "Who would you call at 2am?"   # syn.073b
-  - "To what extent is it true that the people who would be called in an emergency are lined up in advance?"   # syn.073c
+  - "The people who would be called in an emergency are lined up in advance."   # syn.098a
+  - "Who would you call at 2am?"   # syn.098b
+  - "To what extent is it true that the people who would be called in an emergency are lined up in advance?"   # syn.098c

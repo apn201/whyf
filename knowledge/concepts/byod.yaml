@@ -1,0 +1,125 @@
+id: byod
+title: Personal devices for work
+status: done
+class: control
+csf: PR
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  Are people allowed to use their own phones and laptops for work, and what
+  are they allowed to reach.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  The question people argue about is whether to allow it. The question that
+  matters is what a personal device is allowed to reach, and those are
+  different decisions. Email on a personal phone with the data contained is
+  a very different exposure from a personal laptop with a copy of the
+  customer database on it. The second trap is legal: you cannot wipe
+  somebody's own phone, and in several countries attempting to would be a
+  serious problem, so any answer that promises remote wipe of personal
+  devices is promising something you should not do.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Banning personal devices outright is clean and expensive, because it means
+  issuing a phone to everybody who needs email. The middle ground is where
+  most companies should sit: personal devices get browser or contained app
+  access only, company devices get everything, and the boundary is enforced
+  at login rather than in a policy nobody reads.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees, has_mobile_devices]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Personally owned devices may access defined services only,
+  through controls that contain company data. Full device management is not
+  applied to devices we do not own, and the boundary is described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "Can somebody read work email on a phone the company did not buy?"
+  options:
+    - id: no
+      label: "No, company devices only"
+      verdict: already-solved
+      why: >
+        Cleanest answer available and it simplifies several other questions. Say
+        how it is enforced, because saying it is policy is weaker than saying it
+        is enforced at login.
+    - id: contained
+      label: "Yes, but the data is contained"
+      verdict: already-solved
+      why: >
+        That is the sensible middle and it is included in the licence you probably
+        already have. Say what can be wiped and what cannot.
+    - id: open
+      label: "Yes, no particular controls"
+      verdict: do-it-properly
+      why: >
+        Decide what a personal device may reach. Browser-only access to cloud apps
+        costs nothing and removes most of the exposure without a fight about
+        people's own property.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 wants management on every connecting device including personal
+    ones. On a device you do not own that is a licence cost, an argument, and
+    in some countries a legal problem. Containment plus a defined boundary is
+    the achievable target.
+  rungs:
+    - level: 1
+      gist: "Personal devices reach anything."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Defined boundary, company data contained."
+      verdict: already-solved
+    - level: 3
+      gist: "Enforced at login with device conditions."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Full management on personally owned devices."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "decide the boundary and write it down": "€"
+  "app containment in your existing licence": "€"
+  "issue company devices to everyone": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "People use their own phones sometimes."
+  better: "A written statement of what personal devices may access."
+  strong: "The statement, the technical control enforcing it, and what can be removed from a personal device."
+
+answer_risk: none
+
+frameworks: [nist-csf-pr.aa-05, iso27002-6.7, iso27002-8.1]
+incidents: []
+patterns: []
+already_have: [mobile-app-protection, device-compliance]
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "What a personally owned phone or laptop may reach is decided and enforced."   # syn.041a
+  - "Can somebody read work email on a phone the company did not buy?"   # syn.041b
+  - "To what extent is it true that what a personally owned phone or laptop may reach is decided and enforced?"   # syn.041c

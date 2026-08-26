@@ -121,6 +121,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Software is written with security in mind and test data is not real data."   # syn.061a
-  - "Do your developers work against real customer data?"   # syn.061b
-  - "To what extent is it true that software is written with security in mind and test data is not real data?"   # syn.061c
+  - "Software is written with security in mind and test data is not real data."   # syn.086a
+  - "Do your developers work against real customer data?"   # syn.086b
+  - "To what extent is it true that software is written with security in mind and test data is not real data?"   # syn.086c

@@ -111,6 +111,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/incident-response-testing.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The response plan is rehearsed with the people who would run it."   # syn.072a
-  - "Have you ever walked through an incident as a rehearsal?"   # syn.072b
-  - "To what extent is it true that the response plan is rehearsed with the people who would run it?"   # syn.072c
+  - "The response plan is rehearsed with the people who would run it."   # syn.097a
+  - "Have you ever walked through an incident as a rehearsal?"   # syn.097b
+  - "To what extent is it true that the response plan is rehearsed with the people who would run it?"   # syn.097c

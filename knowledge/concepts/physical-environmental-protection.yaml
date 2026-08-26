@@ -121,6 +121,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Equipment is protected from fire, water, heat and power loss."   # syn.063a
-  - "What happens to the server room if the power goes?"   # syn.063b
-  - "To what extent is it true that equipment is protected from fire, water, heat and power loss?"   # syn.063c
+  - "Equipment is protected from fire, water, heat and power loss."   # syn.088a
+  - "What happens to the server room if the power goes?"   # syn.088b
+  - "To what extent is it true that equipment is protected from fire, water, heat and power loss?"   # syn.088c

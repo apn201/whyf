@@ -127,6 +127,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The network is divided so a problem in one part does not reach the rest."   # syn.058a
-  - "Can a compromised laptop reach the factory network?"   # syn.058b
-  - "To what extent is it true that the network is divided so a problem in one part does not reach the rest?"   # syn.058c
+  - "The network is divided so a problem in one part does not reach the rest."   # syn.083a
+  - "Can a compromised laptop reach the factory network?"   # syn.083b
+  - "To what extent is it true that the network is divided so a problem in one part does not reach the rest?"   # syn.083c
