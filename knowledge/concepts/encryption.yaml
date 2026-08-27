@@ -107,6 +107,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["encryption in transit", "tls protocols", "cryptographic controls", "key management", "data encrypted at rest and in transit"]
+
 frameworks: [nist-csf-pr.ds-01, nist-csf-pr.ds-02, iso27002-8.24, nis2-art21]
 incidents: []
 patterns: [framework-inheritance]
@@ -122,6 +128,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Stored and transmitted data is encrypted and the keys are looked after."   # syn.063a
-  - "Is your data encrypted, and who holds the keys?"   # syn.063b
-  - "To what extent is it true that stored and transmitted data is encrypted and the keys are looked after?"   # syn.063c
+  - "Stored and transmitted data is encrypted and the keys are looked after."   # syn.066a
+  - "Is your data encrypted, and who holds the keys?"   # syn.066b
+  - "To what extent is it true that stored and transmitted data is encrypted and the keys are looked after?"   # syn.066c

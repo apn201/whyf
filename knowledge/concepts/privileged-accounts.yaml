@@ -100,8 +100,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["privileged access management", "administrative accounts", "elevated rights", "domain admin", "root access", "superuser accounts", "privileged session recording", "break glass emergency access"]
+
 frameworks: [nist-csf-pr.aa-05, iso27002-8.2, iso27002-8.18, nis2-art21]
-incidents: []
+incidents: [change-healthcare, kaseya-vsa, solarwinds]
 patterns: []
 already_have: [admin-role-separation, admin-mfa, audit-logging]
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -115,6 +121,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Administrator accounts are separate from ordinary accounts and reviewed."   # syn.056a
-  - "Do admins use a separate account for admin work?"   # syn.056b
-  - "To what extent is it true that administrator accounts are separate from ordinary accounts and reviewed?"   # syn.056c
+  - "Administrator accounts are separate from ordinary accounts and reviewed."   # syn.059a
+  - "Do admins use a separate account for admin work?"   # syn.059b
+  - "To what extent is it true that administrator accounts are separate from ordinary accounts and reviewed?"   # syn.059c

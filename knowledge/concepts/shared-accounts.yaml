@@ -89,6 +89,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["generic accounts", "service accounts", "functional accounts", "accounts used by more than one person", "unique user identification"]
+
 frameworks: [nist-csf-pr.aa-01, iso27002-5.16, iso27002-8.15]
 incidents: []
 patterns: []

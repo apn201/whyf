@@ -97,6 +97,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ir-01, nist-csf-de.cm-01]
 incidents: []
 patterns: [technology-prescription]
@@ -109,6 +115,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/dns-filtering.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Requests to known-bad web addresses are blocked before they connect."   # syn.066a
-  - "Are known-bad websites blocked?"   # syn.066b
-  - "To what extent is it true that requests to known-bad web addresses are blocked before they connect?"   # syn.066c
+  - "Requests to known-bad web addresses are blocked before they connect."   # syn.069a
+  - "Are known-bad websites blocked?"   # syn.069b
+  - "To what extent is it true that requests to known-bad web addresses are blocked before they connect?"   # syn.069c

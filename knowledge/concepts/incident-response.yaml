@@ -99,8 +99,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["incident response plan", "containment and eradication", "compromised supplier response", "escalation procedures", "post incident review lessons learned"]
+
 frameworks: [nist-csf-rs.ma-01, nist-csf-rs.ma-02, iso27002-5.26, nis2-art21]
-incidents: []
+incidents: [change-healthcare]
 patterns: [documentation-only]
 already_have: []
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -114,6 +120,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "There is a written process for handling a security incident."   # syn.101a
-  - "What do you do in the first hour after a breach?"   # syn.101b
-  - "To what extent is it true that there is a written process for handling a security incident?"   # syn.101c
+  - "There is a written process for handling a security incident."   # syn.104a
+  - "What do you do in the first hour after a breach?"   # syn.104b
+  - "To what extent is it true that there is a written process for handling a security incident?"   # syn.104c

@@ -106,6 +106,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-rs.ma-01, nist-csf-gv.sc-08]
 incidents: []
 patterns: []
@@ -118,6 +124,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/ir-retainer.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The people who would be called in an emergency are lined up in advance."   # syn.098a
-  - "Who would you call at 2am?"   # syn.098b
-  - "To what extent is it true that the people who would be called in an emergency are lined up in advance?"   # syn.098c
+  - "The people who would be called in an emergency are lined up in advance."   # syn.101a
+  - "Who would you call at 2am?"   # syn.101b
+  - "To what extent is it true that the people who would be called in an emergency are lined up in advance?"   # syn.101c

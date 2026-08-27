@@ -105,6 +105,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ps-06, nist-csf-id.ra-01, iso27002-8.29]
 incidents: []
 patterns: []
@@ -117,6 +123,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/application-security-testing.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Applications are tested for weaknesses before they are released."   # syn.087a
-  - "Is the software tested for security before it ships?"   # syn.087b
-  - "To what extent is it true that applications are tested for weaknesses before they are released?"   # syn.087c
+  - "Applications are tested for weaknesses before they are released."   # syn.090a
+  - "Is the software tested for security before it ships?"   # syn.090b
+  - "To what extent is it true that applications are tested for weaknesses before they are released?"   # syn.090c

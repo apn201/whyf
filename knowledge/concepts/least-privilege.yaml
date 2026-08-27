@@ -100,6 +100,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["need to know basis", "minimum necessary access", "role based access control", "access granted on business need", "excessive permissions", "access rights reviewed periodically", "user access recertification", "entitlement review"]
+
 frameworks: [nist-csf-pr.aa-05, iso27002-5.15, iso27002-5.18]
 incidents: []
 patterns: []

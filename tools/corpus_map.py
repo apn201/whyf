@@ -103,6 +103,10 @@ CATALOG = [
     ("evidence-preservation", "Preserving evidence in an incident", "RS", "control"),
     ("byod", "Personal devices for work", "PR", "control"),
 
+    ("vulnerability-disclosure", "Reporting a flaw to you", "DE", "control"),
+    ("supplier-monitoring", "Watching suppliers after onboarding", "GV", "control"),
+    ("disciplinary-process", "Consequences for breaking the rules", "GV", "control"),
+
     ("company-profile", "Company profile questions", "ID", "admin"),
     ("incident-history", "Past incident disclosure", "ID", "disclosure"),
     ("certification", "Security certification", "ID", "attestation"),

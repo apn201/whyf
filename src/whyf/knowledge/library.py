@@ -14,8 +14,9 @@ from dataclasses import dataclass, field
 from functools import lru_cache
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent.parent
-KNOWLEDGE = ROOT / "knowledge"
+from ..paths import find_knowledge
+
+KNOWLEDGE = find_knowledge(__file__)
 
 SHIPPABLE = {"draft", "done"}
 
@@ -63,7 +64,24 @@ class Library:
             return self.frameworks.get(ref_id)
         source = getattr(self, field_name, {})
         item = source.get(ref_id) or {}
+        if field_name == "incidents":
+            return self._describe_incident(item)
         return item.get("name") or item.get("title") or item.get("claim")
+
+    @staticmethod
+    def _describe_incident(item):
+        """An incident is worth more than its name.
+
+        Every record that reaches this point is status: done, which means the
+        cost figure behind it has a primary source attached. Carrying the
+        figure into the reference is the difference between naming a breach
+        and making an argument with it.
+        """
+        name = item.get("name") or item.get("id")
+        year = item.get("year")
+        label = "{} ({})".format(name, year) if year else name
+        figure = (item.get("what_it_cost") or {}).get("figure")
+        return "{}, {}".format(label, figure) if figure else label
 
     def summary(self):
         by_class = {}

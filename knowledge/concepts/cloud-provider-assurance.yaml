@@ -101,6 +101,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-gv.sc-07, nist-csf-id.am-04, iso27002-5.23]
 incidents: []
 patterns: [certificate-shortcut]
@@ -113,6 +119,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/cloud-provider-assurance.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The organisation knows what its cloud providers are responsible for."   # syn.102a
-  - "What is your cloud provider responsible for, and what are you?"   # syn.102b
-  - "To what extent is it true that the organisation knows what its cloud providers are responsible for?"   # syn.102c
+  - "The organisation knows what its cloud providers are responsible for."   # syn.105a
+  - "What is your cloud provider responsible for, and what are you?"   # syn.105b
+  - "To what extent is it true that the organisation knows what its cloud providers are responsible for?"   # syn.105c

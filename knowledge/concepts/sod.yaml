@@ -81,6 +81,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.aa-05, iso27002-5.3]
 incidents: []
 patterns: []
@@ -93,5 +99,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/sod.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "No single person can complete a sensitive transaction alone."   # syn.057a
-  - "Can one person approve and make a payment on their own?"   # syn.057b
+  - "No single person can complete a sensitive transaction alone."   # syn.060a
+  - "Can one person approve and make a payment on their own?"   # syn.060b

@@ -101,6 +101,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["information classification scheme", "confidential internal public", "handling rules by sensitivity", "labelling of information", "data owner assigned"]
+
 frameworks: [nist-csf-id.am-05, iso27002-5.12, iso27002-5.13]
 incidents: []
 patterns: [outcome-as-process]
@@ -116,6 +122,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Data is sorted into categories so the sensitive parts can be treated differently."   # syn.046a
-  - "Do you separate sensitive data from ordinary data?"   # syn.046b
-  - "To what extent is it true that data is sorted into categories so the sensitive parts can be treated differently?"   # syn.046c
+  - "Data is sorted into categories so the sensitive parts can be treated differently."   # syn.049a
+  - "Do you separate sensitive data from ordinary data?"   # syn.049b
+  - "To what extent is it true that data is sorted into categories so the sensitive parts can be treated differently?"   # syn.049c

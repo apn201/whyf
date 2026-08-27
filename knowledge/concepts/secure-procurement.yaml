@@ -78,8 +78,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-gv.sc-05, nist-csf-gv.sc-06, iso27002-5.20]
-incidents: []
+incidents: [solarwinds]
 patterns: []
 already_have: []
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -90,5 +96,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/secure-procurement.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Security is looked at before equipment is bought, not after."   # syn.047a
-  - "Do you check security before buying equipment?"   # syn.047b
+  - "Security is looked at before equipment is bought, not after."   # syn.050a
+  - "Do you check security before buying equipment?"   # syn.050b

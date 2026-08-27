@@ -1,0 +1,129 @@
+id: supplier-monitoring
+title: Watching suppliers after onboarding
+status: done
+class: control
+csf: GV
+priority: 1
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  You checked the supplier before signing. Do you ever look again.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  Almost every third-party control happens once, at onboarding, and then
+  never. But the supplier you assessed three years ago has been acquired,
+  moved its hosting, lost the people who answered your questionnaire, and
+  possibly been breached. The assessment you hold describes a company that
+  no longer exists. This is the half of supplier risk that gets skipped, and
+  it is the half where the incident actually arrives from.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Continuous supplier risk monitoring is a subscription with a score per
+  vendor, and the score is derived from things visible from the outside,
+  which is not the same as their security. For a handful of critical
+  suppliers, two free things beat it: a news alert on each supplier's name,
+  and a contract clause obliging them to tell you when they have an
+  incident. The second is worth more than any score, because a supplier who
+  has to tell you is a supplier you find out about on day one rather than
+  from the press.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_suppliers]
+applies_never_if: []
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable and proportionate. Critical suppliers are reassessed
+  periodically and are contractually obliged to notify us of security
+  incidents. Ongoing monitoring beyond that is described below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "How would you find out your main supplier had been breached?"
+  options:
+    - id: contract
+      label: "They would have to tell us"
+      verdict: already-solved
+      why: >
+        That is the control worth having, and it is a contract clause rather than
+        a product. Say so, and say which suppliers it covers.
+    - id: news
+      label: "I would probably read about it"
+      verdict: write-it-down
+      why: >
+        Add a notification clause at the next renewal and set a news alert on the
+        critical few in the meantime. Both free.
+    - id: never
+      label: "I might not"
+      verdict: do-it-properly
+      why: >
+        That is the gap. Your incident becomes their incident with a delay, and
+        the delay is where the damage compounds.
+
+# Which rung is enough, and what the top one actually costs. This is a
+# judgement per concept and per sector, not a number off a table.
+maturity_ladder:
+  enough_rung: 2
+  why_not_4: >
+    Rung 4 is a monitoring platform scoring every supplier continuously. It
+    measures what is visible from outside, which correlates loosely with what
+    matters. A notification clause and a periodic reassessment of the critical
+    few is the version that actually tells you something.
+  rungs:
+    - level: 1
+      gist: "Assessed once, never revisited."
+      verdict: do-it-properly
+    - level: 2
+      gist: "Critical suppliers reassessed, notification in contract."
+      verdict: already-solved
+    - level: 3
+      gist: "Scheduled reassessment with criticality tiers."
+      verdict: cheap-checkbox
+    - level: 4
+      gist: "Continuous monitoring across the supplier base."
+      verdict: cheap-checkbox
+
+# What it costs, by how far you take it.
+cost_bands:
+  "notification clause and a news alert": "€"
+  "periodic reassessment of the critical few": "€€"
+  "supplier risk monitoring subscription": "€€€€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 3
+
+# What an auditor actually accepts.
+evidence:
+  weak: "We would hear about it."
+  better: "A reassessment schedule for critical suppliers plus the notification obligation in contract."
+  strong: "The schedule with dated reassessments, the contract clause, and evidence of a notification being received or requested."
+
+answer_risk: none
+
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["ongoing supplier oversight", "reassessment of critical suppliers", "monitoring supplier security posture"]
+
+frameworks: [nist-csf-gv.sc-07, nist-csf-gv.sc-10, iso27002-5.22]
+incidents: []
+patterns: []
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 3
+corpus_sources: {syn: 3}
+question_forms: [binary_statement, maturity_ladder]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Critical suppliers are looked at again after onboarding, not only before."   # syn.043a
+  - "How would you find out your main supplier had been breached?"   # syn.043b
+  - "To what extent is it true that critical suppliers are looked at again after onboarding, not only before?"   # syn.043c

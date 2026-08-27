@@ -22,10 +22,16 @@ misunderstanding: >
 
 # The honest argument for not doing it. The Skeptic agent gets this verbatim.
 skeptic_case: >
-  If it is an office and all the PCs run Windows with Defender not disabled,
-  you are good. This whole card is for people running realtime or embedded
-  systems where antivirus cannot go. If that is not you, say so in one line
-  and skip it.
+  There is no version of this you get to skip, but there is a version that
+  takes one line. If endpoint protection is running everywhere and nobody
+  has turned it off, say exactly that and you are done. What you cannot do
+  is answer yes while a machine in the corner has it disabled, because that
+  is the machine the question is about. Anywhere it is off, or anywhere a
+  vendor has made you exclude a folder or a process so their software will
+  run, that is an exception: it needs a name, a reason, somebody who
+  approved it, and something else protecting the box instead. That list is
+  usually short and almost never written down, which is why the question
+  gets asked.
 
 # Facts about the company that make the question relevant, and the ones
 # that make it a clean 'not applicable'.
@@ -42,16 +48,25 @@ default_verdict: need-one-fact
 
 # The one fact that moves the verdict. Buttons, no typing.
 deciding_question:
-  text: "Is there any machine here that cannot run antivirus?"
+  text: "Is there anywhere endpoint protection is off, or scanning something less than everything?"
   options:
     - id: none
-      label: "No, everything runs it"
+      label: "No, it is on everywhere and untouched"
       verdict: not-applicable
       why: >
-        Say that. Short answer, and it is the right one for most companies getting
-        this question.
+        Then say that in one line. It is the right answer for most companies
+        getting this question, and it is the only version of this row that costs
+        you nothing.
+    - id: excluded
+      label: "It runs, but some folders are excluded"
+      verdict: write-it-down
+      why: >
+        Those exclusions came from somewhere, usually a vendor telling you their
+        software breaks otherwise. List which paths, whose software required it,
+        and who agreed. An unexplained exclusion is the thing that survives on a
+        machine for six years.
     - id: some
-      label: "Yes, a few production systems"
+      label: "A few machines cannot run it"
       verdict: write-it-down
       why: >
         Then write down which ones, why, who approved it, and what protects them
@@ -73,10 +88,16 @@ checkbox_value: 2
 # What an auditor actually accepts.
 evidence:
   weak: "Everything has antivirus."
-  better: "A list of systems without endpoint protection and the reason."
+  better: "A list of systems without endpoint protection, and of the exclusions configured on the ones that have it, with reasons."
   strong: "The list, the approval for each exception, and a description of the compensating controls."
 
 answer_risk: none
+
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["antivirus exclusions documented", "scanning exclusions approved", "systems where antivirus cannot be installed", "endpoint protection disabled exception", "compensating controls for unprotected systems"]
 
 frameworks: [nist-csf-pr.ps-05, iso27002-8.7]
 incidents: []
@@ -90,5 +111,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/antivirus-exclusions.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Vendor software does not require security tooling to be turned off for it."   # syn.105a
-  - "Does any vendor ask you to exclude their software from scanning?"   # syn.105b
+  - "Vendor software does not require security tooling to be turned off for it."   # syn.108a
+  - "Does any vendor ask you to exclude their software from scanning?"   # syn.108b

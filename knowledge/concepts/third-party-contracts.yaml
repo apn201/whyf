@@ -100,6 +100,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["security requirements in contracts", "incident notification obligations on suppliers", "right to audit clause", "contractual security schedule"]
+
 frameworks: [nist-csf-gv.sc-05, iso27002-5.20, nis2-art21]
 incidents: []
 patterns: [documentation-only]
@@ -115,6 +121,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Supplier contracts say what is expected of them on security."   # syn.104a
-  - "Do your supplier contracts mention security at all?"   # syn.104b
-  - "To what extent is it true that supplier contracts say what is expected of them on security?"   # syn.104c
+  - "Supplier contracts say what is expected of them on security."   # syn.107a
+  - "Do your supplier contracts mention security at all?"   # syn.107b
+  - "To what extent is it true that supplier contracts say what is expected of them on security?"   # syn.107c

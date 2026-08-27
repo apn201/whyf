@@ -13,8 +13,9 @@ import json
 import math
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent
-VECTORS = ROOT / "knowledge" / "embeddings.json"
+from .paths import find_knowledge
+
+VECTORS = find_knowledge(__file__) / "embeddings.json"
 
 DEFAULT_MODEL = "amazon.titan-embed-text-v2:0"
 DEFAULT_REGION = "eu-west-1"

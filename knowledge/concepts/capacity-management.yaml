@@ -98,6 +98,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ir-04, iso27002-8.6]
 incidents: []
 patterns: []
@@ -113,6 +119,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "There is enough headroom that normal growth does not cause an outage."   # syn.080a
-  - "Do you track whether systems are running out of room?"   # syn.080b
-  - "To what extent is it true that there is enough headroom that normal growth does not cause an outage?"   # syn.080c
+  - "There is enough headroom that normal growth does not cause an outage."   # syn.083a
+  - "Do you track whether systems are running out of room?"   # syn.083b
+  - "To what extent is it true that there is enough headroom that normal growth does not cause an outage?"   # syn.083c

@@ -74,6 +74,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.aa-05, iso27002-7.7]
 incidents: []
 patterns: [framework-inheritance]
@@ -86,5 +92,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/screen-lock.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Unattended machines lock themselves."   # syn.068a
-  - "Do machines lock when nobody is at them?"   # syn.068b
+  - "Unattended machines lock themselves."   # syn.071a
+  - "Do machines lock when nobody is at them?"   # syn.071b

@@ -105,6 +105,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ir-01, iso27002-8.20, iso27002-7.1]
 incidents: []
 patterns: []
@@ -117,6 +123,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/perimeter-defence.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Traffic in and out of the network passes through a firewall that is configured on purpose."   # syn.084a
-  - "Who decides what your firewall lets through?"   # syn.084b
-  - "To what extent is it true that traffic in and out of the network passes through a firewall that is configured on purpose?"   # syn.084c
+  - "Traffic in and out of the network passes through a firewall that is configured on purpose."   # syn.087a
+  - "Who decides what your firewall lets through?"   # syn.087b
+  - "To what extent is it true that traffic in and out of the network passes through a firewall that is configured on purpose?"   # syn.087c

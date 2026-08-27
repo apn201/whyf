@@ -1,0 +1,101 @@
+id: disciplinary-process
+title: Consequences for breaking the rules
+status: done
+class: control
+csf: GV
+priority: 2
+
+# What the question is actually asking, for someone who has never heard
+# the term and runs the company themselves.
+plain_english: >
+  If somebody breaks the security rules on purpose, what actually happens to
+  them.
+
+# The thing everyone gets wrong.
+misunderstanding: >
+  This looks like the most bureaucratic line on the form and it is the one
+  that makes every other policy real. A rule with no consequence is advice.
+  The part people get wrong is the direction: this is not about punishing
+  the person who clicked a phishing link, and treating it that way is
+  actively harmful because it teaches people to hide incidents. It is about
+  deliberate or grossly negligent breach, and it needs to say so explicitly,
+  or your reporting culture pays for it.
+
+# The honest argument for not doing it. The Skeptic agent gets this verbatim.
+skeptic_case: >
+  Nothing to buy and no reason to skip it, because HR almost certainly has a
+  disciplinary process already and the security answer is a cross-reference
+  to it. What is worth the extra sentence is the carve-out: reporting your
+  own mistake is not a disciplinary matter. Without that written down, the
+  first person to lose a laptop will not tell you for three days.
+
+# Facts about the company that make the question relevant, and the ones
+# that make it a clean 'not applicable'.
+applies_if: [has_employees]
+applies_never_if: [sole_trader]
+
+# Wording for the comment box when it does not apply. States scope. Never
+# asserts a fact about the company.
+how_to_say_no: >
+  Applicable. Deliberate or negligent breaches of security policy are
+  handled through our disciplinary process. Self-reported mistakes are
+  explicitly excluded, and the reason is stated below.
+
+default_verdict: write-it-down
+
+# The one fact that moves the verdict. Buttons, no typing.
+deciding_question:
+  text: "If somebody reported that they had just clicked a phishing link, what would happen?"
+  options:
+    - id: thanked
+      label: "They would be thanked"
+      verdict: already-solved
+      why: >
+        That is the right culture. Write it down so it survives a change of
+        manager, and cross-reference the disciplinary process for the deliberate
+        cases.
+    - id: trouble
+      label: "They would be in some trouble"
+      verdict: do-it-properly
+      why: >
+        Fix that before anything else on this page. People who fear the
+        consequence report late, and late reporting is what turns a contained
+        incident into a notifiable one.
+
+# The corpus never asks this as a ladder.
+maturity_ladder: null
+
+# What it costs, by how far you take it.
+cost_bands:
+  "cross-reference the HR process, add the carve-out": "€"
+
+# 0-3 each. The gap between them is the whole point.
+security_value: 2
+checkbox_value: 2
+
+# What an auditor actually accepts.
+evidence:
+  weak: "HR would deal with it."
+  better: "The security policy referencing the disciplinary process, with the self-reporting carve-out stated."
+  strong: "The reference, the carve-out, and evidence staff have accepted the policy containing it."
+
+answer_risk: none
+
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["sanctions for policy violations", "enforcement action", "consequences of non compliance", "formal disciplinary procedure"]
+
+frameworks: [nist-csf-gv.rr-04, iso27002-6.4, iso27002-6.2]
+incidents: []
+patterns: [documentation-only]
+already_have: []
+# ---8<--- generated from the corpus. do not hand-edit below this line.
+corpus_hits: 2
+corpus_sources: {syn: 2}
+question_forms: [binary_statement]
+# Synthetic examples, written here from the concept. Safe to publish.
+common_form:
+  - "Deliberate breaches of the security rules have a stated consequence."   # syn.044a
+  - "What happens if somebody breaks the security rules on purpose?"   # syn.044b

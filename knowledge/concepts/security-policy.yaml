@@ -103,6 +103,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["information security policy", "formal documented policy", "policy approved by management", "policy reviewed annually", "policy communicated to staff", "policy framework and standards"]
+
 frameworks: [nist-csf-gv.po-01, nist-csf-gv.po-02, iso27002-5.1, nis2-art21]
 incidents: []
 patterns: [documentation-only]

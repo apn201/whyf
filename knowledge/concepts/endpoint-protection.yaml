@@ -105,6 +105,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ps-05, nist-csf-de.cm-01, iso27002-8.7]
 incidents: []
 patterns: [framework-inheritance]
@@ -120,6 +126,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Computers run software that detects and stops malicious code."   # syn.078a
-  - "What is running on the laptops to catch malware?"   # syn.078b
-  - "To what extent is it true that computers run software that detects and stops malicious code?"   # syn.078c
+  - "Computers run software that detects and stops malicious code."   # syn.081a
+  - "What is running on the laptops to catch malware?"   # syn.081b
+  - "To what extent is it true that computers run software that detects and stops malicious code?"   # syn.081c

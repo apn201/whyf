@@ -100,6 +100,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ir-02, iso27002-7.8]
 incidents: []
 patterns: []
@@ -115,6 +121,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Equipment is checked for signs of having been interfered with."   # syn.089a
-  - "Would you notice if someone opened one of your machines?"   # syn.089b
-  - "To what extent is it true that equipment is checked for signs of having been interfered with?"   # syn.089c
+  - "Equipment is checked for signs of having been interfered with."   # syn.092a
+  - "Would you notice if someone opened one of your machines?"   # syn.092b
+  - "To what extent is it true that equipment is checked for signs of having been interfered with?"   # syn.092c

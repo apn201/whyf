@@ -110,6 +110,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["artificial intelligence tools", "generative ai usage policy", "large language model", "chatbot", "pasting company data into ai tools", "approved ai tools"]
+
 frameworks: [nist-csf-id.am-02, nist-csf-gv.po-01]
 incidents: []
 patterns: [documentation-only]

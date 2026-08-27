@@ -100,6 +100,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["documented exceptions to policy", "policy waivers", "compensating controls for exceptions", "time bound exception approval", "residual risk accepted and signed off", "deviation approval"]
+
 frameworks: [nist-csf-gv.rm-04, nist-csf-id.ra-06, iso27002-5.36]
 incidents: []
 patterns: [documentation-only]

@@ -98,6 +98,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ir-04, iso27002-8.6]
 incidents: []
 patterns: [technology-prescription]
@@ -110,6 +116,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/ddos-protection.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "There is some protection against being flooded off the internet."   # syn.082a
-  - "What happens if someone floods your internet connection?"   # syn.082b
-  - "To what extent is it true that there is some protection against being flooded off the internet?"   # syn.082c
+  - "There is some protection against being flooded off the internet."   # syn.085a
+  - "What happens if someone floods your internet connection?"   # syn.085b
+  - "To what extent is it true that there is some protection against being flooded off the internet?"   # syn.085c

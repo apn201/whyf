@@ -114,6 +114,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["data loss prevention", "preventing exfiltration", "secure file transfer for sensitive data", "controls on external sharing"]
+
 frameworks: [nist-csf-pr.ds-01, nist-csf-pr.ds-02, iso27002-8.12]
 incidents: []
 patterns: [technology-prescription, framework-inheritance]
@@ -126,6 +132,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/dlp.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Tooling watches for sensitive data leaving the organisation."   # syn.061a
-  - "Is anything watching for sensitive data leaving?"   # syn.061b
-  - "To what extent is it true that tooling watches for sensitive data leaving the organisation?"   # syn.061c
+  - "Tooling watches for sensitive data leaving the organisation."   # syn.064a
+  - "Is anything watching for sensitive data leaving?"   # syn.064b
+  - "To what extent is it true that tooling watches for sensitive data leaving the organisation?"   # syn.064c

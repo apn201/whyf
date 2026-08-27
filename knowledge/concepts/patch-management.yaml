@@ -108,8 +108,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["security patches applied", "patching cadence and timelines", "emergency out of band patching", "expedited fixes for critical flaws", "end of life unsupported software"]
+
 frameworks: [nist-csf-id.ra-01, nist-csf-pr.ps-02, iso27002-8.8, nis2-art21]
-incidents: []
+incidents: [maersk-notpetya, moveit]
 patterns: [outcome-as-process]
 already_have: [device-compliance]
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -120,6 +126,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/patch-management.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Updates are applied on a schedule and unsupported equipment is tracked."   # syn.074a
-  - "How quickly do security updates get installed?"   # syn.074b
-  - "To what extent is it true that updates are applied on a schedule and unsupported equipment is tracked?"   # syn.074c
+  - "Updates are applied on a schedule and unsupported equipment is tracked."   # syn.077a
+  - "How quickly do security updates get installed?"   # syn.077b
+  - "To what extent is it true that updates are applied on a schedule and unsupported equipment is tracked?"   # syn.077c

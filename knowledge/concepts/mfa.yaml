@@ -114,8 +114,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["two factor authentication", "multi factor authentication", "second factor", "strong authentication", "authenticator app hardware token", "step up authentication", "administrative accounts protected with mfa"]
+
 frameworks: [nist-csf-pr.aa-03, iso27002-5.17, iso27002-8.5, nis2-art21]
-incidents: []
+incidents: [change-healthcare, colonial-pipeline, okta-lapsus, oldsmar-water]
 patterns: [framework-inheritance]
 already_have: [admin-mfa]
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -129,6 +135,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "A second authentication factor is required for administrator accounts."   # syn.050a
-  - "Do administrator accounts need a second factor?"   # syn.050b
-  - "To what extent is it true that a second authentication factor is required for administrator accounts?"   # syn.050c
+  - "A second authentication factor is required for administrator accounts."   # syn.053a
+  - "Do administrator accounts need a second factor?"   # syn.053b
+  - "To what extent is it true that a second authentication factor is required for administrator accounts?"   # syn.053c

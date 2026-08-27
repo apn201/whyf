@@ -100,8 +100,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-rc.rp-01, nist-csf-id.im-02, iso27002-5.29, nis2-art21]
-incidents: []
+incidents: [maersk-notpetya, norsk-hydro]
 patterns: [documentation-only]
 already_have: []
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -115,6 +121,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "A plan exists for carrying on when systems are unavailable."   # syn.073a
-  - "What is the plan if your systems are down for a week?"   # syn.073b
-  - "To what extent is it true that a plan exists for carrying on when systems are unavailable?"   # syn.073c
+  - "A plan exists for carrying on when systems are unavailable."   # syn.076a
+  - "What is the plan if your systems are down for a week?"   # syn.076b
+  - "To what extent is it true that a plan exists for carrying on when systems are unavailable?"   # syn.076c

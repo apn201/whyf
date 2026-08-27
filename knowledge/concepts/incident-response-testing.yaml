@@ -99,6 +99,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-id.im-02, nist-csf-rs.ma-01, iso27002-5.24]
 incidents: []
 patterns: [outcome-as-process]
@@ -111,6 +117,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/incident-response-testing.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The response plan is rehearsed with the people who would run it."   # syn.097a
-  - "Have you ever walked through an incident as a rehearsal?"   # syn.097b
-  - "To what extent is it true that the response plan is rehearsed with the people who would run it?"   # syn.097c
+  - "The response plan is rehearsed with the people who would run it."   # syn.100a
+  - "Have you ever walked through an incident as a rehearsal?"   # syn.100b
+  - "To what extent is it true that the response plan is rehearsed with the people who would run it?"   # syn.100c

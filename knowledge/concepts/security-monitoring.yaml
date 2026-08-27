@@ -105,8 +105,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["security information and event management", "security operations centre", "alerts investigated", "24x7 monitoring", "detection of suspicious activity"]
+
 frameworks: [nist-csf-de.cm-01, nist-csf-de.ae-02, iso27002-5.25, nis2-art21]
-incidents: []
+incidents: [okta-lapsus, oldsmar-water]
 patterns: [technology-prescription]
 already_have: [audit-logging]
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -117,6 +123,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/security-monitoring.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Somebody actually looks at security alerts."   # syn.093a
-  - "Who looks at the security alerts?"   # syn.093b
-  - "To what extent is it true that somebody actually looks at security alerts?"   # syn.093c
+  - "Somebody actually looks at security alerts."   # syn.096a
+  - "Who looks at the security alerts?"   # syn.096b
+  - "To what extent is it true that somebody actually looks at security alerts?"   # syn.096c

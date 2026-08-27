@@ -98,6 +98,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.aa-05, iso27002-8.1]
 incidents: []
 patterns: [framework-inheritance]
@@ -110,6 +116,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/mobile-device-management.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Company data on phones can be managed and removed."   # syn.085a
-  - "Can you wipe company data off a lost phone?"   # syn.085b
-  - "To what extent is it true that company data on phones can be managed and removed?"   # syn.085c
+  - "Company data on phones can be managed and removed."   # syn.088a
+  - "Can you wipe company data off a lost phone?"   # syn.088b
+  - "To what extent is it true that company data on phones can be managed and removed?"   # syn.088c

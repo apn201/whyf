@@ -797,32 +797,47 @@ CARDS = {
             "that agreeing means the opposite of what it looks like. Read it "
             "twice before ticking."),
         skeptic_case=(
-            "If it is an office and all the PCs run Windows with Defender not "
-            "disabled, you are good. This whole card is for people running realtime "
-            "or embedded systems where antivirus cannot go. If that is not you, say "
-            "so in one line and skip it."),
+            "There is no version of this you get to skip, but there is a "
+            "version that takes one line. If endpoint protection is running "
+            "everywhere and nobody has turned it off, say exactly that and "
+            "you are done. What you cannot do is answer yes while a machine "
+            "in the corner has it disabled, because that is the machine the "
+            "question is about. Anywhere it is off, or anywhere a vendor has "
+            "made you exclude a folder or a process so their software will "
+            "run, that is an exception: it needs a name, a reason, somebody "
+            "who approved it, and something else protecting the box instead. "
+            "That list is usually short and almost never written down, which "
+            "is why the question gets asked."),
         applies_if=["has_ot", "has_servers"],
         applies_never_if=["all_systems_protected"],
         how_to_say_no=(
             "Not applicable. All systems in scope run endpoint protection with no "
             "vendor-required exclusions."),
         default_verdict="need-one-fact",
-        question="Is there any machine here that cannot run antivirus?",
+        question="Is there anywhere endpoint protection is off, or scanning "
+                 "something less than everything?",
         options=[
-            ("none", "No, everything runs it", "not-applicable",
-             "Say that. Short answer, and it is the right one for most companies "
-             "getting this question."),
-            ("some", "Yes, a few production systems", "write-it-down",
-             "Then write down which ones, why, who approved it, and what protects "
-             "them instead. Usually network isolation and locked-down access. That "
-             "is a complete answer."),
+            ("none", "No, it is on everywhere and untouched", "not-applicable",
+             "Then say that in one line. It is the right answer for most "
+             "companies getting this question, and it is the only version of "
+             "this row that costs you nothing."),
+            ("excluded", "It runs, but some folders are excluded", "write-it-down",
+             "Those exclusions came from somewhere, usually a vendor telling "
+             "you their software breaks otherwise. List which paths, whose "
+             "software required it, and who agreed. An unexplained exclusion "
+             "is the thing that survives on a machine for six years."),
+            ("some", "A few machines cannot run it", "write-it-down",
+             "Then write down which ones, why, who approved it, and what "
+             "protects them instead. Usually network isolation and locked-down "
+             "access. That is a complete answer."),
         ],
         ladder=None,
         costs={"document the exceptions": "€",
                "isolate and harden the excepted systems": "€€€"},
         sec=2, chk=2,
         evidence=("Everything has antivirus.",
-                  "A list of systems without endpoint protection and the reason.",
+                  "A list of systems without endpoint protection, and of the "
+                  "exclusions configured on the ones that have it, with reasons.",
                   "The list, the approval for each exception, and a description of "
                   "the compensating controls."),
         frameworks=["nist-csf-pr.ps-05", "iso27002-8.7"],

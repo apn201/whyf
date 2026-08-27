@@ -104,6 +104,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-de.cm-02, iso27002-7.4, gdpr-art32]
 incidents: []
 patterns: []
@@ -116,6 +122,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/surveillance.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Entrances are monitored and visitors are recorded."   # syn.090a
-  - "Are visitors signed in and accompanied?"   # syn.090b
-  - "To what extent is it true that entrances are monitored and visitors are recorded?"   # syn.090c
+  - "Entrances are monitored and visitors are recorded."   # syn.093a
+  - "Are visitors signed in and accompanied?"   # syn.093b
+  - "To what extent is it true that entrances are monitored and visitors are recorded?"   # syn.093c

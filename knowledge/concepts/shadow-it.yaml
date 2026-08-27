@@ -19,15 +19,28 @@ misunderstanding: >
   an account that survives their departure. Blocking is the instinct and it
   fails: the tool moves to a personal account and you lose all visibility
   instead of some. An approval route that takes a day is the control,
-  because people route around a process that takes a month.
+  because people route around a process that takes a month. The half
+  everyone misses is the tool nobody signed up for. A free PDF converter, an
+  image compressor, an online translator, a site that signs documents for
+  you: no account, no company card, no trace in finance, and somebody has
+  just uploaded the payroll file to it. The register built from card
+  statements cannot see any of this, so a company can have a tidy SaaS list
+  and still be leaking its most sensitive documents through a browser tab.
+  It is the same rule as the one in the AI policy, and it is worth writing
+  once in a form that covers both: confidential data does not go into a
+  service nobody approved, whether that service is an AI assistant or a file
+  converter.
 
 # The honest argument for not doing it. The Skeptic agent gets this verbatim.
 skeptic_case: >
   A cloud access security broker is a serious purchase aimed at large
   estates. You can get most of the way with two free things: look at what
   the company card has been paying for, and ask finance to flag new software
-  subscriptions. That finds the tools. Then a one-page approval route so the
-  next one arrives through the front door.
+  subscriptions. That finds the paid tools. It will not find the free ones,
+  and no amount of looking at invoices will, so the free ones are covered by
+  a written rule rather than by discovery: one line saying what must never
+  be uploaded to a service the company has not approved. Then a one-page
+  approval route so the next one arrives through the front door.
 
 # Facts about the company that make the question relevant, and the ones
 # that make it a clean 'not applicable'.
@@ -101,6 +114,12 @@ evidence:
   strong: "The register, the approval route, and evidence a recent request went through it."
 
 answer_risk: none
+
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["unapproved cloud services", "unsanctioned SaaS", "uploading company files to free online tools", "online file converter or compressor", "web based tools staff use", "approval route for new software", "register of cloud services"]
 
 frameworks: [nist-csf-id.am-04, nist-csf-gv.sc-04, iso27002-5.23]
 incidents: []

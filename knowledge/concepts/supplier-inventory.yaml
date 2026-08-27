@@ -97,8 +97,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-gv.sc-04, nist-csf-id.am-04, nis2-art21]
-incidents: []
+incidents: [target-hvac]
 patterns: []
 already_have: []
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -112,6 +118,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The outside firms that can log in anywhere are written down somewhere."   # syn.044a
-  - "Which outside firms can log in to your systems?"   # syn.044b
-  - "To what extent is it true that the outside firms that can log in anywhere are written down somewhere?"   # syn.044c
+  - "The outside firms that can log in anywhere are written down somewhere."   # syn.047a
+  - "Which outside firms can log in to your systems?"   # syn.047b
+  - "To what extent is it true that the outside firms that can log in anywhere are written down somewhere?"   # syn.047c

@@ -86,8 +86,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.aa-01, iec62443-3-3:2013]
-incidents: []
+incidents: [oldsmar-water, ukraine-grid-2015]
 patterns: [technology-prescription]
 already_have: []
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -98,5 +104,5 @@ question_forms: [binary_statement]
 # publish, so it lives in private/context/plc-access.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Controllers and the code that runs on them are protected from casual access."   # syn.058a
-  - "Can anyone on the factory floor reach the controllers?"   # syn.058b
+  - "Controllers and the code that runs on them are protected from casual access."   # syn.061a
+  - "Can anyone on the factory floor reach the controllers?"   # syn.061b

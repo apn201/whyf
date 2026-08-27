@@ -98,6 +98,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["security training programme", "phishing simulation", "annual mandatory training", "user education", "training records and completion rates"]
+
 frameworks: [nist-csf-pr.at-01, nist-csf-pr.at-02, iso27002-6.3, nis2-art21]
 incidents: []
 patterns: []
@@ -113,6 +119,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Staff are told what to watch for and reminded regularly."   # syn.092a
-  - "When did staff last get security training?"   # syn.092b
-  - "To what extent is it true that staff are told what to watch for and reminded regularly?"   # syn.092c
+  - "Staff are told what to watch for and reminded regularly."   # syn.095a
+  - "When did staff last get security training?"   # syn.095b
+  - "To what extent is it true that staff are told what to watch for and reminded regularly?"   # syn.095c

@@ -79,6 +79,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["secure deletion of data", "media sanitisation", "certificate of destruction", "return or destroy customer data", "data deleted at end of contract"]
+
 frameworks: [iso27002-7.14, nist-csf-pr.ds-01]
 incidents: []
 patterns: []

@@ -112,8 +112,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ir-01, iso27002-8.22, nis2-art21, iec62443-3-3:2013]
-incidents: []
+incidents: [change-healthcare, colonial-pipeline, maersk-notpetya, norsk-hydro, target-hvac, ukraine-grid-2015]
 patterns: []
 already_have: []
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -127,6 +133,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The network is divided so a problem in one part does not reach the rest."   # syn.083a
-  - "Can a compromised laptop reach the factory network?"   # syn.083b
-  - "To what extent is it true that the network is divided so a problem in one part does not reach the rest?"   # syn.083c
+  - "The network is divided so a problem in one part does not reach the rest."   # syn.086a
+  - "Can a compromised laptop reach the factory network?"   # syn.086b
+  - "To what extent is it true that the network is divided so a problem in one part does not reach the rest?"   # syn.086c

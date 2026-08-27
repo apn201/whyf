@@ -83,6 +83,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["prohibited from bypassing security controls", "circumventing or disabling security tools", "misuse of company systems", "acceptable use of information technology", "rules of behaviour", "personal use of company equipment", "prohibited activities", "users must not install unapproved software", "sanctions for violations of the policy"]
+
 frameworks: [nist-csf-gv.po-01, iso27002-5.10]
 incidents: []
 patterns: [documentation-only]

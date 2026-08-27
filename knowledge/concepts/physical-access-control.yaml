@@ -103,6 +103,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.aa-06, iso27002-7.1, iso27002-7.2]
 incidents: []
 patterns: []
@@ -118,6 +124,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Only the people who need to be somewhere can get in."   # syn.091a
-  - "Who can walk into the room where the servers are?"   # syn.091b
-  - "To what extent is it true that only the people who need to be somewhere can get in?"   # syn.091c
+  - "Only the people who need to be somewhere can get in."   # syn.094a
+  - "Who can walk into the room where the servers are?"   # syn.094b
+  - "To what extent is it true that only the people who need to be somewhere can get in?"   # syn.094c

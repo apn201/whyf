@@ -101,6 +101,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-id.im-02, nist-csf-rc.rp-05, iso27002-5.30]
 incidents: []
 patterns: [outcome-as-process]
@@ -116,6 +122,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Recovery plans are tried out rather than only written."   # syn.072a
-  - "When did you last try restoring from a backup?"   # syn.072b
-  - "To what extent is it true that recovery plans are tried out rather than only written?"   # syn.072c
+  - "Recovery plans are tried out rather than only written."   # syn.075a
+  - "When did you last try restoring from a backup?"   # syn.075b
+  - "To what extent is it true that recovery plans are tried out rather than only written?"   # syn.075c

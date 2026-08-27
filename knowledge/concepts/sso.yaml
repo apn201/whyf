@@ -107,6 +107,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.aa-04, iso27002-5.16]
 incidents: []
 patterns: []
@@ -119,6 +125,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/sso.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Staff sign in to business applications through one identity provider."   # syn.051a
-  - "Do your applications share one login?"   # syn.051b
-  - "To what extent is it true that staff sign in to business applications through one identity provider?"   # syn.051c
+  - "Staff sign in to business applications through one identity provider."   # syn.054a
+  - "Do your applications share one login?"   # syn.054b
+  - "To what extent is it true that staff sign in to business applications through one identity provider?"   # syn.054c

@@ -98,6 +98,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ps-01, iso27002-8.9]
 incidents: []
 patterns: [framework-inheritance]
@@ -113,6 +119,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Systems are built from a standard configuration rather than one at a time."   # syn.076a
-  - "Are machines set up the same way every time?"   # syn.076b
-  - "To what extent is it true that systems are built from a standard configuration rather than one at a time?"   # syn.076c
+  - "Systems are built from a standard configuration rather than one at a time."   # syn.079a
+  - "Are machines set up the same way every time?"   # syn.079b
+  - "To what extent is it true that systems are built from a standard configuration rather than one at a time?"   # syn.079c

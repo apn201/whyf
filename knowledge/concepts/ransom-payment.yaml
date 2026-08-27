@@ -109,6 +109,12 @@ evidence:
 
 answer_risk: warranty
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-rs.ma-03, nist-csf-gv.po-01, iso27002-5.24]
 incidents: []
 patterns: [documentation-only]

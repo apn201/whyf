@@ -106,6 +106,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ir-02, iso27002-7.5, iso27002-7.8, iso27002-7.11]
 incidents: []
 patterns: [framework-inheritance]
@@ -121,6 +127,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Equipment is protected from fire, water, heat and power loss."   # syn.088a
-  - "What happens to the server room if the power goes?"   # syn.088b
-  - "To what extent is it true that equipment is protected from fire, water, heat and power loss?"   # syn.088c
+  - "Equipment is protected from fire, water, heat and power loss."   # syn.091a
+  - "What happens to the server room if the power goes?"   # syn.091b
+  - "To what extent is it true that equipment is protected from fire, water, heat and power loss?"   # syn.091c

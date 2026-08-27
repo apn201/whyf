@@ -109,6 +109,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-id.am-01, nist-csf-id.am-02, nis2-art21]
 incidents: []
 patterns: [outcome-as-process]
@@ -121,6 +127,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/ics-inventory.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "A list of industrial control equipment is kept up to date."   # syn.043a
-  - "Do you have a list of your industrial control equipment?"   # syn.043b
-  - "To what extent is it true that a list of industrial control equipment is kept up to date?"   # syn.043c
+  - "A list of industrial control equipment is kept up to date."   # syn.046a
+  - "Do you have a list of your industrial control equipment?"   # syn.046b
+  - "To what extent is it true that a list of industrial control equipment is kept up to date?"   # syn.046c

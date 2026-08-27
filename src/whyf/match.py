@@ -27,8 +27,9 @@ from pathlib import Path
 
 from .normalise import clean_text
 
-ROOT = Path(__file__).resolve().parent.parent.parent
-CARDS = ROOT / "knowledge" / "concepts"
+from .paths import find_knowledge
+
+CARDS = find_knowledge(__file__) / "concepts"
 
 # Words that appear in nearly every questionnaire row and carry no signal.
 # Left deliberately short: idf already handles most of it, and an aggressive
@@ -141,6 +142,8 @@ class ConceptMatcher:
             parts += tokens(cid.replace("-", " ")) * 4
             parts += tokens(card.get("title", "")) * 4
             parts += tokens(card.get("plain_english", "")) * 2
+            for phrase in (card.get("aka") or []):
+                parts += tokens(phrase) * 3
             for example in (card.get("common_form") or []):
                 parts += tokens(example) * 2
             parts += tokens(card.get("misunderstanding", ""))

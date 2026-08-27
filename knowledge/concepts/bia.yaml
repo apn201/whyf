@@ -98,6 +98,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-id.ra-04, nist-csf-gv.oc-04, iso27002-5.30, nis2-art21]
 incidents: []
 patterns: [outcome-as-process]
@@ -110,6 +116,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/bia.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The organisation has worked out which processes must come back first."   # syn.071a
-  - "Which part of the business has to come back first?"   # syn.071b
-  - "To what extent is it true that the organisation has worked out which processes must come back first?"   # syn.071c
+  - "The organisation has worked out which processes must come back first."   # syn.074a
+  - "Which part of the business has to come back first?"   # syn.074b
+  - "To what extent is it true that the organisation has worked out which processes must come back first?"   # syn.074c

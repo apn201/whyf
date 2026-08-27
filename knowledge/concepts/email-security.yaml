@@ -100,6 +100,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ps-05, nist-csf-de.cm-01, iso27002-8.7]
 incidents: []
 patterns: [framework-inheritance]
@@ -112,6 +118,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # publish, so it lives in private/context/email-security.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Incoming mail is filtered and sensitive mail is protected in transit."   # syn.065a
-  - "What happens to a malicious attachment sent to your staff?"   # syn.065b
-  - "To what extent is it true that incoming mail is filtered and sensitive mail is protected in transit?"   # syn.065c
+  - "Incoming mail is filtered and sensitive mail is protected in transit."   # syn.068a
+  - "What happens to a malicious attachment sent to your staff?"   # syn.068b
+  - "To what extent is it true that incoming mail is filtered and sensitive mail is protected in transit?"   # syn.068c

@@ -100,6 +100,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-id.ra-02, nist-csf-id.ra-03, nis2-art21]
 incidents: []
 patterns: [technology-prescription]
@@ -112,6 +118,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/threat-intelligence.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Somebody watches for news of attacks relevant to this organisation."   # syn.049a
-  - "Does anyone track threats aimed at your industry?"   # syn.049b
-  - "To what extent is it true that somebody watches for news of attacks relevant to this organisation?"   # syn.049c
+  - "Somebody watches for news of attacks relevant to this organisation."   # syn.052a
+  - "Does anyone track threats aimed at your industry?"   # syn.052b
+  - "To what extent is it true that somebody watches for news of attacks relevant to this organisation?"   # syn.052c

@@ -105,8 +105,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["inventory of assets", "configuration management database", "unknown or unmanaged devices", "hardware and software inventory", "ownership assigned to assets"]
+
 frameworks: [nist-csf-id.am-01, nist-csf-id.am-02, iso27002-5.9, nis2-art21]
-incidents: []
+incidents: [moveit]
 patterns: [framework-inheritance]
 already_have: [device-compliance]
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -120,6 +126,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "A list of computers, software and services in use is kept up to date."   # syn.045a
-  - "Do you know what computers and software you own?"   # syn.045b
-  - "To what extent is it true that a list of computers, software and services in use is kept up to date?"   # syn.045c
+  - "A list of computers, software and services in use is kept up to date."   # syn.048a
+  - "Do you know what computers and software you own?"   # syn.048b
+  - "To what extent is it true that a list of computers, software and services in use is kept up to date?"   # syn.048c

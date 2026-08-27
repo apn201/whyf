@@ -92,6 +92,12 @@ evidence:
 
 answer_risk: certification
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [gdpr-art30, nist-csf-gv.rr-02]
 incidents: []
 patterns: [documentation-only]

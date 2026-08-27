@@ -104,6 +104,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ps-01, iso27002-8.19]
 incidents: []
 patterns: [technology-prescription]
@@ -119,6 +125,6 @@ question_forms: [binary_statement, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Only approved software is allowed to run."   # syn.077a
-  - "Can staff install whatever software they like?"   # syn.077b
-  - "To what extent is it true that only approved software is allowed to run?"   # syn.077c
+  - "Only approved software is allowed to run."   # syn.080a
+  - "Can staff install whatever software they like?"   # syn.080b
+  - "To what extent is it true that only approved software is allowed to run?"   # syn.080c

@@ -99,6 +99,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["notification timeframes", "reporting to customers and regulators", "who is authorised to communicate externally", "breach notification obligations"]
+
 frameworks: [nist-csf-rs.co-02, nist-csf-rc.co-04, nis2-art23, gdpr-art32]
 incidents: []
 patterns: []
@@ -111,6 +117,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/incident-reporting.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "There is a decision made in advance about who has to be told, and how fast."   # syn.096a
-  - "Who has to be told if you are breached, and within how long?"   # syn.096b
-  - "To what extent is it true that there is a decision made in advance about who has to be told, and how fast?"   # syn.096c
+  - "There is a decision made in advance about who has to be told, and how fast."   # syn.099a
+  - "Who has to be told if you are breached, and within how long?"   # syn.099b
+  - "To what extent is it true that there is a decision made in advance about who has to be told, and how fast?"   # syn.099c

@@ -106,6 +106,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["background screening", "pre employment checks", "criminal record check", "reference verification", "confidentiality agreements signed", "vetting of contractors"]
+
 frameworks: [nist-csf-gv.rr-04, iso27002-6.1, nis2-art21]
 incidents: []
 patterns: [documentation-only]

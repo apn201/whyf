@@ -106,8 +106,14 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ps-06, iso27002-8.25, iso27002-8.31]
-incidents: []
+incidents: [kaseya-vsa, solarwinds]
 patterns: []
 already_have: []
 # ---8<--- generated from the corpus. do not hand-edit below this line.
@@ -121,6 +127,6 @@ question_forms: [binary_statement, check_all, maturity_ladder]
 # it told you in your own words in `why_not_4`.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Software is written with security in mind and test data is not real data."   # syn.086a
-  - "Do your developers work against real customer data?"   # syn.086b
-  - "To what extent is it true that software is written with security in mind and test data is not real data?"   # syn.086c
+  - "Software is written with security in mind and test data is not real data."   # syn.089a
+  - "Do your developers work against real customer data?"   # syn.089b
+  - "To what extent is it true that software is written with security in mind and test data is not real data?"   # syn.089c

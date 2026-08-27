@@ -165,6 +165,16 @@ CONTROLS = {
         "what a personally owned phone or laptop may reach is decided and enforced",
         "Can somebody read work email on a phone the company did not buy?", True),
 
+    "vulnerability-disclosure": (
+        "there is a published route for a stranger to report a security flaw",
+        "If a stranger found a flaw in your website, where would they send it?", True),
+    "supplier-monitoring": (
+        "critical suppliers are looked at again after onboarding, not only before",
+        "How would you find out your main supplier had been breached?", True),
+    "disciplinary-process": (
+        "deliberate breaches of the security rules have a stated consequence",
+        "What happens if somebody breaks the security rules on purpose?", False),
+
     # -- identify -----------------------------------------------------------
     "rpo": (
         "the amount of recent work the organisation can afford to lose is decided per system",

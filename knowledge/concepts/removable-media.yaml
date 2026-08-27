@@ -101,6 +101,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ds-01, iso27002-7.10]
 incidents: []
 patterns: []
@@ -113,6 +119,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/removable-media.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Use of USB storage is limited to what the work actually needs."   # syn.067a
-  - "Can staff plug a USB stick into a work machine?"   # syn.067b
-  - "To what extent is it true that use of USB storage is limited to what the work actually needs?"   # syn.067c
+  - "Use of USB storage is limited to what the work actually needs."   # syn.070a
+  - "Can staff plug a USB stick into a work machine?"   # syn.070b
+  - "To what extent is it true that use of USB storage is limited to what the work actually needs?"   # syn.070c

@@ -112,6 +112,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ds-11, nist-csf-rc.rp-01, iso27002-8.13, nis2-art21]
 incidents: []
 patterns: [outcome-as-process]
@@ -124,6 +130,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/rpo.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "The amount of recent work the organisation can afford to lose is decided per system."   # syn.042a
-  - "If everything broke this afternoon, how much work could you afford to lose?"   # syn.042b
-  - "To what extent is it true that the amount of recent work the organisation can afford to lose is decided per system?"   # syn.042c
+  - "The amount of recent work the organisation can afford to lose is decided per system."   # syn.045a
+  - "If everything broke this afternoon, how much work could you afford to lose?"   # syn.045b
+  - "To what extent is it true that the amount of recent work the organisation can afford to lose is decided per system?"   # syn.045c

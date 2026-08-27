@@ -88,6 +88,12 @@ evidence:
 
 answer_risk: certification
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nis2-art3, nis2-art21, nis2-art23]
 incidents: []
 patterns: [framework-inheritance]

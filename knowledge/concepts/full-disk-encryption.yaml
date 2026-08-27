@@ -102,6 +102,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: []
+
 frameworks: [nist-csf-pr.ds-01, iso27002-8.24]
 incidents: []
 patterns: [framework-inheritance]
@@ -114,6 +120,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/full-disk-encryption.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Laptop and phone storage is encrypted."   # syn.062a
-  - "Are laptop drives encrypted?"   # syn.062b
-  - "To what extent is it true that laptop and phone storage is encrypted?"   # syn.062c
+  - "Laptop and phone storage is encrypted."   # syn.065a
+  - "Are laptop drives encrypted?"   # syn.065b
+  - "To what extent is it true that laptop and phone storage is encrypted?"   # syn.065c

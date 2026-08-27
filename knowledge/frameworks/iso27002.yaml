@@ -118,6 +118,9 @@ controls:
   - id: iso27002-6.3
     title: >-
       Teaching staff what to watch for, and repeating it
+  - id: iso27002-6.4
+    title: >-
+      What happens to somebody who breaks the rules on purpose
   - id: iso27002-6.5
     title: >-
       What stays true after somebody leaves or changes role

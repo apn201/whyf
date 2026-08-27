@@ -446,14 +446,29 @@ CARDS = {
             "departure. Blocking is the instinct and it fails: the tool moves "
             "to a personal account and you lose all visibility instead of "
             "some. An approval route that takes a day is the control, because "
-            "people route around a process that takes a month."),
+            "people route around a process that takes a month. "
+            "The half everyone misses is the tool nobody signed up for. A "
+            "free PDF converter, an image compressor, an online translator, "
+            "a site that signs documents for you: no account, no company "
+            "card, no trace in finance, and somebody has just uploaded the "
+            "payroll file to it. The register built from card statements "
+            "cannot see any of this, so a company can have a tidy SaaS list "
+            "and still be leaking its most sensitive documents through a "
+            "browser tab. It is the same rule as the one in the AI policy, "
+            "and it is worth writing once in a form that covers both: "
+            "confidential data does not go into a service nobody approved, "
+            "whether that service is an AI assistant or a file converter."),
         skeptic_case=(
             "A cloud access security broker is a serious purchase aimed at "
             "large estates. You can get most of the way with two free things: "
             "look at what the company card has been paying for, and ask "
-            "finance to flag new software subscriptions. That finds the tools. "
-            "Then a one-page approval route so the next one arrives through "
-            "the front door."),
+            "finance to flag new software subscriptions. That finds the paid "
+            "tools. It will not find the free ones, and no amount of looking "
+            "at invoices will, so the free ones are covered by a written rule "
+            "rather than by discovery: one line saying what must never be "
+            "uploaded to a service the company has not approved. Then a "
+            "one-page approval route so the next one arrives through the "
+            "front door."),
         applies_if=["has_cloud", "has_employees"],
         applies_never_if=[],
         how_to_say_no=(

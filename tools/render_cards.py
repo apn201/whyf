@@ -50,6 +50,36 @@ def qstr(s):
     return '"' + str(s).replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
+def incidents_for(cid, c):
+    """Which finished incidents this concept may cite.
+
+    Taken from the incidents themselves. Each record names the concepts it is
+    legitimate evidence for, written by the person who verified its figures,
+    which is a better source for that judgement than the card. Unfinished
+    records are skipped, so a card cannot cite a blank one, and the list grows
+    on its own as the remaining incidents get written.
+    """
+    named = list(c.get("incidents", []))
+    for iid, incident in _finished_incidents().items():
+        if cid in (incident.get("concepts") or []) and iid not in named:
+            named.append(iid)
+    return sorted(named)
+
+
+_INCIDENT_CACHE = {}
+
+
+def _finished_incidents():
+    if not _INCIDENT_CACHE:
+        import yaml
+        folder = ROOT / "knowledge" / "incidents"
+        for path in sorted(folder.glob("*.yaml")):
+            data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+            if data.get("status") == "done":
+                _INCIDENT_CACHE[data.get("id") or path.stem] = data
+    return _INCIDENT_CACHE
+
+
 def render_control(cid, c):
     spec = CONCEPTS[cid]
     out = []
@@ -138,8 +168,14 @@ def render_control(cid, c):
     a("")
     a("answer_risk: {}".format(c.get("answer_risk", "none")))
     a("")
+    a("")
+    a("# Words a questionnaire uses for this that the card above does not. This")
+    a("# feeds retrieval only and is never shown: a row saying \"former employees\"")
+    a("# has to reach a card titled \"joiners, movers and leavers\".")
+    a("aka: {}".format(flow(qstr(x) for x in c.get("aka", []))))
+    a("")
     a("frameworks: {}".format(flow(c.get("frameworks", []))))
-    a("incidents: {}".format(flow(c.get("incidents", []))))
+    a("incidents: {}".format(flow(incidents_for(cid, c))))
     a("patterns: {}".format(flow(c.get("patterns", []))))
     a("already_have: {}".format(flow(c.get("already_have", []))))
     a("")

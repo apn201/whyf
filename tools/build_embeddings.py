@@ -38,6 +38,7 @@ def card_text(card):
         card.get("plain_english", ""),
         card.get("misunderstanding", ""),
     ]
+    parts += (card.get("aka") or [])
     parts += (card.get("common_form") or [])
     dq = card.get("deciding_question")
     if isinstance(dq, dict) and dq.get("text"):

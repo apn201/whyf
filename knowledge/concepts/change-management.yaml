@@ -101,6 +101,12 @@ evidence:
 
 answer_risk: none
 
+
+# Words a questionnaire uses for this that the card above does not. This
+# feeds retrieval only and is never shown: a row saying "former employees"
+# has to reach a card titled "joiners, movers and leavers".
+aka: ["change control process", "changes approved before deployment", "emergency change procedure", "segregation of duties in changes"]
+
 frameworks: [nist-csf-pr.ps-01, iso27002-8.32, iso27002-8.9]
 incidents: []
 patterns: [documentation-only]
@@ -113,6 +119,6 @@ question_forms: [binary_statement, maturity_ladder]
 # publish, so it lives in private/context/change-management.md instead.
 # Synthetic examples, written here from the concept. Safe to publish.
 common_form:
-  - "Changes to systems are approved before they are made."   # syn.079a
-  - "Who approves a change before it goes in?"   # syn.079b
-  - "To what extent is it true that changes to systems are approved before they are made?"   # syn.079c
+  - "Changes to systems are approved before they are made."   # syn.082a
+  - "Who approves a change before it goes in?"   # syn.082b
+  - "To what extent is it true that changes to systems are approved before they are made?"   # syn.082c
