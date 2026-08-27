@@ -1,0 +1,44 @@
+# Runs on every push and pull request. Nothing here needs AWS credentials:
+# the tests exercise the offline paths on purpose, because degrading rather
+# than failing is a property worth testing.
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read          # nothing here writes anything
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0    # check_secrets walks every commit, not just HEAD
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"    # the Lambda runtime, not the newest
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Cards and references are valid
+        run: python tools/validate_cards.py
+
+      - name: No secrets anywhere in history
+        run: python tools/check_secrets.py
+
+      - name: Tests
+        run: python -m pytest -q
+
+      # Deliberately NOT run here: check_publishable.py --history.
+      # It compares the tree against the real questionnaires, which are
+      # gitignored and exist on exactly one machine. In CI there is nothing to
+      # compare against, so a green tick would mean "nothing was checked"
+      # rather than "nothing leaked". The script refuses to run --history
+      # without the corpus for that reason. Run it locally before publishing.

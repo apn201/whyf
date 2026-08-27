@@ -97,6 +97,55 @@ def public_files():
     return sorted(set(seen))
 
 
+def history_blobs():
+    """Every blob ever committed, as (path, text). Deleted files included.
+
+    The working tree is what you look at; history is what you publish. Those
+    stop being the same thing the moment you fix a leak, because the fix is a
+    new commit and the leak is still one commit back.
+    """
+    listing = subprocess.run(["git", "rev-list", "--objects", "--all"],
+                             cwd=ROOT, capture_output=True, text=True).stdout
+    pairs = []
+    for line in listing.splitlines():
+        parts = line.split(" ", 1)
+        if len(parts) != 2:
+            continue                      # a commit or tree, not a blob
+        sha, path = parts
+        if path.startswith("private/"):
+            continue                      # never committed; belt and braces
+        if TEXTUAL.search(path) and path not in ALLOW:
+            pairs.append((sha, path))
+
+    if not pairs:
+        return
+
+    # One batch, walked by the size in each response header. Walking by
+    # request order instead desynchronises the moment git returns anything
+    # unexpected, and then every finding is attributed to the wrong file.
+    proc = subprocess.run(["git", "cat-file", "--batch"], cwd=ROOT,
+                          input="\n".join(s for s, _ in pairs).encode(),
+                          capture_output=True)
+    data, pos, idx = proc.stdout, 0, 0
+    while pos < len(data) and idx < len(pairs):
+        nl = data.find(b"\n", pos)
+        if nl < 0:
+            break
+        header = data[pos:nl].decode("utf-8", "replace").split()
+        if len(header) < 3:
+            break
+        size = int(header[2])
+        try:
+            yield pairs[idx][1], data[nl + 1:nl + 1 + size].decode("utf-8")
+        except UnicodeDecodeError:
+            pass
+        pos = nl + 1 + size + 1
+        idx += 1
+
+
+TEXTUAL = re.compile(r"[.](html|md|py|yaml|yml|tsv|txt|json|js|css)$")
+
+
 def main():
     verbose = "--verbose" in sys.argv
     problems = []
@@ -117,6 +166,13 @@ def main():
     files = public_files()
     if not priv:
         print("private/ not on this machine - nothing to compare against.")
+        if "--history" in sys.argv:
+            # Passing here would be worse than failing. Somebody runs this in
+            # CI before making the repository public, sees a green tick, and
+            # concludes the history is clean when nothing was compared at all.
+            print("\n--history needs the real corpus. Run it where private/ "
+                  "exists, or this check means nothing.")
+            return 2
     else:
         print("{} distinct {}-word runs from the real corpus".format(len(priv), SHINGLE))
         for path in files:
@@ -138,6 +194,31 @@ def main():
                 problems.append("{}: contains {!r}, which identifies the "
                                 "assessed company or its assessor".format(
                                     path.relative_to(ROOT).as_posix(), ident))
+
+    # ---- 4. and the same, for everything ever committed --------------------
+    # Only on request, because it reads every blob in the repository. Run it
+    # before making the repository public: deleting a leak from the working
+    # tree does not delete it from the commit that introduced it.
+    if "--history" in sys.argv and priv:
+        seen = {}
+        for path, text in history_blobs():
+            hits = shingles(text) & set(priv)
+            if hits:
+                seen.setdefault(path, set()).update(hits)
+            # The company the assessment was about must not be identifiable
+            # from any commit either, and that is a worse leak than wording.
+            low = text.lower()
+            for ident in IDENTIFIERS:
+                if ident in low:
+                    problems.append(
+                        "{}: contains {!r} in git history, which identifies "
+                        "the assessed company".format(path, ident))
+        for path, hits in sorted(seen.items()):
+            problems.append(
+                "{}: {} copied runs survive in git history, e.g. \"{}...\""
+                .format(path, len(hits), sorted(hits)[0][:46]))
+        if not seen:
+            print("git history is clean too")
 
     print("scanned {} publishable files".format(len(files)))
     if verbose:
