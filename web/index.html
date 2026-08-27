@@ -2,145 +2,292 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="dark light">
-<meta name="description" content="Paste one row from a security questionnaire. Get one verdict.">
-<title>WHY? &mdash; why the f are they asking this</title>
-<link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#101014">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>WHY? — why the f are they asking this</title>
+<meta name="description" content="Paste one row from a supplier security questionnaire and find out what is actually being asked.">
 <style>
 :root{
-  --bg:#101014; --card:#17171d; --edge:#26262f; --ink:#e9e9ee; --dim:#8b8b98;
-  --hot:#ff5a4d; --warm:#ffb02e; --cool:#4ec9a4; --flat:#5f6b7a;
-  --pad:18px; --r:14px;
+  --bg:#0a0a0c; --panel:#131318; --panel-2:#1a1a21; --line:#26262f;
+  --ink:#f2f2f5; --dim:#9b9baa; --faint:#6a6a78;
+  --hot:#ff5a52; --cool:#3ddc97; --warm:#ffc247; --cold:#7aa2ff;
+  --radius:14px;
+  --sans:ui-sans-serif,-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
 }
-@media (prefers-color-scheme:light){
-  :root{--bg:#f4f4f6;--card:#fff;--edge:#e3e3e8;--ink:#16161a;--dim:#6a6a76}
-}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 body{
-  margin:0;background:var(--bg);color:var(--ink);
-  font:16px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  padding:0 var(--pad) 64px;
-  max-width:520px;margin-inline:auto;
+  background:var(--bg); color:var(--ink); font-family:var(--sans);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+  padding:28px 18px 80px; display:flex; justify-content:center;
 }
-header{padding:26px 0 14px}
-h1{font-size:34px;letter-spacing:-.03em;margin:0;font-weight:800}
+.wrap{width:100%; max-width:660px}
+
+/* ---------- masthead ---------- */
+header{margin-bottom:26px}
+h1{
+  font-size:clamp(38px,10vw,56px); line-height:.95; letter-spacing:-.045em;
+  font-weight:850; margin:0;
+}
 h1 span{color:var(--hot)}
-.tag{color:var(--dim);font-size:14px;margin:4px 0 0}
-.rule{color:var(--dim);font-size:12.5px;margin:12px 0 0;line-height:1.45}
+.tag{font-size:19px; font-weight:650; letter-spacing:-.02em; margin:10px 0 6px}
+.blurb{color:var(--dim); font-size:14.5px; margin:0; max-width:52ch}
+.blurb b{color:var(--ink); font-weight:600}
 
+/* ---------- input ---------- */
+.composer{margin:22px 0 14px}
 textarea{
-  width:100%;min-height:96px;resize:vertical;padding:13px 14px;margin-top:16px;
-  background:var(--card);color:var(--ink);border:1px solid var(--edge);
-  border-radius:var(--r);font:inherit;font-size:15px;
+  width:100%; min-height:104px; resize:vertical; padding:15px 16px;
+  background:var(--panel); color:var(--ink); font:inherit; font-size:16px;
+  border:1px solid var(--line); border-radius:var(--radius); outline:none;
+  transition:border-color .18s, box-shadow .18s;
 }
-textarea:focus{outline:2px solid var(--hot);outline-offset:-1px}
-.row{display:flex;gap:8px;margin-top:10px}
-button{
-  font:inherit;font-weight:600;border-radius:11px;border:1px solid var(--edge);
-  background:var(--card);color:var(--ink);padding:11px 14px;cursor:pointer;
+textarea::placeholder{color:var(--faint)}
+textarea:focus{border-color:var(--hot); box-shadow:0 0 0 4px rgba(255,90,82,.13)}
+.go{
+  width:100%; margin-top:11px; padding:15px; border:0; border-radius:var(--radius);
+  background:var(--hot); color:#fff; font:inherit; font-size:16.5px; font-weight:750;
+  letter-spacing:-.01em; cursor:pointer; transition:filter .15s, transform .06s;
 }
-button:active{transform:translateY(1px)}
-button.go{background:var(--hot);border-color:var(--hot);color:#fff;flex:1}
-button:disabled{opacity:.5;cursor:default}
-.examples{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.examples button{font-size:12.5px;font-weight:500;padding:7px 10px;color:var(--dim)}
+.go:hover:not(:disabled){filter:brightness(1.08)}
+.go:active:not(:disabled){transform:translateY(1px)}
+.go:disabled{opacity:.5; cursor:default}
+/* Demo mode. The pipeline and the sample rows exist to show how this works,
+   which is not what somebody answering a questionnaire came here for. One
+   switch hides both, and the choice is remembered. */
+.demo-bar{
+  display:flex; align-items:center; gap:11px; flex-wrap:wrap;
+  margin-top:18px; padding-top:14px; border-top:1px solid var(--line);
+}
+.switch{display:inline-flex; align-items:center; gap:8px; cursor:pointer; flex:none}
+.switch input{position:absolute; opacity:0; width:0; height:0}
+.track{
+  width:34px; height:19px; border-radius:99px; background:var(--panel-2);
+  border:1px solid var(--line); position:relative; transition:.18s; flex:none;
+}
+.knob{
+  position:absolute; top:2px; left:2px; width:13px; height:13px; border-radius:50%;
+  background:var(--faint); transition:.18s;
+}
+.switch input:checked + .track{background:rgba(255,90,82,.22); border-color:var(--hot)}
+.switch input:checked + .track .knob{left:17px; background:var(--hot)}
+.switch input:focus-visible + .track{box-shadow:0 0 0 3px rgba(255,90,82,.25)}
+.switch-label{font-size:13px; font-weight:650; letter-spacing:-.01em}
+.demo-hint{font-size:12px; color:var(--faint); max-width:42ch}
+body.plain .demo-only{display:none}
+body.plain .demo-hint{opacity:.6}
 
+.examples-label{
+  margin:16px 0 8px; font-size:10.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--faint); font-weight:700;
+}
+.examples{display:flex; flex-wrap:wrap; gap:7px}
+.examples button{
+  padding:7px 12px; border-radius:999px; border:1px solid var(--line);
+  background:transparent; color:var(--dim); font:inherit; font-size:12.5px;
+  cursor:pointer; transition:.15s;
+}
+.examples button:hover{border-color:var(--hot); color:var(--ink)}
+
+/* ---------- the agent rail ---------- */
+.rail{
+  margin:18px 0; padding:15px 16px 13px; background:var(--panel);
+  border:1px solid var(--line); border-radius:var(--radius);
+}
+.rail-head{
+  display:flex; align-items:center; gap:9px; margin-bottom:13px;
+  font-size:11px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint);
+  font-weight:700;
+}
+.pulse{
+  width:7px; height:7px; border-radius:50%; background:var(--hot); flex:none;
+  animation:pulse 1.1s ease-in-out infinite;
+}
+.rail.done .pulse{background:var(--cool); animation:none}
+@keyframes pulse{0%,100%{opacity:.25; transform:scale(.8)} 50%{opacity:1; transform:scale(1.25)}}
+
+.step{
+  display:grid; grid-template-columns:22px 1fr auto; gap:11px; align-items:start;
+  padding:8px 0; border-top:1px solid var(--line);
+  opacity:0; transform:translateY(4px); animation:in .32s ease forwards;
+}
+.step:first-of-type{border-top:0}
+@keyframes in{to{opacity:1; transform:none}}
+.dot{
+  width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
+  background:var(--panel-2); border:1px solid var(--line);
+  font-size:10.5px; font-weight:800; color:var(--cool); margin-top:2px;
+}
+.step.waiting .dot{color:var(--faint)}
+.step.skip .dot{color:var(--faint); opacity:.55}
+.step-name{font-size:14px; font-weight:700; letter-spacing:-.01em}
+.step.skip .step-name{color:var(--faint)}
+.step-what{font-size:12.8px; color:var(--dim); margin-top:1px}
+.step-meta{font-family:var(--mono); font-size:10.5px; color:var(--faint); text-align:right; white-space:nowrap; margin-top:3px}
+.step-model{display:block; color:var(--cold); opacity:.85}
+.rail-foot{
+  margin-top:11px; padding-top:10px; border-top:1px solid var(--line);
+  font-family:var(--mono); font-size:10.5px; color:var(--faint);
+  display:flex; flex-wrap:wrap; gap:4px 14px;
+}
+.rail-foot b{color:var(--dim); font-weight:600}
+.warn{color:var(--warm)}
+
+/* ---------- verdict ---------- */
 .card{
-  background:var(--card);border:1px solid var(--edge);border-radius:var(--r);
-  padding:16px;margin-top:14px;
+  background:var(--panel); border:1px solid var(--line);
+  border-radius:var(--radius); padding:18px; margin-bottom:12px;
 }
-.verdict{border-left:4px solid var(--flat)}
+.verdict{border-left:3px solid var(--hot)}
 .v-not-applicable,.v-already-solved{border-left-color:var(--cool)}
-.v-write-it-down,.v-cheap-checkbox{border-left-color:var(--warm)}
-.v-do-it-properly{border-left-color:var(--hot)}
-.v-cannot-tell-yet{border-left-color:var(--flat)}
-.headline{font-size:23px;font-weight:800;letter-spacing:-.02em;margin:0}
-.sub{color:var(--dim);margin:5px 0 0;font-size:14.5px}
-.concept{color:var(--dim);font-size:12px;margin-top:12px;letter-spacing:.04em;text-transform:uppercase}
-.lede{margin:12px 0 0;font-size:15.5px}
-
-.bars{display:grid;grid-template-columns:auto 1fr auto;gap:7px 10px;align-items:center;margin-top:16px;font-size:13px}
-.bars b{font-weight:600;color:var(--dim)}
-.meter{height:7px;background:var(--edge);border-radius:4px;overflow:hidden}
-.meter i{display:block;height:100%;border-radius:4px}
-.gap{grid-column:1/-1;color:var(--dim);font-size:12.5px;margin-top:2px}
-
-.ask{border:1px dashed var(--hot);background:transparent}
-.ask p{margin:0 0 11px;font-weight:600}
-.opts{display:flex;flex-direction:column;gap:7px}
-.opts button{text-align:left;font-weight:500;font-size:14.5px}
-.opts button:hover{border-color:var(--hot)}
-
-details{border-top:1px solid var(--edge);padding:11px 0 0;margin-top:11px}
-details:first-of-type{border-top:0;margin-top:0}
-summary{cursor:pointer;font-weight:600;font-size:14.5px;list-style:none}
-summary::-webkit-details-marker{display:none}
-summary::before{content:"+ ";color:var(--hot);font-weight:800}
-details[open] summary::before{content:"\2212 "}
-details p,details div{margin:9px 0 2px;font-size:14.5px;color:var(--ink)}
-.cost{display:grid;grid-template-columns:1fr auto;gap:5px 12px;font-size:14px}
-.cost span:nth-child(even){color:var(--warm);letter-spacing:2px;white-space:nowrap}
-.note{background:rgba(255,90,77,.09);border:1px solid rgba(255,90,77,.3);
-  border-radius:10px;padding:11px 13px;margin-top:11px;font-size:14px}
-.refs{color:var(--dim);font-size:12.5px;margin-top:12px;word-break:break-word}
-
-.telemetry{
-  font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
-  color:var(--dim);margin-top:13px;padding-top:11px;border-top:1px solid var(--edge);
+.v-cheap-checkbox,.v-write-it-down{border-left-color:var(--warm)}
+.v-cannot-tell-yet{border-left-color:var(--cold)}
+.headline{font-size:26px; font-weight:850; letter-spacing:-.03em; margin:0}
+.sub{color:var(--dim); margin:5px 0 0; font-size:14.5px}
+.concept{
+  margin:15px 0 0; font-size:10.5px; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--faint); font-weight:700;
 }
-.telemetry b{color:var(--cool);font-weight:600}
-.telemetry .warn{color:var(--warm)}
-footer{color:var(--dim);font-size:12px;margin-top:30px;line-height:1.5}
+.lede{margin:6px 0 0; font-size:16.5px; letter-spacing:-.01em}
+.bars{display:grid; grid-template-columns:auto 1fr auto; gap:8px 11px; align-items:center; margin-top:17px}
+.bars b{font-size:12px; color:var(--dim); font-weight:600}
+.meter{height:6px; background:var(--panel-2); border-radius:99px; overflow:hidden}
+.meter i{display:block; height:100%; border-radius:99px; transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.gap{grid-column:1/-1; font-size:12.5px; color:var(--warm); margin-top:3px}
+
+.note{
+  background:var(--panel-2); border:1px solid var(--line); border-left:2px solid var(--faint);
+  border-radius:9px; padding:11px 13px; margin-bottom:10px; font-size:13.5px; color:var(--dim);
+}
+.note.cold{border-left-color:var(--cold)}
+
+.ask{border:1px dashed var(--hot)}
+.ask p{margin:0 0 12px; font-weight:650; font-size:15.5px; letter-spacing:-.01em}
+.opts{display:flex; flex-wrap:wrap; gap:8px}
+.opts button{
+  padding:10px 15px; border-radius:9px; border:1px solid var(--line);
+  background:var(--panel-2); color:var(--ink); font:inherit; font-size:14px;
+  font-weight:600; cursor:pointer; transition:.15s;
+}
+.opts button:hover:not(:disabled){border-color:var(--hot); background:#22222b}
+.opts button:disabled{opacity:.4; cursor:default}
+
+details{border-top:1px solid var(--line); padding:11px 0 2px}
+details:first-child{border-top:0; padding-top:0}
+summary{cursor:pointer; font-weight:650; font-size:14px; list-style:none; letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+ "; color:var(--hot); font-weight:800}
+details[open] summary::before{content:"– "}
+details p{color:var(--dim); font-size:14px; margin:9px 0 0}
+details p b{color:var(--ink)}
+.cost{display:grid; grid-template-columns:1fr auto; gap:7px 13px; margin-top:10px; font-size:13.5px; color:var(--dim)}
+.cost span:nth-child(even){color:var(--warm); font-family:var(--mono); letter-spacing:.06em}
+
+.refs{font-size:12px; color:var(--faint); padding:2px 4px 0; line-height:1.9}
+.refs .k{color:var(--dim); font-weight:650}
+.err{border-left:3px solid var(--hot); color:var(--hot)}
+
+/* ---------- standing disclaimer ---------- */
+.disclaimer{
+  margin:20px 0 0; padding:14px 16px; border-radius:var(--radius);
+  border:1px solid var(--line); background:linear-gradient(180deg,#17171d,#131318);
+  font-size:13px; color:var(--dim);
+}
+.disclaimer b{color:var(--ink); display:block; margin-bottom:4px; font-size:13.5px}
+footer{margin-top:22px; font-size:12px; color:var(--faint); line-height:1.8}
 footer a{color:var(--dim)}
-.err{color:var(--hot)}
-.spin{display:inline-block;animation:sp 1s linear infinite}
-@keyframes sp{to{transform:rotate(1turn)}}
+@media(max-width:430px){
+  .step{grid-template-columns:20px 1fr; }
+  .step-meta{grid-column:2; text-align:left; margin-top:4px}
+}
 </style>
 </head>
 <body>
+<div class="wrap">
 
 <header>
   <h1>WHY<span>?</span></h1>
   <p class="tag">Why the f are they asking this?</p>
-  <p class="rule">Paste one row from a supplier security questionnaire.
-     It will not fill the form in for you. It will stop you from lying in it by
-     accident.</p>
+  <p class="blurb">Paste one row from a supplier security questionnaire.
+    It tells you what is <b>actually</b> being asked, whether it applies to a
+    company your size, and what it would take to satisfy it.
+    <b>It will not fill the form in for you.</b></p>
+  <div class="demo-bar">
+    <label class="switch">
+      <input type="checkbox" id="demo" checked>
+      <span class="track"><span class="knob"></span></span>
+      <span class="switch-label">Demo mode</span>
+    </label>
+    <span class="demo-hint">Sample rows and the agent pipeline. Turn it off to
+      see the page as somebody using it would.</span>
+  </div>
 </header>
 
-<textarea id="q" rows="3" placeholder="A data loss prevention solution is implemented."
-  aria-label="One questionnaire row"></textarea>
-<div class="row">
+<div class="composer">
+  <textarea id="q" placeholder="Tooling watches for sensitive data leaving the organisation."
+    aria-label="One questionnaire row"></textarea>
   <button class="go" id="go">Explain this</button>
+  <div class="demo-only">
+    <p class="examples-label">Test with these</p>
+    <div class="examples" id="examples"></div>
+  </div>
 </div>
-<div class="examples" id="examples"></div>
 
+<div class="demo-only"><div id="rail"></div></div>
 <div id="out"></div>
 
+<div class="disclaimer">
+  <b>Read this before you rely on any of it.</b>
+  This is one practitioner's experience, written down. It is not legal advice,
+  it is not an audit, and it may not apply to your company, your sector or the
+  contract you are signing. Nothing here is an answer you can paste into the
+  form — the answer is a statement about your company, and only you can make it.
+  If a row is ambiguous, the cheapest and most reliable move is to
+  <b>ask whoever sent you the questionnaire what they meant.</b>
+</div>
+
 <footer>
-  Built from real supplier questionnaires.
-  The agent never learns anything about your company. It does not need to.
-  <br><a href="https://github.com/">Source</a>
+  Built on real supplier questionnaires. The agent never learns anything about
+  your company, and never asks. It does not need to.<br>
+  <a href="https://github.com/" id="src">Source</a>
 </footer>
 
+</div>
+
 <script>
-// The Function URL is written here by tools/deploy_web.py after a deploy, or
-// pass ?api=https://... to point a local copy at a deployment.
+// The deployed Function URL is the default. tools/serve_local.py injects
+// window.WHYF_API so a local run talks to the local agent instead, and
+// ?api=https://... overrides both.
 const API = new URLSearchParams(location.search).get("api")
   || window.WHYF_API
-  || "REPLACE_WITH_FUNCTION_URL";
+  || "https://sqcxadduwweqkiy5wdgyznmmjy0nxfpk.lambda-url.eu-west-1.on.aws/";
 
+// Written for this repo, in the register real rows arrive in. The actual
+// questionnaires are not published and their wording is not reproduced here;
+// tools/check_publishable.py scans this file and fails if any of it creeps in.
 const EXAMPLES = [
-  ["Does not apply", "An inventory of cartography of industrial equipment and their associated classification is formalized and maintained up to date."],
-  ["Cheap checkbox", "A data loss prevention solution is implemented."],
-  ["Ask one thing", "Maximum accepted data loss for each application has been specified."],
-  ["Not a control", "Have you ever sustained a material system intrusion or loss of data? If so, describe the event."]
+  ["Jargon soup", "A formalised mapping of operational technology assets, together with their sensitivity tiering, is maintained on an ongoing basis."],
+  ["Cheap checkbox", "Tooling watches for sensitive data leaving the organisation."],
+  ["Ask one thing", "The amount of recent work the organisation can afford to lose is decided per system."],
+  ["Not a control", "Has the organisation suffered a security breach in the last five years? If so, describe it."],
+  ["Acronym", "Do you have PAM?"],
+  ["No card for it", "Do you maintain an SBOM for your products?"]
+];
+
+// What the pipeline is about to do. Shown while waiting, then replaced by
+// what it actually did — same names, real timings. Nothing is claimed here
+// that the server does not report back.
+const PLANNED = [
+  ["Recogniser", "Normalising the row and checking whether it has been seen before."],
+  ["Librarian",  "Searching the concept cards by wording and by meaning."],
+  ["Reader",     "Deciding which card this row is asking about, and whether it answers it."],
+  ["Scribe",     "Assembling the verdict from what a human wrote."]
 ];
 
 const $ = s => document.querySelector(s);
-const out = $("#out");
-let current = null;
+const out = $("#out"), railBox = $("#rail");
+let current = null, ticker = null;
 
 EXAMPLES.forEach(([label, text]) => {
   const b = document.createElement("button");
@@ -149,12 +296,74 @@ EXAMPLES.forEach(([label, text]) => {
   $("#examples").append(b);
 });
 
+// Demo mode, remembered per browser. Wrapped because storage throws outright
+// in some embedded contexts, and a page that will not render because it could
+// not read a preference is a worse page.
+const demoBox = $("#demo");
+try{
+  if(localStorage.getItem("whyf.demo") === "off") demoBox.checked = false;
+}catch(e){}
+function applyDemo(){
+  document.body.classList.toggle("plain", !demoBox.checked);
+  try{ localStorage.setItem("whyf.demo", demoBox.checked ? "on" : "off"); }catch(e){}
+}
+demoBox.addEventListener("change", applyDemo);
+applyDemo();
+
 $("#go").onclick = ask;
 $("#q").addEventListener("keydown", e => {
   if ((e.metaKey || e.ctrlKey) && e.key === "Enter") ask();
 });
 
-function esc(s){ const d=document.createElement("div"); d.textContent=s??""; return d.innerHTML; }
+function esc(s){ const d = document.createElement("div"); d.textContent = s ?? ""; return d.innerHTML; }
+function shortModel(m){
+  if(!m) return "";
+  return String(m).replace(/^(eu|us)\./, "").replace(/-v\d+:\d+$/, "")
+                  .replace(/^anthropic\./, "").replace(/^amazon\./, "");
+}
+
+/* ---- the rail, while working ---- */
+function railWorking(reached){
+  const rows = PLANNED.map(([name, what], i) => `
+    <div class="step ${i <= reached ? "" : "waiting"}" style="animation-delay:${i*40}ms">
+      <div class="dot">${i <= reached ? "&#9679;" : i+1}</div>
+      <div><div class="step-name">${name}</div><div class="step-what">${what}</div></div>
+      <div class="step-meta">${i < reached ? "done" : i === reached ? "working" : ""}</div>
+    </div>`).join("");
+  railBox.innerHTML = `<div class="rail">
+    <div class="rail-head"><span class="pulse"></span>Agent pipeline</div>${rows}</div>`;
+}
+
+/* ---- the rail, from the server's own trace ---- */
+function railDone(t){
+  const steps = t.trace || [];
+  if(!steps.length){ railBox.innerHTML = ""; return; }
+
+  const rows = steps.map((s, i) => `
+    <div class="step ${s.skipped ? "skip" : ""}" style="animation-delay:${i*70}ms">
+      <div class="dot">${s.skipped ? "&#8211;" : "&#10003;"}</div>
+      <div>
+        <div class="step-name">${esc(s.label)}</div>
+        <div class="step-what">${esc(s.detail)}</div>
+      </div>
+      <div class="step-meta">${s.ms} ms
+        ${s.model ? `<span class="step-model">${esc(shortModel(s.model))}</span>` : ""}
+      </div>
+    </div>`).join("");
+
+  const foot = [
+    `<b>route</b> ${esc(t.tier || "?")}`,
+    `<b>model calls</b> ${t.model_calls || 0}`,
+    `<b>cards</b> ${t.shortlist_size || 0} shortlisted`,
+    `<b>total</b> ${(t.elapsed_s || 0).toFixed(t.elapsed_s < 1 ? 3 : 1)} s`
+  ];
+  if(t.degraded) foot.push(`<span class="warn">degraded: ${esc(t.degraded_reason)}</span>`);
+  if(t.counter_unavailable) foot.push(`<span class="warn">spend counter unreachable</span>`);
+
+  railBox.innerHTML = `<div class="rail done">
+    <div class="rail-head"><span class="pulse"></span>Agent pipeline</div>
+    ${rows}<div class="rail-foot">${foot.join("")}</div></div>`;
+}
 
 async function post(path, payload){
   const r = await fetch(API.replace(/\/$/,"") + path, {
@@ -162,7 +371,7 @@ async function post(path, payload){
     body: JSON.stringify(payload)
   });
   if(!r.ok){
-    const e = await r.json().catch(()=>({error:"request failed"}));
+    const e = await r.json().catch(() => ({error:"request failed"}));
     throw new Error(e.error || ("HTTP " + r.status));
   }
   return r.json();
@@ -171,19 +380,31 @@ async function post(path, payload){
 async function ask(){
   const question = $("#q").value.trim();
   if(!question) return;
-  if(API.startsWith("REPLACE")){
-    out.innerHTML = `<div class="card err">No API URL yet. Deploy the stack,
-      then reload with <code>?api=&lt;function url&gt;</code>.</div>`;
-    return;
-  }
+
   $("#go").disabled = true;
-  out.innerHTML = `<div class="card"><span class="spin">/</span> thinking</div>`;
+  out.innerHTML = "";
+
+  // Advance the planned stages while waiting. This is a progress indicator,
+  // not a claim: whatever it shows is thrown away and replaced by the trace
+  // the server actually recorded.
+  let reached = 0;
+  railWorking(reached);
+  clearInterval(ticker);
+  ticker = setInterval(() => {
+    if(reached < PLANNED.length - 1) railWorking(++reached);
+  }, 1400);
+
   try{
     current = await post("/", {question});
+    clearInterval(ticker);
     render(current);
   }catch(err){
+    clearInterval(ticker);
+    railBox.innerHTML = "";
     out.innerHTML = `<div class="card err">${esc(err.message)}</div>`;
-  }finally{ $("#go").disabled = false; }
+  }finally{
+    $("#go").disabled = false;
+  }
 }
 
 async function tap(optionId){
@@ -204,6 +425,8 @@ function meter(value, colour){
 
 function render(v, flipped){
   const t = v.telemetry || {};
+  railDone(t);
+
   const isControl = v.question_class === "control";
   let h = "";
 
@@ -220,7 +443,7 @@ function render(v, flipped){
     h += `<div class="card verdict v-${esc(v.verdict)}">
       <p class="headline">${esc(v.headline)}</p>
       <p class="sub">${esc(v.subtitle)}</p>
-      <p class="concept">${esc(v.concept_title)}</p>
+      ${v.concept_title ? `<p class="concept">${esc(v.concept_title)}</p>` : ""}
       <p class="lede">${esc(v.plain_english)}</p>
       <div class="bars">
         <b>Security</b>${meter(v.security_value,"var(--cool)")}<b>${v.security_value}/3</b>
@@ -236,7 +459,8 @@ function render(v, flipped){
     </div>`;
   }
 
-  (v.notes || []).forEach(n => h += `<div class="note">${esc(n)}</div>`);
+  (v.notes || []).forEach(n =>
+    h += `<div class="note${t.tier === "cold" ? " cold" : ""}">${esc(n)}</div>`);
 
   const dq = v.deciding_question;
   if(dq && dq.text){
@@ -267,7 +491,7 @@ function render(v, flipped){
       h += `<details><summary>Which rung is enough</summary>
         <p><b>Rung ${m.enough_rung} of 4.</b> ${esc(m.why_not_4 || "")}</p>` +
         (m.rungs||[]).map(r =>
-          `<p style="color:${r.level===m.enough_rung?"var(--ink)":"var(--dim)"}">
+          `<p style="color:${r.level===m.enough_rung?"var(--ink)":"var(--faint)"}">
             ${r.level}. ${esc(r.gist)}</p>`).join("") + `</details>`;
     }
     if(v.evidence && v.evidence.strong){
@@ -279,21 +503,16 @@ function render(v, flipped){
     h += `</div>`;
   }
 
+  // Reference text comes from the library, never from a model. Incidents
+  // carry their sourced cost figure, which is the whole reason to cite one.
   const refs = Object.entries(v.references || {}).filter(([,ids]) => ids.length);
   if(refs.length){
-    h += `<div class="refs">` + refs.map(([kind, ids]) =>
-      `${kind.replace("_"," ")}: ${ids.map(esc).join(", ")}`).join(" &nbsp;&middot;&nbsp; ")
-      + `</div>`;
+    h += `<div class="refs">` + refs.map(([kind, ids]) => {
+      const texts = (v.reference_text || {})[kind] || {};
+      const shown = ids.map(id => esc(kind === "frameworks" ? id : (texts[id] || id)));
+      return `<span class="k">${esc(kind.replace("_"," "))}</span> ${shown.join(", ")}`;
+    }).join("<br>") + `</div>`;
   }
-
-  const bits = [
-    `tier <b>${esc(t.tier||"?")}</b>`,
-    `${t.model_calls||0} model call${t.model_calls===1?"":"s"}`,
-    `${t.searches||0} searches`,
-    `${(t.elapsed_s||0).toFixed(t.elapsed_s < 1 ? 3 : 1)} s`
-  ];
-  if(t.degraded) bits.push(`<span class="warn">degraded: ${esc(t.degraded_reason)}</span>`);
-  h += `<div class="telemetry">${bits.join(" &nbsp;&middot;&nbsp; ")}</div>`;
 
   out.innerHTML = h;
   if(flipped) out.querySelector(".verdict").scrollIntoView({behavior:"smooth", block:"center"});
