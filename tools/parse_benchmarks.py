@@ -45,12 +45,16 @@ sentence you write in `why_not_4` off the back of them.
 
     python tools/parse_benchmarks.py
 """
+import os
 import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = Path(r"D:\Users\juha_\Downloads\questions4.txt")
+# The source is not published. Point WHYF_SOURCE at it, or drop it in
+# private/ under this name. This was a hardcoded path to one machine, which
+# put a Windows username into a file that ships.
+SRC = Path(os.environ.get("WHYF_SOURCE") or ROOT / "private" / "questions4.txt")
 OUT = ROOT / "private" / "benchmarks.yaml"
 
 # 9 domains, 35 control areas. Taken from the report's own Category Scores page

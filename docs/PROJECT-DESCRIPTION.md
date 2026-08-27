@@ -5,6 +5,12 @@ different boxes.
 
 ---
 
+## Live demo
+
+https://whyf.apn201.com/
+
+---
+
 ## Tagline (one line)
 
 Paste one row from a supplier security questionnaire and find out what the hell
@@ -155,6 +161,7 @@ Titan Embed v2) · AWS Lambda · DynamoDB · AWS CDK · Python · vanilla JS
 
 ## Notes for the submission form
 
+- Live demo: https://whyf.apn201.com/
 - Track: Professional Agents
 - Region: eu-west-1
 - The demo URL is public and unauthenticated on purpose, with a daily model-call

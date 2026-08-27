@@ -15,13 +15,17 @@ mould.
     python tools/parse_q2.py                    # writes corpus/q2-vendor-cyber.tsv
     python tools/parse_q2.py --report           # summary only, writes nothing
 """
+import os
 import re
 import sys
 import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = Path(r"D:\Users\juha_\Downloads\questions2.txt")
+# The source is not published. Point WHYF_SOURCE at it, or drop it in
+# private/ under this name. This was a hardcoded path to one machine, which
+# put a Windows username into a file that ships.
+SRC = Path(os.environ.get("WHYF_SOURCE") or ROOT / "private" / "questions2.txt")
 OUT = ROOT / "corpus" / "q2-vendor-cyber.tsv"
 
 # Lines that are page furniture from the PDF extraction, not content.

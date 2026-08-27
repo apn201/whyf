@@ -12,6 +12,8 @@ conclude that it is not.
 > It will not fill in your questionnaire. It will stop you from lying in it by
 > accident.
 
+**Try it: [whyf.apn201.com](https://whyf.apn201.com/)**
+
 Built for the Agents for Humans hackathon, Professional Agents track, on the
 Strands Agents SDK and AWS Bedrock.
 

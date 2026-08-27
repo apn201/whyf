@@ -24,6 +24,7 @@ Leave behind:
 
     python tools/parse_annex.py
 """
+import os
 import re
 import sys
 import warnings
@@ -37,7 +38,11 @@ except ImportError:
     sys.exit("openpyxl is not installed. Run: pip install -r requirements.txt")
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = Path(r"D:\Users\juha_\Downloads\Annex I_Checklist of control points.xlsx")
+# The source is not published. Point WHYF_SOURCE at it, or drop it in
+# private/ under this name. This was a hardcoded path to one machine, which
+# put a Windows username into a file that ships.
+SRC = Path(os.environ.get("WHYF_SOURCE")
+           or ROOT / "private" / "Annex I_Checklist of control points.xlsx")
 PRIVATE = ROOT / "private"
 CORPUS_OUT = PRIVATE / "q3-nist-checklist.tsv"
 CROSSWALK_OUT = PRIVATE / "crosswalk.tsv"
