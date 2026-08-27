@@ -89,7 +89,7 @@ ask for a URL that does not exist until it is done.
       tab, pick `juha`, Next. Pick `HackathonAdmin`, Next, Submit. Takes a
       moment to provision.
 - [ ] **Copy the AWS access portal URL from the Identity Center dashboard.**
-      It looks like `https://d-1234567890.awsapps.com/start`, or
+      It looks like `https://d-xxxxxxxxxx.awsapps.com/start`, or
       `https://something.awsapps.com/start` if you set a custom alias. Older
       console versions call it the user portal URL.
 

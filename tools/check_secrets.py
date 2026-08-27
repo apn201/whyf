@@ -44,6 +44,17 @@ IDENTIFYING = [
     ("Identity Center instance", re.compile(r"\bssoins-[0-9a-f]{16}\b")),
 ]
 
+# Obvious placeholders written into the docs on purpose. A scanner that warns
+# about its own examples forever is a scanner people learn to ignore, and the
+# one real finding then goes past unread.
+PLACEHOLDER = re.compile(
+    r"1234567890|0123456789|x{6,}|X{6,}|abcdef0123|EXAMPLE|<[^>]+>", re.I)
+
+
+def is_placeholder(hit):
+    return bool(PLACEHOLDER.search(hit))
+
+
 # Paths that must never appear in any commit.
 FORBIDDEN_PATHS = [
     re.compile(r"^private/"),
@@ -147,10 +158,12 @@ def main():
             if NUMERIC_NOISE.search(path):
                 continue
             for label, pattern in IDENTIFYING:
-                m = pattern.search(text)
-                if m:
+                for m in pattern.finditer(text):
+                    if is_placeholder(m.group(0)):
+                        continue
                     warnings.append("{} in {}: {}".format(
                         label, path, m.group(0)))
+                    break
 
     print("scanned {} commits".format(len(commits)))
     if verbose:

@@ -32,6 +32,11 @@ PUBLIC_GLOBS = [
     "knowledge/**/*.yaml", "knowledge/**/*.md", "corpus/**/*.tsv",
     "corpus/**/*.md", "src/**/*.py", "tools/**/*.py", "tests/**/*.py",
     "docs/**/*.md", "infra/**/*.yaml", "*.md", "Makefile",
+    # The interface ships example rows and shows them to everybody who opens
+    # the demo. It was outside this list while carrying four rows lifted
+    # verbatim from a real questionnaire, which is the most public place any
+    # of this could have leaked.
+    "web/**/*.html", "web/**/*.js", "web/**/*.css",
 ]
 
 # tools/*.py describe what they deliberately do not extract, and quote a few
