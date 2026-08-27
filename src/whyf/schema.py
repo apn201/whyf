@@ -113,10 +113,35 @@ class ColdVerdict(BaseModel):
     security_value: int = Field(ge=0, le=3)
     checkbox_value: int = Field(ge=0, le=3)
     references: List[Reference] = Field(default_factory=list)
+    what_would_settle_it: str = Field(
+        default="",
+        max_length=300,
+        description="Required when the verdict is cannot-tell-yet. The one "
+                    "thing that would decide this: usually a fact about the "
+                    "company, sometimes a question to put back to whoever "
+                    "sent the questionnaire. A verdict of cannot-tell-yet "
+                    "without this is a dead end rather than an answer.")
     unknown_territory: bool = Field(
         description="True when you are not confident. The tool says it does "
                     "not know rather than guessing, and that is a correct "
                     "answer.")
+
+
+class TraceStep(BaseModel):
+    """One stage of the pipeline, as it happened.
+
+    This is telemetry, not decoration. Every field is recorded by the stage
+    that did the work, so what the interface shows is what actually ran: if
+    the embedding call was skipped for budget, the step says so rather than
+    animating a step that never happened.
+    """
+
+    stage: str                      # short id, e.g. "classify"
+    label: str                      # what to call it in an interface
+    detail: str = ""                # what it did, this time
+    model: str = ""                 # empty when no model was involved
+    ms: int = 0
+    skipped: bool = False
 
 
 class Telemetry(BaseModel):
@@ -129,7 +154,9 @@ class Telemetry(BaseModel):
     shortlist_size: int = 0
     counter_unavailable: bool = False
     declined_because: str = ""
+    cold_declined: Optional[str] = None
     dropped_references: dict = Field(default_factory=dict)
+    trace: List[TraceStep] = Field(default_factory=list)
 
 
 class Verdict(BaseModel):

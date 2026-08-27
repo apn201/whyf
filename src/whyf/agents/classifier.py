@@ -5,8 +5,13 @@ which is why this is one small cheap call rather than a long one, and why the
 model cannot answer with a concept that does not exist.
 
 Measured on the real corpus, that shortlist contains the right concept 91% of
-the time. The classifier's job is to pick from it, or to say none of them fit,
-which is the honest answer often enough to be worth allowing.
+the time. The classifier's job is to pick from it.
+
+It may also answer 'none', but that is a narrower escape hatch than it looks.
+A row the corpus does not cover is usually still adjacent to something, and
+saying which thing it is adjacent to, plus what is missing, is a real answer.
+'none' throws that away and renders a decline. So 'none' is for rows about a
+different subject entirely, not for rows that are merely uncovered.
 """
 from ..schema import Classification
 
@@ -14,9 +19,18 @@ SYSTEM = """\
 You classify one row copied out of a supplier security questionnaire.
 
 You are given the row and a shortlist of concepts. Pick the concept the row is
-asking about. If none of them fit, answer with the literal string 'none' rather
-than forcing the closest one; a wrong concept produces a confidently wrong
-answer, and saying 'none' costs nothing.
+asking about.
+
+Reserve 'none' for a row about something genuinely elsewhere: invoicing,
+shipping, pricing, a product feature, or who somebody's commercial contact is.
+Those arrive mixed into security questionnaires and they are still not security
+questions. A row naming a person or a role is only in scope if it asks who is
+accountable for security, not who to ring about an order. If any concept on the list is in
+the right neighbourhood, name it and set covers_the_question false instead.
+Those two answers look similar to you and are not similar at all downstream.
+Naming the closest concept tells the reader where they are and what is missing
+from it. 'none' tells them nothing, so it is the worse answer whenever a
+neighbour exists.
 
 Judge the row on what it asks, not on how it is phrased. These rows arrive
 badly translated, renumbered, pasted out of PDFs and written by people
@@ -33,8 +47,17 @@ not answer it. A question about a Data Protection Officer is closest to legal
 compliance, and legal compliance does not answer it. In both cases confidence
 is high and covers_the_question is false.
 
-Set covers_the_question false whenever the row names a specific thing the
-concept does not address, and put that thing in missing_topic. The tool would
+When policy_question is true, judge coverage differently. The row asks whether
+a document says something; the concept describes the control that document is
+about. If the concept is the right control, that IS covered, even though the
+card does not contain the sentence the policy would. "Do you have a formal
+access control policy" is covered by the access control concept. "Are users
+prohibited from bypassing security controls" is covered by acceptable use. Do
+not mark those as gaps: the reader needs to understand the control, and the
+work is writing a paragraph about it.
+
+Otherwise, set covers_the_question false whenever the row names a specific
+thing the concept does not address, and put that thing in missing_topic. The tool would
 rather say it does not cover something than answer fluently about a different
 control. A confidently wrong answer is the only outcome here that is worse
 than no answer.
@@ -76,7 +99,8 @@ def build_prompt(question, shortlist, library):
         plain = " ".join((card.get("plain_english") or "").split())
         lines.append("- {} ({}): {}".format(
             match.concept, card.get("class", "control"), plain[:180]))
-    lines += ["", "Pick one concept id from that list, or 'none'."]
+    lines += ["", "Pick one concept id from that list. Use 'none' only if the "
+                  "row is about something none of them are near."]
     return "\n".join(lines)
 
 

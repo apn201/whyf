@@ -23,6 +23,7 @@ class Config:
 
     classifier_model: str = ""
     synthesiser_model: str = ""
+    tier2_enabled: bool = True
     embedding_model: str = ""
     embedding_dimensions: int = 1024
     tier1_shortlist: int = 15
@@ -58,6 +59,8 @@ def load(path=None) -> Config:
         or models.get("classifier") or "",
         synthesiser_model=os.environ.get("WHYF_SYNTHESISER")
         or models.get("synthesiser") or "",
+        tier2_enabled=str(os.environ.get("WHYF_TIER2", "")).lower() not in
+        ("0", "false", "off"),
         embedding_model=os.environ.get("WHYF_EMBEDDING")
         or models.get("embedding") or "",
         embedding_dimensions=int(models.get("embedding_dimensions") or 1024),

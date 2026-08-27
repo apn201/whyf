@@ -165,6 +165,71 @@ def near_miss(question, card, library, missing_topic, telemetry=None):
     return out
 
 
+def cold(question, cold_verdict, near_card, library, telemetry=None):
+    """A tier-2 verdict: written for this row, because no card covered it.
+
+    Labelled as generated, every time and without an option to hide it. The
+    whole claim this tool makes is that the answer came from a human, so the
+    one place that is not true has to say so where the reader cannot miss it.
+    """
+    meta = resolve_verdict(cold_verdict.verdict)
+
+    out = Verdict(
+        question=question,
+        concept=None,
+        concept_title=None,
+        question_class="control",
+        verdict=meta.id,
+        headline=meta.headline,
+        subtitle=meta.subtitle,
+        plain_english=_clean(cold_verdict.plain_english),
+        misunderstanding=_clean(cold_verdict.misunderstanding),
+        skeptic_case=_clean(cold_verdict.skeptic_case),
+        how_to_say_no=_clean(cold_verdict.how_to_say_no),
+        security_value=cold_verdict.security_value,
+        checkbox_value=cold_verdict.checkbox_value,
+        covers_question=True,
+        telemetry=telemetry,
+    )
+
+    refs = {}
+    for ref in cold_verdict.references:
+        refs.setdefault(ref.kind, []).append(ref.id)
+    kept, dropped = library.validate_references(refs)
+    out.references = kept
+    out.reference_text = {
+        kind: {rid: library.describe(kind, rid) for rid in ids}
+        for kind, ids in kept.items() if ids
+    }
+    if dropped and telemetry:
+        telemetry.dropped_references = dropped
+
+    if meta.id == "cannot-tell-yet":
+        # The verdict's stock subtitle is "One question first.", which is true
+        # on a card: the card carries the question and its answers. Tier 2 has
+        # no question to offer, so the stock wording promised something that
+        # never appeared underneath it.
+        settles = _clean(cold_verdict.what_would_settle_it)
+        out.subtitle = settles or (
+            "This row is too broadly worded to answer as written.")
+        if settles:
+            out.notes.append(
+                "Worth putting back to whoever sent the questionnaire: "
+                "answering it as written means guessing what they meant.")
+
+    out.notes.insert(0,
+        "No card covers this row, so this was written for it just now rather "
+        "than taken from the knowledge base. Everything else this tool says "
+        "comes from a card a human wrote. Treat this one as a starting point "
+        "and check it before you rely on it.")
+    if near_card:
+        out.notes.append(
+            "The nearest concept in the knowledge base is {}, which is worth "
+            "reading as background.".format(
+                near_card.get("title") or near_card.get("id")))
+    return out
+
+
 def declined(question, reason, telemetry=None):
     """No card, and not enough confidence to write one.
 
@@ -181,6 +246,11 @@ def declined(question, reason, telemetry=None):
         "The knowledge base is drawn from real supplier questionnaires. This "
         "row falls outside it.")
     return out
+
+
+def _clip(text, width):
+    text = _clean(text)
+    return text if len(text) <= width else text[:width - 1].rstrip() + "…"
 
 
 def to_text(v):
@@ -251,8 +321,18 @@ def to_text(v):
     if any(v.references.values()):
         a("  References:")
         for kind, ids in v.references.items():
-            if ids:
-                a("    {:<14} {}".format(kind, ", ".join(ids)))
+            if not ids:
+                continue
+            a("    {}:".format(kind))
+            for rid in ids:
+                text = (v.reference_text.get(kind) or {}).get(rid)
+                # For a framework the id is what an auditor cites and the text
+                # is a gloss, sometimes a long one. For an incident it is the
+                # other way round: the name and the figure are the argument.
+                if kind == "frameworks":
+                    a("      - {} - {}".format(rid, _clip(text, 46)))
+                else:
+                    a("      - {}".format(_clip(text, 68) or rid))
         a("")
 
     t = v.telemetry

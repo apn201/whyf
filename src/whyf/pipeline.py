@@ -16,8 +16,9 @@ from .config import load as load_config
 from .knowledge.library import load as load_library
 from .limits import BudgetExceeded, RequestBudget
 from .match import ConceptMatcher
+from .acronyms import expand as expand_acronyms
 from .normalise import row_hash
-from .schema import Telemetry
+from .schema import Telemetry, TraceStep
 
 
 class Pipeline:
@@ -58,6 +59,9 @@ class Pipeline:
         """Lexical always; embeddings when affordable. Hybrid when both."""
         width = self.config.tier1_shortlist
         matcher = self.embeddings
+        # Retrieval sees the row with its acronyms spelled out. The user still
+        # sees what they pasted, and the cache key is still the raw row.
+        question = expand_acronyms(question)
         if matcher is None or not budget.can_afford_model_call():
             return self.lexical.match(question, limit=width), False
         try:
@@ -67,6 +71,46 @@ class Pipeline:
             # The embedding call is an optimisation. Losing it costs accuracy,
             # not correctness, so it must never take the request down.
             return self.lexical.match(question, limit=width), False
+
+    # ---- tier 2 -----------------------------------------------------------
+
+    def cold_verdict(self, question, near_card, budget, telemetry):
+        """Write a verdict for a row no card covers. None if not possible.
+
+        Returning None is a normal outcome, not a failure: the caller falls
+        back to the near miss, which is a decent answer. Tier 2 is an upgrade
+        on that, never a replacement for it.
+        """
+        step = time.time()
+        if not self.config.tier2_enabled:
+            return None
+        if not self.config.synthesiser_model:
+            return None
+        if budget.degraded or not budget.can_afford_model_call():
+            return None
+
+        try:
+            from .agents.synthesiser import synthesise
+            cold, detail = synthesise(question, near_card, self.library,
+                                      self.model("synthesiser"), budget)
+        except Exception as exc:
+            telemetry.cold_declined = "synthesiser unavailable: {}".format(
+                type(exc).__name__)
+            return None
+
+        if cold is None:
+            telemetry.cold_declined = str(detail)
+            return None
+
+        telemetry.tier = "cold"
+        telemetry.model_calls = budget.model_calls
+        self._step(
+            telemetry, step, "synthesise", "Understudy",
+            "No card covers this row, so this stage wrote one for it. Its "
+            "citations were checked against the library and anything invented "
+            "was dropped.",
+            model=self.config.synthesiser_model)
+        return render.cold(question, cold, near_card, self.library, telemetry)
 
     # ---- the tap question -------------------------------------------------
 
@@ -98,19 +142,37 @@ class Pipeline:
 
     # ---- the entry point --------------------------------------------------
 
+    @staticmethod
+    def _step(telemetry, started, stage, label, detail="", model="",
+              skipped=False):
+        """Record what a stage did. Called by the stage, after it ran."""
+        telemetry.trace.append(TraceStep(
+            stage=stage, label=label, detail=detail, model=model,
+            skipped=skipped, ms=int((time.time() - started) * 1000)))
+
     def resolve(self, question):
         started = time.time()
         budget = RequestBudget(limits=self.config.limits)
         telemetry = Telemetry(tier="concept")
 
         # ---- tier 0 --------------------------------------------------------
+        step = time.time()
         if self.cache is not None:
             hit = self.cache.get(row_hash(question))
             if hit is not None:
+                self._step(telemetry, step, "cache", "Recogniser",
+                           "This exact row has been answered before. Replaying "
+                           "it, with no model involved.")
                 telemetry.tier = "cache"
                 telemetry.elapsed_s = time.time() - started
                 hit.telemetry = telemetry
                 return hit
+            self._step(telemetry, step, "cache", "Recogniser",
+                       "Normalised the row and looked for it in the cache. "
+                       "Not seen before.")
+        else:
+            self._step(telemetry, step, "cache", "Recogniser",
+                       "No cache configured.", skipped=True)
 
         # ---- daily ceiling -------------------------------------------------
         # Checked before the work, not after. Over the ceiling the agent still
@@ -128,10 +190,17 @@ class Pipeline:
                 budget.degrade("daily model call ceiling reached")
 
         # ---- tier 1 --------------------------------------------------------
+        step = time.time()
         candidates, used_embeddings = self.shortlist(question, budget)
         telemetry.shortlist_size = len(candidates)
         if used_embeddings:
             budget.spend_model_call(30, 0)     # the embedding call
+        self._step(
+            telemetry, step, "retrieve", "Librarian",
+            "Expanded the acronyms, then searched {} concept cards two ways - "
+            "by wording and by meaning - and put the closest {} in front of "
+            "the next stage.".format(len(self.library.concepts), len(candidates)),
+            model=self.config.embedding_model if used_embeddings else "")
 
         if not candidates:
             telemetry.tier = "declined"
@@ -140,6 +209,7 @@ class Pipeline:
             return render.declined(question, "", telemetry)
 
         classification = None
+        step = time.time()
         try:
             if budget.degraded:
                 raise BudgetExceeded("daily ceiling", 0, 0)
@@ -147,14 +217,31 @@ class Pipeline:
             classification, _ = classify(
                 question, candidates, self.library,
                 self.model("classifier"), budget)
+            if classification is not None:
+                self._step(
+                    telemetry, step, "classify", "Reader",
+                    "Read the row and picked {} from the shortlist. Judged "
+                    "separately whether that card actually answers what was "
+                    "asked: {}.".format(
+                        classification.concept,
+                        "it does" if classification.covers_the_question
+                        else "it does not"),
+                    model=self.config.classifier_model)
         except BudgetExceeded as exc:
             if not budget.degraded:
                 budget.degrade(str(exc))
         except Exception as exc:
             # A model failure falls back to the free matcher rather than
             # failing the request.
-            budget.degrade("classifier unavailable: {}".format(
-                type(exc).__name__))
+            # The type alone is not enough to act on. A deployed ImportError
+            # and a deployed TypeError both meant "the bundle is wrong", and
+            # both took a redeploy to identify because the message was thrown
+            # away here.
+            budget.degrade("classifier unavailable: {}: {}".format(
+                type(exc).__name__, str(exc)[:200]))
+            self._step(telemetry, step, "classify", "Reader",
+                       "Unavailable, so the free matcher decided instead.",
+                       skipped=True)
 
         concept_id = None
         if classification and classification.concept != "none":
@@ -172,12 +259,28 @@ class Pipeline:
         telemetry.elapsed_s = time.time() - started
 
         if card and classification and not classification.covers_the_question:
-            # Closest, but it does not answer the row. Show it as a near miss.
+            # Closest, but it does not answer the row. Tier 2 may write one.
+            # The gate is here rather than inside the synthesiser: something
+            # has already judged a security concept to be the nearest thing to
+            # this row, and that judgement is not one the pasted text controls.
+            cold = self.cold_verdict(question, card, budget, telemetry)
+            if cold is not None:
+                return cold
+
             telemetry.tier = "near-miss"
+            self._step(
+                telemetry, time.time(), "render", "Scribe",
+                "Showed the nearest card as background and named what it does "
+                "not cover, rather than dressing it up as an answer.")
             return render.near_miss(question, card, self.library,
                                     classification.missing_topic, telemetry)
 
         if card:
+            self._step(
+                telemetry, time.time(), "render", "Scribe",
+                "Assembled the answer from the card. No model wrote any of "
+                "this text - the verdict, the counter-argument and the costs "
+                "were written by a person and are read back word for word.")
             verdict = render.from_card(question, card, self.library,
                                        classification, telemetry)
             if self.cache is not None:
