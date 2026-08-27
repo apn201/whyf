@@ -8,6 +8,7 @@ project is in the tier system and the knowledge, not in the topology.
 Least privilege here is not decoration. If the agent is ever prompt-injected
 through a fetched web page, the blast radius is one cache write.
 """
+import os
 import pathlib
 
 import yaml
@@ -21,7 +22,11 @@ from aws_cdk import aws_logs as logs
 from constructs import Construct
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-BUNDLE = ROOT / "build" / "lambda"
+# WHYF_BUNDLE lets the bundle live outside the repo. On Windows the repo sits
+# in a Dropbox folder, and Dropbox holds locks that make a rebuild in place
+# fail at random. The builder takes the same variable.
+_override = os.environ.get("WHYF_BUNDLE")
+BUNDLE = pathlib.Path(_override).resolve() if _override else ROOT / "build" / "lambda"
 
 
 def load_config():
@@ -83,9 +88,17 @@ class WhyfStack(Stack):
         for region in profile_regions:
             bedrock_resources.append(
                 "arn:aws:bedrock:{}::foundation-model/*".format(region))
+        # Two shapes, and the difference matters. An inference profile you
+        # create yourself is account-scoped. The cross-region ones AWS ships -
+        # the eu.* and us.* ids this agent actually uses - are AWS-owned, and
+        # their ARN carries no account at all. Granting only the first is a
+        # policy that reads correct and denies every real call.
         bedrock_resources.append(
             "arn:aws:bedrock:{}:{}:inference-profile/*".format(
                 self.region, self.account))
+        for region in profile_regions:
+            bedrock_resources.append(
+                "arn:aws:bedrock:{}::inference-profile/*".format(region))
 
         role.add_to_policy(iam.PolicyStatement(
             sid="BedrockInvoke",

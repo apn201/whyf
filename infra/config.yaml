@@ -47,7 +47,7 @@ limits:
   max_searches_per_request: 3
   max_input_tokens_per_call: 8000
   max_output_tokens_per_call: 1500
-  daily_model_call_ceiling: 2000
+  daily_model_call_ceiling: 500
   cache_ttl_days: 30
 
 # An EU inference profile can route to any region in this list, so the runtime
@@ -58,3 +58,10 @@ inference_profile_regions:
   - eu-central-1
   - eu-west-3
   - eu-north-1
+  # These two are easy to leave out and were. The eu.* profile routes to six
+  # regions, not four, and a request that landed on either was denied while
+  # the other four worked - so it looked intermittent rather than wrong.
+  # `aws bedrock get-inference-profile` lists the real set; check it if the
+  # model id ever changes.
+  - eu-south-1
+  - eu-south-2

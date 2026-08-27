@@ -52,13 +52,16 @@ def _pipeline():
 def _response(status, body):
     return {
         "statusCode": status,
+        # No CORS headers here on purpose. The Function URL is configured with
+        # its own CORS block, and Lambda merges the two: the browser then sees
+        # "access-control-allow-origin: *, http://localhost:8012" and rejects
+        # the response for having two values where one is allowed. The header
+        # has one owner, and it is the infrastructure.
+        #
+        # tools/serve_local.py sets its own, because there is no Function URL
+        # in front of it.
         "headers": {
             "content-type": "application/json",
-            # The demo URL is public and unauthenticated by design; it holds
-            # nothing about anybody and needs no session.
-            "access-control-allow-origin": os.environ.get("WHYF_ALLOW_ORIGIN", "*"),
-            "access-control-allow-headers": "content-type",
-            "access-control-allow-methods": "POST,OPTIONS",
             "cache-control": "no-store",
         },
         "body": json.dumps(body),

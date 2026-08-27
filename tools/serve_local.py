@@ -28,6 +28,31 @@ class Handler(SimpleHTTPRequestHandler):
         if "POST" in (args[0] if args else ""):
             sys.stderr.write("  " + fmt % args + "\n")
 
+    def do_GET(self):
+        """Serve the page, pointed at this server rather than at production.
+
+        index.html carries the deployed Function URL as its default, so that
+        opening the file on its own talks to the real thing. That default is
+        wrong here: the whole point of this script is to exercise the agent on
+        this machine. Injecting window.WHYF_API ahead of the page's own script
+        overrides it without either copy of the file needing to know about the
+        other.
+        """
+        if self.path.split("?")[0] not in ("/", "/index.html"):
+            return super().do_GET()
+
+        page = (WEB / "index.html").read_text(encoding="utf-8")
+        shim = "<script>window.WHYF_API = location.origin;</script>"
+        marker = "<script>"
+        page = page.replace(marker, shim + marker, 1) if marker in page             else shim + page
+
+        payload = page.encode("utf-8")
+        self.send_response(200)
+        self.send_header("content-type", "text/html; charset=utf-8")
+        self.send_header("content-length", str(len(payload)))
+        self.end_headers()
+        self.wfile.write(payload)
+
     def do_OPTIONS(self):
         self.send_response(204)
         self._cors()
