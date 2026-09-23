@@ -1,0 +1,127 @@
+<style>
+  html,body{margin:0;padding:0;background:#fff}
+  svg{display:block;font-family:"Segoe UI",Inter,system-ui,sans-serif}
+  .t{font-size:30px;font-weight:700;fill:#101418}
+  .sub{font-size:16px;fill:#5b6470}
+  .grp{font-size:13px;font-weight:700;fill:#7a8593;letter-spacing:.12em}
+  .h{font-size:17px;font-weight:700;fill:#101418}
+  .b{font-size:14px;fill:#3d4650}
+  .s{font-size:12.5px;fill:#6c7684}
+  .m{font-size:12.5px;font-weight:600;fill:#1a6b5a}
+  .n{font-size:12.5px;font-weight:600;fill:#8a5a1a}
+  .num{font-size:13px;font-weight:700;fill:#fff}
+</style>
+<svg width="1560" height="1000" viewBox="0 0 1560 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#9aa4b0"/>
+    </marker>
+  </defs>
+  <rect width="1560" height="1000" fill="#fff"/>
+
+  <text class="t" x="48" y="58">WhyF</text>
+  <text class="sub" x="48" y="86">One questionnaire row in, one verdict out. Five stages, two of them Strands agents.</text>
+  <text class="sub" x="1512" y="58" text-anchor="end">eu-west-1 (Ireland)</text>
+
+  <!-- client -->
+  <rect x="48" y="130" width="250" height="112" rx="10" fill="#f6f8fa" stroke="#d7dde4"/>
+  <text class="h" x="68" y="163">Browser</text>
+  <text class="b" x="68" y="187">why-f.com</text>
+  <text class="s" x="68" y="209">Static page. Shows every stage,</text>
+  <text class="s" x="68" y="227">its timing and its model.</text>
+
+  <path d="M298,186 L392,186" stroke="#9aa4b0" stroke-width="1.6" marker-end="url(#a)"/>
+  <text class="s" x="304" y="176">POST JSON</text>
+
+  <!-- function url -->
+  <rect x="400" y="130" width="230" height="112" rx="10" fill="#f6f8fa" stroke="#d7dde4"/>
+  <text class="h" x="420" y="163">Lambda function URL</text>
+  <text class="s" x="420" y="187">Public, unauthenticated,</text>
+  <text class="s" x="420" y="205">CORS POST only.</text>
+  <text class="s" x="420" y="223">No session, no account.</text>
+
+  <path d="M515,242 L515,300" stroke="#9aa4b0" stroke-width="1.6" marker-end="url(#a)"/>
+
+  <!-- lambda container -->
+  <rect x="48" y="300" width="900" height="580" rx="14" fill="#fbfcfd" stroke="#c9d1da"/>
+  <text class="grp" x="72" y="332">AWS LAMBDA · whyf-agent</text>
+  <text class="s" x="72" y="356">Python 3.12 · 1536 MB · 60 s · Strands Agents SDK · knowledge base bundled in the package</text>
+
+  <!-- stage 1 -->
+  <circle cx="96" cy="404" r="14" fill="#2f6f8f"/><text class="num" x="96" y="409" text-anchor="middle">1</text>
+  <text class="h" x="124" y="398">Recogniser</text>
+  <text class="n" x="124" y="420">no model</text>
+  <text class="b" x="300" y="398">Normalises the row, hashes it, looks it up.</text>
+  <text class="s" x="300" y="420">Strips numbering, hyphenation, translation noise.</text>
+
+  <!-- stage 2 -->
+  <circle cx="96" cy="490" r="14" fill="#2f6f8f"/><text class="num" x="96" y="495" text-anchor="middle">2</text>
+  <text class="h" x="124" y="484">Librarian</text>
+  <text class="m" x="124" y="506">Titan Embed v2</text>
+  <text class="b" x="300" y="484">Expands acronyms, searches 112 cards two ways.</text>
+  <text class="s" x="300" y="506">Lexical index and cosine similarity. Shortlist of 15.</text>
+
+  <!-- stage 3 -->
+  <circle cx="96" cy="576" r="14" fill="#2f6f8f"/><text class="num" x="96" y="581" text-anchor="middle">3</text>
+  <text class="h" x="124" y="570">Reader</text>
+  <text class="m" x="124" y="592">Claude Haiku 4.5</text>
+  <text class="b" x="300" y="570">Picks one card, and separately judges whether</text>
+  <text class="s" x="300" y="592">it answers the row. Returns a concept id, nothing else.</text>
+
+  <!-- stage 4 -->
+  <circle cx="96" cy="662" r="14" fill="#2f6f8f"/><text class="num" x="96" y="667" text-anchor="middle">4</text>
+  <text class="h" x="124" y="656">Scribe</text>
+  <text class="n" x="124" y="678">no model</text>
+  <text class="b" x="300" y="656">Renders the verdict from the card. Deterministic.</text>
+  <text class="s" x="300" y="678">Every word was written by a person.</text>
+
+  <!-- stage 5 -->
+  <circle cx="96" cy="748" r="14" fill="#8a5a1a"/><text class="num" x="96" y="753" text-anchor="middle">5</text>
+  <text class="h" x="124" y="742">Understudy</text>
+  <text class="m" x="124" y="764">Claude Sonnet 4.6</text>
+  <text class="b" x="300" y="742">Only when no card covers the row: writes one,</text>
+  <text class="s" x="300" y="764">under schema constraint, labelled as generated.</text>
+
+  <line x1="72" y1="440" x2="924" y2="440" stroke="#e6eaef"/>
+  <line x1="72" y1="526" x2="924" y2="526" stroke="#e6eaef"/>
+  <line x1="72" y1="612" x2="924" y2="612" stroke="#e6eaef"/>
+  <line x1="72" y1="698" x2="924" y2="698" stroke="#e6eaef"/>
+
+  <!-- budget guard -->
+  <rect x="72" y="800" width="852" height="60" rx="8" fill="#fff5e8" stroke="#e8cfa8"/>
+  <text class="h" x="92" y="826">Budget guard, in code rather than in a billing alarm</text>
+  <text class="s" x="92" y="848">6 model calls per request · daily ceiling checked before the work · over it, answers from the free matcher and says so on screen</text>
+
+  <!-- dynamo -->
+  <rect x="1010" y="300" width="502" height="150" rx="14" fill="#f6f8fa" stroke="#d7dde4"/>
+  <text class="grp" x="1034" y="332">AMAZON DYNAMODB &#183; whyf</text>
+  <text class="b" x="1034" y="362">Row hash to verdict. Repeat rows cost zero model calls.</text>
+  <text class="b" x="1034" y="388">SPEND#date counter for the daily ceiling.</text>
+  <text class="s" x="1034" y="414">30 day TTL. On demand billing.</text>
+
+  <!-- bedrock -->
+  <rect x="1010" y="480" width="502" height="250" rx="14" fill="#f2f8f6" stroke="#bcd8d0"/>
+  <text class="grp" x="1034" y="512">AMAZON BEDROCK</text>
+  <text class="s" x="1034" y="536">EU inference profiles. IAM allows all six regions the profile routes to.</text>
+  <rect x="1034" y="556" width="454" height="46" rx="8" fill="#fff" stroke="#d5e3de"/>
+  <text class="b" x="1054" y="585">amazon.titan-embed-text-v2:0 &#183; card and row vectors</text>
+  <rect x="1034" y="612" width="454" height="46" rx="8" fill="#fff" stroke="#d5e3de"/>
+  <text class="b" x="1054" y="641">claude-haiku-4-5 &#183; picks the card, judges the fit</text>
+  <rect x="1034" y="668" width="454" height="46" rx="8" fill="#fff" stroke="#d5e3de"/>
+  <text class="b" x="1054" y="697">claude-sonnet-4-6 &#183; cold path only</text>
+
+  <!-- logs -->
+  <rect x="1010" y="760" width="502" height="100" rx="14" fill="#f6f8fa" stroke="#d7dde4"/>
+  <text class="grp" x="1034" y="792">CLOUDWATCH LOGS &#183; IAM</text>
+  <text class="b" x="1034" y="820">One week retention. Execution role limited to the table</text>
+  <text class="b" x="1034" y="844">and to the three model ARNs.</text>
+
+  <!-- arrows to services -->
+  <path d="M948,404 L1002,375" stroke="#9aa4b0" stroke-width="1.4" marker-end="url(#a)"/>
+  <path d="M948,490 L1002,570" stroke="#9aa4b0" stroke-width="1.4" marker-end="url(#a)"/>
+  <path d="M948,576 L1002,620" stroke="#9aa4b0" stroke-width="1.4" marker-end="url(#a)"/>
+  <path d="M948,748 L1002,690" stroke="#9aa4b0" stroke-width="1.4" marker-end="url(#a)"/>
+
+  <text class="s" x="48" y="930">Deployed with AWS CDK. Everything above is one stack: function, function URL, table, log group, execution role.</text>
+  <text class="s" x="48" y="956">The Reader contributes a card id and nothing else, so on the normal path no model output reaches the screen.</text>
+</svg>

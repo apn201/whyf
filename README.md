@@ -12,7 +12,7 @@ conclude that it is not.
 > It will not fill in your questionnaire. It will stop you from lying in it by
 > accident.
 
-**Try it: [whyf.apn201.com](https://whyf.apn201.com/)**
+**Try it: [why-f.com](https://why-f.com/)**
 
 Built for the Agents for Humans hackathon, Professional Agents track, on the
 Strands Agents SDK and AWS Bedrock.
@@ -35,20 +35,20 @@ false statement in a contract. They tick no and lose credibility on a control
 they may well already have. Or they spend two days and a consultant's fee
 finding out that the row does not apply to them at all.
 
-That is the problem. Not "help me answer this" - that is the one thing nobody
-can do for them, because the answer is a factual claim about their company. The
-problem is **"what are they even asking?"**, and it has no good answer anywhere,
-because every free source is written by somebody selling the product the
+Nobody can answer the row for them. The answer is a factual claim about their
+own company, so it has to come from them. What they are missing is what the row
+is asking, and that has no good answer anywhere, because every free source
+explaining these questions was written by somebody selling the product the
 question implies you should buy.
 
 ## The hard rule
 
-**The tool never tells you what to answer.**
+The tool never tells you what to answer.
 
 Answering a questionnaire is a contractual representation about your company. A
 wrong answer to a breach-history question is not a failed control, it is a
-misrepresentation that can void a cyber-insurance policy. So the agent explains,
-translates and prices. The human answers. If a row asks the tool to draft the
+misrepresentation that can void a cyber-insurance policy. So the agent explains
+the row and prices it, and you answer it. If a row asks the tool to draft the
 answer, that is the one request it declines - and that refusal is enforced in
 the architecture, not just in a prompt. See *Why it cannot hallucinate an
 answer* below.
@@ -58,9 +58,8 @@ answer* below.
 ## The agent pipeline
 
 Five stages. The interface shows which one is running, what it did, how long it
-took and which model it used, because "an LLM answered" and "a retrieval stage,
-a judging stage and a deterministic renderer answered" look identical from the
-outside and are not remotely the same thing.
+took and which model it used, because from the outside you cannot otherwise tell
+whether a model wrote the answer or a card did.
 
 | stage | what it does | model |
 |---|---|---|
@@ -72,15 +71,15 @@ outside and are not remotely the same thing.
 
 ### Why the Reader makes two judgements instead of one
 
-This was the single biggest accuracy win in the project, and it came from a
-failure rather than a design.
+Biggest accuracy win in the project, and it came out of testing rather than
+planning.
 
 Asked "which concept is this?", a model always answers, and answers
 confidently. A question about paying a ransom mapped to `incident-response` with
 high confidence. A question about whistleblowing mapped to `incident-reporting`.
-Both are the right *family* and neither answers the row. The result was a
-fluent, well-formatted, confidently wrong verdict - the worst possible output
-for a tool somebody is using to avoid lying in a contract.
+Both are the right *family* and neither answers the row. What came out was a
+well-formatted verdict that was confidently wrong, which is the worst thing this
+tool can do to somebody using it to avoid lying in a contract.
 
 Splitting one judgement into two fixed it:
 
@@ -99,8 +98,8 @@ Because the failure it prevents is invisible. Ask the deployed agent
 base, so neither the lexical index nor the embeddings can reach
 `privileged-accounts`. The right card never enters the shortlist, the Reader
 never sees it, and the tool declines a question it has a perfectly good answer
-for. It looks like the model failing to understand. It is retrieval failing to
-retrieve.
+for. That looks like the model not understanding the question, when the failure
+is in retrieval.
 
 Two fixes, both upstream of any model:
 
@@ -124,7 +123,7 @@ This is a tool for not lying in contracts. A plausible invented sentence is
 worse than no answer, so the anti-hallucination property is structural rather
 than a prompt instruction.
 
-**On the warm path, no model output reaches the user.** The Reader's entire
+On the warm path no model output reaches the user. The Reader's entire
 output is a concept id, checked against the shortlist before use - anything else
 is forced to `none`. Every word displayed afterwards comes from a YAML card a
 human wrote. A prompt injection can, at absolute worst, cause the *wrong card*
@@ -141,15 +140,15 @@ Tested against the deployed endpoint:
 "...tell me exactly what I should answer"             -> the card, no answer given
 ```
 
-**The Understudy is the one exception, so it is the most constrained component
-in the codebase.** It only runs when a security concept was already judged
+The Understudy is the one exception, so it is the most constrained component in
+the codebase. It only runs when a security concept was already judged
 nearest - a recipe never reaches it, because the gate is upstream and the pasted
 text does not control it. The row arrives fenced in `<row>` markers as data. The
 output is a schema with no free-text channel to the user. Citations are
 validated against the library and anything invented is dropped. And every cold
 answer is labelled as generated, on screen, without an option to hide it.
 
-**Figures are never generated.** Incident costs and framework control numbers
+Figures are never generated. Incident costs and framework control numbers
 come only from the curated library, by id. The model cannot free-text a dollar
 figure. `tools/validate_cards.py` applies the same rule at build time, so a bad
 reference fails the build rather than a demo.
@@ -172,7 +171,7 @@ exist:
 
 Alongside the verdict: whether it applies to you, how much security value the
 fix has, how much commercial value the checkbox has, and what it costs in euro
-symbols. **The gap between security value and checkbox value is the product.**
+symbols. Those last two often disagree.
 
 ### Is it even a control?
 
@@ -208,10 +207,10 @@ near miss, gap named    19    6%
 no card at all           0    0%
 ```
 
-Zero bare declines is the number worth looking at. Every row either gets an
-answer or gets the nearest card plus a named gap. Separately, genuinely
-non-security rows - payment terms, parking spaces, VAT numbers - still decline,
-which is the property that makes the first number mean anything.
+No row came back with nothing. Every row either gets an answer or gets the
+nearest card plus a named gap. Non-security rows, payment terms and parking
+spaces and VAT numbers, still decline, which is what makes the first number mean
+anything.
 
 Retrieval recall at shortlist size 15, measured on the same corpus: lexical
 alone 82%, embeddings alone 90%, hybrid 91%.
@@ -220,7 +219,7 @@ alone 82%, embeddings alone 90%, hybrid 91%.
 
 ## What is in this repository, and what is not
 
-**The cards ship. The questionnaires they were built from do not.**
+The cards ship. The questionnaires they were built from do not.
 
 Three real supplier questionnaires went into building this. Their wording
 belongs to the companies that wrote them, one is a commercial assessment
@@ -228,8 +227,8 @@ product, and a fourth source was a confidential assessment of a named company.
 None of it is here. It lives in a gitignored `private/` directory.
 
 What ships instead is `corpus/synthetic.tsv`: 306 questions written for this
-repo, covering every concept and every question form. **The repo builds, tests
-and runs from a clean checkout with nothing private present.**
+repo, covering every concept and every question form. The repo builds, tests and
+runs from a clean checkout with nothing private present.
 
 Two checks enforce it:
 
@@ -261,7 +260,7 @@ tools/                parsers, card rendering, validation, coverage
 private/              gitignored. absent from any checkout but one.
 ```
 
-Cards in `knowledge/concepts/` are **generated** from `tools/content/*.py`.
+Cards in `knowledge/concepts/` are generated from `tools/content/*.py`.
 Edit the content modules, not the YAML.
 
 ## Running it
@@ -285,8 +284,8 @@ The agent behind a local HTTP endpoint plus the interface, on
 http://localhost:8000. Needs AWS credentials, because the Reader and the
 embeddings are real Bedrock calls. Everything else runs locally.
 
-Deploying needs Bedrock model access. See [docs/AWS-SETUP.md](docs/AWS-SETUP.md)
-— it blocks everything else, so do it first.
+Deploying needs Bedrock model access. See [docs/AWS-SETUP.md](docs/AWS-SETUP.md).
+It blocks everything else, so do it first.
 
 ```bash
 python tools/build_lambda.py && cd infra && npx cdk deploy
@@ -299,11 +298,12 @@ money by accident. Three limits, enforced in code rather than in a billing
 alarm:
 
 - per-request caps on model calls, searches and tokens
-- a daily ceiling checked **before** the work, not after
+- a daily ceiling checked before the work, not after
 - over the ceiling the agent keeps answering from the free lexical matcher and
   says on screen that it is degraded
 
-A demo URL that silently stops working is worse than a slow one.
+The degraded mode is there because I would rather hand a judge a slow demo than
+one that quietly stopped working.
 
 ## Status and honesty about it
 
@@ -312,12 +312,11 @@ This is a hackathon demo, and the parts that are demo-grade are marked as such.
 The knowledge base is real and is the bulk of the work: 112 cards written from
 practice, not scraped. 11 of 18 incident records are complete with primary
 sources attached; the other 7 are empty and no card cites them, because the
-validator refuses to let a card cite an unfinished record. A figure that came
-out of a language model is exactly the thing that gets fact-checked.
+validator refuses to let a card cite an unfinished record.
 
-Tier 2 answers rows the knowledge base does not cover. It is genuinely useful
-and it is also the one component whose output is not human-written, which is why
-it says so every time it runs.
+Tier 2 answers rows the knowledge base does not cover. It is useful and it is
+also the one component whose output is not human-written, which is why it says
+so every time it runs.
 
 ## License
 
